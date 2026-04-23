@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "types": ["node"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "lib": ["ESNext", "ES2020", "dom"],
+    "target": "ESnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+
+    "rootDir": "src",
+    "outDir": "build"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
