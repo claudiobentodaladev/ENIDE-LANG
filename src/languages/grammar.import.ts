@@ -1,6 +1,6 @@
-import config from "./language-list.json" with { type: "json" };
+import list from "./language-list.json" with { type: "json" };
 
-const grammarNames = config.languages;
+const grammarNames = list.languages;
 
 const modules = await Promise.all(
   grammarNames.map((name) =>
