@@ -72,11 +72,11 @@ export const deutsch = new Language({
       },
       __isInteger: {
         main: "IstGanzzahl",
-        __description: "um zu prufen ob ein Wert eine ganze Zahl ist",
+        __description: "um zu prüfen ob ein Wert eine ganze Zahl ist",
       },
       __isFloat: {
         main: "IstDezimal",
-        __description: "um zu prufen ob ein Wert eine Dezimalzahl ist",
+        __description: "um zu prüfen ob ein Wert eine Dezimalzahl ist",
       },
     },
     __string: {

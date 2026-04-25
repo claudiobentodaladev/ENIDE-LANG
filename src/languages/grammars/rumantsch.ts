@@ -3,7 +3,7 @@ import { Language } from "../grammar.class.js";
 export const rumantsch = new Language({
   language: "rumantsch",
   about:
-    "ENIDE ei in transpilader traducibel che permetta da programmar en tscheivlas lingua",
+    "ENIDE è in transpilader traducibel che permetta da programmar en mintga lingua lingua",
   include: {
     main: "Includer",
     __description: "Dovra per includer lingua u bibliotecas",
@@ -28,7 +28,7 @@ export const rumantsch = new Language({
       },
       __documentation: {
         main: "doc",
-        __description: "per obtener la documentaziun d ina lingua",
+        __description: "per obtener la documentaziun d'ina lingua",
       },
     },
   },
@@ -48,7 +48,7 @@ export const rumantsch = new Language({
       },
       __pow: {
         main: "Potenza",
-        __description: "per obtener la potenza d in numer",
+        __description: "per obtener la potenza d'in numer",
       },
       __round: {
         main: "Arrondar",
@@ -68,15 +68,15 @@ export const rumantsch = new Language({
       },
       __isNumber: {
         main: "EiNumer",
-        __description: "per verificar sch in valor ei in numer",
+        __description: "per verificar sch'in valor è in numer",
       },
       __isInteger: {
         main: "EiEnter",
-        __description: "per verificar sch in valor ei in enter",
+        __description: "per verificar sch'in valor è in enter",
       },
       __isFloat: {
         main: "EiDecimal",
-        __description: "per verificar sch in valor ei in decimal",
+        __description: "per verificar sch'in valor è in decimal",
       },
     },
     __string: {
@@ -87,7 +87,7 @@ export const rumantsch = new Language({
       },
       __length: {
         main: "Lunghezza",
-        __description: "per obtener la lunghezza d ina chadena",
+        __description: "per obtener la lunghezza d'ina chadena",
       },
       __toUpperCase: {
         main: "AMajusclas",
@@ -105,7 +105,7 @@ export const rumantsch = new Language({
       },
       __year: {
         main: "Onn",
-        __description: "per obtener l onn",
+        __description: "per obtener l'onn",
       },
       __month: {
         main: "Mais",
@@ -121,7 +121,7 @@ export const rumantsch = new Language({
       },
       __hour: {
         main: "Ura",
-        __description: "per obtener l ura",
+        __description: "per obtener l'ura",
       },
       __minute: {
         main: "Minuta",
@@ -160,11 +160,11 @@ export const rumantsch = new Language({
       },
       __scan: {
         main: "legier",
-        __description: "per legier in valor da l input",
+        __description: "per legier in valor da l'input",
       },
       __return: {
         main: "returnar",
-        __description: "per returnar in valor d ina funcziun",
+        __description: "per returnar in valor d'ina funcziun",
       },
     },
     sentences: {
@@ -221,7 +221,7 @@ export const rumantsch = new Language({
       tag: "ERRUR_NUNENCONUSCHENTA",
       message: "Errur completamain nunenconuschenta",
     },
-    __TypeError: { tag: "ERRUR_TIP", message: "Tip nunvalid en l operaziun" },
+    __TypeError: { tag: "ERRUR_TIP", message: "Tip nunvalid en l'operaziun" },
     __ReferenceError: {
       tag: "ERRUR_REFERENZA",
       message: "La variabla na exista betg en il scope",

@@ -192,15 +192,15 @@ export const dansk = new Language({
       },
       __switch: {
         main: "vaelg",
-        __description: "for at erklaere en valgsstruktur",
+        __description: "for at erklaere en valgstruktur",
       },
       __case: {
         main: "tilfaelde",
-        __description: "for at erklaere et tilfaelde i valgsstrukturen",
+        __description: "for at erklaere et tilfaelde i valgstrukturen",
       },
       __default: {
         main: "standard",
-        __description: "for at erklaere standardtilfaeldet i valgsstrukturen",
+        __description: "for at erklaere standardtilfaeldet i valgstrukturen",
       },
       __try: {
         main: "proev",

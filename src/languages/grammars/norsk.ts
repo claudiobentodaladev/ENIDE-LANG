@@ -23,7 +23,7 @@ export const norsk = new Language({
         __description: "for å få den gjeldende versjonen av ENIDE",
       },
       __languages: {
-        main: "språk",
+        main: "sprak",
         __description: "for å få en liste over alle tilgjengelige språk",
       },
       __documentation: {
@@ -93,7 +93,7 @@ export const norsk = new Language({
         __description: "for å konvertere en tekst til store bokstaver",
       },
       __toLowerCase: {
-        main: "TilSmå",
+        main: "TilSma",
         __description: "for å konvertere en tekst til små bokstaver",
       },
     },
@@ -103,15 +103,15 @@ export const norsk = new Language({
         __description: "for å få tilgang til dato- og tidsfunksjoner",
       },
       __year: {
-        main: "År",
+        main: "Ar",
         __description: "for å få året",
       },
       __month: {
-        main: "Måned",
+        main: "Maned",
         __description: "for å få måneden",
       },
       __dayMonth: {
-        main: "DagMåned",
+        main: "DagManed",
         __description: "for å få dagen i måneden",
       },
       __dayWeek: {
@@ -135,7 +135,7 @@ export const norsk = new Language({
   types: {
     __object: {
       main: "objekt",
-      __description: "for å erklære et statisk objekt",
+      __description: "for å deklarere et statisk objekt",
     },
     __number: {
       main: "tall",
@@ -200,7 +200,7 @@ export const norsk = new Language({
         __description: "for å deklarere standardtilfellet i valgstrukturen",
       },
       __try: {
-        main: "prøv",
+        main: "prov",
         __description: "for å deklarere en prøv-blokk",
       },
       __catch: {
@@ -208,7 +208,7 @@ export const norsk = new Language({
         __description: "for å deklarere en feilbehandlingsblokk",
       },
       __finally: {
-        main: "til_slutt",
+        main: "endelig",
         __description: "for å deklarere en blokk som alltid kjører",
       },
     },

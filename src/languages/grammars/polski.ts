@@ -209,7 +209,7 @@ export const polski = new Language({
         __description: "aby zadeklarować blok obsługi błędów",
       },
       __finally: {
-        main: "na_koncu",
+        main: "nakoniec",
         __description: "aby zadeklarować blok który zawsze się wykonuje",
       },
     },

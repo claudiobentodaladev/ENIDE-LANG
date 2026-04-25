@@ -3,7 +3,7 @@ import { Language } from "../grammar.class.js";
 export const turkce = new Language({
   language: "turkce",
   about:
-    "ENIDE herhangi bir dilde programlamaya izin veren tercume edilebilir bir transpiler dir",
+    "ENIDE herhangi bir dilde programlamaya izin veren tercüme edilebilir bir transpiler'dir",
 
   include: {
     main: "DahilEtme",
@@ -14,23 +14,23 @@ export const turkce = new Language({
     all: {
       __about: {
         main: "Hakkinda",
-        __description: "ENIDE hakkinda bilgi almak icin",
+        __description: "ENIDE hakkında bilgi almak için",
       },
       __help: {
         main: "Yardim",
-        __description: "mevcut tum komutlarin listesini almak icin",
+        __description: "mevcut tüm komutların listesini almak için",
       },
       __version: {
-        main: "Surum",
-        __description: "ENIDE nin mevcut surumunu almak icin",
+        main: "Sürum",
+        __description: "ENIDE'nin mevcut sürümünü almak için",
       },
       __languages: {
         main: "Diller",
-        __description: "mevcut tum dillerin listesini almak icin",
+        __description: "mevcut tüm dillerin listesini almak için",
       },
       __documentation: {
         main: "Dok",
-        __description: "bir dil icin belgeleri almak icin",
+        __description: "bir dil için belgeleri almak için",
       },
     },
   },
@@ -39,103 +39,103 @@ export const turkce = new Language({
     __math: {
       main: {
         main: "Matematik",
-        __description: "matematik fonksiyonlarina erisim icin",
+        __description: "matematik fonksiyonlarına erişim için",
       },
       __pi: {
         main: "PI",
-        __description: "pi degerini almak icin",
+        __description: "pi değerini almak için",
       },
       __sqrt: {
         main: "KareKok",
-        __description: "kare koku almak icin",
+        __description: "kare koku almak için",
       },
       __pow: {
         main: "Us",
-        __description: "bir sayinin ussunu almak icin",
+        __description: "bir sayının üssünü almak için",
       },
       __round: {
         main: "Yuvarla",
-        __description: "bir sayiyi yuvarlak icin",
+        __description: "bir sayıyı yuvarlamak için",
       },
       __random: {
         main: "Rastgele",
-        __description: "rastgele sayi almak icin",
+        __description: "rastgele sayı almak için",
       },
       __max: {
         main: "Maksimum",
-        __description: "maksimum degeri almak icin",
+        __description: "maksimum değeri almak için",
       },
       __min: {
         main: "Minimum",
-        __description: "minimum degeri almak icin",
+        __description: "minimum değeri almak için",
       },
       __isNumber: {
         main: "SayiMi",
-        __description: "bir degerin sayi olup olmadigini kontrol etmek icin",
+        __description: "bir değerin sayı olup olmadığını kontrol etmek için",
       },
       __isInteger: {
         main: "TamSayiMi",
         __description:
-          "bir degerin tam sayi olup olmadigini kontrol etmek icin",
+          "bir değerin tam sayı olup olmadığını kontrol etmek için",
       },
       __isFloat: {
         main: "OndalikMi",
         __description:
-          "bir degerin ondalik sayi olup olmadigini kontrol etmek icin",
+          "bir değerin ondalık sayı olup olmadığını kontrol etmek için",
       },
     },
 
     __string: {
       main: {
         main: "Metin",
-        __description: "metin islem fonksiyonlarina erisim icin",
+        __description: "metin işlem fonksiyonlarına erişim için",
       },
       __length: {
         main: "Uzunluk",
-        __description: "bir metnin uzunlugunu almak icin",
+        __description: "bir metnin uzunluğunu almak için",
       },
       __toUpperCase: {
         main: "BuyukHarfe",
-        __description: "bir metni buyuk harfe donusturmek icin",
+        __description: "bir metni büyük harfe dönüştürmek için",
       },
       __toLowerCase: {
         main: "KucukHarfe",
-        __description: "bir metni kucuk harfe donusturmek icin",
+        __description: "bir metni küçük harfe dönüştürmek için",
       },
     },
 
     __date: {
       main: {
         main: "Tarih",
-        __description: "tarih ve saat fonksiyonlarina erisim icin",
+        __description: "tarih ve saat fonksiyonlarına erişim için",
       },
       __year: {
         main: "Yil",
-        __description: "yili almak icin",
+        __description: "yılı almak için",
       },
       __month: {
         main: "Ay",
-        __description: "ayi almak icin",
+        __description: "ayı almak için",
       },
       __dayMonth: {
         main: "AyinGunu",
-        __description: "ayin gununu almak icin",
+        __description: "ayın gününü almak için",
       },
       __dayWeek: {
         main: "HaftaninGunu",
-        __description: "haftanin gununu almak icin",
+        __description: "haftanın gününü almak için",
       },
       __hour: {
         main: "Saat",
-        __description: "saati almak icin",
+        __description: "saati almak için",
       },
       __minute: {
         main: "Dakika",
-        __description: "dakikayi almak icin",
+        __description: "dakikayı almak için",
       },
       __second: {
         main: "Saniye",
-        __description: "saniyeyi almak icin",
+        __description: "saniyeyi almak için",
       },
     },
   },
@@ -143,20 +143,20 @@ export const turkce = new Language({
   types: {
     __object: {
       main: "Nesne",
-      __description: "statik bir nesne tanimlamak icin",
+      __description: "statik bir nesne tanımlamak için",
     },
     __number: {
       main: "Sayi",
-      __description: "sayi turunde degisken bildirmek icin",
+      __description: "sayı türünde değişken bildirmek için",
     },
     __string: {
       main: "Metin",
-      __description: "metin turunde degisken bildirmek icin",
+      __description: "metin türünde değişken bildirmek için",
     },
     __boolean: {
       main: "Bool",
       values: { __true: "Dogru", __false: "Yanlis" },
-      __description: "mantiksal turunde degisken bildirmek icin",
+      __description: "mantıksal türünde değişken bildirmek için",
     },
   },
 
@@ -164,62 +164,62 @@ export const turkce = new Language({
     method: {
       __print: {
         main: "Yazdir",
-        __description: "ekrana deger yazdirmak icin",
+        __description: "ekrana değer yazdırmak için",
       },
       __scan: {
         main: "Oku",
-        __description: "giristen deger okumak icin",
+        __description: "girişten değer okumak için",
       },
       __return: {
         main: "Dondur",
-        __description: "bir fonksiyondan deger dondurmek icin",
+        __description: "bir fonksiyondan değer döndürmek için",
       },
     },
 
     sentences: {
       __function: {
         main: "Fonksiyon",
-        __description: "fonksiyon bildirmek icin",
+        __description: "fonksiyon bildirmek için",
       },
       __if: {
         main: "Eger",
-        __description: "kosul bildirmek icin",
+        __description: "koşul bildirmek için",
       },
       __else: {
         main: "Degilse",
-        __description: "alternatif kosul bildirmek icin",
+        __description: "alternatif koşul bildirmek için",
       },
       __while: {
         main: "Iken",
-        __description: "iken dongusu bildirmek icin",
+        __description: "iken döngüsü bildirmek için",
       },
       __for: {
         main: "Icin",
-        __description: "icin dongusu bildirmek icin",
+        __description: "için döngüsü bildirmek için",
       },
       __switch: {
         main: "Sec",
-        __description: "secim yapisi bildirmek icin",
+        __description: "seçim yapısı bildirmek için",
       },
       __case: {
         main: "Durum",
-        __description: "secim yapisinda durum bildirmek icin",
+        __description: "seçim yapısında durum bildirmek için",
       },
       __default: {
         main: "Varsayilan",
-        __description: "secim yapisinda varsayilan durumu bildirmek icin",
+        __description: "seçim yapısında varsayılan durumu bildirmek için",
       },
       __try: {
         main: "Dene",
-        __description: "dene blogu bildirmek icin",
+        __description: "dene bloğu bildirmek için",
       },
       __catch: {
         main: "Yakala",
-        __description: "hata islem blogu bildirmek icin",
+        __description: "hata işlem bloğu bildirmek için",
       },
       __finally: {
         main: "Sonunda",
-        __description: "her zaman yurutulen blogu bildirmek icin",
+        __description: "her zaman yürütülen bloğu bildirmek için",
       },
     },
   },
@@ -227,34 +227,34 @@ export const turkce = new Language({
   errors: {
     main: {
       tag: "HATA",
-      message: "Genel sistem hatasi",
+      message: "Genel sistem hatası",
     },
     __UNKNOWN_ERROR: {
-      tag: "BilinmeyenHata",
+      tag: "BILINMEYEN_HATA",
       message: "Tamamen bilinmeyen hata",
     },
     __TypeError: {
-      tag: "TurHatasi",
-      message: "Islemde gecersiz tur",
+      tag: "TUR_HATASI",
+      message: "İşlemde geçersiz tür",
     },
     __ReferenceError: {
-      tag: "ReferansHatasi",
-      message: "Degisken kapsam icerisinde mevcut degil",
+      tag: "REFERANS_HATASI",
+      message: "Değişken kapsam içerisinde mevcut değil",
     },
     __SyntaxError: {
-      tag: "SozdizimiHatasi",
-      message: "Gecersiz kod",
+      tag: "SOZDIZIMI_HATASI",
+      message: "Geçersiz kod",
     },
     __RangeError: {
-      tag: "AralikHatasi",
-      message: "Deger izin verilen aralik disinda",
+      tag: "ARALIK_HATASI",
+      message: "Değer izin verilen aralık dışında",
     },
     __URIError: {
-      tag: "UriHatasi",
-      message: "Yanlis bicimlenmis veya gecersiz URI",
+      tag: "URI_HATASI",
+      message: "Yanlış biçimlenmiş veya geçersiz URI",
     },
     __EvalError: {
-      tag: "EvalHatasi",
+      tag: "EVAL_HATASI",
       message: "eval ile ilgili hata",
     },
   },

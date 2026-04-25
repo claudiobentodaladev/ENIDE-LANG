@@ -67,15 +67,15 @@ export const galego = new Language({
         __description: "para obter o valor minimo",
       },
       __isNumber: {
-        main: "ENumero",
+        main: "EsNumero",
         __description: "para verificar se un valor e un numero",
       },
       __isInteger: {
-        main: "EEnteiro",
+        main: "EsEnteiro",
         __description: "para verificar se un valor e un enteiro",
       },
       __isFloat: {
-        main: "EDecimal",
+        main: "EsDecimal",
         __description: "para verificar se un valor e un decimal",
       },
     },

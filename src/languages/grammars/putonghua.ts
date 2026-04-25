@@ -22,7 +22,7 @@ export const putonghua = new Language({
         __description: "获取 ENIDE 的当前版本",
       },
       __languages: {
-        main: "语言", // Corrigido: mais consistente e curto
+        main: "语言",
         __description: "获取所有可用语言的列表",
       },
       __documentation: {

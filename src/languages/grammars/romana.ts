@@ -209,7 +209,7 @@ export const romana = new Language({
         __description: "pentru a declara un bloc de gestionare a erorilor",
       },
       __finally: {
-        main: "final",
+        main: "sfarsit",
         __description: "pentru a declara un bloc care se executa indiferent",
       },
     },

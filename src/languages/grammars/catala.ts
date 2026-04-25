@@ -136,7 +136,7 @@ export const catala = new Language({
   types: {
     __object: {
       main: "objecte",
-      __description: "per declarar un objecte static",
+      __description: "per declarar un objecte estàtic",
     },
     __number: {
       main: "nombre",
