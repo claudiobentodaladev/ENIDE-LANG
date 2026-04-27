@@ -143,7 +143,7 @@ export const english = new Language({
     },
     __object: {
       main: "object",
-      __description: "to declare a static object"
+      __description: "to declare a static object",
     },
     __boolean: {
       main: "bool",
