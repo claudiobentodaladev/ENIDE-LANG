@@ -1,247 +1,254 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const igbo = new Language({
   language: "igbo",
   about:
     "ENIDE bu ihe ntughari nke enwere ike tugharịa nke na-enye ohere mmemme n'asusu o bula",
-  include: {
-    main: "Tinye",
-    __description: "A na-eji ya etinye asụsụ ma ọ bụ ọba akwụkwọ",
-  },
+
+  include: DocStr(
+    "Tinye",
+    "A na-eji ya etinye asụsụ, ọba akwụkwọ ma ọ bụ ihe owuwu sitere na faịlụ ndị ọzọ",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "maka",
-        __description: "inweta ozi maka ENIDE",
-      },
-      __help: {
-        main: "enyemaka",
-        __description: "inweta ndeputa iwu niile dị n'aka",
-      },
-      __version: {
-        main: "nsacha",
-        __description: "inweta nsacha dị ugbu a nke ENIDE",
-      },
-      __languages: {
-        main: "asusu",
-        __description: "inweta ndeputa asụsụ niile dị n'aka",
-      },
-      __documentation: {
-        main: "akwukwo",
-        __description: "inweta akwụkwọ nkuzi maka asụsụ",
-      },
-    },
+    __about: DocStr("maka", "inweta ozi maka ENIDE"),
+    __help: DocStr("enyemaka", "inweta ndepụta nke iwu niile dịnụ"),
+    __version: DocStr("nsacha", "inweta nsacha dị ugbu a nke ENIDE"),
+    __languages: DocStr("asusu", "inweta ndepụta asụsụ niile dịnụ"),
+    __documentation: DocStr("akwukwo", "inweta akwụkwọ nkuzi maka asụsụ"),
+    __grammar: DocStr("grama", "inweta grama nke asụsụ"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("ọkọlọtọ", "inweta ọrụ ọkọlọtọ bara uru"),
+      __isarray: DocStr("BuMkpụrụ", "lelee ma uru bụ mkpụrụ"),
+      __isobject: DocStr("BuIhe", "lelee ma uru bụ ihe"),
+      __typeof: DocStr("Udi", "inweta ụdị nke uru"),
+      __parse: DocStr("Parse", "tụgharịa ederede ka ọ bụrụ uru ziri ezi"),
+    },
     __math: {
-      main: {
-        main: "mgbako",
-        __description: "banye na ọrụ mgbakọ",
-      },
-      __pi: {
-        main: "PI",
-        __description: "inweta uru nke pi",
-      },
-      __sqrt: {
-        main: "OtaAkara",
-        __description: "inweta mgbọta square",
-      },
-      __pow: {
-        main: "Ike",
-        __description: "inweta ike nke ọnụọgụ",
-      },
-      __round: {
-        main: "Gbagbuo",
-        __description: "gbagbuo ọnụọgụ",
-      },
-      __random: {
-        main: "Onwero",
-        __description: "inweta ọnụọgụ onwerọ usoro",
-      },
-      __max: {
-        main: "Kachasi",
-        __description: "inweta uru kachasị elu",
-      },
-      __min: {
-        main: "Nta",
-        __description: "inweta uru kachasị ala",
-      },
-      __isNumber: {
-        main: "BuOnuogu",
-        __description: "lelee ma uru bụ ọnụọgụ",
-      },
-      __isInteger: {
-        main: "BuOnuoguOkike",
-        __description: "lelee ma uru bụ ọnụọgụ okike",
-      },
-      __isFloat: {
-        main: "BuDesimali",
-        __description: "lelee ma uru bụ desimali",
-      },
+      main: DocStr("mgbako", "inweta ọrụ mgbakọ na mwepụ"),
+      __pi: DocStr("PI", "inweta uru nke pi"),
+      __sqrt: DocStr("OtaAkara", "inweta mgbọrọgwụ square"),
+      __pow: DocStr("Ike", "inweta ike nke ọnụọgụ abụọ"),
+      __round: DocStr("Gbagbuo", "gbagbuo ọnụọgụ"),
+      __random: DocStr("Onwero", "inweta ọnụọgụ onwere"),
+      __max: DocStr("Kachasi", "inweta uru kachasị elu"),
+      __min: DocStr("Nta", "inweta uru kachasị ala"),
+      __isNumber: DocStr("BuOnuogu", "lelee ma uru bụ ọnụọgụ"),
+      __isInteger: DocStr("BuOnuoguOkike", "lelee ma uru bụ ọnụọgụ okike"),
+      __isFloat: DocStr("BuDesimali", "lelee ma uru bụ desimali"),
+      __cos: DocStr("Cos", "inweta cos nke nkụchi"),
+      __sin: DocStr("Sin", "inweta sin nke nkụchi"),
+      __tan: DocStr("Tan", "inweta tan nke nkụchi"),
     },
+
     __string: {
-      main: {
-        main: "eriri",
-        __description: "banye na ọrụ ntụgharị eriri",
-      },
-      __length: {
-        main: "Ogologo",
-        __description: "inweta ogologo eriri",
-      },
-      __toUpperCase: {
-        main: "KawaLitaIkpe",
-        __description: "tụgharị eriri ka ọ bụrụ mkpụrụedemede nnukwu",
-      },
-      __toLowerCase: {
-        main: "KawaLitaNta",
-        __description: "tụgharị eriri ka ọ bụrụ mkpụrụedemede nta",
-      },
+      main: DocStr("eriri", "inweta ọrụ ntụgharị eriri"),
+      __length: DocStr("Ogologo", "inweta ogologo eriri"),
+      __toUpperCase: DocStr(
+        "KawaLitaIkpe",
+        "tụgharịa eriri ka ọ bụrụ nnukwu mkpụrụedemede",
+      ),
+      __toLowerCase: DocStr(
+        "KawaLitaNta",
+        "tụgharịa eriri ka ọ bụrụ obere mkpụrụedemede",
+      ),
+      __include: DocStr("Nwere", "lelee ma eriri nwere mkpụrụedemede"),
+      __repeat: DocStr("Kugharịa", "megharịa eriri ugboro ole"),
     },
+
     __date: {
-      main: {
-        main: "ubochi",
-        __description: "banye na ọrụ ụbọchị na oge",
-      },
-      __year: {
-        main: "Afo",
-        __description: "inweta afọ",
-      },
-      __month: {
-        main: "Onwa",
-        __description: "inweta ọnwa",
-      },
-      __dayMonth: {
-        main: "UbochiOnwa",
-        __description: "inweta ụbọchị ọnwa",
-      },
-      __dayWeek: {
-        main: "UbochiIzu",
-        __description: "inweta ụbọchị izu",
-      },
-      __hour: {
-        main: "Elekere",
-        __description: "inweta elekere",
-      },
-      __minute: {
-        main: "Nkeji",
-        __description: "inweta nkeji",
-      },
-      __second: {
-        main: "Sekond",
-        __description: "inweta sekọnd",
-      },
+      main: DocStr("ubochi", "inweta ọrụ ụbọchị na oge"),
+      __now: DocStr("UgbuA", "inweta ụbọchị na oge ugbu a"),
+      __year: DocStr("Afo", "inweta afọ"),
+      __month: DocStr("Onwa", "inweta ọnwa"),
+      __dayMonth: DocStr("UbochiOnwa", "inweta ụbọchị nke ọnwa"),
+      __dayWeek: DocStr("UbochiIzu", "inweta ụbọchị nke izu"),
+      __hour: DocStr("Elekere", "inweta elekere"),
+      __minute: DocStr("Nkeji", "inweta nkeji"),
+      __second: DocStr("Sekond", "inweta sekọnd"),
     },
   },
+
   types: {
-    __object: { main: "ihe", __description: "ikwuputa ihe kwusiri ike" },
-    __number: {
-      main: "onuogu",
-      __description: "kwupụta mgbanwe nke ụdị ọnụọgụ",
-    },
-    __string: {
-      main: "eriri",
-      __description: "kwupụta mgbanwe nke ụdị eriri",
-    },
-    __boolean: {
-      main: "bool",
-      values: { __true: "Eziokwu", __false: "Asi" },
-      __description: "kwupụta mgbanwe nke ụdị boolean",
-    },
+    __number: DocStr("onuogu", "kwupụta mgbanwe nke ụdị ọnụọgụ"),
+    __string: DocStr("eriri", "kwupụta mgbanwe nke ụdị eriri"),
+    __boolean: DocStr("bool", "kwupụta mgbanwe nke ụdị boolean"),
+    __object: DocStr("ihe", "ikwupụta ihe kwụsiri ike"),
+    __void: DocStr("efu", "kwupụta ọrụ na-enweghị ihe ọ bụla na-eweghachi"),
+    __array: DocStr("mkpụrụ", "kwupụta usoro mkpụrụ"),
   },
+
+  specialValues: {
+    __true: DocStr("Eziokwu", "ụkpụrụ boolean eziokwu"),
+    __false: DocStr("Asi", "ụkpụrụ boolean ụgha"),
+    __null: DocStr("Null", "enweghị uru"),
+  },
+
+  words: {
+    __new: DocStr("mepụta", "mepụta ihe ọhụrụ nke klas"),
+    __this: DocStr("nkea", "inweta akụkụ nke klas nke onwe"),
+    __extends: DocStr("gụnyere", "ikwupụta na klas na-eketa site na nke ọzọ"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("nkeonwe", "naanị n'ime klas"),
+    __public: DocStr("ọha", "enwere ike ịnweta ebe ọ bụla"),
+    __protected: DocStr("chekwara", "enwere ike ịnweta na klas na ụmụ klas"),
+    __readonly: DocStr("gụọsọ", "enwere ike ịnye uru otu ugboro"),
+    __static: DocStr("kwụsiri", "nke klas, ọ bụghị nke ihe"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "dee",
-        __description: "dee uru na ihuenyo",
-      },
-      __scan: {
-        main: "guo",
-        __description: "gụọ uru site n'aka onye ọrụ",
-      },
-      __return: {
-        main: "laghachi",
-        __description: "laghachi na uru site n'ọrụ",
-      },
+      __print: DocStr("dee", "dee uru na ihuenyo"),
+      __scan: DocStr("guo", "gụọ uru site n'aka onye ọrụ"),
+      __return: DocStr("laghachi", "laghachi uru site na ọrụ"),
+      __break: DocStr("kwụsị", "kwụsị na lupu"),
+      __continue: DocStr("gaa n'ihu", "gaa n'ihu na lupu"),
     },
+
     sentences: {
-      __function: {
-        main: "oru",
-        __description: "kwupụta ọrụ",
-      },
-      __if: {
-        main: "oburu",
-        __description: "kwupụta ọnọdụ",
-      },
-      __else: {
-        main: "ma",
-        __description: "kwupụta ọnọdụ ọzọ",
-      },
-      __while: {
-        main: "ka",
-        __description: "kwupụta lupu ka",
-      },
-      __for: {
-        main: "maka",
-        __description: "kwupụta lupu maka",
-      },
-      __switch: {
-        main: "hoo",
-        __description: "kwupụta nhọrọ nhọrọ",
-      },
-      __case: {
-        main: "onodu",
-        __description: "kwupụta ọnọdụ n'ime nhọrọ",
-      },
-      __default: {
-        main: "izugbe",
-        __description: "kwupụta ọnọdụ izugbe",
-      },
-      __try: {
-        main: "nwaa",
-        __description: "kwupụta blọk nwaa",
-      },
-      __catch: {
-        main: "nwucha",
-        __description: "kwupụta blọk njikwa njehie",
-      },
-      __finally: {
-        main: "nikpeazu",
-        __description: "kwupụta blọk na-arụ ọrụ n'agbanyeghị ihe ọ bụla",
-      },
+      __function: DocStr("oru", "kwupụta ọrụ"),
+      __if: DocStr("oburu", "kwupụta ọnọdụ"),
+      __else: DocStr("ma", "kwupụta ọnọdụ ọzọ"),
+      __while: DocStr("ka", "kwupụta lupu ka"),
+      __for: DocStr("maka", "kwupụta lupu maka"),
+      __switch: DocStr("hoo", "kwupụta nhọrọ"),
+      __case: DocStr("onodu", "kwupụta ọnọdụ"),
+      __default: DocStr("izugbe", "mgbe ọnọdụ ọ bụla adịghị"),
+      __try: DocStr("nwaa", "kwupụta blọk nwaa"),
+      __catch: DocStr("nwucha", "kwupụta blọk njikwa njehie"),
+      __finally: DocStr("nikpeazu", "na-arụ ọrụ n'agbanyeghị ihe ọ bụla"),
+      __class: DocStr("klas", "kwupụta klas"),
+      __constructor: DocStr("onye nrụpụta", "usoro iji setịpụ akụkụ na klas"),
     },
   },
+
   errors: {
-    main: {
-      tag: "NJEHIE",
-      message: "Njehie izugbe nke sistemu",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "NJEHIE_AMAGHI",
-      message: "Njehie a na-amaghị n'ụzọ ọ bụla",
-    },
-    __TypeError: {
-      tag: "NJEHIE_UDI",
-      message: "Ụdị adịghị mma n'ime ọrụ",
-    },
-    __ReferenceError: {
-      tag: "NJEHIE_NTUAKA",
-      message: "Mgbanwe adịghị na-ezuzu",
-    },
-    __SyntaxError: {
-      tag: "NJEHIE_SINTAKSI",
-      message: "Koodu adịghị mma",
-    },
-    __RangeError: {
-      tag: "NJEHIE_IHE",
-      message: "Uru nọ n'èzí oke a kwenyere",
-    },
-    __URIError: {
-      tag: "NJEHIE_URI",
-      message: "URI nwere njehie ma ọ bụ adịghị mma",
-    },
-    __EvalError: {
-      tag: "NJEHIE_EVAL",
-      message: "Njehie metụtara eval",
-    },
+    __labels: errorLabel(
+      "Ozi",
+      "Uru",
+      "Mgbanwe",
+      "Akụkụ",
+      "Ihe",
+      "Atụmanya",
+      "Enwetara",
+      "Ntinye Na-adịgide",
+      "Ntinye Okpukpu Abụọ",
+      "Ndụmọdụ",
+      "Token Na-adịghị Mma",
+      "Ọkpụkpụ Nke Okwu",
+      "Token",
+      "Njedebe Na-atụghị Anyaa",
+    ),
+    main: errorMessage("NJEHIE", "njehie izugbe nke sistemụ"),
+    __TypeError: errorMessage("NJEHIE_UDI", "ụdị adịghị mma na ọrụ"),
+    __InitError: errorMessage("NJEHIE_MMALITE", "mgbanwe emebeghị mmalite"),
+    __ReferenceError: errorMessage(
+      "NJEHIE_NTUAKA",
+      "mgbanwe, ọrụ ma ọ bụ ọba adịghị",
+    ),
+    __SyntaxError: errorMessage("NJEHIE_SINTAKSI", "koodu adịghị mma"),
+    __RangeError: errorMessage("NJEHIE_OKE", "uru nọ n'èzí oke akwadoro"),
+    __URIError: errorMessage(
+      "NJEHIE_URI",
+      "URI nwere nsogbu ma ọ bụ adịghị mma",
+    ),
+    __EvalError: errorMessage("NJEHIE_EVAL", "njehie metụtara eval"),
+    __UNKNOWN_ERROR: errorMessage(
+      "NJEHIE_AMAGHI",
+      "njehie a na-amaghị kpamkpam",
+    ),
+  },
+
+  example: {
+    __array: [
+      "nri",
+      "obodo",
+      "ihe",
+      "akara",
+      "agba",
+      "ahịa",
+      "ndị ọrụ",
+      "ngalaba",
+      "akara",
+      "asusu",
+    ],
+    __boolean: [
+      "ọ dị",
+      "ọ bụ okenye",
+      "ọ na-arụ ọrụ",
+      "ọ na-ahụ anya",
+      "enwere ikike",
+      "ọ banyere",
+      "ọ kwadoro",
+      "ọ mechara",
+      "ọ kwadochara",
+      "ọ kagburu",
+    ],
+    __function: [
+      "nwetaAha",
+      "nwetaUru",
+      "depụta",
+      "nwetaData",
+      "hazieData",
+      "tụgharịaNtinye",
+      "kwadoForm",
+      "meliteIhe",
+      "meliteOnodu",
+      "gbakọỌnụ",
+    ],
+    __number: [
+      "afọ",
+      "ọnụ ọgụgụ",
+      "ngụkọ",
+      "mkpokọta",
+      "ọnụ ahịa",
+      "ntụpọ",
+      "ogologo oge",
+      "ibu",
+      "akara",
+      "oge",
+    ],
+    __object: [
+      "mmadụ",
+      "onye ọrụ",
+      "ntọala",
+      "azịza",
+      "akwụ ụgwọ",
+      "ntọala",
+      "profaịlụ",
+      "adreesị",
+      "metadeta",
+      "nnọkọ",
+    ],
+    __string: [
+      "aha",
+      "isiokwu",
+      "nkọwa",
+      "email",
+      "okwumbanye",
+      "ozi",
+      "akara",
+      "token",
+      "url",
+      "aha",
+    ],
+    __void: [
+      "banye",
+      "malite",
+      "sachapụ",
+      "tọgharịa",
+      "kagbuo",
+      "pụọ",
+      "sachapụCache",
+      "chekwa",
+      "zipụEmail",
+      "bata",
+    ],
   },
 }).grammar();

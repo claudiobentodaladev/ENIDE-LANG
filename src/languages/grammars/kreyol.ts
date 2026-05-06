@@ -1,263 +1,248 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const kreyol = new Language({
   language: "kreyol",
   about:
     "ENIDE se yon transpile tradisib ki pemet pwogramasyon nan nenpot lang",
 
-  include: {
-    main: "Enkli",
-    __description: "Itilize pou enkli lang oswa bibliyotèk",
-  },
+  include: DocStr(
+    "Enkli",
+    "Itilize pou enkli lang, bibliyotèk oswa estrikti ki soti nan lòt fichye",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "konsenan",
-        __description: "pou jwenn enfòmasyon sou ENIDE",
-      },
-      __help: {
-        main: "ed",
-        __description: "pou jwenn lis tout kòmand ki disponib yo",
-      },
-      __version: {
-        main: "vesyon",
-        __description: "pou jwenn vèsyon aktyèl ENIDE a",
-      },
-      __languages: {
-        main: "lang",
-        __description: "pou jwenn lis tout lang ki disponib yo",
-      },
-      __documentation: {
-        main: "dokiman",
-        __description: "pou jwenn dokimantasyon pou yon lang",
-      },
-    },
+    __about: DocStr("konsenan", "pou jwenn enfòmasyon sou ENIDE"),
+    __help: DocStr("ed", "pou jwenn lis tout kòmand ki disponib yo"),
+    __version: DocStr("vesyon", "pou jwenn vèsyon aktyèl ENIDE a"),
+    __languages: DocStr("lang", "pou jwenn lis tout lang ki disponib yo"),
+    __documentation: DocStr("dokiman", "pou jwenn dokimantasyon pou yon lang"),
+    __grammar: DocStr("gramer", "pou jwenn gramer yon lang"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("estanda", "pou jwenn aksè a fonksyon estanda itil"),
+      __isarray: DocStr("SeTablo", "pou verifye si yon valè se yon tablo"),
+      __isobject: DocStr("SeObje", "pou verifye si yon valè se yon obje"),
+      __typeof: DocStr("Tip", "pou jwenn tip yon valè"),
+      __parse: DocStr("Parse", "pou konvèti tèks nan valè kòrèk"),
+    },
     __math: {
-      main: {
-        main: "matematik",
-        __description: "pou jwenn aksè a fonksyon matematik yo",
-      },
-      __pi: {
-        main: "PI",
-        __description: "pou jwenn valè pi a",
-      },
-      __sqrt: {
-        main: "RasinKare",
-        __description: "pou jwenn rasin kare a",
-      },
-      __pow: {
-        main: "Pisans",
-        __description: "pou jwenn pisans yon nonb",
-      },
-      __round: {
-        main: "Arodi",
-        __description: "pou arodi yon nonb",
-      },
-      __random: {
-        main: "Aza",
-        __description: "pou jwenn yon nonb aza",
-      },
-      __max: {
-        main: "Maksimom",
-        __description: "pou jwenn valè maksimòm nan",
-      },
-      __min: {
-        main: "Minimom",
-        __description: "pou jwenn valè minimòm nan",
-      },
-      __isNumber: {
-        main: "SeNonb",
-        __description: "pou verifye si yon valè se yon nonb",
-      },
-      __isInteger: {
-        main: "SeAntye",
-        __description: "pou verifye si yon valè se yon antye",
-      },
-      __isFloat: {
-        main: "SeDesimal",
-        __description: "pou verifye si yon valè se yon desimal",
-      },
+      main: DocStr("matematik", "pou jwenn aksè a fonksyon matematik yo"),
+      __pi: DocStr("PI", "pou jwenn valè pi a"),
+      __sqrt: DocStr("RasinKare", "pou jwenn rasin kare a"),
+      __pow: DocStr("Pisans", "pou jwenn pisans yon nonb"),
+      __round: DocStr("Arodi", "pou arodi yon nonb"),
+      __random: DocStr("Aza", "pou jwenn yon nonb aza"),
+      __max: DocStr("Maksimom", "pou jwenn valè maksimòm nan"),
+      __min: DocStr("Minimom", "pou jwenn valè minimòm nan"),
+      __isNumber: DocStr("SeNonb", "pou verifye si yon valè se yon nonb"),
+      __isInteger: DocStr("SeAntye", "pou verifye si yon valè se yon antye"),
+      __isFloat: DocStr("SeDesimal", "pou verifye si yon valè se yon desimal"),
+      __cos: DocStr("Cos", "pou jwenn cosinus yon ang"),
+      __sin: DocStr("Sin", "pou jwenn sinis yon ang"),
+      __tan: DocStr("Tan", "pou jwenn tangant yon ang"),
     },
 
     __string: {
-      main: {
-        main: "teks",
-        __description: "pou jwenn aksè a fonksyon manipilasyon tèks yo",
-      },
-      __length: {
-        main: "Longe",
-        __description: "pou jwenn longè yon tèks",
-      },
-      __toUpperCase: {
-        main: "AnMajiskil",
-        __description: "pou konvèti yon tèks an majiskil",
-      },
-      __toLowerCase: {
-        main: "AnMiniskil",
-        __description: "pou konvèti yon tèks an miniskil",
-      },
+      main: DocStr("teks", "pou jwenn aksè a fonksyon manipilasyon tèks yo"),
+      __length: DocStr("Longe", "pou jwenn longè yon tèks"),
+      __toUpperCase: DocStr("AnMajiskil", "pou konvèti yon tèks an majiskil"),
+      __toLowerCase: DocStr("AnMiniskil", "pou konvèti yon tèks an miniskil"),
+      __include: DocStr(
+        "Genyen",
+        "pou verifye si yon tèks genyen yon sous-tèks",
+      ),
+      __repeat: DocStr("Repete", "pou repete yon tèks yon kantite fwa"),
     },
 
     __date: {
-      main: {
-        main: "dat",
-        __description: "pou jwenn aksè a fonksyon dat ak lè yo",
-      },
-      __year: {
-        main: "Ane",
-        __description: "pou jwenn ane a",
-      },
-      __month: {
-        main: "Mwa",
-        __description: "pou jwenn mwa a",
-      },
-      __dayMonth: {
-        main: "JouMwa",
-        __description: "pou jwenn jou nan mwa a",
-      },
-      __dayWeek: {
-        main: "JouSemen",
-        __description: "pou jwenn jou nan semèn nan",
-      },
-      __hour: {
-        main: "Le",
-        __description: "pou jwenn lè a",
-      },
-      __minute: {
-        main: "Minit",
-        __description: "pou jwenn minit la",
-      },
-      __second: {
-        main: "Segond",
-        __description: "pou jwenn segond lan",
-      },
+      main: DocStr("dat", "pou jwenn aksè a fonksyon dat ak lè yo"),
+      __now: DocStr("Kounyea", "pou jwenn dat ak lè aktyèl la"),
+      __year: DocStr("Ane", "pou jwenn ane a"),
+      __month: DocStr("Mwa", "pou jwenn mwa a"),
+      __dayMonth: DocStr("JouMwa", "pou jwenn jou nan mwa a"),
+      __dayWeek: DocStr("JouSemen", "pou jwenn jou nan semèn nan"),
+      __hour: DocStr("Le", "pou jwenn lè a"),
+      __minute: DocStr("Minit", "pou jwenn minit la"),
+      __second: DocStr("Segond", "pou jwenn segond lan"),
     },
   },
 
   types: {
-    __object: { main: "obje", __description: "pou deklare yon obje estatik" },
+    __number: DocStr("nonb", "pou deklare yon varyab de tip nonb"),
+    __string: DocStr("teks", "pou deklare yon varyab de tip tèks"),
+    __boolean: DocStr("kondisyon", "pou deklare yon varyab de tip boleyen"),
+    __object: DocStr("obje", "pou deklare yon obje estatik"),
+    __void: DocStr("vid", "pou deklare yon fonksyon ki pa retounen anyen"),
+    __array: DocStr("tablo", "pou deklare yon estrikti tablo"),
+  },
 
-    __number: {
-      main: "nonb",
-      __description: "pou deklare yon varyab de tip nonb",
-    },
+  specialValues: {
+    __true: DocStr("Verite", "valè boleyen verite"),
+    __false: DocStr("Fo", "valè boleyen fo"),
+    __null: DocStr("Null", "absans valè"),
+  },
 
-    __string: {
-      main: "teks",
-      __description: "pou deklare yon varyab de tip tèks",
-    },
+  words: {
+    __new: DocStr("nouvo", "pou kreye yon nouvo enstans yon klas"),
+    __this: DocStr("sa", "pou aksede atribi klas la"),
+    __extends: DocStr("pwolonje", "pou deklare yon klas ki eritye yon lòt"),
+  },
 
-    __boolean: {
-      main: "kondisyon",
-      values: { __true: "Verite", __false: "Fo" },
-      __description: "pou deklare yon varyab de tip boleyen",
-    },
+  accessModifiers: {
+    __private: DocStr("prive", "aksesib sèlman andedan klas la"),
+    __public: DocStr("piblik", "aksesib nan tout kote"),
+    __protected: DocStr("pwoteje", "aksesib nan klas la ak sub-klas yo"),
+    __readonly: DocStr("liSelman", "valè ka asiyen yon sèl fwa"),
+    __static: DocStr("statik", "ki fè pati klas la, pa enstans lan"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "enprime",
-        __description: "pou enprime yon valè sou ekran an",
-      },
-      __scan: {
-        main: "li",
-        __description: "pou li yon valè nan antre a",
-      },
-      __return: {
-        main: "retounen",
-        __description: "pou retounen yon valè nan yon fonksyon",
-      },
+      __print: DocStr("enprime", "pou enprime yon valè sou ekran an"),
+      __scan: DocStr("li", "pou li yon valè nan antre a"),
+      __return: DocStr("retounen", "pou retounen yon valè nan yon fonksyon"),
+      __break: DocStr("kase", "pou soti nan yon bouk"),
+      __continue: DocStr("kontinye", "pou kontinye nan pwochen iterasyon an"),
     },
 
     sentences: {
-      __function: {
-        main: "fonksyon",
-        __description: "pou deklare yon fonksyon",
-      },
-      __if: {
-        main: "si",
-        __description: "pou deklare yon kondisyon",
-      },
-      __else: {
-        main: "sinon",
-        __description: "pou deklare yon kondisyon altènatif",
-      },
-      __while: {
-        main: "pandan",
-        __description: "pou deklare yon bouk pandan",
-      },
-      __for: {
-        main: "pou",
-        __description: "pou deklare yon bouk pou",
-      },
-      __switch: {
-        main: "chwazi",
-        __description: "pou deklare yon estrikti seleksyon",
-      },
-      __case: {
-        main: "ka",
-        __description: "pou deklare yon ka",
-      },
-      __default: {
-        main: "defo",
-        __description: "pou deklare ka defo",
-      },
-      __try: {
-        main: "eseye",
-        __description: "pou deklare yon blok eseye",
-      },
-      __catch: {
-        main: "trape",
-        __description: "pou jere ere",
-      },
-      __finally: {
-        main: "finalman",
-        __description: "pou egzekite blok final",
-      },
+      __function: DocStr("fonksyon", "pou deklare yon fonksyon"),
+      __if: DocStr("si", "pou deklare yon kondisyon"),
+      __else: DocStr("sinon", "pou deklare yon kondisyon altènatif"),
+      __while: DocStr("pandan", "pou deklare yon bouk pandan"),
+      __for: DocStr("pou", "pou deklare yon bouk pou"),
+      __switch: DocStr("chwazi", "pou deklare yon estrikti seleksyon"),
+      __case: DocStr("ka", "pou deklare yon ka"),
+      __default: DocStr("defo", "pou deklare ka defo"),
+      __try: DocStr("eseye", "pou deklare yon blok eseye"),
+      __catch: DocStr("trape", "pou jere ere"),
+      __finally: DocStr("finalman", "pou egzekite blok final"),
+      __class: DocStr("klas", "pou deklare yon klas"),
+      __constructor: DocStr(
+        "konstriktè",
+        "estrikti pou inisyalize atribi nan yon klas",
+      ),
     },
   },
 
   errors: {
-    main: { tag: "ERE", message: "Ere jeneral sistem nan" },
+    __labels: errorLabel(
+      "Mesaj",
+      "Valè",
+      "Varyab",
+      "Pwopriyete",
+      "Obje",
+      "Espere",
+      "Resevwa",
+      "Asiyasyon Konstan",
+      "Paramèt Double",
+      "Sijesyon",
+      "Token Envalid",
+      "Stack Overflow",
+      "Token",
+      "Fen Antre Inespere",
+    ),
+    main: errorMessage("ERE", "Ere jeneral sistem nan"),
+    __TypeError: errorMessage("ERE_TIP", "Tip ki pa valid"),
+    __InitError: errorMessage("ERE_INISYALIZASYON", "Varyab pa inisyalize"),
+    __ReferenceError: errorMessage(
+      "ERE_REFERANS",
+      "Varyab pa egziste nan espas",
+    ),
+    __SyntaxError: errorMessage("ERE_SENTAKS", "Kod pa valid"),
+    __RangeError: errorMessage("ERE_LIMIT", "Vale depase limit"),
+    __URIError: errorMessage("ERE_URI", "URI pa valid"),
+    __EvalError: errorMessage("ERE_EVAL", "Ere eval"),
+    __UNKNOWN_ERROR: errorMessage("ERE_ENKONI", "Ere konpletman enkoni"),
+  },
 
-    __UNKNOWN_ERROR: {
-      tag: "ERE_ENKONI",
-      message: "Ere konpletman enkoni",
-    },
-
-    __TypeError: {
-      tag: "ERE_TIP",
-      message: "Tip ki pa valid",
-    },
-
-    __ReferenceError: {
-      tag: "ERE_REFERANS",
-      message: "Varyab pa egziste nan espas",
-    },
-
-    __SyntaxError: {
-      tag: "ERE_SENTAKS",
-      message: "Kod pa valid",
-    },
-
-    __RangeError: {
-      tag: "ERE_LIMIT",
-      message: "Vale depase limit",
-    },
-
-    __URIError: {
-      tag: "ERE_URI",
-      message: "URI pa valid",
-    },
-
-    __EvalError: {
-      tag: "ERE_EVAL",
-      message: "Ere eval",
-    },
+  example: {
+    __array: [
+      "manje",
+      "pays",
+      "atik",
+      "etikèt",
+      "koulè",
+      "pwodwi",
+      "itilizatè",
+      "kategori",
+      "pwen",
+      "lang",
+    ],
+    __boolean: [
+      "aktif",
+      "granmoun",
+      "ouvri",
+      "vizib",
+      "genDwa",
+      "konekte",
+      "aktive",
+      "fini",
+      "verifye",
+      "efase",
+    ],
+    __function: [
+      "jwennNon",
+      "jwennValè",
+      "lis",
+      "jwennDone",
+      "fòmateDone",
+      "parseAntre",
+      "validFòm",
+      "meteAjou",
+      "chanjeEstat",
+      "kalkileTotal",
+    ],
+    __number: [
+      "laj",
+      "ane",
+      "mwayèn",
+      "total",
+      "pri",
+      "endèks",
+      "dire",
+      "kantite",
+      "pwen",
+      "tan",
+    ],
+    __object: [
+      "moun",
+      "itilizatè",
+      "konfigirasyon",
+      "repons",
+      "peman",
+      "reglaj",
+      "profil",
+      "adres",
+      "metadata",
+      "sesyon",
+    ],
+    __string: [
+      "non",
+      "tit",
+      "deskripsyon",
+      "imel",
+      "modpas",
+      "mesaj",
+      "etikèt",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "konekte",
+      "kòmanse",
+      "netwaye",
+      "reset",
+      "efase",
+      "dekonekte",
+      "netwayeCache",
+      "sove",
+      "voyeImel",
+      "antre",
+    ],
   },
 }).grammar();

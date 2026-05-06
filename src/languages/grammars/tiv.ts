@@ -1,259 +1,240 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const tiv = new Language({
   language: "tiv",
   about:
     "ENIDE i transpiler sha wua ngu a ange yev program sha ityough ityough",
 
-  include: {
-    main: "Kohol",
-    __description: "Ka i gber i kohol zwa shin ukpandegh mbu mnger",
-  },
+  include: DocStr("Kohol", "Ka i gber i kohol zwa shin ukpandegh mbu mnger"),
 
   commands: {
-    all: {
-      __about: {
-        main: "YangeKpaa",
-        __description: "yange kumen kpaa ENIDE",
-      },
-      __help: {
-        main: "HangeYev",
-        __description: "yange sha kumen ityo ityo sha gba",
-      },
-      __version: {
-        main: "YangeVersion",
-        __description: "yange ENIDE version sha wua",
-      },
-      __languages: {
-        main: "ItyoughZwa",
-        __description: "yange sha kumen ityough sha gba",
-      },
-      __documentation: {
-        main: "AtaYev",
-        __description: "yange ityough ata",
-      },
-    },
+    __about: DocStr("YangeKpaa", "yange kumen kpaa ENIDE"),
+    __help: DocStr("HangeYev", "yange sha kumen ityo ityo sha gba"),
+    __version: DocStr("YangeVersion", "yange ENIDE version sha wua"),
+    __languages: DocStr("ItyoughZwa", "yange sha kumen ityough sha gba"),
+    __documentation: DocStr("AtaYev", "yange ityough ata"),
+    __grammar: DocStr("GramatikaYev", "yange ityough gramatika"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("KohTikim", "ngu kohol tikim yev"),
+      __isarray: DocStr("ListaNe", "tee yav iyange i lista"),
+      __isobject: DocStr("KenTarNe", "tee yav iyange i ken tar"),
+      __typeof: DocStr("YoughNe", "yange yough iyange"),
+      __parse: DocStr("Parse", "tsa ikyum sha iyange sha yough kpaa"),
+    },
+
     __math: {
-      main: {
-        main: "Akohol",
-        __description: "ngu akohol yev",
-      },
-      __pi: {
-        main: "PI",
-        __description: "yange pi iyange",
-      },
-      __sqrt: {
-        main: "SquareTor",
-        __description: "yange square tor",
-      },
-      __pow: {
-        main: "GbaaNambur",
-        __description: "yange nambur gbaa",
-      },
-      __round: {
-        main: "AngeNambur",
-        __description: "ange nambur",
-      },
-      __random: {
-        main: "MbaNambur",
-        __description: "yange mba nambur",
-      },
-      __max: {
-        main: "AmbeIyang",
-        __description: "yange iyange ambe",
-      },
-      __min: {
-        main: "ItiIyang",
-        __description: "yange iyange iti",
-      },
-      __isNumber: {
-        main: "NamburNe",
-        __description: "tee yav iyange i nambur",
-      },
-      __isInteger: {
-        main: "NamburKpaa",
-        __description: "tee yav iyange i nambur kpaa",
-      },
-      __isFloat: {
-        main: "DesimalNambur",
-        __description: "tee yav iyange i desimal",
-      },
+      main: DocStr("Akohol", "ngu akohol yev"),
+      __pi: DocStr("PI", "yange pi iyange"),
+      __sqrt: DocStr("SquareTor", "yange square tor"),
+      __pow: DocStr("GbaaNambur", "yange nambur gbaa"),
+      __round: DocStr("AngeNambur", "ange nambur"),
+      __random: DocStr("MbaNambur", "yange mba nambur"),
+      __max: DocStr("AmbeIyang", "yange iyange ambe"),
+      __min: DocStr("ItiIyang", "yange iyange iti"),
+      __isNumber: DocStr("NamburNe", "tee yav iyange i nambur"),
+      __isInteger: DocStr("NamburKpaa", "tee yav iyange i nambur kpaa"),
+      __isFloat: DocStr("DesimalNambur", "tee yav iyange i desimal"),
+      __cos: DocStr("Cos", "yange cosinus sha radiyan"),
+      __sin: DocStr("Sin", "yange sinus sha radiyan"),
+      __tan: DocStr("Tan", "yange tangens sha radiyan"),
     },
 
     __string: {
-      main: {
-        main: "Ikyum",
-        __description: "ngu ikyum yev",
-      },
-      __length: {
-        main: "NgorIkyum",
-        __description: "yange ikyum ngor",
-      },
-      __toUpperCase: {
-        main: "KaAbam",
-        __description: "tsa ikyum sha abam",
-      },
-      __toLowerCase: {
-        main: "KaIti",
-        __description: "tsa ikyum sha iti",
-      },
+      main: DocStr("Ikyum", "ngu ikyum yev"),
+      __length: DocStr("NgorIkyum", "yange ikyum ngor"),
+      __toUpperCase: DocStr("KaAbam", "tsa ikyum sha abam"),
+      __toLowerCase: DocStr("KaIti", "tsa ikyum sha iti"),
+      __include: DocStr("IkyumNe", "tee yav ikyum i sha ikyum"),
+      __repeat: DocStr("YevKeter", "yev ikyum sha nambur"),
     },
 
     __date: {
-      main: {
-        main: "NguTime",
-        __description: "ngu ngu kpa hun yev",
-      },
-      __year: {
-        main: "Ihom",
-        __description: "yange ihom",
-      },
-      __month: {
-        main: "Ikyaa",
-        __description: "yange ikyaa",
-      },
-      __dayMonth: {
-        main: "NguIkyaa",
-        __description: "yange ngu ikyaa",
-      },
-      __dayWeek: {
-        main: "NguSham",
-        __description: "yange ngu week",
-      },
-      __hour: {
-        main: "HaaTime",
-        __description: "yange haa",
-      },
-      __minute: {
-        main: "MinitTime",
-        __description: "yange minit",
-      },
-      __second: {
-        main: "SekondTime",
-        __description: "yange sekond",
-      },
+      main: DocStr("NguTime", "ngu ngu kpa hun yev"),
+      __now: DocStr("Saatime", "yange ngu sha time sha wua"),
+      __year: DocStr("Ihom", "yange ihom"),
+      __month: DocStr("Ikyaa", "yange ikyaa"),
+      __dayMonth: DocStr("NguIkyaa", "yange ngu ikyaa"),
+      __dayWeek: DocStr("NguSham", "yange ngu week"),
+      __hour: DocStr("HaaTime", "yange haa"),
+      __minute: DocStr("MinitTime", "yange minit"),
+      __second: DocStr("SekondTime", "yange sekond"),
     },
   },
 
   types: {
-    __object: {
-      main: "KenTar",
-      __description: "a kahan ken sha tar",
-    },
-    __number: {
-      main: "Nambur",
-      __description: "kumen jijigh sha nambur",
-    },
-    __string: {
-      main: "Ikyum",
-      __description: "kumen jijigh sha ikyum",
-    },
-    __boolean: {
-      main: "Bool",
-      values: { __true: "Mimi", __false: "Yie" },
-      __description: "kumen jijigh sha boolean",
-    },
+    __number: DocStr("Nambur", "kumen jijigh sha nambur"),
+    __string: DocStr("Ikyum", "kumen jijigh sha ikyum"),
+    __boolean: DocStr("Bool", "kumen jijigh sha boolean"),
+    __object: DocStr("KenTar", "a kahan ken sha tar"),
+    __void: DocStr("KohYev_Kpaa", "kumen yev sha wua koh iyange kpaa"),
+    __array: DocStr("Lista", "kumen lista data structure"),
+  },
+
+  specialValues: {
+    __true: DocStr("Mimi", "boolean mimi iyange"),
+    __false: DocStr("Yie", "boolean yie iyange"),
+    __null: DocStr("WuaKpaa", "iyange wua kpaa"),
+  },
+
+  words: {
+    __new: DocStr("KaHee", "kumen ka hee sha kilasi"),
+    __this: DocStr("Mba", "ngu mba kilasi sha ken"),
+    __extends: DocStr("YevKohol", "kumen kilasi yev kohol sha kilasi wua"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("ShaWua", "ngu sha kilasi wua bene"),
+    __public: DocStr("ShaItyo", "ngu sha iyough ityo"),
+    __protected: DocStr("Hangater", "ngu sha kilasi nen sha sub-kilasi"),
+    __readonly: DocStr("GerBene", "iyange kumen mimi bene"),
+    __static: DocStr("TarKilasi", "sha kilasi, ke sha instance"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "ZwaIyang",
-        __description: "zwa iyange sha ekran",
-      },
-      __scan: {
-        main: "GerWuave",
-        __description: "ger iyange sha sha wuave",
-      },
-      __return: {
-        main: "YevKera",
-        __description: "yev iyange sha yev",
-      },
+      __print: DocStr("ZwaIyang", "zwa iyange sha ekran"),
+      __scan: DocStr("GerWuave", "ger iyange sha sha wuave"),
+      __return: DocStr("YevKera", "yev iyange sha yev"),
+      __break: DocStr("BaLoop", "ba sha loop"),
+      __continue: DocStr("YevItyo", "yev sha ityo loop wua"),
     },
 
     sentences: {
-      __function: {
-        main: "YevShira",
-        __description: "kumen yev",
-      },
-      __if: {
-        main: "KeSha",
-        __description: "kumen sha",
-      },
-      __else: {
-        main: "NguWua",
-        __description: "kumen sha wua",
-      },
-      __while: {
-        main: "ShaLoop",
-        __description: "kumen loop sha",
-      },
-      __for: {
-        main: "KpaLoop",
-        __description: "kumen loop kpa",
-      },
-      __switch: {
-        main: "KwavTyo",
-        __description: "kumen kwav structure",
-      },
-      __case: {
-        main: "TyoKwav",
-        __description: "kumen tyo sha kwav",
-      },
-      __default: {
-        main: "KpaaDefault",
-        __description: "kumen tyo kpaa",
-      },
-      __try: {
-        main: "TseMbi",
-        __description: "kumen tse bloku",
-      },
-      __catch: {
-        main: "GbaIyave",
-        __description: "kumen gba iyange bloku",
-      },
-      __finally: {
-        main: "TanenCii",
-        __description: "kumen bloku sha wua tanen",
-      },
+      __function: DocStr("YevShira", "kumen yev"),
+      __if: DocStr("KeSha", "kumen sha"),
+      __else: DocStr("NguWua", "kumen sha wua"),
+      __while: DocStr("ShaLoop", "kumen loop sha"),
+      __for: DocStr("KpaLoop", "kumen loop kpa"),
+      __switch: DocStr("KwavTyo", "kumen kwav structure"),
+      __case: DocStr("TyoKwav", "kumen tyo sha kwav"),
+      __default: DocStr("KpaaDefault", "kumen tyo kpaa"),
+      __try: DocStr("TseMbi", "kumen tse bloku"),
+      __catch: DocStr("GbaIyave", "kumen gba iyange bloku"),
+      __finally: DocStr("TanenCii", "kumen bloku sha wua tanen"),
+      __class: DocStr("Kilasi", "kumen kilasi"),
+      __constructor: DocStr("ShaKumen", "sha kumen kilasi ken"),
     },
   },
 
   errors: {
-    main: {
-      tag: "IYAVE",
-      message: "Iyave sha systeem",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "IYAVE_MBA",
-      message: "Iyave mba yange",
-    },
-    __TypeError: {
-      tag: "IYAVE_YOUGH",
-      message: "Yough sha yev zwa",
-    },
-    __ReferenceError: {
-      tag: "IYAVE_KUMEN",
-      message: "Jijigh wua ngu kumen",
-    },
-    __SyntaxError: {
-      tag: "IYAVE_SINTAKS",
-      message: "Koodnu zwa ke",
-    },
-    __RangeError: {
-      tag: "IYAVE_NGOR",
-      message: "Iyange sha ngor a zwa",
-    },
-    __URIError: {
-      tag: "IYAVE_URI",
-      message: "URI zwa kpaa ke",
-    },
-    __EvalError: {
-      tag: "IYAVE_EVAL",
-      message: "Iyave sha eval",
-    },
+    __labels: errorLabel(
+      "Kumen",
+      "Iyange",
+      "Jijigh",
+      "Ken",
+      "KenTar",
+      "YangeNe",
+      "GerNe",
+      "Tikim_Kumen",
+      "Paramita_Mba",
+      "Hange",
+      "Token_Zwa",
+      "Stack_Gbaa",
+      "Token",
+      "Wua_Kpaa",
+    ),
+    main: errorMessage("IYAVE", "iyave sha systeem"),
+    __TypeError: errorMessage("IYAVE_YOUGH", "yough sha yev zwa"),
+    __InitError: errorMessage("IYAVE_KUMEN_SHA", "jijigh ayumka kumen"),
+    __ReferenceError: errorMessage(
+      "IYAVE_KUMEN",
+      "jijigh, yev wey kohol wua ngu kumen",
+    ),
+    __SyntaxError: errorMessage("IYAVE_SINTAKS", "koodnu zwa ke"),
+    __RangeError: errorMessage("IYAVE_NGOR", "iyange sha ngor a zwa"),
+    __URIError: errorMessage("IYAVE_URI", "URI zwa kpaa ke"),
+    __EvalError: errorMessage("IYAVE_EVAL", "iyave sha eval"),
+    __UNKNOWN_ERROR: errorMessage("IYAVE_MBA", "iyave mba yange"),
+  },
+
+  example: {
+    __array: [
+      "ikyumOrkar",
+      "ityough",
+      "mnger",
+      "tags",
+      "raha",
+      "ken",
+      "jijigh",
+      "yough",
+      "pointi",
+      "ityoughZwa",
+    ],
+    __boolean: [
+      "huneta",
+      "akabarNe",
+      "serawiNe",
+      "yimaNe",
+      "izazNe",
+      "loginNe",
+      "ableNe",
+      "temeNe",
+      "kpaaNe",
+      "baNe",
+    ],
+    __function: [
+      "yangeZim",
+      "yangeIyange",
+      "gerShira",
+      "kohData",
+      "angeTime",
+      "parseGer",
+      "teeForm",
+      "zwaItem",
+      "kumenHuneta",
+      "ngorYev",
+    ],
+    __number: [
+      "ihom",
+      "ikyaa",
+      "nambur",
+      "yonse",
+      "iyange",
+      "index",
+      "time",
+      "kipimo",
+      "pointi",
+      "timeout",
+    ],
+    __object: [
+      "mnger",
+      "jijigh",
+      "config",
+      "yevKera",
+      "sara",
+      "kenTar",
+      "profil",
+      "adres",
+      "makanda",
+      "session",
+    ],
+    __string: [
+      "zim",
+      "kumen",
+      "ataYev",
+      "email",
+      "gundo",
+      "ikyum",
+      "chitanda",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "kohol",
+      "kumen",
+      "sungula",
+      "kabusha",
+      "banga",
+      "baKohol",
+      "sungula_cache",
+      "sambika_db",
+      "tuma_email",
+      "andika",
+    ],
   },
 }).grammar();

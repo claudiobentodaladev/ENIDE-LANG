@@ -1,247 +1,254 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const luo = new Language({
   language: "luo",
   about:
-    "ENIDE en transpiler ma nyalo lokore kendo miyo nyalo ndiko e dhok duto",
-  include: {
-    main: "Kwalo",
-    __description: "itiyo kode e kwalo dhok kata somo",
-  },
+    "ENIDE en transpiler ma nyalo lokore kendo miyo nyalo ndiko kódigo e dhok duto",
+
+  include: DocStr(
+    "kwalo",
+    "itiyo kode e kwalo dhok, lwedo kata mwandu kuom faili machielo",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "Kuom",
-        __description: "yudo ngʼeyo kuom ENIDE",
-      },
-      __help: {
-        main: "Kony",
-        __description: "yudo ndekni wach moko duto ma nitiere",
-      },
-      __version: {
-        main: "Version",
-        __description: "yudo version ma en koro mar ENIDE",
-      },
-      __languages: {
-        main: "Dhok",
-        __description: "yudo ndekni dhok moko duto ma nitiere",
-      },
-      __documentation: {
-        main: "Ndiko",
-        __description: "yudo ndiko mar dhok",
-      },
-    },
+    __about: DocStr("kuom", "yudo ngʼeyo kuom mwandu mar ENIDE"),
+    __help: DocStr("kony", "yudo ndekni weche duto ma nitiere e sistim"),
+    __version: DocStr(
+      "lwedo",
+      "yudo lwedo (version) mar ENIDE ma koro nitiere",
+    ),
+    __languages: DocStr("dhok", "yudo ndekni dhok duto ma nyalo tiyo e ENIDE"),
+    __documentation: DocStr("ndiko", "yudo buk mar lwedo dhok"),
+    __grammar: DocStr("mibeko", "yudo mibeko mag dhok"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("makare", "donjo e tich makare mag sistim"),
+      __isarray: DocStr("en_molongo", "nonro ka gima en molongo (array)"),
+      __isobject: DocStr("en_gima", "nonro ka gima en gima (object)"),
+      __typeof: DocStr("Kit", "yudo kit gima"),
+      __parse: DocStr("Loko", "loko wach mondo obed namba kata gima owinjore"),
+    },
     __math: {
-      main: {
-        main: "Aritmetik",
-        __description: "donjo e tich aritmetik",
-      },
-      __pi: {
-        main: "Pi",
-        __description: "yudo pi",
-      },
-      __sqrt: {
-        main: "Yien",
-        __description: "yudo yien mar namba",
-      },
-      __pow: {
-        main: "Teko",
-        __description: "miyo namba bedo gi teko",
-      },
-      __round: {
-        main: "Bondo",
-        __description: "bondo namba",
-      },
-      __random: {
-        main: "MaokOyore",
-        __description: "yudo namba maok oriti",
-      },
-      __max: {
-        main: "Maduong",
-        __description: "yudo maduong moloyo",
-      },
-      __min: {
-        main: "Matin",
-        __description: "yudo matin moloyo",
-      },
-      __isNumber: {
-        main: "EnNamba",
-        __description: "nonro ka en namba",
-      },
-      __isInteger: {
-        main: "EnNambaDuto",
-        __description: "nonro ka en namba duto",
-      },
-      __isFloat: {
-        main: "EnDesimal",
-        __description: "nonro ka en desimal",
-      },
+      main: DocStr("kwano", "donjo e tich mag kwano (aritmetik)"),
+      __pi: DocStr("PI", "yudo namba mar pi"),
+      __sqrt: DocStr("Yien", "yudo misisa (square root) mar namba"),
+      __pow: DocStr("Teko", "miyo namba bedo gi teko (power)"),
+      __round: DocStr("Bondo", "bondo namba mondo obed duto"),
+      __random: DocStr("Pamba", "yudo namba maok oriti (random)"),
+      __max: DocStr("Maduong", "yudo namba maduong moloyo"),
+      __min: DocStr("Matin", "yudo namba matin moloyo"),
+      __isNumber: DocStr("EnNamba", "nonro ka gima en namba"),
+      __isInteger: DocStr(
+        "EnNambaDuto",
+        "nonro ka en namba duto maonge desimal",
+      ),
+      __isFloat: DocStr("EnDesimal", "nonro ka en namba ma gi desimal"),
+      __cos: DocStr("Cos", "yudo cosinus mar namba"),
+      __sin: DocStr("Sin", "yudo sinus mar namba"),
+      __tan: DocStr("Tan", "yudo tangent mar namba"),
     },
+
     __string: {
-      main: {
-        main: "Wach",
-        __description: "donjo e tich mar loko wach",
-      },
-      __length: {
-        main: "Bor",
-        __description: "yudo bor mar wach",
-      },
-      __toUpperCase: {
-        main: "LiteraMaduong",
-        __description: "loko wach e litera maduong",
-      },
-      __toLowerCase: {
-        main: "LiteraMatin",
-        __description: "loko wach e litera matin",
-      },
+      main: DocStr("wach", "donjo e tich mar loko weche"),
+      __length: DocStr("Bor", "yudo bor mar wach"),
+      __toUpperCase: DocStr("LiteraMaduong", "loko wach duto e litera maduong"),
+      __toLowerCase: DocStr("LiteraMatin", "loko wach duto e litera matin"),
+      __include: DocStr("Nitiere", "nonro ka wach nitiere e i wach machielo"),
+      __repeat: DocStr("Nwoyo", "nwoyo wach nyaka bor ma idwaro"),
     },
+
     __date: {
-      main: {
-        main: "Chieng",
-        __description: "donjo e tich mar chieng gi saa",
-      },
-      __year: {
-        main: "Higa",
-        __description: "yudo higa",
-      },
-      __month: {
-        main: "Dwe",
-        __description: "yudo dwe",
-      },
-      __dayMonth: {
-        main: "ChiengDwe",
-        __description: "yudo chieng mar dwe",
-      },
-      __dayWeek: {
-        main: "ChiengTich",
-        __description: "yudo chieng mar tich",
-      },
-      __hour: {
-        main: "Saa",
-        __description: "yudo saa",
-      },
-      __minute: {
-        main: "Dakika",
-        __description: "yudo dakika",
-      },
-      __second: {
-        main: "Sekond",
-        __description: "yudo sekond",
-      },
+      main: DocStr("chieng", "donjo e tich mar chieng gi saa"),
+      __now: DocStr("Sani", "yudo saa gi chieng mar sani"),
+      __year: DocStr("Higa", "yudo higa"),
+      __month: DocStr("Dwe", "yudo dwe"),
+      __dayMonth: DocStr("ChiengDwe", "yudo chieng mar dwe"),
+      __dayWeek: DocStr("ChiengTich", "yudo chieng mar tich"),
+      __hour: DocStr("Saa", "yudo saa"),
+      __minute: DocStr("Dakika", "yudo dakika"),
+      __second: DocStr("Sekond", "yudo sekond"),
     },
   },
+
   types: {
-    __object: { main: "Gima", __description: "gima ma ok loke" },
-    __number: {
-      main: "Namba",
-      __description: "fwenyo jokwath e kit namba",
-    },
-    __string: {
-      main: "Wach",
-      __description: "fwenyo jokwath e kit wach",
-    },
-    __boolean: {
-      main: "AdierMiriambo",
-      values: { __true: "Adier", __false: "Miriambo" },
-      __description: "fwenyo jokwath e kit adier kata miriambo",
-    },
+    __number: DocStr("namba", "fwenyo jokwath mar namba"),
+    __string: DocStr("wach", "fwenyo jokwath mar wach"),
+    __boolean: DocStr("bool", "fwenyo jokwath mar adier kata miriambo"),
+    __object: DocStr("gima", "fwenyo gima ma ok loke"),
+    __void: DocStr("nonge", "tich ma ok duok wach moro amora"),
+    __array: DocStr("molongo", "fwenyo mwandu molongo"),
   },
+
+  specialValues: {
+    __true: DocStr("adier", "adier mar wach"),
+    __false: DocStr("miriambo", "miriambo mar wach"),
+    __null: DocStr("luo", "ka onge gima nitiere"),
+  },
+
+  words: {
+    __new: DocStr("manyien", "mako gima manyien e kelasi"),
+    __this: DocStr("mani", "tiyo gi mwandu mag kelasi ni"),
+    __extends: DocStr("luwore", "ka kelasi luwore gi kelasi machielo"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("mar_iie", "gima itiyo godo kende e i kelasi"),
+    __public: DocStr("mar_lwar", "gima ngʼato ka ngʼato nyalo neno"),
+    __protected: DocStr(
+      "ma_orit",
+      "gima orit kendo nyalo tiyo e kelasi maluwore",
+    ),
+    __readonly: DocStr("som_kende", "gima isomo kende to ok lok"),
+    __static: DocStr("motegno", "gima en mar kelasi duto to ok mar gima moko"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "Ndik",
-        __description: "ndiko gima e skrin",
-      },
-      __scan: {
-        main: "Kaw",
-        __description: "kayo gima kuom jarit",
-      },
-      __return: {
-        main: "Dok",
-        __description: "doki gima kuom tich",
-      },
+      __print: DocStr("ndik", "ndiko gima e skrin"),
+      __scan: DocStr("kaw", "kaw wach kuom jarit"),
+      __return: DocStr("dok", "duoko wach kuom tich"),
+      __break: DocStr("ngʼad", "chogo tich e i loop"),
+      __continue: DocStr("dhi_nyime", "dhi nyime gi tich maluwore"),
     },
+
     sentences: {
-      __function: {
-        main: "Tich",
-        __description: "fwenyo tich",
-      },
-      __if: {
-        main: "Ka",
-        __description: "fwenyo kaka",
-      },
-      __else: {
-        main: "To",
-        __description: "machielo",
-      },
-      __while: {
-        main: "Kane",
-        __description: "loop kane",
-      },
-      __for: {
-        main: "Ni",
-        __description: "loop ni",
-      },
-      __switch: {
-        main: "Yiero",
-        __description: "yiero",
-      },
-      __case: {
-        main: "Kaka",
-        __description: "kaka e yiero",
-      },
-      __default: {
-        main: "Makare",
-        __description: "wach ma ochungʼ",
-      },
-      __try: {
-        main: "Tem",
-        __description: "tem",
-      },
-      __catch: {
-        main: "Mak",
-        __description: "mak rach",
-      },
-      __finally: {
-        main: "Gik",
-        __description: "gik duto",
-      },
+      __function: DocStr("tich", "fwenyo tich (function)"),
+      __if: DocStr("ka", "keto kaka (condition)"),
+      __else: DocStr("to_ka", "keto kaka machielo"),
+      __while: DocStr("kane", "nwoyo tich kane gima nitiere"),
+      __for: DocStr("ni", "nwoyo tich ni namba moro"),
+      __switch: DocStr("yiero", "yiero kuom weche mangʼeny"),
+      __case: DocStr("kaka", "kaka moro e i yiero"),
+      __default: DocStr("makare", "ka weche duto ok obet kare"),
+      __try: DocStr("tem", "temo kódigo ka en maber"),
+      __catch: DocStr("mak", "mako rach motimore"),
+      __finally: DocStr("gikone", "tich ma itiyo godo e giko"),
+      __class: DocStr("kelasi", "fwenyo kelasi manyien"),
+      __constructor: DocStr("jagedo", "tich ma gedo gima manyien e kelasi"),
     },
   },
+
   errors: {
-    main: {
-      tag: "RACH",
-      message: "Rach maduong mar sistim",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "RACH_MAONGE",
-      message: "Rach maonge ngʼeyo",
-    },
-    __TypeError: {
-      tag: "RACH_KIT",
-      message: "Kit ok owinjore",
-    },
-    __ReferenceError: {
-      tag: "RACH_NENO",
-      message: "Jokwath onge",
-    },
-    __SyntaxError: {
-      tag: "RACH_SINTAKS",
-      message: "Kod ok owinjore",
-    },
-    __RangeError: {
-      tag: "RACH_BOR",
-      message: "Okalo bor",
-    },
-    __URIError: {
-      tag: "RACH_URI",
-      message: "URI ok owinjore",
-    },
-    __EvalError: {
-      tag: "RACH_EVAL",
-      message: "Rach mar eval",
-    },
+    __labels: errorLabel(
+      "Wach",
+      "Namba",
+      "Jokwath",
+      "Kido",
+      "Gima",
+      "Ma_oriti",
+      "Ma_oyudi",
+      "Loko_motegno",
+      "Namba_moluar",
+      "Ng'eyo",
+      "Wach_marach",
+      "Olowo_bor",
+      "Token",
+      "Gik_maok_oriti",
+    ),
+    main: errorMessage("RACH", "rach maduong mar sistim"),
+    __TypeError: errorMessage("RACH_KIT", "kit gima ok owinjore"),
+    __InitError: errorMessage("RACH_CHAKRUOK", "jokwath ok ochak maber"),
+    __ReferenceError: errorMessage(
+      "RACH_NENO",
+      "jokwath, tich kata mwandu onge",
+    ),
+    __SyntaxError: errorMessage("RACH_SINTAKS", "ndiko kódigo marach"),
+    __RangeError: errorMessage("RACH_BOR", "namba okalo bor ma owinjore"),
+    __URIError: errorMessage("RACH_URI", "URI ok owinjore"),
+    __EvalError: errorMessage("RACH_EVAL", "rach kuom tich mar eval"),
+    __UNKNOWN_ERROR: errorMessage(
+      "RACH_MAONGE_NG'EYO",
+      "rach moro maonge ngʼeyo kuome",
+    ),
+  },
+
+  example: {
+    __array: [
+      "chiemo",
+      "pinje",
+      "gigo",
+      "ndekni",
+      "rangi",
+      "mwandu",
+      "jotiye",
+      "kanyakla",
+      "nandni",
+      "dhok",
+    ],
+    __boolean: [
+      "nitiere",
+      "en_maduong",
+      "otiye",
+      "nenore",
+      "olwore",
+      "odwonjo",
+      "oyie",
+      "orumo",
+      "onon",
+      "olal",
+    ],
+    __function: [
+      "yudNying",
+      "yudNamba",
+      "ndekniWach",
+      "lokoMwandu",
+      "nonWach",
+      "somGima",
+      "nonFomu",
+      "nwoyoGigo",
+      "ndikBous",
+      "kwanoDuto",
+    ],
+    __number: [
+      "higa",
+      "hik",
+      "diere",
+      "duto",
+      "nengo",
+      "ndelo",
+      "tek",
+      "kwan",
+      "nandni",
+      "saa",
+    ],
+    __object: [
+      "ng'ato",
+      "jotiye",
+      "ndiko",
+      "dwoko",
+      "chudo",
+      "chenro",
+      "kido",
+      "dala",
+      "weche",
+      "ndalo",
+    ],
+    __string: [
+      "nying",
+      "wi_wach",
+      "ndiko",
+      "email",
+      "wach_mar_iie",
+      "sango",
+      "lebol",
+      "token",
+      "url",
+      "link",
+    ],
+    __void: [
+      "donjo",
+      "chak",
+      "ywey",
+      "duok_ndalo",
+      "keth",
+      "wuok",
+      "ywey_cache",
+      "kan",
+      "org_email",
+      "fweny",
+    ],
   },
 }).grammar();

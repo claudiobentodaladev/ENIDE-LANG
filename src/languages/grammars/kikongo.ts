@@ -1,263 +1,263 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const kikongo = new Language({
   language: "kikongo",
   about:
     "ENIDE i transpilador ya kulukumanisa yoneka ya kuprograma mu ndimi yonso",
 
-  include: {
-    main: "Kotisa",
-    __description: "Isadilua mu kotisa ndinga evo biblioteka",
-  },
+  include: DocStr(
+    "Kotisa",
+    "Isadilua mu kotisa ndinga, biblioteka to struktura mu file zankaka",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "na",
-        __description: "ku zaba makanda ya ENIDE",
-      },
-      __help: {
-        main: "diambu",
-        __description: "ku zaba malista ya misambu yonso ya kukota",
-      },
-      __version: {
-        main: "nzila",
-        __description: "ku zaba nzila ya ENIDE",
-      },
-      __languages: {
-        main: "ndimi",
-        __description: "ku zaba malista ya ndimi yonso ya kukota",
-      },
-      __documentation: {
-        main: "masono",
-        __description: "ku zaba makanda ya ndimi",
-      },
-    },
+    __about: DocStr("na", "ku zaba makanda ya ENIDE"),
+    __help: DocStr("diambu", "ku zaba malista ya misambu yonso ya kukota"),
+    __version: DocStr("nzila", "ku zaba nzila ya ENIDE"),
+    __languages: DocStr("ndimi", "ku zaba malista ya ndimi yonso ya kukota"),
+    __documentation: DocStr("masono", "ku zaba makanda ya ndimi"),
+    __grammar: DocStr("gramatika", "ku zaba gramatika ya ndimi"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("nsiku", "ku sosa misamu ya nsiku ya mfunu"),
+      __isarray: DocStr("KenaArray", "ku tala soki tandu i array"),
+      __isobject: DocStr("KenaNtu", "ku tala soki tandu i ntu"),
+      __typeof: DocStr("Muxima", "ku zaba muxima ya tandu"),
+      __parse: DocStr("Parse", "ku soba malembo mu tandu ya mbote"),
+    },
     __math: {
-      main: {
-        main: "matematika",
-        __description: "ku sosa misamu ya matematika",
-      },
-      __pi: {
-        main: "PI",
-        __description: "ku zaba tandu ya pi",
-      },
-      __sqrt: {
-        main: "NsukaYaNzole",
-        __description: "ku baka nsuka ya nzole",
-      },
-      __pow: {
-        main: "Nguvu",
-        __description: "ku zaba nguvu ya namba",
-      },
-      __round: {
-        main: "Fingununa",
-        __description: "ku fingununa namba",
-      },
-      __random: {
-        main: "Sola",
-        __description: "ku baka namba ya sola",
-      },
-      __max: {
-        main: "Nene",
-        __description: "ku zaba tandu ya nene",
-      },
-      __min: {
-        main: "Fioti",
-        __description: "ku zaba tandu ya fioti",
-      },
-      __isNumber: {
-        main: "KenaNamba",
-        __description: "ku tala soki tandu i namba",
-      },
-      __isInteger: {
-        main: "KenaNambaYonso",
-        __description: "ku tala soki tandu i namba ya yonso",
-      },
-      __isFloat: {
-        main: "KenaNambaKipande",
-        __description: "ku tala soki tandu i namba ya kipande",
-      },
+      main: DocStr("matematika", "ku sosa misamu ya matematika"),
+      __pi: DocStr("PI", "ku zaba tandu ya pi"),
+      __sqrt: DocStr("NsukaYaNzole", "ku baka nsuka ya nzole"),
+      __pow: DocStr("Nguvu", "ku zaba nguvu ya namba"),
+      __round: DocStr("Fingununa", "ku fingununa namba"),
+      __random: DocStr("Sola", "ku baka namba ya sola"),
+      __max: DocStr("Nene", "ku zaba tandu ya nene"),
+      __min: DocStr("Fioti", "ku zaba tandu ya fioti"),
+      __isNumber: DocStr("KenaNamba", "ku tala soki tandu i namba"),
+      __isInteger: DocStr(
+        "KenaNambaYonso",
+        "ku tala soki tandu i namba ya yonso",
+      ),
+      __isFloat: DocStr(
+        "KenaNambaKipande",
+        "ku tala soki tandu i namba ya kipande",
+      ),
+      __cos: DocStr("Cos", "ku baka cosinus"),
+      __sin: DocStr("Sin", "ku baka sinus"),
+      __tan: DocStr("Tan", "ku baka tangente"),
     },
 
     __string: {
-      main: {
-        main: "mazwi",
-        __description: "ku sosa misamu ya kusobela malembo",
-      },
-      __length: {
-        main: "Yinda",
-        __description: "ku zaba yinda ya malembo",
-      },
-      __toUpperCase: {
-        main: "KuNene",
-        __description: "ku hindula malembo ku nene",
-      },
-      __toLowerCase: {
-        main: "KuFioti",
-        __description: "ku hindula malembo ku fioti",
-      },
+      main: DocStr("malembo", "ku sosa misamu ya kusobela malembo"),
+      __length: DocStr("Yinda", "ku zaba yinda ya malembo"),
+      __toUpperCase: DocStr("KuNene", "ku hindula malembo ku nene"),
+      __toLowerCase: DocStr("KuFioti", "ku hindula malembo ku fioti"),
+      __include: DocStr("Kuna", "ku tala soki malembo kuna substring"),
+      __repeat: DocStr("Vutula", "ku vutula malembo mbala mingi"),
     },
 
     __date: {
-      main: {
-        main: "lumbu",
-        __description: "ku sosa misamu ya lumbu ni ngonga",
-      },
-      __year: {
-        main: "Mvula",
-        __description: "ku zaba mvula",
-      },
-      __month: {
-        main: "Ngonda",
-        __description: "ku zaba ngonda",
-      },
-      __dayMonth: {
-        main: "LumbuNgonda",
-        __description: "ku zaba lumbu lwa ngonda",
-      },
-      __dayWeek: {
-        main: "LumbuLumingu",
-        __description: "ku zaba lumbu lwa lumingu",
-      },
-      __hour: {
-        main: "Ngonga",
-        __description: "ku zaba ngonga",
-      },
-      __minute: {
-        main: "Minutu",
-        __description: "ku zaba minutu",
-      },
-      __second: {
-        main: "Sekunde",
-        __description: "ku zaba sekunde",
-      },
+      main: DocStr("lumbu", "ku sosa misamu ya lumbu ni ngonga"),
+      __now: DocStr("Ntangu", "ku baka lumbu ni ngonga ya ntangu"),
+      __year: DocStr("Mvula", "ku zaba mvula"),
+      __month: DocStr("Ngonda", "ku zaba ngonda"),
+      __dayMonth: DocStr("LumbuNgonda", "ku zaba lumbu lwa ngonda"),
+      __dayWeek: DocStr("LumbuLumingu", "ku zaba lumbu lwa lumingu"),
+      __hour: DocStr("Ngonga", "ku zaba ngonga"),
+      __minute: DocStr("Minutu", "ku zaba minutu"),
+      __second: DocStr("Sekunde", "ku zaba sekunde"),
     },
   },
 
   types: {
-    __object: { main: "ntu", __description: "ku vova ntu ya kumana" },
+    __number: DocStr("namba", "ku baka kivikilanga kia muxima namba"),
+    __string: DocStr("malembo", "ku baka kivikilanga kia muxima malembo"),
+    __boolean: DocStr(
+      "kieleka",
+      "ku baka kivikilanga kia muxima ya kieleka to luvunu",
+    ),
+    __object: DocStr("ntu", "ku vova ntu ya kumana"),
+    __void: DocStr("mpamba", "ku vova misamu ke vutula dyaka"),
+    __array: DocStr("array", "ku vova struktura ya array"),
+  },
 
-    __number: {
-      main: "namba",
-      __description: "ku baka kivikilanga kia muxima namba",
-    },
+  specialValues: {
+    __true: DocStr("Kieleka", "tandu ya kieleka"),
+    __false: DocStr("Luvunu", "tandu ya luvunu"),
+    __null: DocStr("Null", "kukonda tandu"),
+  },
 
-    __string: {
-      main: "malembo",
-      __description: "ku baka kivikilanga kia muxima malembo",
-    },
+  words: {
+    __new: DocStr("yanga", "ku vanga instance ya klase"),
+    __this: DocStr("yai", "ku kota mu klase ya yandi"),
+    __extends: DocStr("yikila", "ku vova klase yikila kwa nkaka"),
+  },
 
-    __boolean: {
-      main: "kieleka",
-      values: { __true: "Kieleka", __false: "Luvunu" },
-      __description: "ku baka kivikilanga kia muxima ya kieleka to luvunu",
-    },
+  accessModifiers: {
+    __private: DocStr("ya mbala", "kaka mu kati ya klase"),
+    __public: DocStr("ya bantu", "kufwana ku kota mu bantu yonso"),
+    __protected: DocStr(
+      "ya kiyekwa",
+      "kufwana ku kota mu klase ye bana ya klase",
+    ),
+    __readonly: DocStr("tangaKaka", "tandu lenda tambula kaka mbala mosi"),
+    __static: DocStr("ya klase", "ya klase, ke ya instance ko"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "lemba",
-        __description: "ku lemba tandu ku ekele",
-      },
-      __scan: {
-        main: "sosa",
-        __description: "ku baka tandu ku njila ya kukota",
-      },
-      __return: {
-        main: "vutula",
-        __description: "ku vutula tandu ku misamu",
-      },
+      __print: DocStr("lemba", "ku lemba tandu ku ekele"),
+      __scan: DocStr("sosa", "ku baka tandu ku njila ya kukota"),
+      __return: DocStr("vutula", "ku vutula tandu ku misamu"),
+      __break: DocStr("tika", "ku tika mu ngyedi"),
+      __continue: DocStr("kwenda", "ku kwenda ku ngyedi ya landa"),
     },
 
     sentences: {
-      __function: {
-        main: "misamu",
-        __description: "ku baka misamu",
-      },
-      __if: {
-        main: "soki",
-        __description: "ku baka kondisaun",
-      },
-      __else: {
-        main: "kana",
-        __description: "ku baka kondisaun ya nkaka",
-      },
-      __while: {
-        main: "ngyedi",
-        __description: "ku baka ngyedi wa ngyedi",
-      },
-      __for: {
-        main: "mu",
-        __description: "ku baka ngyedi wa mu",
-      },
-      __switch: {
-        main: "songola",
-        __description: "ku baka mpila ya kusongola",
-      },
-      __case: {
-        main: "kima",
-        __description: "ku baka kima mu mpila ya kusongola",
-      },
-      __default: {
-        main: "nsuka",
-        __description: "ku baka kima kia nsuka mu mpila ya kusongola",
-      },
-      __try: {
-        main: "meka",
-        __description: "ku meka kusala",
-      },
-      __catch: {
-        main: "baka",
-        __description: "ku baka minsangu ya lubanza",
-      },
-      __finally: {
-        main: "nsukaYonso",
-        __description: "ku suka ntangu yonso",
-      },
+      __function: DocStr("misamu", "ku baka misamu"),
+      __if: DocStr("soki", "ku baka kondisaun"),
+      __else: DocStr("kana", "ku baka kondisaun ya nkaka"),
+      __while: DocStr("ngyedi", "ku baka ngyedi wa ngyedi"),
+      __for: DocStr("mu", "ku baka ngyedi wa mu"),
+      __switch: DocStr("songola", "ku baka mpila ya kusongola"),
+      __case: DocStr("kima", "ku baka kima mu mpila ya kusongola"),
+      __default: DocStr("nsuka", "ku baka kima kia nsuka"),
+      __try: DocStr("meka", "ku meka kusala"),
+      __catch: DocStr("baka", "ku baka minsangu ya lubanza"),
+      __finally: DocStr("nsukaYonso", "ku suka ntangu yonso"),
+      __class: DocStr("klase", "ku vova klase"),
+      __constructor: DocStr(
+        "konstruktor",
+        "struktura ya kuvanga bima mu klase",
+      ),
     },
   },
 
   errors: {
-    main: { tag: "MINSANGU", message: "Minsangu ya sistema" },
+    __labels: errorLabel(
+      "Nsangu",
+      "Tandu",
+      "Kivikilanga",
+      "Kima",
+      "Ntu",
+      "Inkutikila",
+      "Yambula",
+      "Kukonda Kusobela",
+      "Parameter Zole",
+      "Ngangu",
+      "Token Yabela",
+      "Stack Overflow",
+      "Token",
+      "Nsuka ya Ntinu",
+    ),
+    main: errorMessage("MINSANGU", "Minsangu ya sistema"),
+    __TypeError: errorMessage("MINSANGU_MUXIMA", "Muxima uabela mu misamu"),
+    __InitError: errorMessage("MINSANGU_YANTIKU", "Kivikilanga ke yantikwa"),
+    __ReferenceError: errorMessage(
+      "MINSANGU_REFERENCIA",
+      "Kivikilanga kikijila mu esika",
+    ),
+    __SyntaxError: errorMessage("MINSANGU_SINTAXE", "Koodu uabela"),
+    __RangeError: errorMessage(
+      "MINSANGU_RANGO",
+      "Tandu ifuila rango ya kuluvula",
+    ),
+    __URIError: errorMessage("MINSANGU_URI", "URI uabela ya bue"),
+    __EvalError: errorMessage("MINSANGU_EVAL", "Minsangu ya eval"),
+    __UNKNOWN_ERROR: errorMessage(
+      "MINSANGU_ISIBUE",
+      "Minsangu isibue ya kutala",
+    ),
+  },
 
-    __UNKNOWN_ERROR: {
-      tag: "MINSANGU_ISIBUE",
-      message: "Minsangu isibue ya kutala",
-    },
-
-    __TypeError: {
-      tag: "MINSANGU_MUXIMA",
-      message: "Muxima uabela mu misamu",
-    },
-
-    __ReferenceError: {
-      tag: "MINSANGU_REFERENCIA",
-      message: "Kivikilanga kikijila mu esika",
-    },
-
-    __SyntaxError: {
-      tag: "MINSANGU_SINTAXE",
-      message: "Koodu uabela",
-    },
-
-    __RangeError: {
-      tag: "MINSANGU_RANGO",
-      message: "Tandu ifuila rango ya kuluvula",
-    },
-
-    __URIError: {
-      tag: "MINSANGU_URI",
-      message: "URI uabela ya bue",
-    },
-
-    __EvalError: {
-      tag: "MINSANGU_EVAL",
-      message: "Minsangu ya eval",
-    },
+  example: {
+    __array: [
+      "madia",
+      "maka",
+      "bima",
+      "tag",
+      "kala",
+      "bima",
+      "bantu",
+      "kategori",
+      "ntalu",
+      "ndimi",
+    ],
+    __boolean: [
+      "salama",
+      "nene",
+      "ziula",
+      "monana",
+      "kaka nzila",
+      "kota",
+      "salama",
+      "manisa",
+      "tala",
+      "kanga",
+    ],
+    __function: [
+      "bongaZina",
+      "bongaTandu",
+      "lista",
+      "bongaMambu",
+      "songaMambu",
+      "parseInput",
+      "talaFomu",
+      "sobaBima",
+      "sobaNene",
+      "tangaNtalu",
+    ],
+    __number: [
+      "mvu",
+      "mvula",
+      "moyen",
+      "ntalu",
+      "ntalu",
+      "indeksi",
+      "ntangu",
+      "ntalu",
+      "ntalu",
+      "ntangu",
+    ],
+    __object: [
+      "muntu",
+      "muti",
+      "nsiku",
+      "mvutu",
+      "mfuka",
+      "nsiku",
+      "profil",
+      "adres",
+      "metadata",
+      "sesion",
+    ],
+    __string: [
+      "zina",
+      "ntu",
+      "nsangu",
+      "email",
+      "nsiku",
+      "nsangu",
+      "nsiku",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "kota",
+      "yantika",
+      "kanga",
+      "vutula",
+      "vonda",
+      "vaika",
+      "kangaCache",
+      "lunda",
+      "tumaEmail",
+      "kota",
+    ],
   },
 }).grammar();

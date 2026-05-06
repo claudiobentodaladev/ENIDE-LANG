@@ -1,250 +1,260 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const magyar = new Language({
   language: "magyar",
   about:
-    "Az ENIDE egy fordithato transzpiler, amely barmilyen nyelven lehetove teszi a programozast",
-  include: {
-    main: "Beillesztes",
-    __description: "Nyelv vagy könyvtárak beillesztésére szolgál",
-  },
+    "Az ENIDE egy poliglott transzpiler, amely bármilyen nyelven lehetővé teszi a programozást",
+
+  include: DocStr(
+    "beilleszt",
+    "nyelv, könyvtárak vagy adatstruktúrák beillesztésére szolgál más fájlokból",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "Nevjegy",
-        __description: "informacio az ENIDE-rol",
-      },
-      __help: {
-        main: "Segitseg",
-        __description: "az osszes elerheto parancs listaja",
-      },
-      __version: {
-        main: "Verzio",
-        __description: "az ENIDE aktualis verzioja",
-      },
-      __languages: {
-        main: "Nyelvek",
-        __description: "az osszes elerheto nyelv listaja",
-      },
-      __documentation: {
-        main: "Dokumentacio",
-        __description: "egy nyelv dokumentacioja",
-      },
-    },
+    __about: DocStr("névjegy", "információ az ENIDE rendszerről"),
+    __help: DocStr("segítség", "az összes elérhető parancs listája"),
+    __version: DocStr("verzió", "az ENIDE aktuális verziója"),
+    __languages: DocStr("nyelvek", "az összes elérhető nyelv listája"),
+    __documentation: DocStr("kézikönyv", "a nyelv dokumentációjának elérése"),
+    __grammar: DocStr("nyelvtan", "a nyelv nyelvtani leírásának elérése"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("alap", "hasznos standard metódusok elérése"),
+      __isarray: DocStr("tömb_e", "ellenőrzi, hogy az érték tömb-e"),
+      __isobject: DocStr("objektum_e", "ellenőrzi, hogy az érték objektum-e"),
+      __typeof: DocStr("Típusa", "visszaadja az érték típusát"),
+      __parse: DocStr(
+        "Értelmez",
+        "szöveges érték konvertálása a megfelelő típusra",
+      ),
+    },
     __math: {
-      main: {
-        main: "Matematika",
-        __description: "matematikai funkciok elerese",
-      },
-      __pi: {
-        main: "Pi",
-        __description: "a pi erteke",
-      },
-      __sqrt: {
-        main: "Gyok",
-        __description: "negyzetgyok szamitasa",
-      },
-      __pow: {
-        main: "Hatvany",
-        __description: "szam hatvanyozasa",
-      },
-      __round: {
-        main: "Kerekit",
-        __description: "szam kerekitese",
-      },
-      __random: {
-        main: "Veletlen",
-        __description: "veletlen szam generalasa",
-      },
-      __max: {
-        main: "Legnagyobb",
-        __description: "maximalis ertek",
-      },
-      __min: {
-        main: "Legkisebb",
-        __description: "minimalis ertek",
-      },
-      __isNumber: {
-        main: "SzamE",
-        __description: "ellenorzi, hogy az ertek szam-e",
-      },
-      __isInteger: {
-        main: "EgeszE",
-        __description: "ellenorzi, hogy az ertek egesz szam-e",
-      },
-      __isFloat: {
-        main: "TizedesE",
-        __description: "ellenorzi, hogy az ertek tizedes szam-e",
-      },
+      main: DocStr("matematika", "matematikai funkciók elérése"),
+      __pi: DocStr("PI", "a PI konstans értéke"),
+      __sqrt: DocStr("Gyök", "négyzetgyök számítása"),
+      __pow: DocStr("Hatvány", "szám hatványozása"),
+      __round: DocStr("Kerekít", "szám kerekítése a legközelebbi egészre"),
+      __random: DocStr("Véletlen", "véletlen szám generálása"),
+      __max: DocStr("Maximum", "a legnagyobb érték kiválasztása"),
+      __min: DocStr("Minimum", "a legkisebb érték kiválasztása"),
+      __isNumber: DocStr("SzámE", "ellenőrzi, hogy az érték szám-e"),
+      __isInteger: DocStr("EgészE", "ellenőrzi, hogy az érték egész szám-e"),
+      __isFloat: DocStr("TizedesE", "ellenőrzi, hogy az érték tizedes szám-e"),
+      __cos: DocStr("Cos", "szög koszinusza radiánban"),
+      __sin: DocStr("Sin", "szög szinusza radiánban"),
+      __tan: DocStr("Tan", "szög tangense radiánban"),
     },
+
     __string: {
-      main: {
-        main: "Szoveg",
-        __description: "szovegkezelo funkciok elerese",
-      },
-      __length: {
-        main: "Hossz",
-        __description: "szoveg hossza",
-      },
-      __toUpperCase: {
-        main: "Nagybetu",
-        __description: "szoveg nagybetusse alakitasa",
-      },
-      __toLowerCase: {
-        main: "Kisbetu",
-        __description: "szoveg kisbetusse alakitasa",
-      },
+      main: DocStr("szöveg", "szövegkezelő funkciók elérése"),
+      __length: DocStr("Hossz", "a szöveg karakter száma"),
+      __toUpperCase: DocStr("Nagybetűs", "szöveg nagybetűssé alakítása"),
+      __toLowerCase: DocStr("Kisbetűs", "szöveg kisbetűssé alakítása"),
+      __include: DocStr(
+        "Tartalmazza",
+        "ellenőrzi, hogy a szöveg tartalmaz-e részletet",
+      ),
+      __repeat: DocStr("Ismétel", "szöveg megismétlése adott számszor"),
     },
+
     __date: {
-      main: {
-        main: "Datum",
-        __description: "datum- es idokezelo funkciok elerese",
-      },
-      __year: {
-        main: "Ev",
-        __description: "ev lekerdezese",
-      },
-      __month: {
-        main: "Honap",
-        __description: "honap lekerdezese",
-      },
-      __dayMonth: {
-        main: "HonapNapja",
-        __description: "a honap napja",
-      },
-      __dayWeek: {
-        main: "HetNapja",
-        __description: "a het napja",
-      },
-      __hour: {
-        main: "Ora",
-        __description: "ora lekerdezese",
-      },
-      __minute: {
-        main: "Perc",
-        __description: "perc lekerdezese",
-      },
-      __second: {
-        main: "Masodperc",
-        __description: "masodperc lekerdezese",
-      },
+      main: DocStr("dátum", "dátum- és időkezelő funkciók elérése"),
+      __now: DocStr("Most", "a jelenlegi dátum és idő lekérése"),
+      __year: DocStr("Év", "az év lekérése"),
+      __month: DocStr("Hónap", "a hónap lekérése"),
+      __dayMonth: DocStr("HónapNapja", "a hónap napjának lekérése"),
+      __dayWeek: DocStr("HétNapja", "a hét napjának lekérése"),
+      __hour: DocStr("Óra", "az óra lekérése"),
+      __minute: DocStr("Perc", "a perc lekérése"),
+      __second: DocStr("Másodperc", "a másodperc lekérése"),
     },
   },
+
   types: {
-    __object: {
-      main: "Objektum",
-      __description: "statikus objektum deklaralasahoz",
-    },
-    __number: {
-      main: "Szam",
-      __description: "szam tipusu valtozo deklaralasa",
-    },
-    __string: {
-      main: "Szoveg",
-      __description: "szoveg tipusu valtozo deklaralasa",
-    },
-    __boolean: {
-      main: "Logikai",
-      values: { __true: "Igaz", __false: "Hamis" },
-      __description: "logikai tipusu valtozo deklaralasa",
-    },
+    __number: DocStr("szám", "szám típusú változó deklarálása"),
+    __string: DocStr("szöveg", "szöveg típusú változó deklarálása"),
+    __boolean: DocStr("bool", "logikai típusú változó deklarálása"),
+    __object: DocStr("objektum", "statisztikus objektum deklarálása"),
+    __void: DocStr("üres", "függvény, amely nem tér vissza értékkel"),
+    __array: DocStr("tömb", "tömb struktúra deklarálása"),
   },
+
+  specialValues: {
+    __true: DocStr("igaz", "logikai igaz érték"),
+    __false: DocStr("hamis", "logikai hamis érték"),
+    __null: DocStr("semmi", "érték hiánya"),
+  },
+
+  words: {
+    __new: DocStr("új", "új osztálypéldány létrehozása"),
+    __this: DocStr("ez", "hivatkozás az aktuális osztálypéldányra"),
+    __extends: DocStr("származik", "osztályöröklődés deklarálása"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("privát", "csak az osztályon belül érhető el"),
+    __public: DocStr("nyilvános", "bárhonnan elérhető"),
+    __protected: DocStr(
+      "védett",
+      "az osztályban és leszármazottaiban érhető el",
+    ),
+    __readonly: DocStr("olvasható", "csak egyszer adható érték neki"),
+    __static: DocStr("statikus", "az osztályhoz tartozik, nem a példányhoz"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "Kiir",
-        __description: "ertek kiirasa a kepernyore",
-      },
-      __scan: {
-        main: "Beolvas",
-        __description: "ertek beolvasasa a bemenetrol",
-      },
-      __return: {
-        main: "Visszater",
-        __description: "ertek visszadasa egy fuggvenybol",
-      },
+      __print: DocStr("kiír", "érték kiírása a képernyőre"),
+      __scan: DocStr("beolvas", "érték beolvasása a bemenetről"),
+      __return: DocStr("visszatér", "érték visszaadása egy függvényből"),
+      __break: DocStr("megszakít", "kilépés egy ciklusból"),
+      __continue: DocStr("folytat", "ugrás a következő iterációra"),
     },
+
     sentences: {
-      __function: {
-        main: "Fuggveny",
-        __description: "fuggveny deklaralasa",
-      },
-      __if: {
-        main: "Ha",
-        __description: "feltetel deklaralasa",
-      },
-      __else: {
-        main: "Kulonben",
-        __description: "alternativ feltetel deklaralasa",
-      },
-      __while: {
-        main: "Amig",
-        __description: "while ciklus deklaralasa",
-      },
-      __for: {
-        main: "Ciklus",
-        __description: "for ciklus deklaralasa",
-      },
-      __switch: {
-        main: "Valasztas",
-        __description: "valasztasi szerkezet deklaralasa",
-      },
-      __case: {
-        main: "Eset",
-        __description: "egy eset deklaralasa a szerkezetben",
-      },
-      __default: {
-        main: "Alapertelmezett",
-        __description: "alapertelmezett eset deklaralasa",
-      },
-      __try: {
-        main: "Probal",
-        __description: "try blokk deklaralasa",
-      },
-      __catch: {
-        main: "Elkap",
-        __description: "hibakezelo blokk deklaralasa",
-      },
-      __finally: {
-        main: "Vegezetul",
-        __description: "mindenkeppen lefutto blokk deklaralasa",
-      },
+      __function: DocStr("függvény", "függvény deklarálása"),
+      __if: DocStr("ha", "feltétel deklarálása"),
+      __else: DocStr("különben", "alternatív ág deklarálása"),
+      __while: DocStr("amíg", "feltételes ciklus deklarálása"),
+      __for: DocStr("ciklus", "számlálós ciklus deklarálása"),
+      __switch: DocStr("választ", "többágú választás deklarálása"),
+      __case: DocStr("eset", "egy választási eset deklarálása"),
+      __default: DocStr("alapértelmezett", "ha egyik eset sem teljesül"),
+      __try: DocStr("próbál", "kivételkezelés megkísérlése"),
+      __catch: DocStr("elkap", "hiba elkapása és kezelése"),
+      __finally: DocStr("végezetül", "mindenképpen lefutó ág"),
+      __class: DocStr("osztály", "osztály deklarálása"),
+      __constructor: DocStr("konstruktor", "osztálypéldány inicializálása"),
     },
   },
+
   errors: {
-    main: {
-      tag: "HIBA",
-      message: "Altalanos rendszerhiba",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "ISMERETLEN_HIBA",
-      message: "Teljesen ismeretlen hiba",
-    },
-    __TypeError: {
-      tag: "TIPUS_HIBA",
-      message: "Ervenytelen tipus a muveletben",
-    },
-    __ReferenceError: {
-      tag: "HIVATKOZAS_HIBA",
-      message: "A valtozo nem letezik a hatokorben",
-    },
-    __SyntaxError: {
-      tag: "SZINTAXIS_HIBA",
-      message: "Ervenytelen kod",
-    },
-    __RangeError: {
-      tag: "TARTOMANY_HIBA",
-      message: "Az ertek kivul esik a megengedett tartomanyon",
-    },
-    __URIError: {
-      tag: "URI_HIBA",
-      message: "Hibas vagy ervenytelen URI",
-    },
-    __EvalError: {
-      tag: "EVAL_HIBA",
-      message: "Eval fuggvennyel kapcsolatos hiba",
-    },
+    __labels: errorLabel(
+      "Üzenet",
+      "Érték",
+      "Változó",
+      "Tulajdonság",
+      "Objektum",
+      "Elvárt",
+      "Kapott",
+      "Konstans hozzárendelés",
+      "Duplikált paraméter",
+      "Tipp",
+      "Érvénytelen token",
+      "Verem túlcsordulás",
+      "Token",
+      "Váratlan bevitel vége",
+    ),
+    main: errorMessage("HIBA", "általános rendszerhiba"),
+    __TypeError: errorMessage("TÍPUS_HIBA", "érvénytelen típus a műveletben"),
+    __InitError: errorMessage(
+      "INICIALIZÁCIÓS_HIBA",
+      "a változó nem lett inicializálva",
+    ),
+    __ReferenceError: errorMessage(
+      "HIVATKOZÁS_HIBA",
+      "a változó, függvény vagy könyvtár nem létezik",
+    ),
+    __SyntaxError: errorMessage("SZINTAXIS_HIBA", "érvénytelen kód"),
+    __RangeError: errorMessage(
+      "TARTOMÁNY_HIBA",
+      "az érték kívül esik a tartományon",
+    ),
+    __URIError: errorMessage("URI_HIBA", "hibás vagy érvénytelen URI"),
+    __EvalError: errorMessage("EVAL_HIBA", "hiba az eval használatakor"),
+    __UNKNOWN_ERROR: errorMessage(
+      "ISMERETLEN_HIBA",
+      "teljesen ismeretlen hiba történt",
+    ),
+  },
+
+  example: {
+    __array: [
+      "ételek",
+      "országok",
+      "elemek",
+      "címkék",
+      "színek",
+      "termékek",
+      "felhasználók",
+      "kategóriák",
+      "pontok",
+      "nyelvek",
+    ],
+    __boolean: [
+      "állapot",
+      "felnőtt_e",
+      "aktív_e",
+      "látható_e",
+      "engedélyezve",
+      "bejelentkezve",
+      "működik",
+      "kész_van",
+      "ellenőrizve",
+      "törölve",
+    ],
+    __function: [
+      "névLekérése",
+      "értékSzámítása",
+      "listázás",
+      "adatokFrissítése",
+      "formázás",
+      "elemzés",
+      "ellenőrzés",
+      "mentés",
+      "üzenetKüldése",
+      "összegzés",
+    ],
+    __number: [
+      "életkor",
+      "évszám",
+      "átlag",
+      "összeg",
+      "ár",
+      "index",
+      "időtartam",
+      "mennyiség",
+      "pontszám",
+      "idő",
+    ],
+    __object: [
+      "személy",
+      "felhasználó",
+      "beállítás",
+      "válasz",
+      "fizetés",
+      "konfiguráció",
+      "profil",
+      "cím",
+      "metaadat",
+      "munkamenet",
+    ],
+    __string: [
+      "név",
+      "cím",
+      "leírás",
+      "email",
+      "jelszó",
+      "üzenet",
+      "címke",
+      "kulcs",
+      "url",
+      "hivatkozás",
+    ],
+    __void: [
+      "indít",
+      "töröl",
+      "leállít",
+      "visszaállít",
+      "megsemmisít",
+      "kilép",
+      "gyorsítótárÜrítése",
+      "mentés",
+      "küldés",
+      "bejelentkezés",
+    ],
   },
 }).grammar();

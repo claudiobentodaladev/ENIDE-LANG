@@ -1,249 +1,241 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const nupe = new Language({
   language: "nupe",
   about: "ENIDE wo transpiler gbe wu eci program mu cibe nyonso",
-  include: {
-    main: "Saci",
-    __description: "A lá gã sãci cibe ko biblioteka",
-  },
+
+  include: DocStr(
+    "saci",
+    "A lá gã sãci cibe, ko biblioteka ko mojulu gã koodu ndoci",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "yeci",
-        __description: "ba yeci kumen ENIDE",
-      },
-      __help: {
-        main: "belo",
-        __description: "ba liste kumen eci",
-      },
-      __version: {
-        main: "versio",
-        __description: "ba ENIDE versio",
-      },
-      __languages: {
-        main: "cibe",
-        __description: "ba liste cibe",
-      },
-      __documentation: {
-        main: "sura",
-        __description: "ba sura cibe",
-      },
-    },
+    __about: DocStr("yeci", "Ba yeci kumen ENIDE"),
+    __help: DocStr("belo", "Ba liste kumen milayo nyonso"),
+    __version: DocStr("versio", "Ba ENIDE versio nanan"),
+    __languages: DocStr("cibe", "Ba liste cibe nyonso na kpinga na"),
+    __documentation: DocStr("sura", "Ba sura cibe nanan"),
+    __grammar: DocStr("isintaksi", "Ba isintaksi cibe"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("kstandard", "Nge tuuma karda kime"),
+      __isarray: DocStr("ye_lista", "De elo ye lista"),
+      __isobject: DocStr("ye_gana", "De elo ye gana"),
+      __typeof: DocStr("ye_jijik", "Ba elo jijik"),
+      __parse: DocStr("parse", "Guqula gbolu be jijik gba"),
+    },
     __math: {
-      main: {
-        main: "kalkulo",
-        __description: "nge kalkulo tuuma",
-      },
-      __pi: {
-        main: "PI",
-        __description: "ba pi elo",
-      },
-      __sqrt: {
-        main: "FatoKpata",
-        __description: "ba fato kpata",
-      },
-      __pow: {
-        main: "Tswafi",
-        __description: "ba tswafi namba",
-      },
-      __round: {
-        main: "Zuba",
-        __description: "zuba namba",
-      },
-      __random: {
-        main: "Wuci",
-        __description: "ba wuci namba",
-      },
-      __max: {
-        main: "Gba",
-        __description: "ba elo gba",
-      },
-      __min: {
-        main: "Kpe",
-        __description: "ba elo kpe",
-      },
-      __isNumber: {
-        main: "YeNamba",
-        __description: "de elo ye namba",
-      },
-      __isInteger: {
-        main: "YeKpun",
-        __description: "de elo ye namba kpun",
-      },
-      __isFloat: {
-        main: "YeDesimal",
-        __description: "de elo ye desimal",
-      },
+      main: DocStr("kalkulo", "Nge kalkulo tuuma"),
+      __pi: DocStr("PI", "Elo PI na a de na"),
+      __sqrt: DocStr("fatokpata", "Ba fato kpata namba"),
+      __pow: DocStr("tswafi", "Ba tswafi namba"),
+      __round: DocStr("zuba", "Zuba namba be namba ndoci gba"),
+      __random: DocStr("wuci", "Ba namba wuci"),
+      __max: DocStr("gba", "Ba elo gba kime lista"),
+      __min: DocStr("kpe", "Ba elo kpe kime lista"),
+      __isNumber: DocStr("yenamba", "De elo ye namba"),
+      __isInteger: DocStr("yekpun", "De elo ye namba kpun"),
+      __isFloat: DocStr("yedesimal", "De elo ye desimal"),
+      __cos: DocStr("cos", "Ba cosine"),
+      __sin: DocStr("sin", "Ba sine"),
+      __tan: DocStr("tan", "Ba tangent"),
     },
+
     __string: {
-      main: {
-        main: "gbolu",
-        __description: "nge gbolu tuuma",
-      },
-      __length: {
-        main: "Godo",
-        __description: "ba gbolu godo",
-      },
-      __toUpperCase: {
-        main: "KaGba",
-        __description: "gbolu gba",
-      },
-      __toLowerCase: {
-        main: "KaKpe",
-        __description: "gbolu kpe",
-      },
+      main: DocStr("gbolu", "Nge gbolu tuuma"),
+      __length: DocStr("godo", "Ba gbolu godo"),
+      __toUpperCase: DocStr("kagba", "Gbolu gba nyonso"),
+      __toLowerCase: DocStr("kakpe", "Gbolu kpe nyonso"),
+      __include: DocStr("de_kime", "De gbolu de gbolu ndoci kime"),
+      __repeat: DocStr("yege_gbolu", "Yege gbolu kuta kuta"),
     },
+
     __date: {
-      main: {
-        main: "wuci",
-        __description: "nge wuci tuuma",
-      },
-      __year: {
-        main: "Koro",
-        __description: "ba koro",
-      },
-      __month: {
-        main: "Uwuci",
-        __description: "ba uwuci",
-      },
-      __dayMonth: {
-        main: "WuciUwuci",
-        __description: "ba wuci uwuci",
-      },
-      __dayWeek: {
-        main: "WuciSati",
-        __description: "ba wuci sati",
-      },
-      __hour: {
-        main: "Elo",
-        __description: "ba elo",
-      },
-      __minute: {
-        main: "Miniti",
-        __description: "ba miniti",
-      },
-      __second: {
-        main: "Sekondi",
-        __description: "ba sekondi",
-      },
+      main: DocStr("wuci", "Nge wuci kaba elo tuuma"),
+      __now: DocStr("nanan", "Ba wuci kaba elo nanan"),
+      __year: DocStr("koro", "Ba koro"),
+      __month: DocStr("uwuci", "Ba uwuci"),
+      __dayMonth: DocStr("wuciuwuci", "Ba wuci uwuci"),
+      __dayWeek: DocStr("wucisati", "Ba wuci sati"),
+      __hour: DocStr("elo", "Ba elo"),
+      __minute: DocStr("miniti", "Ba miniti"),
+      __second: DocStr("sekondi", "Ba sekondi"),
     },
   },
+
   types: {
-    __object: {
-      main: "gana",
-      __description: "ka gana ebi la",
-    },
-    __number: {
-      main: "namba",
-      __description: "ye jijik namba",
-    },
-    __string: {
-      main: "gbolu",
-      __description: "ye jijik gbolu",
-    },
-    __boolean: {
-      main: "bool",
-      values: { __true: "Eyi", __false: "Ayi" },
-      __description: "ye jijik bool",
-    },
+    __number: DocStr("namba", "Ye jijik namba"),
+    __string: DocStr("gbolu", "Ye jijik gbolu"),
+    __boolean: DocStr("bool", "Ye jijik logic (eyi/ayi)"),
+    __object: DocStr("gana", "Ye gana"),
+    __void: DocStr("toci", "Karda na a de elo yege na"),
+    __array: DocStr("lista", "Ye lista"),
   },
+
+  specialValues: {
+    __true: DocStr("eyi", "Elo eyi"),
+    __false: DocStr("ayi", "Elo ayi"),
+    __null: DocStr("ndkho", "Ndkho elo"),
+  },
+
+  words: {
+    __new: DocStr("woyo", "Ba woyo classe"),
+    __this: DocStr("nan", "Ba classe nan"),
+    __extends: DocStr("nweba", "Classe na a de nweba na"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("ngasese", "Kime classe naci faa"),
+    __public: DocStr("obala", "Duna duna"),
+    __protected: DocStr("kuvikelwe", "Kime classe kaba subclasses"),
+    __readonly: DocStr("fundakuphela", "Elo na a de so kuta na"),
+    __static: DocStr("okumile", "Eci classe, ayi eci gana"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "kuna",
-        __description: "kuna elo ekran",
-      },
-      __scan: {
-        main: "dogo",
-        __description: "dogo elo",
-      },
-      __return: {
-        main: "yege",
-        __description: "yege elo",
-      },
+      __print: DocStr("kuna", "Kuna elo ekran"),
+      __scan: DocStr("dogo", "Dogo elo gã user"),
+      __return: DocStr("yege", "Yege elo gã karda"),
+      __break: DocStr("nqamula", "Tunda kime loop"),
+      __continue: DocStr("qhubeka", "Lozhi iteraçaun ndoci"),
     },
+
     sentences: {
-      __function: {
-        main: "karda",
-        __description: "ye karda",
-      },
-      __if: {
-        main: "de",
-        __description: "ye sariya",
-      },
-      __else: {
-        main: "kama",
-        __description: "ye sariya taci",
-      },
-      __while: {
-        main: "wu",
-        __description: "ye loop wu",
-      },
-      __for: {
-        main: "nge",
-        __description: "ye loop nge",
-      },
-      __switch: {
-        main: "suwe",
-        __description: "ye suwe",
-      },
-      __case: {
-        main: "kolo",
-        __description: "ye kolo",
-      },
-      __default: {
-        main: "kolo_faa",
-        __description: "ye kolo faa",
-      },
-      __try: {
-        main: "gande",
-        __description: "ye gande",
-      },
-      __catch: {
-        main: "buka",
-        __description: "ye buka gafe",
-      },
-      __finally: {
-        main: "kune",
-        __description: "ye kune",
-      },
+      __function: DocStr("karda", "Ye karda woyo"),
+      __if: DocStr("de", "Ye sariya"),
+      __else: DocStr("kama", "Sariya kama eyi ayi na"),
+      __while: DocStr("wu", "Loop de sariya"),
+      __for: DocStr("nge", "Loop de namba"),
+      __switch: DocStr("suwe", "Suwe sariya binkaka"),
+      __case: DocStr("kolo", "Kolo kime suwe"),
+      __default: DocStr("kolo_faa", "Kolo na sariya ndoci eyi na"),
+      __try: DocStr("gande", "Gande koodu"),
+      __catch: DocStr("buka", "Buka gafe"),
+      __finally: DocStr("kune", "Tuuma na a de wun nyonso na"),
+      __class: DocStr("ikilasi", "Ye ikilasi woyo"),
+      __constructor: DocStr("umakhi", "Karda na a de gana ikilasi na"),
     },
   },
+
   errors: {
-    main: {
-      tag: "GAFE",
-      message: "Gafe karda",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "GAFE_KA_BANG",
-      message: "Gafe ka bang",
-    },
-    __TypeError: {
-      tag: "GAFE_CIBE",
-      message: "Cibe ziga",
-    },
-    __ReferenceError: {
-      tag: "GAFE_REFERENS",
-      message: "Jijik duna",
-    },
-    __SyntaxError: {
-      tag: "GAFE_SINTAKS",
-      message: "Koodu ziga",
-    },
-    __RangeError: {
-      tag: "GAFE_GODO",
-      message: "Elo godo zola",
-    },
-    __URIError: {
-      tag: "GAFE_URI",
-      message: "URI ziga",
-    },
-    __EvalError: {
-      tag: "GAFE_EVAL",
-      message: "Eval gafe",
-    },
+    __labels: errorLabel(
+      "Umlayezo",
+      "Elo",
+      "Jijik",
+      "Impahla",
+      "Gana",
+      "Obukulindelekile",
+      "Okutholakele",
+      "Nika_Constante",
+      "Parametro_Ephindiwe",
+      "Isu",
+      "Token_Ziga",
+      "Stack_Overloop",
+      "Token",
+      "Fin_Unexpected",
+    ),
+    main: errorMessage("GAFE", "Gafe karda sistema"),
+    __TypeError: errorMessage("GAFE_CIBE", "Cibe ziga gã tuuma nan"),
+    __InitError: errorMessage(
+      "GAFE_INITIAL",
+      "Jijik na a de inicializa bien na",
+    ),
+    __ReferenceError: errorMessage("GAFE_REFERENS", "Jijik ko karda duna"),
+    __SyntaxError: errorMessage("GAFE_SINTAKS", "Isintaksi koodu ziga"),
+    __RangeError: errorMessage("GAFE_GODO", "Elo godo zola"),
+    __URIError: errorMessage("GAFE_URI", "URI ziga"),
+    __EvalError: errorMessage("GAFE_EVAL", "Eval gafe"),
+    __UNKNOWN_ERROR: errorMessage("GAFE_KA_BANG", "Gafe ka bang gã bue"),
+  },
+
+  example: {
+    __array: [
+      "egin",
+      "fuchi",
+      "lista_majina",
+      "namba",
+      "imibala",
+      "zizhe",
+      "outelizadores",
+      "kategorya",
+      "vipu",
+      "cibe",
+    ],
+    __boolean: [
+      "stado",
+      "eyi_atibo",
+      "de_ousar",
+      "beise_que",
+      "outorizado",
+      "ya_antrou",
+      "andando",
+      "feito",
+      "berificado",
+      "apagado",
+    ],
+    __function: [
+      "baMajina",
+      "balaElo",
+      "bonisaData",
+      "vuselelaProfil",
+      "formataGbolu",
+      "analizaKoodu",
+      "hlolaInpu",
+      "gcinaIfayela",
+      "sendMinsangu",
+      "sumaTodo",
+    ],
+    __number: [
+      "iminyaka",
+      "koro_kusemuka",
+      "medio",
+      "total",
+      "intengo",
+      "inkomba",
+      "wuci",
+      "ubuningi",
+      "amaphuzu",
+      "elo",
+    ],
+    __object: [
+      "muntu",
+      "ikhasimende",
+      "izilungiselelo",
+      "impendulo",
+      "inkokhelo",
+      "configuraçaun",
+      "iphrofayili",
+      "ikheli",
+      "metadata",
+      "iseshini",
+    ],
+    __string: [
+      "majina",
+      "isihloko",
+      "incazelo",
+      "imeyili",
+      "iphasiwedi",
+      "umlayezo",
+      "ithegi",
+      "isikhiye",
+      "url",
+      "isixhumanisi",
+    ],
+    __void: [
+      "qala",
+      "susa",
+      "misa",
+      "hlanza",
+      "bhubhisa",
+      "phuma",
+      "hlanza_cache",
+      "gcina_konke",
+      "thumela",
+      "ngena",
+    ],
   },
 }).grammar();

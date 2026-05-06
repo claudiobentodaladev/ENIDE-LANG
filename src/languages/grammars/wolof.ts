@@ -1,258 +1,238 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const wolof = new Language({
   language: "wolof",
-  about: "ENIDE moy un transpiler bu dem ay laaj ci kenn ci benn ci dëkk bi",
+  about: "ENIDE moy un transpiler bu dem ay laaj ci kenn ci benn ci dekk bi",
 
-  include: {
-    main: "Boole",
-    __description: "Ñu koy jëfandikoo ngir boole làkk walla mbindu-téere yi",
-  },
+  include: DocStr(
+    "Boole",
+    "Nu koy jefandikoo ngir boole lakk walla mbindu-teere yi",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "CiEnide",
-        __description: "jënd xam-xam ci ENIDE",
-      },
-      __help: {
-        main: "Ndimbal",
-        __description: "jënd liste yi nep ngay soxor",
-      },
-      __version: {
-        main: "Version",
-        __description: "jënd version bi tey bi ENIDE",
-      },
-      __languages: {
-        main: "Lakk",
-        __description: "jënd liste yi nep lakk yi",
-      },
-      __documentation: {
-        main: "Dekk",
-        __description: "jënd documentation lakk bi",
-      },
-    },
+    __about: DocStr("CiEnide", "jend xam-xam ci ENIDE"),
+    __help: DocStr("Ndimbal", "jend liste yi nep ngay soxor"),
+    __version: DocStr("Version", "jend version bi tey bi ENIDE"),
+    __languages: DocStr("Lakk", "jend liste yi nep lakk yi"),
+    __documentation: DocStr("Dekk", "jend documentation lakk bi"),
+    __grammar: DocStr("Sintaks", "won leen sartu mbindu lakk bi"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("Standard", "liggey yu mujj ci sisteem bi"),
+      __isarray: DocStr("DafaListe", "xool bu jem dafay liste"),
+      __isobject: DocStr("DafaBepp", "xool bu jem dafay bepp (object)"),
+      __typeof: DocStr("YoonuJem", "jend yoonu jem bi"),
+      __parse: DocStr("Xamle", "peretvoryuye tekst u vidpovidnyy typ danykh"),
+    },
     __math: {
-      main: {
-        main: "Matematig",
-        __description: "dugg ci liggey matematig",
-      },
-      __pi: {
-        main: "PI",
-        __description: "jënd jëm pi",
-      },
-      __sqrt: {
-        main: "TaanSquare",
-        __description: "jënd taan square",
-      },
-      __pow: {
-        main: "Doole",
-        __description: "jënd doole numero",
-      },
-      __round: {
-        main: "Weefu",
-        __description: "weefu numero",
-      },
-      __random: {
-        main: "Diidante",
-        __description: "jënd numero diidante",
-      },
-      __max: {
-        main: "Reewi",
-        __description: "jënd jëm bi reewi",
-      },
-      __min: {
-        main: "Ndaw",
-        __description: "jënd jëm bi ndaw",
-      },
-      __isNumber: {
-        main: "DafaNumero",
-        __description: "xool bu jëm dafay numero",
-      },
-      __isInteger: {
-        main: "DafaNumeroYep",
-        __description: "xool bu jëm dafay numero yep",
-      },
-      __isFloat: {
-        main: "DafaDesimal",
-        __description: "xool bu jëm dafay desimal",
-      },
+      main: DocStr("Matematig", "dugg ci liggey matematig"),
+      __pi: DocStr("PI", "jend jem pi"),
+      __sqrt: DocStr("TaanSquare", "jend taan square"),
+      __pow: DocStr("Doole", "jend doole numero"),
+      __round: DocStr("Weefu", "weefu numero"),
+      __random: DocStr("Diidante", "jend numero diidante"),
+      __max: DocStr("Reewi", "jend jem bi reewi"),
+      __min: DocStr("Ndaw", "jend jem bi ndaw"),
+      __isNumber: DocStr("DafaNumero", "xool bu jem dafay numero"),
+      __isInteger: DocStr("DafaNumeroYep", "xool bu jem dafay numero yep"),
+      __isFloat: DocStr("DafaDesimal", "xool bu jem dafay desimal"),
+      __cos: DocStr("cos", "natt kosinus"),
+      __sin: DocStr("sin", "natt sinus"),
+      __tan: DocStr("tan", "natt tanjant"),
     },
 
     __string: {
-      main: {
-        main: "Xare",
-        __description: "dugg ci liggey xare",
-      },
-      __length: {
-        main: "Gudde",
-        __description: "jënd gudde xare bi",
-      },
-      __toUpperCase: {
-        main: "KaWaxtuGorgor",
-        __description: "tëral xare ci kaso gorgor",
-      },
-      __toLowerCase: {
-        main: "KaWaxtuNdaw",
-        __description: "tëral xare ci kaso ndaw",
-      },
+      main: DocStr("Xare", "dugg ci liggey xare (strings)"),
+      __length: DocStr("Gudde", "jend gudde xare bi"),
+      __toUpperCase: DocStr("KaWaxtuGorgor", "teral xare ci kaso gorgor"),
+      __toLowerCase: DocStr("KaWaxtuNdaw", "teral xare ci kaso ndaw"),
+      __include: DocStr("AmNa", "xool bu xare bi am na mbind mi"),
+      __repeat: DocStr("Bamaat", "bamaat xare bi lu bari yoon"),
     },
 
     __date: {
-      main: {
-        main: "Bess",
-        __description: "dugg ci liggey bëss ak waktu",
-      },
-      __year: {
-        main: "At",
-        __description: "jënd at",
-      },
-      __month: {
-        main: "Weer",
-        __description: "jënd weer",
-      },
-      __dayMonth: {
-        main: "BessWeer",
-        __description: "jënd bëss weer bi",
-      },
-      __dayWeek: {
-        main: "BessAjuma",
-        __description: "jënd bëss ajuma bi",
-      },
-      __hour: {
-        main: "Waktu",
-        __description: "jënd waktu",
-      },
-      __minute: {
-        main: "Minit",
-        __description: "jënd minit",
-      },
-      __second: {
-        main: "Segon",
-        __description: "jënd segon",
-      },
+      main: DocStr("Bess", "dugg ci liggey bess ak waktu"),
+      __now: DocStr("Legi", "jend bess ak waktu bi legi"),
+      __year: DocStr("At", "jend at"),
+      __month: DocStr("Weer", "jend weer"),
+      __dayMonth: DocStr("BessWeer", "jend bess weer bi"),
+      __dayWeek: DocStr("BessAjuma", "jend bess ajuma bi"),
+      __hour: DocStr("Waktu", "jend waktu"),
+      __minute: DocStr("Minit", "jend minit"),
+      __second: DocStr("Segon", "jend segon"),
     },
   },
 
   types: {
-    __object: {
-      main: "Bepp",
-      __description: "def bepp bu dek",
-    },
-    __number: {
-      main: "Numero",
-      __description: "wax jëm yi ci yoon numero",
-    },
-    __string: {
-      main: "Xare",
-      __description: "wax jëm yi ci yoon xare",
-    },
-    __boolean: {
-      main: "Bool",
-      values: { __true: "Degg", __false: "Fen" },
-      __description: "wax jëm yi ci yoon boolean",
-    },
+    __number: DocStr("Numero", "wax jem yi ci yoon numero"),
+    __string: DocStr("Xare", "wax jem yi ci yoon xare"),
+    __boolean: DocStr("Bool", "wax jem yi ci yoon boolean"),
+    __object: DocStr("Bepp", "def bepp bu dek"),
+    __void: DocStr("Nenn", "liggey bi du dellu dara"),
+    __array: DocStr("Liste", "wax jem yi ci yoon liste"),
+  },
+
+  specialValues: {
+    __true: DocStr("Degg", "jemu degg ci logig"),
+    __false: DocStr("Fen", "jemu fen ci logig"),
+    __null: DocStr("Dara", "wan ni dara amul ci biir"),
+  },
+
+  words: {
+    __new: DocStr("Bees", "sos bepp bu bees"),
+    __this: DocStr("Lii", "joksi ci bepp bi ne legi"),
+    __extends: DocStr("Wey", "donn sarti benen klase"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("Kumpa", "kenn du ko gis ludul ci biir"),
+    __public: DocStr("Mboolo", "nep man na nu ko gis"),
+    __protected: DocStr("Aar", "biir ak neen yu ko donn"),
+    __readonly: DocStr("MbinduRek", "manoo ko soppi, mbindu rek"),
+    __static: DocStr("Tege", "jemu klase bi, du jemu eksemplar bi"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "Bind",
-        __description: "bind jëm ci ecran",
-      },
-      __scan: {
-        main: "Jend",
-        __description: "jënd jëm ci jëndkat",
-      },
-      __return: {
-        main: "Dellu",
-        __description: "dellu ak jëm ci liggey",
-      },
+      __print: DocStr("Bind", "bind jem ci ecran"),
+      __scan: DocStr("Jend", "jend jem ci jendkat"),
+      __return: DocStr("Dellu", "dellu ak jëm ci liggey"),
+      __break: DocStr("Dog", "dogal loop bi legi"),
+      __continue: DocStr("Weyal", "dem ci iterasiyoŋ bi ci kanam"),
     },
 
     sentences: {
-      __function: {
-        main: "Liggey",
-        __description: "wax liggey",
-      },
-      __if: {
-        main: "BuYegel",
-        __description: "wax yëgël",
-      },
-      __else: {
-        main: "Wante",
-        __description: "wax yëgël wente",
-      },
-      __while: {
-        main: "CaLoop",
-        __description: "wax loop ca",
-      },
-      __for: {
-        main: "NuLoop",
-        __description: "wax loop nu",
-      },
-      __switch: {
-        main: "Tanu",
-        __description: "wax yëgël tanu",
-      },
-      __case: {
-        main: "Dekk",
-        __description: "wax dëkk ci yëgël tanu",
-      },
-      __default: {
-        main: "Tuuru",
-        __description: "wax dëkk tuuru",
-      },
-      __try: {
-        main: "Dem",
-        __description: "wax bloku dem",
-      },
-      __catch: {
-        main: "Jot",
-        __description: "wax bloku jot jafe-jafe",
-      },
-      __finally: {
-        main: "CiKaw",
-        __description: "wax bloku bu dafay liggey ndaxte",
-      },
+      __function: DocStr("Liggey", "wax liggey"),
+      __if: DocStr("BuYegel", "wax yegel (if)"),
+      __else: DocStr("Wante", "wax yegel wente (else)"),
+      __while: DocStr("CaLoop", "wax loop ca (while)"),
+      __for: DocStr("NuLoop", "wax loop nu (for)"),
+      __switch: DocStr("Tanu", "wax yegel tanu (switch)"),
+      __case: DocStr("Dekk", "wax dekk ci yegel tanu (case)"),
+      __default: DocStr("Tuuru", "wax dekk tuuru (default)"),
+      __try: DocStr("Dem", "wax bloku dem (try)"),
+      __catch: DocStr("Jot", "wax bloku jot jafe-jafe (catch)"),
+      __finally: DocStr("CiKaw", "wax bloku bu dafay liggey ndaxte (finally)"),
+      __class: DocStr("Klase", "sos benn klase"),
+      __constructor: DocStr("Sosekat", "liggey buy sos bepp bi"),
     },
   },
 
   errors: {
-    main: {
-      tag: "JAFE",
-      message: "Jafe ci biir sisteem bi",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "JafeXamuloo",
-      message: "Jafe bu xamul",
-    },
-    __TypeError: {
-      tag: "JafeYoon",
-      message: "Yoon bi baax dafa fay liggey",
-    },
-    __ReferenceError: {
-      tag: "JafeDakkal",
-      message: "Jëm amul ci ëmb bi",
-    },
-    __SyntaxError: {
-      tag: "JafeSintaks",
-      message: "Code bi baaxul",
-    },
-    __RangeError: {
-      tag: "JafeWeesu",
-      message: "Jëm bi dees ci jëm bi weesu",
-    },
-    __URIError: {
-      tag: "JafeUri",
-      message: "URI bi bañ wala baaxul",
-    },
-    __EvalError: {
-      tag: "JafeEval",
-      message: "Jafe ci eval",
-    },
+    __labels: errorLabel(
+      "Bataaxal",
+      "Jem",
+      "Zminna",
+      "Vlastyvist",
+      "Bepp",
+      "LiNuLoon",
+      "LiNuJot",
+      "SoppiKonstante",
+      "ParametarBiri",
+      "Ndimbal",
+      "MbinduBaaxul",
+      "StackFees",
+      "Mbind",
+      "JeexalVvodu",
+    ),
+    main: errorMessage("JAFE", "Jafe ci biir sisteem bi"),
+    __TypeError: errorMessage("JafeYoon", "Yoon bi baax dafa fay liggey"),
+    __InitError: errorMessage("JafeInit", "Zminna bi amul dara ci biir"),
+    __ReferenceError: errorMessage("JafeDakkal", "Jem amul ci emb bi"),
+    __SyntaxError: errorMessage("JafeSintaks", "Code bi baaxul"),
+    __RangeError: errorMessage("JafeWeesu", "Jem bi dees ci jem bi weesu"),
+    __URIError: errorMessage("JafeUri", "URI bi ban wala baaxul"),
+    __EvalError: errorMessage("JafeEval", "Jafe ci eval"),
+    __UNKNOWN_ERROR: errorMessage("JafeXamuloo", "Jafe bu xamul"),
+  },
+
+  example: {
+    __array: [
+      "liste_pissa",
+      "dekk_yi",
+      "liste_numero",
+      "numero_yi",
+      "koleer_yi",
+      "cin_yi",
+      "nit_yi",
+      "biro_yi",
+      "note_yi",
+      "lakk_yi",
+    ],
+    __boolean: [
+      "ekalo",
+      "bi_liggey",
+      "am_ndiggel",
+      "pare",
+      "deggal",
+      "ubbe",
+      "mu_wey",
+      "jeex",
+      "seet",
+      "baayi",
+    ],
+    __function: [
+      "jendTur",
+      "nattJem",
+      "wonLeen",
+      "beesalProfil",
+      "mbinduTekst",
+      "seetuKod",
+      "seetuLeen",
+      "dencalMbind",
+      "yabalBataaxal",
+      "booleYep",
+    ],
+    __number: [
+      "at",
+      "at_juddu",
+      "moyenne",
+      "yep",
+      "ndiege",
+      "indeks",
+      "waktu",
+      "bari",
+      "note",
+      "hodyna",
+    ],
+    __object: [
+      "nit",
+      "kiliyan",
+      "sart",
+      "tontu",
+      "payant",
+      "profil",
+      "dekkwaay",
+      "metadana",
+      "sesiyoŋ",
+      "bepp",
+    ],
+    __string: [
+      "tur",
+      "dekkwaay",
+      "wan_leen",
+      "imel",
+      "pass",
+      "bataaxal",
+      "nimo",
+      "caabi",
+      "url",
+      "posylannya",
+    ],
+    __void: [
+      "demal",
+      "fat",
+      "taxawal",
+      "setal",
+      "ray",
+      "gennal",
+      "setalBufer",
+      "dencalYep",
+      "yabal",
+      "duggal",
+    ],
   },
 }).grammar();

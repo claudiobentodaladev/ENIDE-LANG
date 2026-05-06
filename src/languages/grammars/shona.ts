@@ -1,309 +1,281 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const shona = new Language({
   language: "shona",
-
   about:
     "ENIDE chirongwa chinobvumira kushandura makodhi uye kuprograma mumitauro yakasiyana",
 
-  include: {
-    main: "batanidza",
-    __description: "inoshandiswa kubatanidza mutauro kana maraibhurari",
-  },
+  include: DocStr(
+    "batanidza",
+    "inoshandiswa kubatanidza mitauro, maraibhurari kana mamodule ekunze",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "nezve",
-        __description: "kuwana ruzivo nezve ENIDE",
-      },
-
-      __help: {
-        main: "rubatsiro",
-        __description: "kuratidza mirairo yose iripo",
-      },
-
-      __version: {
-        main: "shanduro",
-        __description: "kuratidza shanduro iripo ye ENIDE",
-      },
-
-      __languages: {
-        main: "mitauro",
-        __description: "kuratidza mitauro yose iripo",
-      },
-
-      __documentation: {
-        main: "gwaro",
-        __description: "kuratidza gwaro remutauro",
-      },
-    },
+    __about: DocStr("nezve", "kuwana ruzivo nezve chirongwa che ENIDE"),
+    __help: DocStr("rubatsiro", "kuratidza mirairo yose iripo mu ENIDE"),
+    __version: DocStr("shanduro", "kuratidza shanduro iripo ye ENIDE"),
+    __languages: DocStr(
+      "mitauro",
+      "kuratidza mitauro yose inotsigirwa ne ENIDE",
+    ),
+    __documentation: DocStr(
+      "gwaro",
+      "kuratidza gwaro rekushandisa mutauro uyu",
+    ),
+    __grammar: DocStr("grama", "mitemo yomanyorerwo emutauro uyu"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("yakajairika", "kuwana mabasa ekutanga ehurongwa"),
+      __isarray: DocStr(
+        "inhungamiro",
+        "kuona kana kukosha kuri nhengo dzerondedzero",
+      ),
+      __isobject: DocStr(
+        "ichinhu",
+        "kuona kana kukosha kuri chinhu chakarongeka",
+      ),
+      __typeof: DocStr("mhando_ye", "kudzora mhando yedata riri muchinhu"),
+      __parse: DocStr(
+        "ongorora",
+        "kushandura mameseji kuita mhando yedata kwayo",
+      ),
+    },
     __math: {
-      main: {
-        main: "masvomhu",
-        __description: "mabasa emasvomhu",
-      },
-
-      __pi: {
-        main: "pi",
-        __description: "kukosha kwe pi",
-      },
-
-      __sqrt: {
-        main: "mudzi",
-        __description: "mudzi weskweya wenhamba",
-      },
-
-      __pow: {
-        main: "simba",
-        __description: "kusimudza nhamba kusimba",
-      },
-
-      __round: {
-        main: "kutenderedza",
-        __description: "kutenderedza nhamba",
-      },
-
-      __random: {
-        main: "zvakasarudzwa",
-        __description: "kugadzira nhamba isina kurongeka",
-      },
-
-      __max: {
-        main: "huru",
-        __description: "nhamba huru pakati pezvakapihwa",
-      },
-
-      __min: {
-        main: "diki",
-        __description: "nhamba diki pakati pezvakapihwa",
-      },
-
-      __isNumber: {
-        main: "inhamba",
-        __description: "kuona kana kukosha kuri nhamba",
-      },
-
-      __isInteger: {
-        main: "inhambaYose",
-        __description: "kuona kana nhamba iri yose",
-      },
-
-      __isFloat: {
-        main: "inedesimali",
-        __description: "kuona kana nhamba ine desimali",
-      },
+      main: DocStr("masvomhu", "mabasa emasvomhu nezvinhu zvisingachinji"),
+      __pi: DocStr("PI", "kukosha kwechisingachinji chinonzi Pi"),
+      __sqrt: DocStr("mudzi", "kuziva mudzi weskweya wenhamba"),
+      __pow: DocStr("simba", "kusimudza nhamba kusimba rakati"),
+      __round: DocStr(
+        "tenderedza",
+        "kutenderedza nhamba kusvika pane iri pedyo",
+      ),
+      __random: DocStr("zvakasarudzwa", "kugadzira nhamba isina kurongeka"),
+      __max: DocStr("huru", "kudzora nhamba huru pane dzapihwa"),
+      __min: DocStr("diki", "kudzora nhamba diki pane dzapihwa"),
+      __isNumber: DocStr("inhamba", "kuona kana kukosha kuri nhamba"),
+      __isInteger: DocStr("inhambaYose", "kuona kana nhamba iri yose"),
+      __isFloat: DocStr("inedesimali", "kuona kana nhamba ine desimali"),
+      __cos: DocStr("kosi", "kuziva cosine"),
+      __sin: DocStr("sini", "kuziva sine"),
+      __tan: DocStr("tani", "kuziva tangent"),
     },
 
     __string: {
-      main: {
-        main: "chinyorwa",
-        __description: "mabasa ekushanda nemashoko",
-      },
-
-      __length: {
-        main: "kureba",
-        __description: "urefu hwechinyorwa",
-      },
-
-      __toUpperCase: {
-        main: "mavaraMakuru",
-        __description: "kushandura kuva mavara makuru",
-      },
-
-      __toLowerCase: {
-        main: "mavaraMadiki",
-        __description: "kushandura kuva mavara madiki",
-      },
+      main: DocStr("chinyorwa", "mabasa ekushanda nemashoko nemavara"),
+      __length: DocStr("kureba", "kudzora urefu hwechinyorwa"),
+      __toUpperCase: DocStr("mavaraMakuru", "kushandura mavara kuita makuru"),
+      __toLowerCase: DocStr("mavaraMadiki", "kushandura mavara kuita madiki"),
+      __include: DocStr(
+        "ine_mo",
+        "kuona kana chinyorwa chine rimwe shoko mukati",
+      ),
+      __repeat: DocStr("dzokorora", "kudzokorora chinyorwa kashoma"),
     },
 
     __date: {
-      main: {
-        main: "nguva",
-        __description: "mabasa enguva nemazuva",
-      },
-
-      __year: {
-        main: "gore",
-        __description: "kuwana gore",
-      },
-
-      __month: {
-        main: "mwedzi",
-        __description: "kuwana mwedzi",
-      },
-
-      __dayMonth: {
-        main: "zuvaMwedzi",
-        __description: "zuva remwedzi",
-      },
-
-      __dayWeek: {
-        main: "zuvaVhiki",
-        __description: "zuva revhiki",
-      },
-
-      __hour: {
-        main: "awa",
-        __description: "kuwana awa",
-      },
-
-      __minute: {
-        main: "maminitsi",
-        __description: "kuwana maminitsi",
-      },
-
-      __second: {
-        main: "sekondi",
-        __description: "kuwana sekondi",
-      },
+      main: DocStr("nguva", "mabasa enguva nemazuva"),
+      __now: DocStr("izvozvi", "nguva nezuva ranhasi"),
+      __year: DocStr("gore", "kuwana gore"),
+      __month: DocStr("mwedzi", "kuwana mwedzi"),
+      __dayMonth: DocStr("zuva_mwedzi", "zuva remwedzi"),
+      __dayWeek: DocStr("zuva_vhiki", "zuva revhiki"),
+      __hour: DocStr("awa", "kuwana awa"),
+      __minute: DocStr("maminitsi", "kuwana maminitsi"),
+      __second: DocStr("sekondi", "kuwana sekondi"),
     },
   },
 
   types: {
-    __object: {
-      main: "chinhu",
-      __description: "chinhu chine data rakarongeka",
-    },
+    __number: DocStr("nhamba", "kutsanangura nhamba"),
+    __string: DocStr("chinyorwa", "kutsanangura mavara nemashoko"),
+    __boolean: DocStr("chokwadiNhema", "kutsanangura chokwadi kana nhema"),
+    __object: DocStr("chinhu", "kutsanangura chinhu chakarongeka"),
+    __void: DocStr("isina", "kurudziro yekuti hapana chinodzorwa"),
+    __array: DocStr("nhungamiro", "kutsanangura rondedzero yezvinhu"),
+  },
 
-    __number: {
-      main: "nhamba",
-      __description: "mhando yenhamba",
-    },
+  specialValues: {
+    __true: DocStr("chokwadi", "kukosha kwechokwadi"),
+    __false: DocStr("nhema", "kukosha kwenhema"),
+    __null: DocStr("hapana", "kushaikwa kwekukosha"),
+  },
 
-    __string: {
-      main: "chinyorwa",
-      __description: "mhando yemavara",
-    },
+  words: {
+    __new: DocStr("itsva", "kugadzira chinhu chitsva kubva mukirasi"),
+    __this: DocStr("ichi", "kunongedzera kuchinhu chiripo iye zvino"),
+    __extends: DocStr("inowedzera", "kushandisa nhaka kubva kune imwe kirasi"),
+  },
 
-    __boolean: {
-      main: "chokwadiNhema",
-      values: {
-        __true: "chokwadi",
-        __false: "nhema",
-      },
-      __description: "mhando yechokwadi kana nhema",
-    },
+  accessModifiers: {
+    __private: DocStr("pachivande", "inowanikwa mukati mekurasii chete"),
+    __public: DocStr("pachena", "inowanikwa kwese kwese"),
+    __protected: DocStr("yakachengetedzwa", "inowanikwa mukirasi nevana vayo"),
+    __readonly: DocStr("kuverenga_chete", "kukosha hakugoni kuchinjwa"),
+    __static: DocStr("isingazununguki", "ndeye kirasi, kwete yechinhu chimwe"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "dhinda",
-        __description: "kuratidza pachiratidziri",
-      },
-
-      __scan: {
-        main: "verenga",
-        __description: "kutora input kubva kumushandisi",
-      },
-
-      __return: {
-        main: "dzorera",
-        __description: "kudzosa kukosha",
-      },
+      __print: DocStr("dhinda", "kuratidza pachiratidziri"),
+      __scan: DocStr("verenga", "kutora input kubva kumushandisi"),
+      __return: DocStr("dzorera", "kudzosa kukosha kubva mubasa"),
+      __break: DocStr("mira", "kumira kuitwa kwe loop pakarepo"),
+      __continue: DocStr("enderera", "kuenda kune imwe nhanho ye loop"),
     },
 
     sentences: {
-      __function: {
-        main: "basa",
-        __description: "kutsanangura basa",
-      },
-
-      __if: {
-        main: "kana",
-        __description: "mamiriro",
-      },
-
-      __else: {
-        main: "zvimwe",
-        __description: "imwe nzira kana mamiriro asiri echokwadi",
-      },
-
-      __while: {
-        main: "apo",
-        __description: "loop inomhanya apo mamiriro achiri echokwadi",
-      },
-
-      __for: {
-        main: "kune",
-        __description: "loop ine kuverenga",
-      },
-
-      __switch: {
-        main: "sarudza",
-        __description: "sarudzo pakati pemamiriro",
-      },
-
-      __case: {
-        main: "nyaya",
-        __description: "imwe sarudzo mukusarudza",
-      },
-
-      __default: {
-        main: "yakajairika",
-        __description: "sarudzo yekupedzisira",
-      },
-
-      __try: {
-        main: "edza",
-        __description: "kuyedza kodhi",
-      },
-
-      __catch: {
-        main: "bata",
-        __description: "kubata zvikanganiso",
-      },
-
-      __finally: {
-        main: "pakupedzisira",
-        __description: "inomhanya nguva dzose",
-      },
+      __function: DocStr("basa", "kugadzira basa idzva"),
+      __if: DocStr("kana", "kutarisa mamiriro"),
+      __else: DocStr("zvimwe", "nzira kana mamiriro asiri echokwadi"),
+      __while: DocStr("apo", "loop inomhanya kana mamiriro ari echokwadi"),
+      __for: DocStr("kune", "loop ine kuverenga kwakatarwa"),
+      __switch: DocStr("sarudza", "sarudzo pakati pezvakawanda"),
+      __case: DocStr("nyaya", "nyaya imwe chete musarudzo"),
+      __default: DocStr("yakajairika", "kana pasina nyaya yabatwa"),
+      __try: DocStr("edza", "kuyedza kumhanyisa kodhi"),
+      __catch: DocStr("bata", "kubata zvikanganiso zvamuka"),
+      __finally: DocStr("pakupedzisira", "kodhi inomhanya nguva dzose"),
+      __class: DocStr("kirasi", "kugadzira kirasi idzva"),
+      __constructor: DocStr("muvaki", "basa rekugadzira chinhu chekirasi"),
     },
   },
 
   errors: {
-    main: {
-      tag: "KUKANGANISA",
-      message: "kukanganisa kwehurongwa",
-    },
+    __labels: errorLabel(
+      "Mharidzo",
+      "Kukosha",
+      "Chinhu",
+      "Pfuma",
+      "ChinhuChakarongeka",
+      "Zvaishuvewa",
+      "Zvawanikwa",
+      "Kupa_kukosha_kuchisingachinji",
+      "Zita_rakadzokororwa",
+      "Zano",
+      "Tocheni_isiri_iyo",
+      "Staka_remerwa",
+      "Tocheni",
+      "Input_yapera_zvisizvo",
+    ),
+    main: errorMessage(
+      "KUKANGANISA",
+      "kukanganisa kwehurongwa hwechimbichimbi",
+    ),
+    __TypeError: errorMessage(
+      "KUKANGANISA_MHANDO",
+      "mhando yedata isiri iyo pakushanda",
+    ),
+    __InitError: errorMessage(
+      "KUKANGANISA_INIT",
+      "chinhu hachina kugadzirwa zvakanaka",
+    ),
+    __ReferenceError: errorMessage(
+      "KUKANGANISA_REF",
+      "kunongedzera kuchinhu chisipo",
+    ),
+    __SyntaxError: errorMessage(
+      "KUKANGANISA_SYNTAX",
+      "manyorerwo ekodhi asiri aya",
+    ),
+    __RangeError: errorMessage(
+      "KUKANGANISA_RANGE",
+      "nhamba iri kunze kwemiganhu inotenderwa",
+    ),
+    __URIError: errorMessage("KUKANGANISA_URI", "mamiriro e URI asiri iwo"),
+    __EvalError: errorMessage("KUKANGANISA_EVAL", "kukanganisa mubasa re eval"),
+    __UNKNOWN_ERROR: errorMessage(
+      "KUKANGANISA_KUSAZIVIKWA",
+      "kukanganisa kusingazivikanwi kwaitika",
+    ),
+  },
 
-    __UNKNOWN_ERROR: {
-      tag: "KUKANGANISA_KUSAZIVIKWA",
-      message: "kukanganisa kusingazivikanwi",
-    },
-
-    __TypeError: {
-      tag: "KUKANGANISA_MHANDO",
-      message: "mhando isiri iyo",
-    },
-
-    __ReferenceError: {
-      tag: "KUKANGANISA_REF",
-      message: "chinhu hachina kuwanikwa",
-    },
-
-    __SyntaxError: {
-      tag: "KUKANGANISA_SYNTAX",
-      message: "syntax isiri iyo",
-    },
-
-    __RangeError: {
-      tag: "KUKANGANISA_RANGE",
-      message: "kunze kwemiganhu",
-    },
-
-    __URIError: {
-      tag: "KUKANGANISA_URI",
-      message: "URI haina kurongeka",
-    },
-
-    __EvalError: {
-      tag: "KUKANGANISA_EVAL",
-      message: "kukanganisa kwe eval",
-    },
+  example: {
+    __array: [
+      "kudya",
+      "nyika",
+      "mazita",
+      "nhamba",
+      "mavara",
+      "zvinhu",
+      "vashandisi",
+      "mupanda",
+      "zvibodzwa",
+      "mitauro",
+    ],
+    __boolean: [
+      "mamiriro",
+      "iri_kushanda",
+      "inobvumirwa",
+      "yapera",
+      "mvumo",
+      "pa_indaneti",
+      "munzira",
+      "yaitwa",
+      "yaongororwa",
+      "yadzimwa",
+    ],
+    __function: [
+      "toraZita",
+      "verengaKukosha",
+      "ratidzaData",
+      "vandudzaProfil",
+      "gadziraChinyorwa",
+      "ongororaKodhi",
+      "tarisaData",
+      "chengetedzaGwaro",
+      "tumiraShoko",
+      "sanganisaZvose",
+    ],
+    __number: [
+      "zera",
+      "gore_rekuberekwa",
+      "avhareji",
+      "zvose",
+      "mutengo",
+      "indekisi",
+      "nguva",
+      "huwandu",
+      "mhedzisiro",
+      "awa",
+    ],
+    __object: [
+      "munhu",
+      "mutengi",
+      "zvirongwa",
+      "mhinduro",
+      "mubhadharo",
+      "magadzirirwo",
+      "profil",
+      "kwaunogara",
+      "metadata",
+      "nguva_yekushanda",
+    ],
+    __string: [
+      "zita",
+      "musoro_wenyaya",
+      "tsananguro",
+      "tsamba",
+      "pasiwedi",
+      "mharidzo",
+      "tegi",
+      "kiyi",
+      "url",
+      "linki",
+    ],
+    __void: [
+      "mhanya",
+      "dzima",
+      "mira",
+      "chenesa",
+      "paradza",
+      "buda",
+      "isina_buffer",
+      "chengetedza_zvose",
+      "tumira",
+      "pinda",
+    ],
   },
 }).grammar();

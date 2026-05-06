@@ -1,259 +1,240 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const tigrinya = new Language({
   language: "tigrinya",
   about:
     "ENIDE bemananyawun quanquwa prwgiram lemagber yemiyakil transpiler eyu",
 
-  include: {
-    main: "Miitaw",
-    __description: "Qwanqwa wey metsahafti nim'itaw yegelgil",
-  },
+  include: DocStr("Miitaw", "Qwanqwa wey metsahafti nim'itaw yegelgil"),
 
   commands: {
-    all: {
-      __about: {
-        main: "BiZaeba",
-        __description: "bi zaeba ENIDE merja lemagnet",
-      },
-      __help: {
-        main: "Hagez",
-        __description: "ye_ajaj_zerzer_lemayet",
-      },
-      __version: {
-        main: "Bershen",
-        __description: "ye_ENIDE_bershen_lemayet",
-      },
-      __languages: {
-        main: "Quanquatat",
-        __description: "ye_quanquatat_zerzer",
-      },
-      __documentation: {
-        main: "Dawkumenteshen",
-        __description: "ye_quanqua_merja",
-      },
-    },
+    __about: DocStr("BiZaeba", "bi zaeba ENIDE merja lemagnet"),
+    __help: DocStr("Hagez", "ye ajaj zerzer lemayet"),
+    __version: DocStr("Bershen", "ye ENIDE bershen lemayet"),
+    __languages: DocStr("Quanquatat", "ye quanquatat zerzer lemayet"),
+    __documentation: DocStr("Dawkumenteshen", "ye quanqua merja lemayet"),
+    __grammar: DocStr("Gramatika", "ye quanqua gramatika lemayet"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("Tikim", "ye tikim shira lemagnet"),
+      __isarray: DocStr("TseyitaEyu", "tseyita mehonun lemaregaget"),
+      __isobject: DocStr("NegerEyu", "neger mehonun lemaregaget"),
+      __typeof: DocStr("Aynet", "aynet waga lemagnet"),
+      __parse: DocStr("Parse", "qalt wedad le-aynetu waga lemeferem"),
+    },
+
     __math: {
-      main: {
-        main: "Hisab",
-        __description: "ye_hisab_shira",
-      },
-      __pi: {
-        main: "PI",
-        __description: "waga_pi",
-      },
-      __sqrt: {
-        main: "SkwerRut",
-        __description: "skwer_rut_lemagnet",
-      },
-      __pow: {
-        main: "Hayli",
-        __description: "hayli_qutsi",
-      },
-      __round: {
-        main: "Rawund",
-        __description: "qutsi_lemamulat",
-      },
-      __random: {
-        main: "Tesa",
-        __description: "yetasaba_qutsi",
-      },
-      __max: {
-        main: "Abiy",
-        __description: "ka_hulu_abiy",
-      },
-      __min: {
-        main: "Nishtey",
-        __description: "ka_hulu_nishtey",
-      },
-      __isNumber: {
-        main: "QutsiEyu",
-        __description: "qutsi_mehonun_lemaregaget",
-      },
-      __isInteger: {
-        main: "MuluQutsi",
-        __description: "mulu_qutsi_mehonun",
-      },
-      __isFloat: {
-        main: "DesimalEyu",
-        __description: "desimal_mehonun",
-      },
+      main: DocStr("Hisab", "ye hisab shira lemagnet"),
+      __pi: DocStr("PI", "waga pi lemagnet"),
+      __sqrt: DocStr("SkwerRut", "skwer rut lemagnet"),
+      __pow: DocStr("Hayli", "hayli qutsi lemagnet"),
+      __round: DocStr("Rawund", "qutsi lemamulat"),
+      __random: DocStr("Tesa", "yetasaba qutsi lemagnet"),
+      __max: DocStr("Abiy", "ka hulu abiy lemagnet"),
+      __min: DocStr("Nishtey", "ka hulu nishtey lemagnet"),
+      __isNumber: DocStr("QutsiEyu", "qutsi mehonun lemaregaget"),
+      __isInteger: DocStr("MuluQutsi", "mulu qutsi mehonun lemaregaget"),
+      __isFloat: DocStr("DesimalEyu", "desimal mehonun lemaregaget"),
+      __cos: DocStr("Cos", "cosinus zaviya beradiyans lemagnet"),
+      __sin: DocStr("Sin", "sinus zaviya beradiyans lemagnet"),
+      __tan: DocStr("Tan", "tangent zaviya beradiyans lemagnet"),
     },
 
     __string: {
-      main: {
-        main: "Qalt",
-        __description: "ye_qalt_shira",
-      },
-      __length: {
-        main: "Nuhmet",
-        __description: "nuhmet_qalt",
-      },
-      __toUpperCase: {
-        main: "AbiyFidel",
-        __description: "wed_abiy_fidel_lemalewet",
-      },
-      __toLowerCase: {
-        main: "NishteyFidel",
-        __description: "wed_nishtey_fidel_lemalewet",
-      },
+      main: DocStr("Qalt", "ye qalt shira lemagnet"),
+      __length: DocStr("Nuhmet", "nuhmet qalt lemagnet"),
+      __toUpperCase: DocStr("AbiyFidel", "wed abiy fidel lemalewet"),
+      __toLowerCase: DocStr("NishteyFidel", "wed nishtey fidel lemalewet"),
+      __include: DocStr("Yilegnal", "qalt substring yizazal lemaregaget"),
+      __repeat: DocStr("Keter", "qalt yemit keter gizie lemameles"),
     },
 
     __date: {
-      main: {
-        main: "Mealti",
-        __description: "mealti_inna_saat",
-      },
-      __year: {
-        main: "Amet",
-        __description: "amet_lemagnet",
-      },
-      __month: {
-        main: "Werhi",
-        __description: "werhi_lemagnet",
-      },
-      __dayMonth: {
-        main: "MealtiWerhi",
-        __description: "mealti_werhi_lemagnet",
-      },
-      __dayWeek: {
-        main: "MealtiShammun",
-        __description: "mealti_shammun",
-      },
-      __hour: {
-        main: "Saat",
-        __description: "saat_lemagnet",
-      },
-      __minute: {
-        main: "Deqiqa",
-        __description: "deqiqa_lemagnet",
-      },
-      __second: {
-        main: "Sekond",
-        __description: "sekond_lemagnet",
-      },
+      main: DocStr("Mealti", "mealti inna saat shira lemagnet"),
+      __now: DocStr("Ahun", "ahun mealti inna saat lemagnet"),
+      __year: DocStr("Amet", "amet lemagnet"),
+      __month: DocStr("Werhi", "werhi lemagnet"),
+      __dayMonth: DocStr("MealtiWerhi", "mealti werhi lemagnet"),
+      __dayWeek: DocStr("MealtiShammun", "mealti shammun lemagnet"),
+      __hour: DocStr("Saat", "saat lemagnet"),
+      __minute: DocStr("Deqiqa", "deqiqa lemagnet"),
+      __second: DocStr("Sekond", "sekond lemagnet"),
     },
   },
 
   types: {
-    __object: {
-      main: "Neger",
-      __description: "yemayitakakel neger lamisasel",
-    },
-    __number: {
-      main: "Qutsi",
-      __description: "aynet_qutsi",
-    },
-    __string: {
-      main: "Qalt",
-      __description: "aynet_qalt",
-    },
-    __boolean: {
-      main: "HaqiHasot",
-      values: { __true: "Haqqi", __false: "Hasot" },
-      __description: "aynet_haqi_hasot",
-    },
+    __number: DocStr("Qutsi", "aynet qutsi variable lemasayet"),
+    __string: DocStr("Qalt", "aynet qalt variable lemasayet"),
+    __boolean: DocStr("HaqiHasot", "aynet haqi hasot variable lemasayet"),
+    __object: DocStr("Neger", "yemayitakakel neger lemasayet"),
+    __void: DocStr("Meleshet_Yelem", "waga yemayimeles shira lemasayet"),
+    __array: DocStr("Tseyita", "ye tseyita data-structure lemasayet"),
+  },
+
+  specialValues: {
+    __true: DocStr("Haqqi", "ye haqi boolean waga"),
+    __false: DocStr("Hasot", "ye hasot boolean waga"),
+    __null: DocStr("Yelem", "ye waga ymara"),
+  },
+
+  words: {
+    __new: DocStr("Hadis", "ye kilil hadis instance lemasayet"),
+    __this: DocStr("Iras", "ye irasuan atribute lemawet"),
+    __extends: DocStr("Asteded", "kilil ke lela kilil yiresahal lemawoket"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("Wesni", "bekilil wist bila yigebawal"),
+    __public: DocStr("Tiliqu", "keyand yigebawal"),
+    __protected: DocStr("Tegon", "bekilil inna belioch kilil yigebawal"),
+    __readonly: DocStr("Lemat_Bila", "waga methegem yekalal"),
+    __static: DocStr("Yemayitakakil", "le kililu yehonal le instance aydelem"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "Htem",
-        __description: "merja_lemassa-yet",
-      },
-      __scan: {
-        main: "Anbaba",
-        __description: "merja_lemanbebt",
-      },
-      __return: {
-        main: "Melles",
-        __description: "waga_lememelles",
-      },
+      __print: DocStr("Htem", "merja lemassa-yet"),
+      __scan: DocStr("Anbaba", "merja lemanbebt"),
+      __return: DocStr("Melles", "waga lememelles"),
+      __break: DocStr("Teha", "loop lemetat"),
+      __continue: DocStr("Tikim", "le next iteration lemegbat"),
     },
 
     sentences: {
-      __function: {
-        main: "Shira",
-        __description: "shira_lememessret",
-      },
-      __if: {
-        main: "Ente",
-        __description: "huneta_lemamlket",
-      },
-      __else: {
-        main: "Entezaykoynu",
-        __description: "le_huneta_meleyet",
-      },
-      __while: {
-        main: "Kemezey",
-        __description: "lemeziget",
-      },
-      __for: {
-        main: "Nishtu",
-        __description: "le_meziget",
-      },
-      __switch: {
-        main: "Mertsat",
-        __description: "le_mertsat",
-      },
-      __case: {
-        main: "Hunetat",
-        __description: "aynet_hunetat",
-      },
-      __default: {
-        main: "Lammid",
-        __description: "lammid_huneta",
-      },
-      __try: {
-        main: "Fetin",
-        __description: "lemefetun",
-      },
-      __catch: {
-        main: "Yiz",
-        __description: "gige_lemeyaz",
-      },
-      __finally: {
-        main: "Mewadaeta",
-        __description: "bemewadaeta",
-      },
+      __function: DocStr("Shira", "shira lememessret"),
+      __if: DocStr("Ente", "huneta lemamlket"),
+      __else: DocStr("Entezaykoynu", "le huneta meleyet"),
+      __while: DocStr("Kemezey", "kemezey loop lemeziget"),
+      __for: DocStr("Nishtu", "nishtu loop lemeziget"),
+      __switch: DocStr("Mertsat", "ye mertsat structure lememessret"),
+      __case: DocStr("Hunetat", "ye hunetat aynet lemassayet"),
+      __default: DocStr("Lammid", "lammid huneta lemassayet"),
+      __try: DocStr("Fetin", "ye fetin block lememessret"),
+      __catch: DocStr("Yiz", "gige lemeyaz"),
+      __finally: DocStr("Mewadaeta", "bemewadaeta yimeta"),
+      __class: DocStr("Kilil", "kilil lememessret"),
+      __constructor: DocStr("Mesret", "ye kilil atribute lemasayet mesret"),
     },
   },
 
   errors: {
-    main: {
-      tag: "GIGE",
-      message: "gige_sistem",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "YaletaWweqe",
-      message: "yaletawweqe_gige",
-    },
-    __TypeError: {
-      tag: "YeAynetGige",
-      message: "aynetu_ayikonun",
-    },
-    __ReferenceError: {
-      tag: "YeMarjiGige",
-      message: "variable_yelem",
-    },
-    __SyntaxError: {
-      tag: "YeSintaksGige",
-      message: "ye_tsihuf_gige",
-    },
-    __RangeError: {
-      tag: "YeWessenGige",
-      message: "bewessen_wi-chi_eyu",
-    },
-    __URIError: {
-      tag: "YeUriGige",
-      message: "URI_gige",
-    },
-    __EvalError: {
-      tag: "YeEvalGige",
-      message: "eval_gige",
-    },
+    __labels: errorLabel(
+      "Daqiqa",
+      "Waga",
+      "Variable",
+      "Atribute",
+      "Neger",
+      "Yetemekere",
+      "Yetegebba",
+      "Tikim_Methegem",
+      "YeTekerakari_Parameter",
+      "Tirit",
+      "Yetesashire_Token",
+      "YeStack_Memtat",
+      "Token",
+      "Yemitawweq_Yelem",
+    ),
+    main: errorMessage("GIGE", "gige sistem"),
+    __TypeError: errorMessage("YeAynetGige", "aynetu ayikonun"),
+    __InitError: errorMessage("YeTimarGige", "variable aytemeretem"),
+    __ReferenceError: errorMessage(
+      "YeMarjiGige",
+      "variable, shira weyim library beScope yelem",
+    ),
+    __SyntaxError: errorMessage("YeSintaksGige", "ye tsihuf gige"),
+    __RangeError: errorMessage("YeWessenGige", "bewessen wichi eyu"),
+    __URIError: errorMessage("YeUriGige", "URI yetesasare weyim yasazazal"),
+    __EvalError: errorMessage("YeEvalGige", "eval gige"),
+    __UNKNOWN_ERROR: errorMessage("YaletaWweqe", "yaletawweqe gige"),
+  },
+
+  example: {
+    __array: [
+      "megib",
+      "ageroch",
+      "negeroch",
+      "tags",
+      "tiroch",
+      "mengastawioch",
+      "serawoch",
+      "kategorioch",
+      "chIgnoch",
+      "quanquatat",
+    ],
+    __boolean: [
+      "huneta",
+      "akabariEyu",
+      "serawiEyu",
+      "yimayyal",
+      "izazAllebet",
+      "inilogon",
+      "ableEyu",
+      "temelaket",
+      "teseregach",
+      "yetemeche",
+    ],
+    __function: [
+      "shimLemagnet",
+      "wagaLemagnet",
+      "listLemayet",
+      "dataLemegbat",
+      "qenLemasayet",
+      "maregagecha",
+      "formuLamassayet",
+      "itemLemakeyat",
+      "hunetaLemakeyat",
+      "jemlaLemagnet",
+    ],
+    __number: [
+      "imer",
+      "amet",
+      "kemcha",
+      "yehulu",
+      "waga",
+      "index",
+      "gizie",
+      "qutar",
+      "chIgn",
+      "timeout",
+    ],
+    __object: [
+      "sew",
+      "serategna",
+      "tenat",
+      "meleshet",
+      "kefya",
+      "meregajia",
+      "profil",
+      "adres",
+      "tarik",
+      "meketer",
+    ],
+    __string: [
+      "sim",
+      "iqta",
+      "tiroch",
+      "email",
+      "mistirQal",
+      "daqiqa",
+      "timhirt",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "hidet",
+      "memres",
+      "matetat",
+      "madam",
+      "mamres",
+      "mewetat",
+      "cacheMatetat",
+      "masgeba",
+      "emailMewered",
+      "mestet",
+    ],
   },
 }).grammar();

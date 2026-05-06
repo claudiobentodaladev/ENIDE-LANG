@@ -1,253 +1,268 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const english = new Language({
   language: "english",
   about:
-    "ENIDE is a translatable transpiler that allows programming in any language",
-  include: {
-    main: "include",
-    __description: "used to include language or libraries",
-  },
+    "ENIDE is a polyglot transpiler that allows programming in any language",
+
+  include: DocStr(
+    "include",
+    "used to include language, libraries or data structure from another file",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "about",
-        __description: "to get information about ENIDE",
-      },
-      __help: {
-        main: "help",
-        __description: "to get the list of all available commands",
-      },
-      __version: {
-        main: "version",
-        __description: "to get the current version of ENIDE",
-      },
-      __languages: {
-        main: "languages",
-        __description: "to get the list of all available languages",
-      },
-      __documentation: {
-        main: "doc",
-        __description: "to get the documentation for a language",
-      },
-    },
+    __about: DocStr("about", "to get information about ENIDE"),
+    __help: DocStr("help", "to get the list of all available commands"),
+    __version: DocStr("version", "to get the current version of ENIDE"),
+    __languages: DocStr(
+      "languages",
+      "to get the list of all available languages",
+    ),
+    __documentation: DocStr("doc", "to get the documentation for a language"),
+    __grammar: DocStr("grammar", "to get the grammar for a language"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("std", "to access standard utils methods"),
+      __isarray: DocStr("isarray", "to check if the value is array"),
+      __isobject: DocStr("isobject", "to check if the value is object"),
+      __typeof: DocStr("type", "to get the type of a value"),
+      __parse: DocStr(
+        "Parse",
+        "to parse a value from string to currect parsed value",
+      ),
+    },
     __math: {
-      main: {
-        main: "math",
-        __description: "to access math functions",
-      },
-      __pi: {
-        main: "PI",
-        __description: "to get the value of pi",
-      },
-      __sqrt: {
-        main: "Sqrt",
-        __description: "to get the square root",
-      },
-      __pow: {
-        main: "Power",
-        __description: "to get the power of a number",
-      },
-      __round: {
-        main: "Round",
-        __description: "to round a number",
-      },
-      __random: {
-        main: "Random",
-        __description: "to get a random number",
-      },
-      __max: {
-        main: "Max",
-        __description: "to get the maximum value",
-      },
-      __min: {
-        main: "Min",
-        __description: "to get the minimum value",
-      },
-      __isNumber: {
-        main: "IsNumber",
-        __description: "to check if a value is a number",
-      },
-      __isInteger: {
-        main: "IsInteger",
-        __description: "to check if a value is an integer",
-      },
-      __isFloat: {
-        main: "IsFloat",
-        __description: "to check if a value is a decimal",
-      },
+      main: DocStr("math", "to access math functions"),
+      __pi: DocStr("PI", "to get the value of pi"),
+      __sqrt: DocStr("Sqrt", "to get the square root of a number"),
+      __pow: DocStr("Power", "to get the power of a number"),
+      __round: DocStr("Round", "to round a number"),
+      __random: DocStr("Random", "to get a random number"),
+      __max: DocStr("Max", "to get the maximum value"),
+      __min: DocStr("Min", "to get the minimum value"),
+      __isNumber: DocStr("IsNumber", "to check if a value is a number"),
+      __isInteger: DocStr("IsInteger", "to check if a value is an integer"),
+      __isFloat: DocStr("IsFloat", "to check if a value is a decimal"),
+      __cos: DocStr("Cos", "to get the cosine of an angle in radians"),
+      __sin: DocStr("Sin", "to get the sine of an angle in radians"),
+      __tan: DocStr("Tan", "to get the tangent of an angle in radians"),
     },
+
     __string: {
-      main: {
-        main: "string",
-        __description: "to access string manipulation functions",
-      },
-      __length: {
-        main: "Length",
-        __description: "to get the length of a string",
-      },
-      __toUpperCase: {
-        main: "ToUpperCase",
-        __description: "to convert a string to uppercase",
-      },
-      __toLowerCase: {
-        main: "ToLowerCase",
-        __description: "to convert a string to lowercase",
-      },
+      main: DocStr("string", "to access string manipulation functions"),
+      __length: DocStr("Length", "to get the length of a string"),
+      __toUpperCase: DocStr("ToUpperCase", "to convert a string to uppercase"),
+      __toLowerCase: DocStr("ToLowerCase", "to convert a string to lowercase"),
+      __include: DocStr(
+        "Includes",
+        "to check if a string contains a substring",
+      ),
+      __repeat: DocStr("Repeat", "to repeat a string a given number of times"),
     },
+
     __date: {
-      main: {
-        main: "date",
-        __description: "to access date and time manipulation functions",
-      },
-      __year: {
-        main: "Year",
-        __description: "to get the year",
-      },
-      __month: {
-        main: "Month",
-        __description: "to get the month",
-      },
-      __dayMonth: {
-        main: "DayMonth",
-        __description: "to get the day of the month",
-      },
-      __dayWeek: {
-        main: "DayWeek",
-        __description: "to get the day of the week",
-      },
-      __hour: {
-        main: "Hour",
-        __description: "to get the hour",
-      },
-      __minute: {
-        main: "Minute",
-        __description: "to get the minute",
-      },
-      __second: {
-        main: "Second",
-        __description: "to get the second",
-      },
+      main: DocStr("date", "to access date and time manipulation functions"),
+      __now: DocStr("Now", "to get the current date and time"),
+      __year: DocStr("Year", "to get the year"),
+      __month: DocStr("Month", "to get the month"),
+      __dayMonth: DocStr("DayMonth", "to get the day of the month"),
+      __dayWeek: DocStr("DayWeek", "to get the day of the week"),
+      __hour: DocStr("Hour", "to get the hour"),
+      __minute: DocStr("Minute", "to get the minute"),
+      __second: DocStr("Second", "to get the second"),
     },
   },
+
   types: {
-    __number: {
-      main: "number",
-      __description: "to declare a variable of type number",
-    },
-    __string: {
-      main: "string",
-      __description: "to declare a variable of type string",
-    },
-    __object: {
-      main: "object",
-      __description: "to declare a static object",
-    },
-    __boolean: {
-      main: "bool",
-      values: {
-        __false: "false",
-        __true: "true",
-      },
-      __description: "to declare a variable of type boolean",
-    },
+    __number: DocStr("number", "to declare a variable of type number"),
+    __string: DocStr("string", "to declare a variable of type string"),
+    __boolean: DocStr("bool", "to declare a variable of type boolean"),
+    __object: DocStr("object", "to declare a static object"),
+    __void: DocStr("void", "to declare a function that returns no value"),
+    __array: DocStr("array", "to declare a array data structure"),
   },
+
+  specialValues: {
+    __true: DocStr("true", "boolean true value"),
+    __false: DocStr("false", "boolean false value"),
+    __null: DocStr("null", "absence of value"),
+  },
+
+  words: {
+    __new: DocStr("new", "to create a new instance of a class"),
+    __this: DocStr("self", "to acess atribute in own class"),
+    __extends: DocStr(
+      "extends",
+      "to declare that a class inherits from another",
+    ),
+  },
+
+  accessModifiers: {
+    __private: DocStr("private", "accessible only within the class"),
+    __public: DocStr("public", "accessible from anywhere"),
+    __protected: DocStr(
+      "protected",
+      "accessible within the class and its subclasses",
+    ),
+    __readonly: DocStr("readonly", "value can only be assigned once"),
+    __static: DocStr("static", "belongs to the class itself, not to instances"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "print",
-        __description: "to print a value to the screen",
-      },
-      __scan: {
-        main: "scan",
-        __description: "to read a value from input",
-      },
-      __return: {
-        main: "return",
-        __description: "to return a value from a function",
-      },
+      __print: DocStr("print", "to print a value to the screen"),
+      __scan: DocStr("scan", "to read a value from input"),
+      __return: DocStr("return", "to return a value from a function"),
+      __break: DocStr("break", "to exit a loop"),
+      __continue: DocStr("continue", "to skip to the next iteration of a loop"),
     },
+
     sentences: {
-      __function: {
-        main: "function",
-        __description: "to declare a function",
-      },
-      __if: {
-        main: "if",
-        __description: "to declare a condition",
-      },
-      __else: {
-        main: "else",
-        __description: "to declare an alternative condition",
-      },
-      __while: {
-        main: "while",
-        __description: "to declare a while loop",
-      },
-      __for: {
-        main: "for",
-        __description: "to declare a for loop",
-      },
-      __switch: {
-        main: "switch",
-        __description: "to declare a selection structure",
-      },
-      __case: {
-        main: "case",
-        __description: "to declare a case in the selection structure",
-      },
-      __default: {
-        main: "default",
-        __description: "to declare the default case in the selection structure",
-      },
-      __try: {
-        main: "try",
-        __description: "to declare a try block",
-      },
-      __catch: {
-        main: "catch",
-        __description: "to declare an error handling block",
-      },
-      __finally: {
-        main: "finally",
-        __description: "to declare a block that executes regardless",
-      },
+      __function: DocStr("function", "to declare a function"),
+      __if: DocStr("if", "to declare a condition"),
+      __else: DocStr("else", "to declare an alternative condition"),
+      __while: DocStr("while", "to declare a while loop"),
+      __for: DocStr("for", "to declare a for loop"),
+      __switch: DocStr("switch", "to declare a selection structure"),
+      __case: DocStr("case", "to declare a case in the selection structure"),
+      __default: DocStr(
+        "default",
+        "to declare the default case in the selection structure",
+      ),
+      __try: DocStr("try", "to declare a try block"),
+      __catch: DocStr("catch", "to declare an error handling block"),
+      __finally: DocStr(
+        "finally",
+        "to declare a block that executes regardless",
+      ),
+      __class: DocStr("class", "to declare a class"),
+      __constructor: DocStr(
+        "constructor",
+        "structure that allow declare atributes in a class",
+      ),
     },
   },
+
   errors: {
-    main: {
-      tag: "ERROR",
-      message: "Generic system error",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "UNKNOWN_ERROR",
-      message: "Completely unknown error",
-    },
-    __TypeError: {
-      tag: "TYPE_ERROR",
-      message: "Invalid type in operation",
-    },
-    __ReferenceError: {
-      tag: "REFERENCE_ERROR",
-      message: "Variable does not exist in scope",
-    },
-    __SyntaxError: {
-      tag: "SYNTAX_ERROR",
-      message: "Invalid code",
-    },
-    __RangeError: {
-      tag: "RANGE_ERROR",
-      message: "Value out of allowed range",
-    },
-    __URIError: {
-      tag: "URI_ERROR",
-      message: "Malformed or invalid URI",
-    },
-    __EvalError: {
-      tag: "EVAL_ERROR",
-      message: "Error related to eval",
-    },
+    __labels: errorLabel(
+      "Message",
+      "Value",
+      "Variable",
+      "Property",
+      "Object",
+      "Expected",
+      "Received",
+      "Const Assignment",
+      "Duplicate Parameter",
+      "Hint",
+      "Invalid Token",
+      "Stack Overflow",
+      "Token",
+      "Unexpected End of Input",
+    ),
+    main: errorMessage("ERROR", "generic system error"),
+    __TypeError: errorMessage("TYPE_ERROR", "invalid type in operation"),
+    __InitError: errorMessage(
+      "INIT_ERROR",
+      "variable has not been initialized",
+    ),
+    __ReferenceError: errorMessage(
+      "REFERENCE_ERROR",
+      "variable, function or library does not exist in scope",
+    ),
+    __SyntaxError: errorMessage("SYNTAX_ERROR", "invalid code"),
+    __RangeError: errorMessage("RANGE_ERROR", "value out of allowed range"),
+    __URIError: errorMessage("URI_ERROR", "malformed or invalid URI"),
+    __EvalError: errorMessage("EVAL_ERROR", "error related to eval"),
+    __UNKNOWN_ERROR: errorMessage("UNKNOWN_ERROR", "completely unknown error"),
+  },
+  example: {
+    __array: [
+      "food",
+      "country",
+      "items",
+      "tags",
+      "colors",
+      "products",
+      "users",
+      "categories",
+      "scores",
+      "languages",
+    ],
+    __boolean: [
+      "status",
+      "isAdult",
+      "isActive",
+      "isVisible",
+      "hasPermission",
+      "isLoggedIn",
+      "isEnabled",
+      "isDone",
+      "isVerified",
+      "isDeleted",
+    ],
+    __function: [
+      "getName",
+      "getValue",
+      "handleClick",
+      "fetchData",
+      "formatDate",
+      "parseInput",
+      "validateForm",
+      "renderItem",
+      "updateState",
+      "calculateTotal",
+    ],
+    __number: [
+      "age",
+      "year",
+      "count",
+      "total",
+      "price",
+      "index",
+      "duration",
+      "quantity",
+      "score",
+      "timeout",
+    ],
+    __object: [
+      "person",
+      "user",
+      "config",
+      "response",
+      "payload",
+      "settings",
+      "profile",
+      "address",
+      "metadata",
+      "session",
+    ],
+    __string: [
+      "name",
+      "title",
+      "description",
+      "email",
+      "password",
+      "message",
+      "label",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "login",
+      "init",
+      "cleanup",
+      "reset",
+      "destroy",
+      "logout",
+      "clearCache",
+      "saveToDb",
+      "sendEmail",
+      "logEvent",
+    ],
   },
 }).grammar();

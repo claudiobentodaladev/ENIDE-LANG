@@ -1,239 +1,245 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const kriolu = new Language({
   language: "kriolu",
   about:
     "ENIDE e un transpiler ki ta permiti fazi programason na kualker lingua",
 
-  include: {
-    main: "Inklui",
-    __description: "Pa inklui lingua o biblioteka",
-  },
+  include: DocStr(
+    "Inklui",
+    "Pa inklui lingua, biblioteka o struktura di otru ficheiru",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "sobre",
-        __description: "pa odja informason sobre ENIDE",
-      },
-      __help: {
-        main: "ajuda",
-        __description: "pa odja lista di tudu kumandus disponivel",
-      },
-      __version: {
-        main: "verson",
-        __description: "pa odja verson atual di ENIDE",
-      },
-      __languages: {
-        main: "lingua",
-        __description: "pa odja lista di tudu lingua disponivel",
-      },
-      __documentation: {
-        main: "dukumentu",
-        __description: "pa odja dukumentason di un lingua",
-      },
-    },
+    __about: DocStr("sobre", "pa odja informason sobre ENIDE"),
+    __help: DocStr("ajuda", "pa odja lista di tudu kumandus disponivel"),
+    __version: DocStr("verson", "pa odja verson atual di ENIDE"),
+    __languages: DocStr("lingua", "pa odja lista di tudu lingua disponivel"),
+    __documentation: DocStr("dukumentu", "pa odja dukumentason di un lingua"),
+    __grammar: DocStr("gramatika", "pa odja gramatika di un lingua"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("padron", "pa entra na funsons padron util"),
+      __isarray: DocStr("EArray", "pa odja si valor e array"),
+      __isobject: DocStr("EObjetu", "pa odja si valor e objetu"),
+      __typeof: DocStr("Tipu", "pa odja tipu di valor"),
+      __parse: DocStr("Parse", "pa konverte testu pa valor korretu"),
+    },
     __math: {
-      main: {
-        main: "matematika",
-        __description: "pa entra na funsons di matematika",
-      },
-      __pi: { main: "PI", __description: "pa odja valor di pi" },
-      __sqrt: {
-        main: "RaizKuadradu",
-        __description: "pa kalkula raiz kuadradu",
-      },
-      __pow: {
-        main: "Putensia",
-        __description: "pa kalkula putensia di un numeru",
-      },
-      __round: {
-        main: "Rodia",
-        __description: "pa rodia un numeru",
-      },
-      __random: {
-        main: "Azar",
-        __description: "pa odja numeru di azar",
-      },
-      __max: { main: "Masimu", __description: "pa odja valor masimu" },
-      __min: { main: "Minimu", __description: "pa odja valor minimu" },
-      __isNumber: {
-        main: "ENumeru",
-        __description: "pa odja si valor e numeru",
-      },
-      __isInteger: {
-        main: "EInteru",
-        __description: "pa odja si valor e interu",
-      },
-      __isFloat: {
-        main: "EDesimal",
-        __description: "pa odja si valor e desimal",
-      },
+      main: DocStr("matematika", "pa entra na funsons di matematika"),
+      __pi: DocStr("PI", "pa odja valor di pi"),
+      __sqrt: DocStr("RaizKuadradu", "pa kalkula raiz kuadradu"),
+      __pow: DocStr("Putensia", "pa kalkula putensia di un numeru"),
+      __round: DocStr("Rodia", "pa rodia un numeru"),
+      __random: DocStr("Azar", "pa odja numeru di azar"),
+      __max: DocStr("Masimu", "pa odja valor masimu"),
+      __min: DocStr("Minimu", "pa odja valor minimu"),
+      __isNumber: DocStr("ENumeru", "pa odja si valor e numeru"),
+      __isInteger: DocStr("EInteru", "pa odja si valor e interu"),
+      __isFloat: DocStr("EDesimal", "pa odja si valor e desimal"),
+      __cos: DocStr("Cos", "pa kalkula cosinus"),
+      __sin: DocStr("Sin", "pa kalkula sinus"),
+      __tan: DocStr("Tan", "pa kalkula tangente"),
     },
 
     __string: {
-      main: {
-        main: "Testu",
-        __description: "pa entra na funsons di manipulason di testu",
-      },
-      __length: {
-        main: "Tamanhu",
-        __description: "pa odja tamanhu di testu",
-      },
-      __toUpperCase: {
-        main: "PaMaiuskulu",
-        __description: "pa muda testu pa letra grandi",
-      },
-      __toLowerCase: {
-        main: "PaMinuskulu",
-        __description: "pa muda testu pa letra pikininu",
-      },
+      main: DocStr("Testu", "pa entra na funsons di manipulason di testu"),
+      __length: DocStr("Tamanhu", "pa odja tamanhu di testu"),
+      __toUpperCase: DocStr("PaMaiuskulu", "pa muda testu pa letra grandi"),
+      __toLowerCase: DocStr("PaMinuskulu", "pa muda testu pa letra pikininu"),
+      __include: DocStr("Kontein", "pa odja si testu kontem substring"),
+      __repeat: DocStr("Repiti", "pa repiti testu un kantidade di vez"),
     },
 
     __date: {
-      main: {
-        main: "Data",
-        __description: "pa entra na funsons di data ku ora",
-      },
-      __year: { main: "Anu", __description: "pa odja anu" },
-      __month: { main: "Mes", __description: "pa odja mes" },
-      __dayMonth: {
-        main: "DiaMes",
-        __description: "pa odja dia di mes",
-      },
-      __dayWeek: {
-        main: "DiaSimana",
-        __description: "pa odja dia di simana",
-      },
-      __hour: { main: "Ora", __description: "pa odja ora" },
-      __minute: { main: "Minutu", __description: "pa odja minutu" },
-      __second: { main: "Sigundu", __description: "pa odja sigundu" },
+      main: DocStr("Data", "pa entra na funsons di data ku ora"),
+      __now: DocStr("Agora", "pa odja data ku ora atual"),
+      __year: DocStr("Anu", "pa odja anu"),
+      __month: DocStr("Mes", "pa odja mes"),
+      __dayMonth: DocStr("DiaMes", "pa odja dia di mes"),
+      __dayWeek: DocStr("DiaSimana", "pa odja dia di simana"),
+      __hour: DocStr("Ora", "pa odja ora"),
+      __minute: DocStr("Minutu", "pa odja minutu"),
+      __second: DocStr("Sigundu", "pa odja sigundu"),
     },
   },
 
   types: {
-    __object: {
-      main: "Objetu",
-      __description: "pa deklara un objetu",
-    },
-    __number: {
-      main: "Numeru",
-      __description: "pa deklara variavel di tipu numeru",
-    },
-    __string: {
-      main: "Testu",
-      __description: "pa deklara variavel di tipu testu",
-    },
-    __boolean: {
-      main: "Verdadi",
-      values: { __true: "Berdadi", __false: "Falsu" },
-      __description: "pa deklara variavel di tipu berdadi o falsu",
-    },
+    __number: DocStr("Numeru", "pa deklara variavel di tipu numeru"),
+    __string: DocStr("Testu", "pa deklara variavel di tipu testu"),
+    __boolean: DocStr("Verdadi", "pa deklara variavel di tipu berdadi o falsu"),
+    __object: DocStr("Objetu", "pa deklara un objetu estatiku"),
+    __void: DocStr("Vaziu", "pa deklara funson ki ka retorna nada"),
+    __array: DocStr("Array", "pa deklara struktura array"),
+  },
+
+  specialValues: {
+    __true: DocStr("Berdadi", "valor berdadi"),
+    __false: DocStr("Falsu", "valor falsu"),
+    __null: DocStr("Null", "ausensia di valor"),
+  },
+
+  words: {
+    __new: DocStr("novu", "pa kria instancia novu di klase"),
+    __this: DocStr("es", "pa aksede atributu di klase atual"),
+    __extends: DocStr("estende", "pa deklara klase ki erda di otru"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("privadu", "so aksesivel dentru di klase"),
+    __public: DocStr("publiku", "aksesivel di kualker luga"),
+    __protected: DocStr("proteji", "aksesivel na klase e sub-klase"),
+    __readonly: DocStr("leSomente", "valor so pode ser atribuidu un vez"),
+    __static: DocStr("statiku", "pertensi na klase, ka na instancia"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "Skrebi",
-        __description: "pa mostra valor na ekra",
-      },
-      __scan: {
-        main: "Le",
-        __description: "pa le valor di utilizador",
-      },
-      __return: {
-        main: "Retorna",
-        __description: "pa retorna valor di funson",
-      },
+      __print: DocStr("Skrebi", "pa mostra valor na ekra"),
+      __scan: DocStr("Le", "pa le valor di utilizador"),
+      __return: DocStr("Retorna", "pa retorna valor di funson"),
+      __break: DocStr("Para", "pa para loop"),
+      __continue: DocStr("Kontinua", "pa kontinua na prosimu iterason"),
     },
 
     sentences: {
-      __function: {
-        main: "Funson",
-        __description: "pa deklara un funson",
-      },
-      __if: {
-        main: "Si",
-        __description: "pa deklara un kondison",
-      },
-      __else: {
-        main: "Sino",
-        __description: "pa deklara kondison alternativu",
-      },
-      __while: {
-        main: "Enkuantu",
-        __description: "pa loop enkuantu",
-      },
-      __for: {
-        main: "Pa",
-        __description: "pa loop pa",
-      },
-      __switch: {
-        main: "Skodji",
-        __description: "pa faze seleson",
-      },
-      __case: {
-        main: "Kasu",
-        __description: "pa kazu espesifiku",
-      },
-      __default: {
-        main: "Padran",
-        __description: "pa kazu padran",
-      },
-      __try: {
-        main: "Tenta",
-        __description: "pa tenta operason",
-      },
-      __catch: {
-        main: "Kaptura",
-        __description: "pa trata eru",
-      },
-      __finally: {
-        main: "Final",
-        __description: "pa blok final",
-      },
+      __function: DocStr("Funson", "pa deklara un funson"),
+      __if: DocStr("Si", "pa deklara un kondison"),
+      __else: DocStr("Sino", "pa deklara kondison alternativu"),
+      __while: DocStr("Enkuantu", "pa loop enkuantu"),
+      __for: DocStr("Pa", "pa loop pa"),
+      __switch: DocStr("Skodji", "pa faze seleson"),
+      __case: DocStr("Kasu", "pa kazu espesifiku"),
+      __default: DocStr("Padran", "pa kazu padran"),
+      __try: DocStr("Tenta", "pa tenta operason"),
+      __catch: DocStr("Kaptura", "pa trata eru"),
+      __finally: DocStr("Final", "pa blok final"),
+      __class: DocStr("Klase", "pa deklara un klase"),
+      __constructor: DocStr(
+        "Konstruktor",
+        "struktura pa inisializa atributu na klase",
+      ),
     },
   },
 
   errors: {
-    main: { tag: "ERU", message: "Eru di sistema" },
+    __labels: errorLabel(
+      "Mensajen",
+      "Valor",
+      "Variavel",
+      "Propriedade",
+      "Objetu",
+      "Esperadu",
+      "Resebidu",
+      "Atribuison Konstan",
+      "Parametru Dupliku",
+      "Sugestaun",
+      "Token Invalidu",
+      "Stack Overflow",
+      "Token",
+      "Fim di Input Inesperadu",
+    ),
+    main: errorMessage("ERU", "Eru di sistema"),
+    __TypeError: errorMessage("ERU_TIPU", "Tipu invalidu"),
+    __InitError: errorMessage(
+      "ERU_INISIALIZASON",
+      "Variavel ka foi inisializadu",
+    ),
+    __ReferenceError: errorMessage("ERU_REFERENSIA", "Variavel ka izisti"),
+    __SyntaxError: errorMessage("ERU_SINTAXI", "Kodigu invalidu"),
+    __RangeError: errorMessage("ERU_LIMITI", "Valor fora di limiti"),
+    __URIError: errorMessage("ERU_URI", "URI invalidu"),
+    __EvalError: errorMessage("ERU_EVAL", "Eru eval"),
+    __UNKNOWN_ERROR: errorMessage("ERU_DISKONHESIDU", "Eru diskonhesidu"),
+  },
 
-    __UNKNOWN_ERROR: {
-      tag: "ERU_DISKONHESIDU",
-      message: "Eru diskonhesidu",
-    },
-
-    __TypeError: {
-      tag: "ERU_TIPU",
-      message: "Tipu invalidu",
-    },
-
-    __ReferenceError: {
-      tag: "ERU_REFERENSIA",
-      message: "Variavel ka izisti",
-    },
-
-    __SyntaxError: {
-      tag: "ERU_SINTAXI",
-      message: "Kodigu invalidu",
-    },
-
-    __RangeError: {
-      tag: "ERU_LIMITI",
-      message: "Valor fora di limiti",
-    },
-
-    __URIError: {
-      tag: "ERU_URI",
-      message: "URI invalidu",
-    },
-
-    __EvalError: {
-      tag: "ERU_EVAL",
-      message: "Eru eval",
-    },
+  example: {
+    __array: [
+      "kumida",
+      "pais",
+      "item",
+      "tag",
+      "kor",
+      "produtu",
+      "utilizadór",
+      "kategoria",
+      "pontu",
+      "lingua",
+    ],
+    __boolean: [
+      "ativu",
+      "adultu",
+      "abertu",
+      "vizivel",
+      "tenPrmisaun",
+      "staLigadu",
+      "ativadu",
+      "finalizadu",
+      "verifikadu",
+      "apagadu",
+    ],
+    __function: [
+      "odjaNome",
+      "odjaValor",
+      "lista",
+      "buskaDadu",
+      "formataDadu",
+      "parseInput",
+      "validaForm",
+      "atualizaItem",
+      "atualizaStadu",
+      "kalkulaTotal",
+    ],
+    __number: [
+      "idade",
+      "anu",
+      "media",
+      "total",
+      "preju",
+      "indisi",
+      "durason",
+      "kantidade",
+      "pontu",
+      "tempu",
+    ],
+    __object: [
+      "pessoa",
+      "utilizadór",
+      "konfigurason",
+      "resposta",
+      "pagamentu",
+      "reglaj",
+      "perfil",
+      "endereku",
+      "metadata",
+      "sesaun",
+    ],
+    __string: [
+      "nome",
+      "titulu",
+      "diskrison",
+      "email",
+      "senha",
+      "mensajen",
+      "label",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "login",
+      "inisia",
+      "limpa",
+      "reset",
+      "destrui",
+      "logout",
+      "limpaCache",
+      "salva",
+      "mandaEmail",
+      "entra",
+    ],
   },
 }).grammar();

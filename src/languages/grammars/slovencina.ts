@@ -1,238 +1,254 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const slovencina = new Language({
   language: "slovencina",
   about:
     "ENIDE je prelozitelny transpiler ktory umoznuje programovanie v akomkolvek jazyku",
 
-  include: {
-    main: "Zahrnut",
-    __description: "Pouziva sa na zahrnutie jazyka alebo kniznic",
-  },
+  include: DocStr(
+    "zahrnut",
+    "pouziva sa na zahrnutie jazyka, kniznic alebo externych modulov",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "o",
-        __description: "informacie o ENIDE",
-      },
-      __help: {
-        main: "pomoc",
-        __description: "zoznam vsetkych dostupnych prikazov",
-      },
-      __version: {
-        main: "verzia",
-        __description: "aktualna verzia ENIDE",
-      },
-      __languages: {
-        main: "jazyky",
-        __description: "zoznam vsetkych dostupnych jazykov",
-      },
-      __documentation: {
-        main: "dok",
-        __description: "dokumentacia jazyka",
-      },
-    },
+    __about: DocStr("o", "zobrazi informacie o projekte ENIDE"),
+    __help: DocStr("pomoc", "zobrazi zoznam vsetkych dostupnych prikazov"),
+    __version: DocStr("verzia", "zobrazi aktualnu verziu ENIDE"),
+    __languages: DocStr(
+      "jazyky",
+      "zobrazi zoznam vsetkych podporovanych jazykov",
+    ),
+    __documentation: DocStr("dok", "zobrazi dokumentaciu k aktualnemu jazyku"),
+    __grammar: DocStr("gramatika", "zobrazi pravidla syntaxe jazyka"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("standard", "pristup k zakladnym funkciam systemu"),
+      __isarray: DocStr("je_pole", "overi, ci je hodnota zoznam (pole)"),
+      __isobject: DocStr("je_objekt", "overi, ci je hodnota objekt"),
+      __typeof: DocStr("typ_de", "vrati datovy typ premennej"),
+      __parse: DocStr("analyzuj", "prekonvertuje text na spravny datovy typ"),
+    },
     __math: {
-      main: {
-        main: "matematika",
-        __description: "matematicke funkcie",
-      },
-      __pi: {
-        main: "PI",
-        __description: "hodnota pi",
-      },
-      __sqrt: {
-        main: "DruhaCodmocnina",
-        __description: "druha odmocnina",
-      },
-      __pow: {
-        main: "Mocnina",
-        __description: "mocnina cisla",
-      },
-      __round: {
-        main: "Zaokruhlit",
-        __description: "zaokruhlenie cisla",
-      },
-      __random: {
-        main: "Nahodny",
-        __description: "nahodne cislo",
-      },
-      __max: {
-        main: "Maximum",
-        __description: "maximalna hodnota",
-      },
-      __min: {
-        main: "Minimum",
-        __description: "minimalna hodnota",
-      },
-      __isNumber: {
-        main: "JeCislo",
-        __description: "overenie ci je hodnota cislo",
-      },
-      __isInteger: {
-        main: "JeCeleCislo",
-        __description: "overenie ci je hodnota cele cislo",
-      },
-      __isFloat: {
-        main: "JeDesatinne",
-        __description: "overenie ci je hodnota desatinne cislo",
-      },
+      main: DocStr("matematika", "matematicke funkcie a konstanty"),
+      __pi: DocStr("PI", "hodnota konstanty Pi"),
+      __sqrt: DocStr("odmocnina", "vypocita druhu odmocninu"),
+      __pow: DocStr("mocnina", "vypocita mocninu cisla"),
+      __round: DocStr("zaokruhlit", "zaokruhli cislo na najblizsie cele cislo"),
+      __random: DocStr("nahodny", "generuje nahodne cislo"),
+      __max: DocStr("maximum", "vrati najvacsiu hodnotu zo zoznamu"),
+      __min: DocStr("minimum", "vrati najmensiu hodnotu zo zoznamu"),
+      __isNumber: DocStr("je_cislo", "overi, ci je hodnota cislo"),
+      __isInteger: DocStr("je_cele_cislo", "overi, ci je hodnota cele cislo"),
+      __isFloat: DocStr("je_desatinne", "overi, ci je hodnota desatinne cislo"),
+      __cos: DocStr("cos", "vypocita kosinus"),
+      __sin: DocStr("sin", "vypocita sinus"),
+      __tan: DocStr("tan", "vypocita tangens"),
     },
 
     __string: {
-      main: {
-        main: "retazec",
-        __description: "funkcie pre pracu s retazcami",
-      },
-      __length: {
-        main: "Dlzka",
-        __description: "dlzka retazca",
-      },
-      __toUpperCase: {
-        main: "NaVelke",
-        __description: "prevod na velke pismena",
-      },
-      __toLowerCase: {
-        main: "NaMale",
-        __description: "prevod na male pismena",
-      },
+      main: DocStr("retazec", "funkcie pre pracu s textovymi retazcami"),
+      __length: DocStr("dlzka", "vrati pocet znakov v retazci"),
+      __toUpperCase: DocStr("na_velke", "prevedie text na velke pismena"),
+      __toLowerCase: DocStr("na_male", "prevedie text na male pismena"),
+      __include: DocStr("obsahuje", "overi, ci retazec obsahuje dany text"),
+      __repeat: DocStr("opakuj", "zopakuje retazec zadany pocet krat"),
     },
 
     __date: {
-      main: {
-        main: "datum",
-        __description: "funkcie pre datum a cas",
-      },
-      __year: {
-        main: "Rok",
-        __description: "rok",
-      },
-      __month: {
-        main: "Mesiac",
-        __description: "mesiac",
-      },
-      __dayMonth: {
-        main: "DenMesiaca",
-        __description: "den mesiaca",
-      },
-      __dayWeek: {
-        main: "DenTyzdna",
-        __description: "den tyzdna",
-      },
-      __hour: {
-        main: "Hodina",
-        __description: "hodina",
-      },
-      __minute: {
-        main: "Minuta",
-        __description: "minuta",
-      },
-      __second: {
-        main: "Sekunda",
-        __description: "sekunda",
-      },
+      main: DocStr("datum", "funkcie pre pracu s datumom a casom"),
+      __now: DocStr("teraz", "vrati aktualny datum a cas"),
+      __year: DocStr("rok", "vrati rok"),
+      __month: DocStr("mesiac", "vrati mesiac"),
+      __dayMonth: DocStr("den_mesiaca", "vrati den v mesiaci"),
+      __dayWeek: DocStr("den_tyzdna", "vrati den v tyzdni"),
+      __hour: DocStr("hodina", "vrati hodinu"),
+      __minute: DocStr("minuta", "vrati minuty"),
+      __second: DocStr("sekunda", "vrati sekundy"),
     },
   },
 
   types: {
-    __object: {
-      main: "objekt",
-      __description: "staticky objekt",
-    },
-    __number: {
-      main: "cislo",
-      __description: "typ cislo",
-    },
-    __string: {
-      main: "retazec",
-      __description: "typ retazec",
-    },
-    __boolean: {
-      main: "bool",
-      values: { __true: "Pravda", __false: "Loz" },
-      __description: "logicky typ",
-    },
+    __number: DocStr("cislo", "deklaracia numerickej premennej"),
+    __string: DocStr("retazec", "deklaracia textovej premennej"),
+    __boolean: DocStr("logicky", "deklaracia logickej premennej (pravda/loz)"),
+    __object: DocStr("objekt", "deklaracia statickeho objektu"),
+    __void: DocStr("prazdny", "indikuje, ze funkcia nevracia ziadnu hodnotu"),
+    __array: DocStr("pole", "deklaracia zoznamu prvkov"),
+  },
+
+  specialValues: {
+    __true: DocStr("pravda", "logicka hodnota pravda"),
+    __false: DocStr("loz", "logicka hodnota loz"),
+    __null: DocStr("nic", "reprezentuje absenciu hodnoty"),
+  },
+
+  words: {
+    __new: DocStr("novy", "vytvori novu instanciu triedy"),
+    __this: DocStr("tento", "odkaz na aktualny objekt"),
+    __extends: DocStr("rozsiruje", "indikuje dedicnost triedy"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("sukromny", "pristupny iba v ramci triedy"),
+    __public: DocStr("verejny", "pristupny odvsuvial"),
+    __protected: DocStr("chraneny", "pristupny v triede a jej podtriedach"),
+    __readonly: DocStr("iba_na_citanie", "hodnotu nie je mozne menit"),
+    __static: DocStr("staticky", "patri triede, nie instancii"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "vypisat",
-        __description: "vypis hodnoty na obrazovku",
-      },
-      __scan: {
-        main: "nacitat",
-        __description: "nacitanie vstupu",
-      },
-      __return: {
-        main: "vratit",
-        __description: "navrat z funkcie",
-      },
+      __print: DocStr("vypisat", "vypise hodnotu na obrazovku"),
+      __scan: DocStr("nacitat", "nacita vstup od pouzivatela"),
+      __return: DocStr("vratit", "vrati hodnotu z funkcie"),
+      __break: DocStr("prerusit", "okamzite zastavi aktualny cyklus"),
+      __continue: DocStr("pokracovat", "skoci na dalsiu iteraciu cyklu"),
     },
 
     sentences: {
-      __function: {
-        main: "funkcia",
-        __description: "deklaracia funkcie",
-      },
-      __if: {
-        main: "ak",
-        __description: "podmienka",
-      },
-      __else: {
-        main: "inak",
-        __description: "alternativa",
-      },
-      __while: {
-        main: "pokial",
-        __description: "cyklus pokial",
-      },
-      __for: {
-        main: "pre",
-        __description: "cyklus pre",
-      },
-      __switch: {
-        main: "vyber",
-        __description: "vyber hodnoty",
-      },
-      __case: {
-        main: "pripad",
-        __description: "pripad vyberu",
-      },
-      __default: {
-        main: "predvoleny",
-        __description: "predvolena vetva",
-      },
-      __try: {
-        main: "skusit",
-        __description: "blok skusania",
-      },
-      __catch: {
-        main: "zachytit",
-        __description: "spracovanie chyb",
-      },
-      __finally: {
-        main: "nakoniec",
-        __description: "vzdy vykonany blok",
-      },
+      __function: DocStr("funkcia", "deklaracia novej funkcie"),
+      __if: DocStr("ak", "prikaz podmienky"),
+      __else: DocStr("inak", "blok ak je podmienka nepravdiva"),
+      __while: DocStr("pokial", "cyklus kym je podmienka pravdiva"),
+      __for: DocStr("pre", "cyklus s pevnym poctom opakovani"),
+      __switch: DocStr("vyber", "prikaz pre vyber z viacerych moznosti"),
+      __case: DocStr("pripad", "konkretny pripad v prikaze vyber"),
+      __default: DocStr("predvoleny", "vykona sa, ak ziadny pripad nesuhlasi"),
+      __try: DocStr("skusit", "blok pre osetrenie chyb"),
+      __catch: DocStr("zachytit", "spracovanie najdenej chyby"),
+      __finally: DocStr("nakoniec", "blok ktory sa vykona vzdy na konci"),
+      __class: DocStr("trieda", "deklaracia novej triedy"),
+      __constructor: DocStr(
+        "konstruktor",
+        "funkcia pre vytvorenie noveho objektu",
+      ),
     },
   },
 
   errors: {
-    main: { tag: "CHYBA", message: "vseobecna chyba systemu" },
-    __UNKNOWN_ERROR: { tag: "NEZNAMA_CHYBA", message: "neznama chyba" },
-    __TypeError: { tag: "CHYBA_TYPU", message: "neplatny typ operacie" },
-    __ReferenceError: {
-      tag: "CHYBA_REFERENCIE",
-      message: "neexistujuca premenna",
-    },
-    __SyntaxError: { tag: "CHYBA_SYNTAXE", message: "neplatny kod" },
-    __RangeError: { tag: "CHYBA_ROZSAHU", message: "hodnota mimo rozsahu" },
-    __URIError: { tag: "CHYBA_URI", message: "neplatne URI" },
-    __EvalError: { tag: "CHYBA_EVAL", message: "chyba eval" },
+    __labels: errorLabel(
+      "Sprava",
+      "Hodnota",
+      "Premenna",
+      "Vlastnost",
+      "Objekt",
+      "Ocakavane",
+      "Prijate",
+      "Priradenie_do_konstanty",
+      "Duplicitny_parameter",
+      "Rada",
+      "Neplatny_token",
+      "Pretecenie_zasobnika",
+      "Token",
+      "Necakany_koniec_vstupu",
+    ),
+    main: errorMessage("CHYBA", "vseobecna systemova chyba"),
+    __TypeError: errorMessage("CHYBA_TYPU", "neplatny datovy typ pre operaciu"),
+    __InitError: errorMessage(
+      "CHYBA_INICIALIZACIE",
+      "premenna nebola inicializovana",
+    ),
+    __ReferenceError: errorMessage(
+      "CHYBA_REFERENCIE",
+      "odkaz na premennu ktora neexistuje",
+    ),
+    __SyntaxError: errorMessage("CHYBA_SYNTAXE", "syntakticka chyba v kode"),
+    __RangeError: errorMessage(
+      "CHYBA_ROZSAHU",
+      "hodnota je mimo povoleny rozsah",
+    ),
+    __URIError: errorMessage("CHYBA_URI", "neplatny format URI"),
+    __EvalError: errorMessage("CHYBA_EVAL", "chyba vo funkcii eval"),
+    __UNKNOWN_ERROR: errorMessage("NEZNAMA_CHYBA", "vyskytla sa neznama chyba"),
+  },
+
+  example: {
+    __array: [
+      "pizze",
+      "mesta",
+      "zoznam_cisiel",
+      "cisla",
+      "farby",
+      "produkty",
+      "pouzivatelia",
+      "kategorie",
+      "body",
+      "jazyky",
+    ],
+    __boolean: [
+      "stav",
+      "je_aktivny",
+      "moze_pouzit",
+      "je_pripraveny",
+      "autorizovany",
+      "pripojeny",
+      "prebieha",
+      "dokonceny",
+      "overeny",
+      "zruseny",
+    ],
+    __function: [
+      "ziskajCislo",
+      "vypocitajHodnotu",
+      "ukazData",
+      "aktualizujProfil",
+      "formatujText",
+      "analyzujKod",
+      "skontrolujData",
+      "ulozDokument",
+      "posliSpravu",
+      "scitajVsetko",
+    ],
+    __number: [
+      "vek",
+      "rok_narodenia",
+      "priemer",
+      "celkovo",
+      "cena",
+      "index",
+      "cas",
+      "mnozstvo",
+      "skore",
+      "hodina",
+    ],
+    __object: [
+      "osoba",
+      "zakaznik",
+      "nastavenia",
+      "odpoved",
+      "platba",
+      "konfiguracia",
+      "profil",
+      "adresa",
+      "metadata",
+      "relacia",
+    ],
+    __string: [
+      "meno",
+      "nazov",
+      "popis",
+      "email",
+      "heslo",
+      "sprava",
+      "stritok",
+      "kluc",
+      "url",
+      "odkaz",
+    ],
+    __void: [
+      "chod",
+      "vymaz",
+      "zastav",
+      "vycisti",
+      "znic",
+      "odchod",
+      "vyprazdni_buffer",
+      "uloz_vsetko",
+      "posli",
+      "vstup",
+    ],
   },
 }).grammar();

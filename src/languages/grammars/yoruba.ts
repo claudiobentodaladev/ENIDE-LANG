@@ -1,258 +1,244 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const yoruba = new Language({
   language: "yoruba",
   about: "ENIDE je oluyipada ti o le tumasi ti o gba laaye eto ni ede eyikeyi",
 
-  include: {
-    main: "Pelu",
-    __description: "A máa ń lò ó láti fi èdè tàbí àwọn ohun ìkàwé kún un",
-  },
+  include: DocStr(
+    "Pelu",
+    "A maa n lo o lati fi ede tabi awon ohun ikabwe kun un",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "Nipa",
-        __description: "lati gba alaye nipa ENIDE",
-      },
-      __help: {
-        main: "Iranlowo",
-        __description: "lati gba atokun gbogbo aawon aṣe to wa",
-      },
-      __version: {
-        main: "Eya",
-        __description: "lati gba eya lọwọlọwọ ti ENIDE",
-      },
-      __languages: {
-        main: "Ede",
-        __description: "lati gba atokun gbogbo ede ti o wa",
-      },
-      __documentation: {
-        main: "Iwe",
-        __description: "lati gba iwe aṣẹ fun ede",
-      },
-    },
+    __about: DocStr("Nipa", "lati gba alaye nipa ENIDE"),
+    __help: DocStr("Iranlowo", "lati gba atokun gbogbo aawon ase to wa"),
+    __version: DocStr("Eya", "lati gba eya lowolowo ti ENIDE"),
+    __languages: DocStr("Ede", "lati gba atokun gbogbo ede ti o wa"),
+    __documentation: DocStr("Iwe", "lati gba iwe ase fun ede"),
+    __grammar: DocStr("Sintasi", "lati wo awon ofin girama fun ede"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("Standard", "awon ise pataki fun eto"),
+      __isarray: DocStr("JeAtokun", "se ayewo boya iye je atokun (array)"),
+      __isobject: DocStr("JeNkan", "se ayewo boya iye je nkan (object)"),
+      __typeof: DocStr("IruIyipada", "lati gba iru data ti iyipada"),
+      __parse: DocStr("Tumosi", "lati yi oro pada si iru data to ye"),
+    },
     __math: {
-      main: {
-        main: "Isiro",
-        __description: "lati wọle si awọn iṣẹ isiro",
-      },
-      __pi: {
-        main: "PI",
-        __description: "lati gba iye pi",
-      },
-      __sqrt: {
-        main: "GbongboSquare",
-        __description: "lati gba gbongbo square",
-      },
-      __pow: {
-        main: "Agbara",
-        __description: "lati gba agbara nọmba kan",
-      },
-      __round: {
-        main: "Yika",
-        __description: "lati yika nọmba kan",
-      },
-      __random: {
-        main: "Airiirọ",
-        __description: "lati gba nọmba airiiro",
-      },
-      __max: {
-        main: "Tobi",
-        __description: "lati gba iye ti o pọ julọ",
-      },
-      __min: {
-        main: "Kekere",
-        __description: "lati gba iye ti o kere julọ",
-      },
-      __isNumber: {
-        main: "JeNomba",
-        __description: "lati ṣayẹwo boya iye jẹ nọmba",
-      },
-      __isInteger: {
-        main: "JeNombaKun",
-        __description: "lati ṣayẹwo boya iye jẹ nọmba kikun",
-      },
-      __isFloat: {
-        main: "JeDesimali",
-        __description: "lati ṣayẹwo boya iye jẹ desimali",
-      },
+      main: DocStr("Isiro", "lati wole si awon ise isiro"),
+      __pi: DocStr("PI", "lati gba iye pi"),
+      __sqrt: DocStr("GbongboSquare", "lati gba gbongbo square"),
+      __pow: DocStr("Agbara", "lati gba agbara nomba kan"),
+      __round: DocStr("Yika", "lati yika nomba kan"),
+      __random: DocStr("Airiiro", "lati gba nomba airiiro"),
+      __max: DocStr("Tobi", "lati gba iye ti o po julo"),
+      __min: DocStr("Kekere", "lati gba iye ti o kere julo"),
+      __isNumber: DocStr("JeNomba", "lati sayewo boya iye je nomba"),
+      __isInteger: DocStr("JeNombaKun", "lati sayewo boya iye je nomba kikun"),
+      __isFloat: DocStr("JeDesimali", "lati sayewo boya iye je desimali"),
+      __cos: DocStr("cos", "lati gba cosine"),
+      __sin: DocStr("sin", "lati gba sine"),
+      __tan: DocStr("tan", "lati gba tangent"),
     },
 
     __string: {
-      main: {
-        main: "Okun",
-        __description: "lati wọle si awọn iṣẹ ṣiṣatunṣe okun",
-      },
-      __length: {
-        main: "Gigun",
-        __description: "lati gba gigun okun",
-      },
-      __toUpperCase: {
-        main: "KawaItokaKekere",
-        __description: "lati yi okun pada si lẹta nla",
-      },
-      __toLowerCase: {
-        main: "KawaItokaTobi",
-        __description: "lati yi okun pada si lẹta kekere",
-      },
+      main: DocStr("Okun", "lati wole si awon ise siatunse okun"),
+      __length: DocStr("Gigun", "lati gba gigun okun"),
+      __toUpperCase: DocStr("KawaItokaTobi", "lati yi okun pada si leta nla"),
+      __toLowerCase: DocStr(
+        "KawaItokaKekere",
+        "lati yi okun pada si leta kekere",
+      ),
+      __include: DocStr("NiNinu", "se ayewo boya okun ni oro kan ninu"),
+      __repeat: DocStr("Tunso", "lati tun okun so ni opo igba"),
     },
 
     __date: {
-      main: {
-        main: "Ojo",
-        __description: "lati wọle si awọn iṣẹ ojo ati akoko",
-      },
-      __year: {
-        main: "Odun",
-        __description: "lati gba ọdun",
-      },
-      __month: {
-        main: "Osu",
-        __description: "lati gba oṣù",
-      },
-      __dayMonth: {
-        main: "OjoOsu",
-        __description: "lati gba ọjọ oṣù",
-      },
-      __dayWeek: {
-        main: "OjoOse",
-        __description: "lati gba ọjọ ọsẹ",
-      },
-      __hour: {
-        main: "Wakati",
-        __description: "lati gba wakati",
-      },
-      __minute: {
-        main: "Iseju",
-        __description: "lati gba iṣẹju",
-      },
-      __second: {
-        main: "Aaya",
-        __description: "lati gba aaya",
-      },
+      main: DocStr("Ojo", "lati wole si awon ise ojo ati akoko"),
+      __now: DocStr("Lowolowo", "lati gba ojo ati akoko lowolowo"),
+      __year: DocStr("Odun", "lati gba odun"),
+      __month: DocStr("Osu", "lati gba osu"),
+      __dayMonth: DocStr("OjoOsu", "lati gba ojo osu"),
+      __dayWeek: DocStr("OjoOse", "lati gba ojo ose"),
+      __hour: DocStr("Wakati", "lati gba wakati"),
+      __minute: DocStr("Iseju", "lati gba iseju"),
+      __second: DocStr("Aaya", "lati gba aaya"),
     },
   },
 
   types: {
-    __object: {
-      main: "Nkan",
-      __description: "lati kede nkan kan ti ko yipada",
-    },
-    __number: {
-      main: "Nomba",
-      __description: "lati kede iyipada ti iru nomba",
-    },
-    __string: {
-      main: "Okun",
-      __description: "lati kede iyipada ti iru okun",
-    },
-    __boolean: {
-      main: "Bool",
-      values: { __true: "Otito", __false: "Iro" },
-      __description: "lati kede iyipada ti iru boolean",
-    },
+    __number: DocStr("Nomba", "lati kede iyipada ti iru nomba"),
+    __string: DocStr("Okun", "lati kede iyipada ti iru okun"),
+    __boolean: DocStr("Bool", "lati kede iyipada ti iru boolean"),
+    __object: DocStr("Nkan", "lati kede nkan kan ti ko yipada"),
+    __void: DocStr("Sofo", "ise ti ko ni iye ti o n pada"),
+    __array: DocStr("Atokun", "lati kede akojopo awon nkan"),
+  },
+
+  specialValues: {
+    __true: DocStr("Otito", "iye ogbon fun otito"),
+    __false: DocStr("Iro", "iye ogbon fun iro"),
+    __null: DocStr("Ofo", "ailesi iye kankan"),
+  },
+
+  words: {
+    __new: DocStr("Tuntun", "lati da nkan tuntun sile"),
+    __this: DocStr("Eyi", "itoka si nkan lowolowo"),
+    __extends: DocStr("Fagun", "lati jogun awon ohun ini lati klasi miiran"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("Ikoko", "wiwo nikan ninu klasi"),
+    __public: DocStr("Gbangba", "wiwo fun gbogbo eniyan"),
+    __protected: DocStr("Idabobo", "wiwo ninu klasi ati awon omo re"),
+    __readonly: DocStr("KikaNikan", "iye ti a ko le yi pada"),
+    __static: DocStr("Duroti", "ti o je ti klasi funrare"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "Te",
-        __description: "lati tẹ iye sori iboju",
-      },
-      __scan: {
-        main: "Ka",
-        __description: "lati ka iye lati ọdọ olumulo",
-      },
-      __return: {
-        main: "Pada",
-        __description: "lati pada pẹlu iye lati iṣẹ",
-      },
+      __print: DocStr("Te", "lati te iye sori iboju"),
+      __scan: DocStr("Ka", "lati ka iye lati odo olumulo"),
+      __return: DocStr("Pada", "lati pada pelu iye lati ise"),
+      __break: DocStr("Duro", "lati da lupu duro"),
+      __continue: DocStr("Tesiwaju", "lati fo lo si igbese lupu ti o kan"),
     },
 
     sentences: {
-      __function: {
-        main: "Ise",
-        __description: "lati kede iṣẹ",
-      },
-      __if: {
-        main: "Biba",
-        __description: "lati kede ipo",
-      },
-      __else: {
-        main: "Tabi",
-        __description: "lati kede ipo miiran",
-      },
-      __while: {
-        main: "Nigba",
-        __description: "lati kede lupu nigba",
-      },
-      __for: {
-        main: "Fun",
-        __description: "lati kede lupu fun",
-      },
-      __switch: {
-        main: "Yan",
-        __description: "lati kede eto iyọọda",
-      },
-      __case: {
-        main: "Oro",
-        __description: "lati kede ọrọ ninu eto iyọọda",
-      },
-      __default: {
-        main: "Ipile",
-        __description: "lati kede ọrọ ipilẹ",
-      },
-      __try: {
-        main: "Gbiyanju",
-        __description: "lati kede bulọọki gbiyanju",
-      },
-      __catch: {
-        main: "Mu",
-        __description: "lati kede bulọọki mimu aṣiṣe",
-      },
-      __finally: {
-        main: "Lakotan",
-        __description: "lati kede bulọọki ti o ṣiṣẹ laibikita",
-      },
+      __function: DocStr("Ise", "lati kede ise"),
+      __if: DocStr("Biba", "lati kede ipo"),
+      __else: DocStr("Tabi", "lati kede ipo miiran"),
+      __while: DocStr("Nigba", "lati kede lupu nigba"),
+      __for: DocStr("Fun", "lati kede lupu fun"),
+      __switch: DocStr("Yan", "lati kede eto iyooda"),
+      __case: DocStr("Oro", "lati kede oro ninu eto iyooda"),
+      __default: DocStr("Ipile", "lati kede oro ipile"),
+      __try: DocStr("Gbiyanju", "lati kede bulooki gbiyanju"),
+      __catch: DocStr("Mu", "lati kede bulooki mimu asise"),
+      __finally: DocStr("Lakotan", "lati kede bulooki ti o sise laibikita"),
+      __class: DocStr("Klasi", "lati kede klasi tuntun"),
+      __constructor: DocStr("Olupile", "ise pataki lati pilẹ nkan"),
     },
   },
 
   errors: {
-    main: {
-      tag: "ASISE",
-      message: "Asise gbogboogbo ti eto",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "AsiseAimo",
-      message: "Asise ti a ko mọ rara",
-    },
-    __TypeError: {
-      tag: "AsiseIru",
-      message: "Iru ko tọ ninu isẹ",
-    },
-    __ReferenceError: {
-      tag: "AsiseItoka",
-      message: "Iyipada ko si ni aaye",
-    },
-    __SyntaxError: {
-      tag: "AsiseSintasi",
-      message: "Koodu ko tọ",
-    },
-    __RangeError: {
-      tag: "AsiseIsele",
-      message: "Iye wa ni ita aaye ti a gba laaye",
-    },
-    __URIError: {
-      tag: "AsiseUri",
-      message: "URI ti bajẹ tabi ti ko tọ",
-    },
-    __EvalError: {
-      tag: "AsiseEval",
-      message: "Asise ti o ni ibatan pelu eval",
-    },
+    __labels: errorLabel(
+      "Ifiranse",
+      "Iye",
+      "Iyipada",
+      "OhunIni",
+      "Nkan",
+      "Atiire",
+      "Arisaba",
+      "IpinleKonstanti",
+      "ParamitaTiTunlo",
+      "Iranlowo",
+      "AmiAimo",
+      "StackKun",
+      "Ami",
+      "OpinVvoduAimo",
+    ),
+    main: errorMessage("ASISE", "Asise gbogboogbo ti eto"),
+    __TypeError: errorMessage("AsiseIru", "Iru ko to ninu ise"),
+    __InitError: errorMessage("AsiseInit", "Iyipada ko ni iye ipile"),
+    __ReferenceError: errorMessage("AsiseItoka", "Iyipada ko si ni aaye"),
+    __SyntaxError: errorMessage("AsiseSintasi", "Koodu ko to"),
+    __RangeError: errorMessage(
+      "AsiseIsele",
+      "Iye wa ni ita aaye ti a gba laaye",
+    ),
+    __URIError: errorMessage("AsiseUri", "URI ti baje tabi ti ko to"),
+    __EvalError: errorMessage("AsiseEval", "Asise ti o ni ibatan pelu eval"),
+    __UNKNOWN_ERROR: errorMessage("AsiseAimo", "Asise ti a ko mo rara"),
+  },
+
+  example: {
+    __array: [
+      "atokun_pissa",
+      "ilu_yi",
+      "atokun_nomba",
+      "nomba_yi",
+      "awo_yi",
+      "ounje_yi",
+      "eniyan_yi",
+      "eka_yi",
+      "ami_yi",
+      "ede_yi",
+    ],
+    __boolean: [
+      "ipo",
+      "n_sise",
+      "aye_gba",
+      "tan",
+      "fidiule",
+      "ti_pa",
+      "n_lo",
+      "pari",
+      "yewo",
+      "fagile",
+    ],
+    __function: [
+      "gbaOruko",
+      "siroIye",
+      "fiDani",
+      "tunProfiluSe",
+      "seOkun",
+      "yewoKoodu",
+      "yewoData",
+      "pamoIwe",
+      "fiIfiranseRan",
+      "fiGbogboKun",
+    ],
+    __number: [
+      "ojo_ori",
+      "odun_ibi",
+      "apapo",
+      "iyemeji",
+      "iye_owo",
+      "itoka",
+      "akoko",
+      "iye",
+      "ami",
+      "wakati",
+    ],
+    __object: [
+      "eniyan",
+      "onibara",
+      "toju",
+      "esi",
+      "isansowo",
+      "profili",
+      "adireesi",
+      "metadata",
+      "igba_eto",
+      "nkan",
+    ],
+    __string: [
+      "oruko",
+      "adireesi",
+      "apejuwe",
+      "imeeli",
+      "oro_igbaniwo",
+      "ifiranse",
+      "nomba",
+      "kokoro",
+      "url",
+      "itoka",
+    ],
+    __void: [
+      "lo",
+      "pa",
+      "duro",
+      "nu",
+      "parun",
+      "jade",
+      "nuBuferi",
+      "pamoGbogbo",
+      "fiRan",
+      "wole",
+    ],
   },
 }).grammar();

@@ -1,241 +1,303 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const svenska = new Language({
   language: "svenska",
   about:
     "ENIDE är en översättbar transpiler som möjliggör programmering på vilket språk som helst",
 
-  include: {
-    main: "Inkludera",
-    __description: "Används för att inkludera språk eller bibliotek",
-  },
+  include: DocStr(
+    "Inkludera",
+    "används för att inkludera språk, bibliotek eller datastrukturer från en annan fil",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "Info",
-        __description: "för att få information om ENIDE",
-      },
-      __help: {
-        main: "Hjalp",
-        __description: "för att få en lista över alla tillgängliga kommandon",
-      },
-      __version: {
-        main: "Version",
-        __description: "för att få den aktuella versionen av ENIDE",
-      },
-      __languages: {
-        main: "Sprak",
-        __description: "för att få en lista över alla tillgängliga språk",
-      },
-      __documentation: {
-        main: "Dok",
-        __description: "för att få dokumentation för ett språk",
-      },
-    },
+    __about: DocStr("Info", "för att få information om ENIDE"),
+    __help: DocStr(
+      "Hjalp",
+      "för att få en lista över alla tillgängliga kommandon",
+    ),
+    __version: DocStr("Version", "för att få den aktuella versionen av ENIDE"),
+    __languages: DocStr(
+      "Sprak",
+      "för att få en lista över alla tillgängliga språk",
+    ),
+    __documentation: DocStr("Dok", "för att få dokumentation för ett språk"),
+    __grammar: DocStr("Grammatik", "för att få grammatiken för ett språk"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("Standard", "för att komma åt standardhjälpmetoder"),
+      __isarray: DocStr(
+        "ArArray",
+        "för att kontrollera om ett värde är en array",
+      ),
+      __isobject: DocStr(
+        "ArObjekt",
+        "för att kontrollera om ett värde är ett objekt",
+      ),
+      __typeof: DocStr("TypAv", "för att få typen av ett värde"),
+      __parse: DocStr(
+        "Tolka",
+        "för att konvertera ett värde från text till korrekt typ",
+      ),
+    },
+
     __math: {
-      main: {
-        main: "Matematik",
-        __description: "för att komma åt matematiska funktioner",
-      },
-      __pi: {
-        main: "PI",
-        __description: "för att få värdet av pi",
-      },
-      __sqrt: {
-        main: "Kvadratrot",
-        __description: "för att få kvadratroten",
-      },
-      __pow: {
-        main: "Potens",
-        __description: "för att få potensen av ett tal",
-      },
-      __round: {
-        main: "Avrunda",
-        __description: "för att avrunda ett tal",
-      },
-      __random: {
-        main: "Slumpmassig",
-        __description: "för att få ett slumpmässigt tal",
-      },
-      __max: {
-        main: "Maximum",
-        __description: "för att få det maximala värdet",
-      },
-      __min: {
-        main: "Minimum",
-        __description: "för att få det minimala värdet",
-      },
-      __isNumber: {
-        main: "ArTal",
-        __description: "för att kontrollera om ett värde är ett tal",
-      },
-      __isInteger: {
-        main: "ArHeltal",
-        __description: "för att kontrollera om ett värde är ett heltal",
-      },
-      __isFloat: {
-        main: "ArDecimal",
-        __description: "för att kontrollera om ett värde är ett decimaltal",
-      },
+      main: DocStr("Matematik", "för att komma åt matematiska funktioner"),
+      __pi: DocStr("PI", "för att få värdet av pi"),
+      __sqrt: DocStr("Kvadratrot", "för att få kvadratroten av ett tal"),
+      __pow: DocStr("Potens", "för att få potensen av ett tal"),
+      __round: DocStr("Avrunda", "för att avrunda ett tal"),
+      __random: DocStr("Slumpmassig", "för att få ett slumpmässigt tal"),
+      __max: DocStr("Maximum", "för att få det maximala värdet"),
+      __min: DocStr("Minimum", "för att få det minimala värdet"),
+      __isNumber: DocStr(
+        "ArTal",
+        "för att kontrollera om ett värde är ett tal",
+      ),
+      __isInteger: DocStr(
+        "ArHeltal",
+        "för att kontrollera om ett värde är ett heltal",
+      ),
+      __isFloat: DocStr(
+        "ArDecimal",
+        "för att kontrollera om ett värde är ett decimaltal",
+      ),
+      __cos: DocStr("Cos", "för att få cosinus av en vinkel i radianer"),
+      __sin: DocStr("Sin", "för att få sinus av en vinkel i radianer"),
+      __tan: DocStr("Tan", "för att få tangens av en vinkel i radianer"),
     },
 
     __string: {
-      main: {
-        main: "Strang",
-        __description: "för att komma åt textmanipuleringsfunktioner",
-      },
-      __length: {
-        main: "Langd",
-        __description: "för att få längden på en text",
-      },
-      __toUpperCase: {
-        main: "TillVersaler",
-        __description: "för att konvertera en text till versaler",
-      },
-      __toLowerCase: {
-        main: "TillGemener",
-        __description: "för att konvertera en text till gemener",
-      },
+      main: DocStr("Strang", "för att komma åt textmanipuleringsfunktioner"),
+      __length: DocStr("Langd", "för att få längden på en text"),
+      __toUpperCase: DocStr(
+        "TillVersaler",
+        "för att konvertera en text till versaler",
+      ),
+      __toLowerCase: DocStr(
+        "TillGemener",
+        "för att konvertera en text till gemener",
+      ),
+      __include: DocStr(
+        "Innehaller",
+        "för att kontrollera om en text innehåller en delsträng",
+      ),
+      __repeat: DocStr("Upprepa", "för att upprepa en text ett antal gånger"),
     },
 
     __date: {
-      main: {
-        main: "Datum",
-        __description: "för att komma åt datum och tidsfunktioner",
-      },
-      __year: {
-        main: "Ar",
-        __description: "för att få året",
-      },
-      __month: {
-        main: "Manad",
-        __description: "för att få månaden",
-      },
-      __dayMonth: {
-        main: "DagManad",
-        __description: "för att få dagen i månaden",
-      },
-      __dayWeek: {
-        main: "DagVecka",
-        __description: "för att få dagen i veckan",
-      },
-      __hour: {
-        main: "Timme",
-        __description: "för att få timmen",
-      },
-      __minute: {
-        main: "Minut",
-        __description: "för att få minuten",
-      },
-      __second: {
-        main: "Sekund",
-        __description: "för att få sekunden",
-      },
+      main: DocStr("Datum", "för att komma åt datum och tidsfunktioner"),
+      __now: DocStr("Nu", "för att få aktuellt datum och tid"),
+      __year: DocStr("Ar", "för att få året"),
+      __month: DocStr("Manad", "för att få månaden"),
+      __dayMonth: DocStr("DagManad", "för att få dagen i månaden"),
+      __dayWeek: DocStr("DagVecka", "för att få dagen i veckan"),
+      __hour: DocStr("Timme", "för att få timmen"),
+      __minute: DocStr("Minut", "för att få minuten"),
+      __second: DocStr("Sekund", "för att få sekunden"),
     },
   },
 
   types: {
-    __object: {
-      main: "Objekt",
-      __description: "för att deklarera ett statiskt objekt",
-    },
-    __number: {
-      main: "Tal",
-      __description: "för att deklarera en variabel av typen tal",
-    },
-    __string: {
-      main: "Text",
-      __description: "för att deklarera en variabel av typen text",
-    },
-    __boolean: {
-      main: "Bool",
-      values: { __true: "Sant", __false: "Falskt" },
-      __description: "för att deklarera en variabel av typen boolesk",
-    },
+    __number: DocStr("Tal", "för att deklarera en variabel av typen tal"),
+    __string: DocStr("Text", "för att deklarera en variabel av typen text"),
+    __boolean: DocStr("Bool", "för att deklarera en variabel av typen boolesk"),
+    __object: DocStr("Objekt", "för att deklarera ett statiskt objekt"),
+    __void: DocStr(
+      "Tom",
+      "för att deklarera en funktion som inte returnerar ett värde",
+    ),
+    __array: DocStr("Lista", "för att deklarera en listdatastruktur"),
+  },
+
+  specialValues: {
+    __true: DocStr("Sant", "booleskt värde sant"),
+    __false: DocStr("Falskt", "booleskt värde falskt"),
+    __null: DocStr("Inget", "avsaknad av värde"),
+  },
+
+  words: {
+    __new: DocStr("Ny", "för att skapa en ny instans av en klass"),
+    __this: DocStr("detta", "för att komma åt attribut i den egna klassen"),
+    __extends: DocStr(
+      "utökar",
+      "för att deklarera att en klass ärver från en annan",
+    ),
+  },
+
+  accessModifiers: {
+    __private: DocStr("Privat", "tillgänglig bara inom klassen"),
+    __public: DocStr("Offentlig", "tillgänglig från var som helst"),
+    __protected: DocStr(
+      "Skyddad",
+      "tillgänglig inom klassen och dess underklasser",
+    ),
+    __readonly: DocStr("LasBara", "värdet kan bara tilldelas en gång"),
+    __static: DocStr("Statisk", "tillhör klassen själv, inte instanserna"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "Skriv",
-        __description: "för att skriva ut ett värde på skärmen",
-      },
-      __scan: {
-        main: "Las",
-        __description: "för att läsa ett värde från inmatning",
-      },
-      __return: {
-        main: "Returnera",
-        __description: "för att returnera ett värde från en funktion",
-      },
+      __print: DocStr("Skriv", "för att skriva ut ett värde på skärmen"),
+      __scan: DocStr("Las", "för att läsa ett värde från inmatning"),
+      __return: DocStr(
+        "Returnera",
+        "för att returnera ett värde från en funktion",
+      ),
+      __break: DocStr("Avbryt", "för att avbryta en loop"),
+      __continue: DocStr(
+        "Fortsatt",
+        "för att hoppa till nästa iteration av en loop",
+      ),
     },
 
     sentences: {
-      __function: {
-        main: "Funktion",
-        __description: "för att deklarera en funktion",
-      },
-      __if: {
-        main: "Om",
-        __description: "för att deklarera ett villkor",
-      },
-      __else: {
-        main: "Annars",
-        __description: "för att deklarera ett alternativt villkor",
-      },
-      __while: {
-        main: "Medan",
-        __description: "för att deklarera en medan-loop",
-      },
-      __for: {
-        main: "For",
-        __description: "för att deklarera en for-loop",
-      },
-      __switch: {
-        main: "Val",
-        __description: "för att deklarera en valstruktur",
-      },
-      __case: {
-        main: "Fall",
-        __description: "för att deklarera ett fall i valstrukturen",
-      },
-      __default: {
-        main: "Standard",
-        __description: "för att deklarera standardfallet i valstrukturen",
-      },
-      __try: {
-        main: "Forsok",
-        __description: "för att deklarera ett försök-block",
-      },
-      __catch: {
-        main: "Fanga",
-        __description: "för att deklarera ett felhanteringsblock",
-      },
-      __finally: {
-        main: "Slutligen",
-        __description: "för att deklarera ett block som alltid körs",
-      },
+      __function: DocStr("Funktion", "för att deklarera en funktion"),
+      __if: DocStr("Om", "för att deklarera ett villkor"),
+      __else: DocStr("Annars", "för att deklarera ett alternativt villkor"),
+      __while: DocStr("Medan", "för att deklarera en medan-loop"),
+      __for: DocStr("For", "för att deklarera en for-loop"),
+      __switch: DocStr("Val", "för att deklarera en valstruktur"),
+      __case: DocStr("Fall", "för att deklarera ett fall i valstrukturen"),
+      __default: DocStr(
+        "Standard",
+        "för att deklarera standardfallet i valstrukturen",
+      ),
+      __try: DocStr("Forsok", "för att deklarera ett försök-block"),
+      __catch: DocStr("Fanga", "för att deklarera ett felhanteringsblock"),
+      __finally: DocStr(
+        "Slutligen",
+        "för att deklarera ett block som alltid körs",
+      ),
+      __class: DocStr("Klass", "för att deklarera en klass"),
+      __constructor: DocStr(
+        "Konstruktor",
+        "struktur som tillåter deklaration av attribut i en klass",
+      ),
     },
   },
 
   errors: {
-    main: { tag: "FEL", message: "Generiskt systemfel" },
-    __UNKNOWN_ERROR: { tag: "OKÄNT_FEL", message: "Fullständigt okänt fel" },
-    __TypeError: { tag: "TYP_FEL", message: "Ogiltig typ i operationen" },
-    __ReferenceError: {
-      tag: "REFERENS_FEL",
-      message: "Variabeln finns inte i omfånget",
-    },
-    __SyntaxError: { tag: "SYNTAX_FEL", message: "Ogiltig kod" },
-    __RangeError: {
-      tag: "INTERVALL_FEL",
-      message: "Värde utanför det tillåtna intervallet",
-    },
-    __URIError: { tag: "URI_FEL", message: "Felformaterad eller ogiltig URI" },
-    __EvalError: { tag: "EVAL_FEL", message: "Fel relaterat till eval" },
+    __labels: errorLabel(
+      "Meddelande",
+      "Varde",
+      "Variabel",
+      "Egenskap",
+      "Objekt",
+      "Forvantad",
+      "Mottagen",
+      "Konstant_Tilldelning",
+      "Dublett_Parameter",
+      "Tips",
+      "Ogiltig_Token",
+      "Stack_Overflodar",
+      "Token",
+      "Ovantad_Inmatningsslut",
+    ),
+    main: errorMessage("FEL", "generiskt systemfel"),
+    __TypeError: errorMessage("TYP_FEL", "ogiltig typ i operationen"),
+    __InitError: errorMessage("INIT_FEL", "variabeln har inte initialiserats"),
+    __ReferenceError: errorMessage(
+      "REFERENS_FEL",
+      "variabeln, funktionen eller biblioteket finns inte i omfånget",
+    ),
+    __SyntaxError: errorMessage("SYNTAX_FEL", "ogiltig kod"),
+    __RangeError: errorMessage(
+      "INTERVALL_FEL",
+      "värde utanför det tillåtna intervallet",
+    ),
+    __URIError: errorMessage("URI_FEL", "felformaterad eller ogiltig URI"),
+    __EvalError: errorMessage("EVAL_FEL", "fel relaterat till eval"),
+    __UNKNOWN_ERROR: errorMessage("OKANT_FEL", "fullständigt okänt fel"),
+  },
+
+  example: {
+    __array: [
+      "mat",
+      "lander",
+      "objekt",
+      "etiketter",
+      "farger",
+      "produkter",
+      "anvandare",
+      "kategorier",
+      "poang",
+      "sprak",
+    ],
+    __boolean: [
+      "status",
+      "arVuxen",
+      "arAktiv",
+      "arSynlig",
+      "harTillstand",
+      "arInloggad",
+      "arAktiverad",
+      "arKlar",
+      "arVerifierad",
+      "arRaderad",
+    ],
+    __function: [
+      "hamtaNamn",
+      "hamtaVarde",
+      "hanteraKlick",
+      "hamtaData",
+      "formateraDatum",
+      "tolkInmatning",
+      "valideraFormular",
+      "visaElement",
+      "uppdateraTillstand",
+      "beraknaTotal",
+    ],
+    __number: [
+      "alder",
+      "ar",
+      "antal",
+      "totalt",
+      "pris",
+      "index",
+      "varaktighet",
+      "mangd",
+      "poang",
+      "timeout",
+    ],
+    __object: [
+      "person",
+      "anvandare",
+      "konfiguration",
+      "svar",
+      "betalning",
+      "installningar",
+      "profil",
+      "adress",
+      "metadata",
+      "session",
+    ],
+    __string: [
+      "namn",
+      "titel",
+      "beskrivning",
+      "epost",
+      "losenord",
+      "meddelande",
+      "etikett",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "logga_in",
+      "initiera",
+      "rensa",
+      "aterstall",
+      "forstar",
+      "logga_ut",
+      "rensaCache",
+      "sparaTillDB",
+      "skickaEpost",
+      "loggaHandelse",
+    ],
   },
 }).grammar();

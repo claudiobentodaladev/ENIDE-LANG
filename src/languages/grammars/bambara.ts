@@ -1,250 +1,243 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const bambara = new Language({
   language: "bambara",
   about:
     "ENIDE ye transpiler wolomanba ye min bɛ se ka dan ka baara kɛ kan o kan na",
-  include: {
-    main: "be_nono",
-    __description: "A be ke k'a sɔrɔ kabilaw walla gafemarayɔrɔw be nono",
-  },
+
+  include: DocStr(
+    "be_nono",
+    "A be ke k'a sɔrɔ kabilaw walla gafemarayɔrɔw be nono",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "kunnafoniko",
-        __description: "ka kunnafoni sɔrɔ ENIDE kɔrɔ",
-      },
-      __help: {
-        main: "dɛmɛ",
-        __description: "ka taasili sɔrɔ jate bɛɛ la minnu bɛ sɔrɔ",
-      },
-      __version: {
-        main: "version",
-        __description: "ka ENIDE ta version sɔrɔ",
-      },
-      __languages: {
-        main: "kan",
-        __description: "ka kan bɛɛ taasili sɔrɔ minnu bɛ sɔrɔ",
-      },
-      __documentation: {
-        main: "sɛbɛn",
-        __description: "ka kan sɛbɛn sɔrɔ",
-      },
-    },
+    __about: DocStr("kunnafoniko", "ka kunnafoni sɔrɔ ENIDE kɔrɔ"),
+    __help: DocStr("dɛmɛ", "ka taasili sɔrɔ jate bɛɛ la minnu bɛ sɔrɔ"),
+    __version: DocStr("version", "ka ENIDE ta version sɔrɔ"),
+    __languages: DocStr("kan", "ka kan bɛɛ taasili sɔrɔ minnu bɛ sɔrɔ"),
+    __documentation: DocStr("sɛbɛn", "ka kan sɛbɛn sɔrɔ"),
+    __grammar: DocStr("kalansen", "ka kan kalansen sɔrɔ"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("kɔrɔkan", "ka kɔrɔkan dɛmɛ baara minnu na don"),
+      __isarray: DocStr("YeLisiti", "ka lajɛ ni dama ye lisiti ye"),
+      __isobject: DocStr("YeBagan", "ka lajɛ ni dama ye bagan ye"),
+      __typeof: DocStr("AyCogo", "ka dama ta cogo sɔrɔ"),
+      __parse: DocStr("Parse", "ka sira kɛ a ka cogoya ɲɛnan ye"),
+    },
+
     __math: {
-      main: {
-        main: "lisɛli",
-        __description: "ka lisɛli baara minnu na don",
-      },
-      __pi: {
-        main: "PI",
-        __description: "ka pi dama sɔrɔ",
-      },
-      __sqrt: {
-        main: "KungoSquare",
-        __description: "ka square kɔrɔ sɔrɔ",
-      },
-      __pow: {
-        main: "Kunatigi",
-        __description: "ka jate segin sɔrɔ",
-      },
-      __round: {
-        main: "Wili",
-        __description: "ka jate wili",
-      },
-      __random: {
-        main: "Lanzani",
-        __description: "ka lanzani jate sɔrɔ",
-      },
-      __max: {
-        main: "Belebeleba",
-        __description: "ka dama belebele sɔrɔ",
-      },
-      __min: {
-        main: "Fitinin",
-        __description: "ka dama fitinin sɔrɔ",
-      },
-      __isNumber: {
-        main: "JateYe",
-        __description: "ka lajɛ ni dama ye jate ye",
-      },
-      __isInteger: {
-        main: "JateYeKun",
-        __description: "ka lajɛ ni dama ye jate kun ye",
-      },
-      __isFloat: {
-        main: "JateYeDesimali",
-        __description: "ka lajɛ ni dama ye desimali ye",
-      },
+      main: DocStr("lisɛli", "ka lisɛli baara minnu na don"),
+      __pi: DocStr("PI", "ka pi dama sɔrɔ"),
+      __sqrt: DocStr("KungoSquare", "ka square kɔrɔ sɔrɔ"),
+      __pow: DocStr("Kunatigi", "ka jate segin sɔrɔ"),
+      __round: DocStr("Wili", "ka jate wili"),
+      __random: DocStr("Lanzani", "ka lanzani jate sɔrɔ"),
+      __max: DocStr("Belebeleba", "ka dama belebele sɔrɔ"),
+      __min: DocStr("Fitinin", "ka dama fitinin sɔrɔ"),
+      __isNumber: DocStr("JateYe", "ka lajɛ ni dama ye jate ye"),
+      __isInteger: DocStr("JateYeKun", "ka lajɛ ni dama ye jate kun ye"),
+      __isFloat: DocStr("JateYeDesimali", "ka lajɛ ni dama ye desimali ye"),
+      __cos: DocStr("Cos", "ka cosinus sɔrɔ radiyan na"),
+      __sin: DocStr("Sin", "ka sinus sɔrɔ radiyan na"),
+      __tan: DocStr("Tan", "ka tanɛnti sɔrɔ radiyan na"),
     },
+
     __string: {
-      main: {
-        main: "sira",
-        __description: "ka sira baara minnu na don",
-      },
-      __length: {
-        main: "Gueleya",
-        __description: "ka sira gueleya sɔrɔ",
-      },
-      __toUpperCase: {
-        main: "KaSebenBelebele",
-        __description: "ka sira kɛ tulonkelen na",
-      },
-      __toLowerCase: {
-        main: "KaSebenFitinin",
-        __description: "ka sira kɛ nɔgɔlen na",
-      },
+      main: DocStr("sira", "ka sira baara minnu na don"),
+      __length: DocStr("Gueleya", "ka sira gueleya sɔrɔ"),
+      __toUpperCase: DocStr("KaSebenBelebele", "ka sira kɛ tulonkelen na"),
+      __toLowerCase: DocStr("KaSebenFitinin", "ka sira kɛ nɔgɔlen na"),
+      __include: DocStr("BɛKono", "ka lajɛ ni sira kɔnɔ sira dɔ bɛ"),
+      __repeat: DocStr("Ladege", "ka sira ladege hakɛ dɔ la"),
     },
+
     __date: {
-      main: {
-        main: "don",
-        __description: "ka don ni waati baara minnu na don",
-      },
-      __year: {
-        main: "San",
-        __description: "ka san sɔrɔ",
-      },
-      __month: {
-        main: "Kalo",
-        __description: "ka kalo sɔrɔ",
-      },
-      __dayMonth: {
-        main: "DonKalo",
-        __description: "ka don kalo na sɔrɔ",
-      },
-      __dayWeek: {
-        main: "DonSuma",
-        __description: "ka don suma na sɔrɔ",
-      },
-      __hour: {
-        main: "Lere",
-        __description: "ka lɛrɛ sɔrɔ",
-      },
-      __minute: {
-        main: "Miniti",
-        __description: "ka miniti sɔrɔ",
-      },
-      __second: {
-        main: "Sekondi",
-        __description: "ka sekondi sɔrɔ",
-      },
+      main: DocStr("don", "ka don ni waati baara minnu na don"),
+      __now: DocStr("Sisan", "ka don ni waati sisan sɔrɔ"),
+      __year: DocStr("San", "ka san sɔrɔ"),
+      __month: DocStr("Kalo", "ka kalo sɔrɔ"),
+      __dayMonth: DocStr("DonKalo", "ka don kalo na sɔrɔ"),
+      __dayWeek: DocStr("DonSuma", "ka don suma na sɔrɔ"),
+      __hour: DocStr("Lere", "ka lɛrɛ sɔrɔ"),
+      __minute: DocStr("Miniti", "ka miniti sɔrɔ"),
+      __second: DocStr("Sekondi", "ka sekondi sɔrɔ"),
     },
   },
+
   types: {
-    __object: { main: "bagan", __description: "bagan dogoto damine" },
-    __number: {
-      main: "jate",
-      __description: "ka jate ɲɛfɔli siri jate cogo la",
-    },
-    __string: {
-      main: "sira",
-      __description: "ka jate ɲɛfɔli siri sira cogo la",
-    },
-    __boolean: {
-      main: "bool",
-      values: {
-        __false: "Nkalon",
-        __true: "Tignɛ",
-      },
-      __description: "ka jate ɲɛfɔli siri boolean cogo la",
-    },
+    __number: DocStr("jate", "ka jate ɲɛfɔli siri jate cogo la"),
+    __string: DocStr("sira", "ka jate ɲɛfɔli siri sira cogo la"),
+    __boolean: DocStr("bool", "ka jate ɲɛfɔli siri boolean cogo la"),
+    __object: DocStr("bagan", "bagan dogoto damine"),
+    __void: DocStr("seginni_tε", "ka baara ɲɛfɔ min tε dama segin"),
+    __array: DocStr("lisiti", "ka lisiti data ladɔnni ɲɛfɔ"),
   },
+
+  specialValues: {
+    __true: DocStr("Tignɛ", "boolean tignɛ dama"),
+    __false: DocStr("Nkalon", "boolean nkalon dama"),
+    __null: DocStr("foyi", "dama foyi tε"),
+  },
+
+  words: {
+    __new: DocStr("kura", "ka kilasi ta nii kura damine"),
+    __this: DocStr("yɛrɛ", "ka yɛrɛ kilasi la barika minɛ"),
+    __extends: DocStr("faradon", "ka kilasi ɲɛfɔ min bɛ wɛrɛ ta baara ta"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("gundo", "ka se a ma kilasi kɔnɔ dɔrɔn"),
+    __public: DocStr("yɛrɛkon", "ka se a ma yɔrɔ o yɔrɔ"),
+    __protected: DocStr("kanga", "ka se a ma kilasi ni a dencɛw fɛ"),
+    __readonly: DocStr("kalan_dɔrɔn", "dama bɛ se ka labɛn dɔrɔn kɛlɛn"),
+    __static: DocStr("sabatilen", "kilasi ta ye, nii ta tɛ"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "jira",
-        __description: "ka dama jira ecran kan",
-      },
-      __scan: {
-        main: "kalan",
-        __description: "ka dama kalan baarakɛla fɛ",
-      },
-      __return: {
-        main: "segin",
-        __description: "ka segin dama la baara la",
-      },
+      __print: DocStr("jira", "ka dama jira ecran kan"),
+      __scan: DocStr("kalan", "ka dama kalan baarakɛla fɛ"),
+      __return: DocStr("segin", "ka segin dama la baara la"),
+      __break: DocStr("bɔ", "ka bɔ loop la"),
+      __continue: DocStr("taa", "ka taa loop ta sɛgɛnnin ma"),
     },
+
     sentences: {
-      __function: {
-        main: "baara",
-        __description: "ka baara ɲɛfɔ",
-      },
-      __if: {
-        main: "ni",
-        __description: "ka sariya ɲɛfɔ",
-      },
-      __else: {
-        main: "wale",
-        __description: "ka sariya wele ɲɛfɔ",
-      },
-      __while: {
-        main: "fo",
-        __description: "ka loop fɔ ɲɛfɔ",
-      },
-      __for: {
-        main: "kama",
-        __description: "ka loop kama ɲɛfɔ",
-      },
-      __switch: {
-        main: "sugandi",
-        __description: "ka sugandi lasigilaw ɲɛfɔ",
-      },
-      __case: {
-        main: "cogo",
-        __description: "ka cogo ɲɛfɔ sugandi lasigilaw na",
-      },
-      __default: {
-        main: "sababu",
-        __description: "ka sababu cogo ɲɛfɔ",
-      },
-      __try: {
-        main: "menni",
-        __description: "ka mɛnni bloki ɲɛfɔ",
-      },
-      __catch: {
-        main: "mine",
-        __description: "ka fili minɛ bloki ɲɛfɔ",
-      },
-      __finally: {
-        main: "laban",
-        __description: "ka bloki ɲɛfɔ min bɛ baara kɛ tuma bɛɛ",
-      },
+      __function: DocStr("baara", "ka baara ɲɛfɔ"),
+      __if: DocStr("ni", "ka sariya ɲɛfɔ"),
+      __else: DocStr("wale", "ka sariya wele ɲɛfɔ"),
+      __while: DocStr("fo", "ka loop fɔ ɲɛfɔ"),
+      __for: DocStr("kama", "ka loop kama ɲɛfɔ"),
+      __switch: DocStr("sugandi", "ka sugandi lasigilaw ɲɛfɔ"),
+      __case: DocStr("cogo", "ka cogo ɲɛfɔ sugandi lasigilaw na"),
+      __default: DocStr("sababu", "ka sababu cogo ɲɛfɔ"),
+      __try: DocStr("menni", "ka mɛnni bloki ɲɛfɔ"),
+      __catch: DocStr("mine", "ka fili minɛ bloki ɲɛfɔ"),
+      __finally: DocStr("laban", "ka bloki ɲɛfɔ min bɛ baara kɛ tuma bɛɛ"),
+      __class: DocStr("kilasi", "ka kilasi ɲɛfɔ"),
+      __constructor: DocStr("daminɛni", "ka kilasi barika ɲɛfɔ daminɛni kɔnɔ"),
     },
   },
+
   errors: {
-    main: {
-      tag: "FILI",
-      message: "Fili kɛnɛ ye sisitɛmu ta",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "FILI_DONTALEN",
-      message: "Fili dontalen",
-    },
-    __TypeError: {
-      tag: "FILI_COGO",
-      message: "Cogo t'a sigilen baara la",
-    },
-    __ReferenceError: {
-      tag: "FILI_NYEFO",
-      message: "Jate ɲɛfɔli t'a sigilen fɛ",
-    },
-    __SyntaxError: {
-      tag: "FILI_SINTAKISI",
-      message: "Code t'a sigilen",
-    },
-    __RangeError: {
-      tag: "FILI_NTENE",
-      message: "Dama bɛ ntɛnɛ saralen kɔfɛ",
-    },
-    __URIError: {
-      tag: "FILI_URI",
-      message: "URI ɲɛmankan wala a t'a sigilen",
-    },
-    __EvalError: {
-      tag: "FILI_EVAL",
-      message: "Fili min bɛ eval ma",
-    },
+    __labels: errorLabel(
+      "Gansira",
+      "Dama",
+      "Ɲɛfɔli",
+      "Barika",
+      "Bagan",
+      "Sumanin",
+      "Sɔrɔlen",
+      "Sabati_Labɛn",
+      "Fara_Paramɛtiri",
+      "Filɛli",
+      "Token_Falen",
+      "Stack_Tɛmɛnen",
+      "Token",
+      "Laban_Sumanin_Tɛ",
+    ),
+    main: errorMessage("FILI", "fili kɛnɛ ye sisitɛmu ta"),
+    __TypeError: errorMessage("FILI_COGO", "cogo t'a sigilen baara la"),
+    __InitError: errorMessage("FILI_DAMINƐ", "jate ɲɛfɔli ma damine"),
+    __ReferenceError: errorMessage(
+      "FILI_NYEFO",
+      "jate ɲɛfɔli, baara walla gafemara tε scope kɔnɔ",
+    ),
+    __SyntaxError: errorMessage("FILI_SINTAKISI", "code t'a sigilen"),
+    __RangeError: errorMessage("FILI_NTENE", "dama bɛ ntɛnɛ saralen kɔfɛ"),
+    __URIError: errorMessage("FILI_URI", "URI ɲɛmankan wala a t'a sigilen"),
+    __EvalError: errorMessage("FILI_EVAL", "fili min bɛ eval ma"),
+    __UNKNOWN_ERROR: errorMessage("FILI_DONTALEN", "fili dontalen"),
+  },
+
+  example: {
+    __array: [
+      "dumuni",
+      "maraw",
+      "fɛnw",
+      "tags",
+      "rangiw",
+      "misɛnw",
+      "mɔgɔw",
+      "kilasɛw",
+      "pointiw",
+      "kanw",
+    ],
+    __boolean: [
+      "cogoya",
+      "balikεlenye",
+      "kεlenye",
+      "yεlεmanyε",
+      "sebaayε",
+      "donniye",
+      "abloye",
+      "bannen",
+      "sɔrɔyε",
+      "bangeyε",
+    ],
+    __function: [
+      "tɔgɔDon",
+      "damaADon",
+      "bugɔKεlen",
+      "kunnafoniSɔrɔ",
+      "donSigin",
+      "baarakεFarali",
+      "fomaDon",
+      "fɛnJira",
+      "cogoyaYɛlɛma",
+      "lajɛBanba",
+    ],
+    __number: [
+      "sii",
+      "san",
+      "hakɛ",
+      "lajɛ",
+      "dama",
+      "kuntigi",
+      "waati",
+      "hakɛba",
+      "pointi",
+      "timeout",
+    ],
+    __object: [
+      "mɔgɔ",
+      "baarakεla",
+      "latigɛ",
+      "jaabi",
+      "sara",
+      "lakodon",
+      "yɛrɛkan",
+      "sigida",
+      "kunnafoni",
+      "mara",
+    ],
+    __string: [
+      "tɔgɔ",
+      "kunkan",
+      "kɔrɔkuma",
+      "email",
+      "gundokuma",
+      "kumakan",
+      "taasili",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "dɔnbali",
+      "daminɛ",
+      "dili",
+      "seginni",
+      "ban",
+      "bɔli",
+      "kεnεkεnε",
+      "marayɔrɔ",
+      "emailci",
+      "dɔnbara",
+    ],
   },
 }).grammar();

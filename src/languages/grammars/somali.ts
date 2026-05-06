@@ -1,238 +1,260 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const somali = new Language({
   language: "somali",
   about:
     "ENIDE waa transpiler kuu ogolaanaya inaad ku qorto barnaamij kasta luuqad kasta",
 
-  include: {
-    main: "KuDar",
-    __description: "loo isticmaalo in lagu daro luuqad ama maktabado",
-  },
+  include: DocStr(
+    "KuDar",
+    "loo isticmaalo in lagu daro luuqad, maktabado ama modulyo dibadda ah",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "ku_saabsan",
-        __description: "macluumaad ku saabsan ENIDE",
-      },
-      __help: {
-        main: "caawimo",
-        __description: "liiska amarrada",
-      },
-      __version: {
-        main: "nuqul",
-        __description: "nuqulka ENIDE",
-      },
-      __languages: {
-        main: "luuqadaha",
-        __description: "liiska luuqadaha",
-      },
-      __documentation: {
-        main: "dukumiinti",
-        __description: "dukumiintiga luuqadda",
-      },
-    },
+    __about: DocStr("ku_saabsan", "macluumaad ku saabsan mashruuca ENIDE"),
+    __help: DocStr("caawimo", "liiska dhammaan amarrada la heli karo"),
+    __version: DocStr("nuqul", "nuqulka hadda ee ENIDE"),
+    __languages: DocStr("luuqadaha", "liiska luuqadaha uu ENIDE taageero"),
+    __documentation: DocStr(
+      "dukumiinti",
+      "dukumiintiga luuqadda hadda la isticmaalayo",
+    ),
+    __grammar: DocStr("naxwe", "xeerarka hab-qoraalka luuqadda"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("caadi", "helitaanka hawlaha nidaamka asaasiga ah"),
+      __isarray: DocStr("waa_liis", "hubi haddii qiimuhu yahay liis (array)"),
+      __isobject: DocStr(
+        "waa_walax",
+        "hubi haddii qiimuhu yahay walax (object)",
+      ),
+      __typeof: DocStr("nooca_ee", "soo celi nooca xogta ee beddelaha"),
+      __parse: DocStr("falanqee", "u beddel qoraalka nooca xogta saxda ah"),
+    },
     __math: {
-      main: {
-        main: "xisaab",
-        __description: "hawlaha xisaabta",
-      },
-      __pi: {
-        main: "PI",
-        __description: "qiimaha pi",
-      },
-      __sqrt: {
-        main: "xidid",
-        __description: "xidid laba-geesood ah",
-      },
-      __pow: {
-        main: "quwad",
-        __description: "kor u qaadis tiro",
-      },
-      __round: {
-        main: "wareeg",
-        __description: "wareejinta tiro",
-      },
-      __random: {
-        main: "nasiib",
-        __description: "tiro aan la saadaalin",
-      },
-      __max: {
-        main: "weyn",
-        __description: "ugu weyn",
-      },
-      __min: {
-        main: "yar",
-        __description: "ugu yar",
-      },
-      __isNumber: {
-        main: "waa_lambar",
-        __description: "hubi haddii ay tahay lambar",
-      },
-      __isInteger: {
-        main: "waa_idil",
-        __description: "hubi haddii ay tahay tiro idil",
-      },
-      __isFloat: {
-        main: "waa_dhibic",
-        __description: "hubi haddii ay leedahay jajab",
-      },
+      main: DocStr("xisaab", "hawlaha xisaabta iyo tirooyinka go'an"),
+      __pi: DocStr("PI", "qiimaha tirada go'an ee Pi"),
+      __sqrt: DocStr("xidid", "xidid laba-geesood ah"),
+      __pow: DocStr("quwad", "kor u qaadista tiro"),
+      __round: DocStr("wareeg", "u wareejinta tirada integer-ka ugu dhow"),
+      __random: DocStr("nasiib", "soo saar tiro aan la saadaalin"),
+      __max: DocStr("weyn", "qiimaha ugu weyn liiska"),
+      __min: DocStr("yar", "qiimaha ugu yar liiska"),
+      __isNumber: DocStr("waa_lambar", "hubi haddii ay tahay lambar"),
+      __isInteger: DocStr("waa_idil", "hubi haddii ay tahay tiro idil"),
+      __isFloat: DocStr("waa_dhibic", "hubi haddii ay leedahay jajab"),
+      __cos: DocStr("cos", "xisaabi cosine"),
+      __sin: DocStr("sin", "xisaabi sine"),
+      __tan: DocStr("tan", "xisaabi tangent"),
     },
 
     __string: {
-      main: {
-        main: "qoraal",
-        __description: "hawlaha qoraalka",
-      },
-      __length: {
-        main: "dherer",
-        __description: "dhererka qoraalka",
-      },
-      __toUpperCase: {
-        main: "weynee",
-        __description: "u beddel xarfo waaweyn",
-      },
-      __toLowerCase: {
-        main: "yaree",
-        __description: "u beddel xarfo yaryar",
-      },
+      main: DocStr("qoraal", "hawlaha loo isticmaalo xogta qoraalka"),
+      __length: DocStr("dherer", "tirada xarfaha qoraalka"),
+      __toUpperCase: DocStr("weynee", "u beddel xarfo waaweyn"),
+      __toLowerCase: DocStr("yaree", "u beddel xarfo yaryar"),
+      __include: DocStr(
+        "kujira",
+        "hubi haddii qoraalku ka kooban yahay erey gaar ah",
+      ),
+      __repeat: DocStr("ku_celi", "ku celi qoraalka dhowr jeer"),
     },
 
     __date: {
-      main: {
-        main: "taariikh",
-        __description: "waqti iyo taariikh",
-      },
-      __year: {
-        main: "sanad",
-        __description: "sanad",
-      },
-      __month: {
-        main: "bil",
-        __description: "bil",
-      },
-      __dayMonth: {
-        main: "maalin_bil",
-        __description: "maalinta bisha",
-      },
-      __dayWeek: {
-        main: "maalin_toddobaad",
-        __description: "maalinta toddobaadka",
-      },
-      __hour: {
-        main: "saacad",
-        __description: "saacad",
-      },
-      __minute: {
-        main: "daqiiqad",
-        __description: "daqiiqad",
-      },
-      __second: {
-        main: "ilbiriqsi",
-        __description: "ilbiriqsi",
-      },
+      main: DocStr("taariikh", "hawlaha waqtiga iyo taariikhda"),
+      __now: DocStr("hadda", "waqtiga iyo taariikhda hadda"),
+      __year: DocStr("sanad", "soo saar sanadka"),
+      __month: DocStr("bil", "soo saar bisha"),
+      __dayMonth: DocStr("maalin_bil", "maalinta bisha"),
+      __dayWeek: DocStr("maalin_toddobaad", "maalinta toddobaadka"),
+      __hour: DocStr("saacad", "saacadda"),
+      __minute: DocStr("daqiiqad", "daqiiqadaha"),
+      __second: DocStr("ilbiriqsi", "ilbiriqsiyada"),
     },
   },
 
   types: {
-    __object: {
-      main: "walax",
-      __description: "shay taagan",
-    },
-    __number: {
-      main: "lambar",
-      __description: "nooca lambar",
-    },
-    __string: {
-      main: "qoraal",
-      __description: "nooca qoraal",
-    },
-    __boolean: {
-      main: "run_been",
-      values: { __true: "Run", __false: "Been" },
-      __description: "nooca run iyo been",
-    },
+    __number: DocStr("lambar", "nooca xogta ee tirooyinka"),
+    __string: DocStr("qoraal", "nooca xogta ee qoraalka"),
+    __boolean: DocStr("run_been", "nooca xogta ee caqliga (run/been)"),
+    __object: DocStr("walax", "nooca xogta ee walax taagan"),
+    __void: DocStr("maran", "wax qiimo ah ma soo celinayo"),
+    __array: DocStr("liis", "nooca xogta ee liis"),
+  },
+
+  specialValues: {
+    __true: DocStr("run", "qiimaha caqliga ee saxda ah"),
+    __false: DocStr("been", "qiimaha caqliga ee khaldan"),
+    __null: DocStr("waxba", "ka maqnaanshaha wax qiimo ah"),
+  },
+
+  words: {
+    __new: DocStr("cusub", "samee nuqul cusub oo heer ah (class)"),
+    __this: DocStr("kan", "tixraaca walaxda hadda taagan"),
+    __extends: DocStr("ka_farcan", "dhaxalka heerka"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("gaar", "kaliya gudaha heerka laga heli karo"),
+    __public: DocStr("guud", "meel walba laga heli karo"),
+    __protected: DocStr("ilaashan", "heerka iyo inta ka farcanta kaliya"),
+    __readonly: DocStr("akhris_kaliya", "qiimaha lama beddeli karo"),
+    __static: DocStr("is-taagan", "waxaa iska leh heerka, ma ahan nuqulka"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "daabac",
-        __description: "soo saar qiimaha",
-      },
-      __scan: {
-        main: "akhri",
-        __description: "akhrinta gelinta",
-      },
-      __return: {
-        main: "celi",
-        __description: "soo celi natiijo",
-      },
+      __print: DocStr("daabac", "soo saar qiimaha shaashadda"),
+      __scan: DocStr("akhri", "ka akhri xogta isticmaalaha"),
+      __return: DocStr("celi", "natiijo ka soo celi hawsha"),
+      __break: DocStr("jooji", "jooji wareegga hadda"),
+      __continue: DocStr("sii_wad", "u gudub wareegga xiga"),
     },
 
     sentences: {
-      __function: {
-        main: "hawl",
-        __description: "hawl",
-      },
-      __if: {
-        main: "haddii",
-        __description: "shardi",
-      },
-      __else: {
-        main: "kale",
-        __description: "ikhtiyaar kale",
-      },
-      __while: {
-        main: "inta",
-        __description: "wareeg joogto ah",
-      },
-      __for: {
-        main: "for",
-        __description: "wareeg",
-      },
-      __switch: {
-        main: "doorasho",
-        __description: "xulasho xaalado",
-      },
-      __case: {
-        main: "xaalad",
-        __description: "xaalad gaar ah",
-      },
-      __default: {
-        main: "caadi",
-        __description: "xaalad caadi ah",
-      },
-      __try: {
-        main: "isku_day",
-        __description: "tijaabi kood",
-      },
-      __catch: {
-        main: "qabo",
-        __description: "qabashada qalad",
-      },
-      __finally: {
-        main: "ugu_dambe",
-        __description: "had iyo jeer shaqeeya",
-      },
+      __function: DocStr("hawl", "qeexidda hawl cusub"),
+      __if: DocStr("haddii", "xukun shardi ah"),
+      __else: DocStr("kale", "haddii shardigu fuli waayo"),
+      __while: DocStr("inta", "wareeg ilaa shardigu ka fulayo"),
+      __for: DocStr("for", "wareeg leh xad cayiman"),
+      __switch: DocStr("doorasho", "doorashada xaalado badan"),
+      __case: DocStr("xaalad", "xaalad gaar ah gudaha doorashada"),
+      __default: DocStr("caadi", "fuli haddii xaalad kale fuli weydo"),
+      __try: DocStr("isku_day", "isku day fulinta koodka"),
+      __catch: DocStr("qabo", "maamul haddii qalad dhaco"),
+      __finally: DocStr("ugu_dambe", "fuli koodkan mar walba dhamaadka"),
+      __class: DocStr("heer", "qeexidda heer (class) cusub"),
+      __constructor: DocStr("dhise", "hawsha dhisaysa walax cusub"),
     },
   },
 
   errors: {
-    main: { tag: "KHALAD", message: "qalad guud ee nidaamka" },
-    __UNKNOWN_ERROR: {
-      tag: "KHALAD_LAMA_YAQAN",
-      message: "qalad aan la aqoon",
-    },
-    __TypeError: { tag: "KHALAD_NOOC", message: "nooc khaldan" },
-    __ReferenceError: { tag: "KHALAD_TIXRAAC", message: "tixraac ma jiro" },
-    __SyntaxError: { tag: "KHALAD_HAB_QORAAL", message: "qoraal khaldan" },
-    __RangeError: { tag: "KHALAD_XAD", message: "xad dhaaf" },
-    __URIError: { tag: "KHALAD_URI", message: "URI khaldan" },
-    __EvalError: { tag: "KHALAD_EVAL", message: "qalad eval" },
+    __labels: errorLabel(
+      "Fariin",
+      "Qiimaha",
+      "Beddelaha",
+      "Hantida",
+      "Walaxda",
+      "Lalindayay",
+      "Lahelay",
+      "U-dirista_joogtada",
+      "Mataano_beegbeeg",
+      "Talo",
+      "Calaamad_khaldan",
+      "Buux-dhaaf_is-dabajoog",
+      "Calaamad",
+      "Dhammaad_lama_filaan_ah",
+    ),
+    main: errorMessage("KHALAD", "qalad guud ee nidaamka"),
+    __TypeError: errorMessage(
+      "KHALAD_NOOC",
+      "nooca xogta ma ku habboon hawshan",
+    ),
+    __InitError: errorMessage("KHALAD_BILOW", "beddelaha lama biloweyn"),
+    __ReferenceError: errorMessage(
+      "KHALAD_TIXRAAC",
+      "tixraaca beddelaha ma jiro",
+    ),
+    __SyntaxError: errorMessage("KHALAD_HAB_QORAAL", "qalad naxwaha koodka ah"),
+    __RangeError: errorMessage(
+      "KHALAD_XAD",
+      "qiimuhu wuxuu ka baxsan yahay xadka",
+    ),
+    __URIError: errorMessage("KHALAD_URI", "qaabka URI ma saxna"),
+    __EvalError: errorMessage("KHALAD_EVAL", "qalad ka dhashay hawsha eval"),
+    __UNKNOWN_ERROR: errorMessage(
+      "KHALAD_LAMA_YAQAAN",
+      "qalad aan la aqoon ayaa dhacay",
+    ),
+  },
+
+  example: {
+    __array: [
+      "pizzaha",
+      "magaalooyinka",
+      "liiska_tirooyinka",
+      "tirooyinka",
+      "midabada",
+      "alaabta",
+      "isticmaalayaasha",
+      "qaybaha",
+      "dhibcaha",
+      "luuqadaha",
+    ],
+    __boolean: [
+      "xaaladda",
+      "waa_firfircoon",
+      "waa_loo_ogolaaday",
+      "waa_diyaar",
+      "la_hubiyay",
+      "ku_xidhan",
+      "socda",
+      "dhamaaday",
+      "la_xaqiijiyay",
+      "la_baajiyay",
+    ],
+    __function: [
+      "helMagaca",
+      "xisaabiQiimaha",
+      "tusXogta",
+      "cusboonaysiiProfilka",
+      "qaabeeyoQoraalka",
+      "falanqeeKoodka",
+      "hubiXogta",
+      "kaydiDukumiintiga",
+      "dirFariinta",
+      "isu_geeyoDhammaan",
+    ],
+    __number: [
+      "da'da",
+      "sanadka_dhalashada",
+      "celcelis",
+      "guud_ahaan",
+      "qiimaha",
+      "tusmo",
+      "waqti",
+      "miisaan",
+      "dhibcaha",
+      "saacadda",
+    ],
+    __object: [
+      "qofka",
+      "macmiilka",
+      "dejinta",
+      "jawaabta",
+      "bixinta",
+      "qaabaynta",
+      "profilka",
+      "cinwaanka",
+      "metaxogta",
+      "fadhiga",
+    ],
+    __string: [
+      "magaca",
+      "cinwaanka",
+      "faahfaahinta",
+      "iimaylka",
+      "ereyga_sirta",
+      "fariinta",
+      "sumadda",
+      "furaha",
+      "url-ka",
+      "xidhiidhka",
+    ],
+    __void: [
+      "soco",
+      "tirtir",
+      "jooji",
+      "nadiifi",
+      "bubi",
+      "ka_bax",
+      "faaruqi_kaydka",
+      "kaydi_dhammaan",
+      "dir",
+      "gal",
+    ],
   },
 }).grammar();

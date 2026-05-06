@@ -1,249 +1,242 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const gonja = new Language({
   language: "gonja",
   about: "ENIDE nye transpiler be din di program yelma be yelma pam",
-  include: {
-    main: "Kpalan",
-    __description: "Ba de kpalani mparɛ bee biblioteka nɛ",
-  },
+
+  include: DocStr(
+    "Kpalan",
+    "ba de kpalani mparɛ, biblioteka kana miundo ya daa faili weni",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "kara",
-        __description: "ni daa kumen ENIDE kara",
-      },
-      __help: {
-        main: "song",
-        __description: "ni daa liste karda bɛ",
-      },
-      __version: {
-        main: "version",
-        __description: "ni daa ENIDE version",
-      },
-      __languages: {
-        main: "gbele",
-        __description: "ni daa gbele liste bɛ",
-      },
-      __documentation: {
-        main: "sebili",
-        __description: "ni daa gbele sɛbili",
-      },
-    },
+    __about: DocStr("kara", "ni daa kumen ENIDE kara"),
+    __help: DocStr("song", "ni daa liste karda be"),
+    __version: DocStr("version", "ni daa ENIDE version"),
+    __languages: DocStr("gbele", "ni daa gbele liste be"),
+    __documentation: DocStr("sebili", "ni daa gbele sebili"),
+    __grammar: DocStr("gbele_karda", "ni daa gbele karda"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("nyaga_karda", "ni wuni nyaga karda sɔŋ"),
+      __isarray: DocStr("ListeNye", "ni nyeli ŋun liste nye"),
+      __isobject: DocStr("NaniNye", "ni nyeli ŋun nani nye"),
+      __typeof: DocStr("GbeleNye", "ni daa ŋun gbele"),
+      __parse: DocStr("Piko", "ni kpam tɔ gbele wɛnɛ"),
+    },
+
     __math: {
-      main: {
-        main: "kalkulo",
-        __description: "ni wuni kalkulo karda",
-      },
-      __pi: {
-        main: "PI",
-        __description: "ni daa pi ŋun",
-      },
-      __sqrt: {
-        main: "SquareRoot",
-        __description: "ni daa square too",
-      },
-      __pow: {
-        main: "Gbahi",
-        __description: "ni daa namba gbahi",
-      },
-      __round: {
-        main: "Wogsi",
-        __description: "wogsi namba",
-      },
-      __random: {
-        main: "Wuhim",
-        __description: "ni daa wuhim namba",
-      },
-      __max: {
-        main: "Zori",
-        __description: "ni daa ŋun zori",
-      },
-      __min: {
-        main: "Pili",
-        __description: "ni daa ŋun pili",
-      },
-      __isNumber: {
-        main: "NambaNye",
-        __description: "ni nyɛli namba ŋun nye",
-      },
-      __isInteger: {
-        main: "NambaYeli",
-        __description: "ni nyɛli namba yeli ŋun nye",
-      },
-      __isFloat: {
-        main: "Desimal",
-        __description: "ni nyɛli desimal ŋun nye",
-      },
+      main: DocStr("kalkulo", "ni wuni kalkulo karda"),
+      __pi: DocStr("PI", "ni daa pi ŋun"),
+      __sqrt: DocStr("SquareRoot", "ni daa square too"),
+      __pow: DocStr("Gbahi", "ni daa namba gbahi"),
+      __round: DocStr("Wogsi", "wogsi namba"),
+      __random: DocStr("Wuhim", "ni daa wuhim namba"),
+      __max: DocStr("Zori", "ni daa ŋun zori"),
+      __min: DocStr("Pili", "ni daa ŋun pili"),
+      __isNumber: DocStr("NambaNye", "ni nyeli namba ŋun nye"),
+      __isInteger: DocStr("NambaYeli", "ni nyeli namba yeli ŋun nye"),
+      __isFloat: DocStr("Desimal", "ni nyeli desimal ŋun nye"),
+      __cos: DocStr("Cos", "ni daa cosinus radian"),
+      __sin: DocStr("Sin", "ni daa sinus radian"),
+      __tan: DocStr("Tan", "ni daa tangent radian"),
     },
+
     __string: {
-      main: {
-        main: "kpam",
-        __description: "ni wuni kpam karda",
-      },
-      __length: {
-        main: "Ndo",
-        __description: "ni daa kpam ndo",
-      },
-      __toUpperCase: {
-        main: "KaZori",
-        __description: "kpam zori kasi",
-      },
-      __toLowerCase: {
-        main: "KaPili",
-        __description: "kpam pili kasi",
-      },
+      main: DocStr("kpam", "ni wuni kpam karda"),
+      __length: DocStr("Ndo", "ni daa kpam ndo"),
+      __toUpperCase: DocStr("KaZori", "kpam zori kasi"),
+      __toLowerCase: DocStr("KaPili", "kpam pili kasi"),
+      __include: DocStr("Kpam_Ŋun", "ni nyeli kpam ŋun kpam weni"),
+      __repeat: DocStr("Nyahim_Tuma", "kpam nyahim ndo pam"),
     },
+
     __date: {
-      main: {
-        main: "daa",
-        __description: "ni wuni daa ŋun karda",
-      },
-      __year: {
-        main: "Nyimdi",
-        __description: "ni daa nyimdi",
-      },
-      __month: {
-        main: "Goli",
-        __description: "ni daa gɔli",
-      },
-      __dayMonth: {
-        main: "DaaGoli",
-        __description: "ni daa wula gɔli",
-      },
-      __dayWeek: {
-        main: "DaaNyimdi",
-        __description: "ni daa wula week",
-      },
-      __hour: {
-        main: "Yaa",
-        __description: "ni daa yaa",
-      },
-      __minute: {
-        main: "Miniti",
-        __description: "ni daa miniti",
-      },
-      __second: {
-        main: "Sekond",
-        __description: "ni daa sekond",
-      },
+      main: DocStr("daa", "ni wuni daa ŋun karda"),
+      __now: DocStr("Saa", "ni daa daa ŋun saa"),
+      __year: DocStr("Nyimdi", "ni daa nyimdi"),
+      __month: DocStr("Goli", "ni daa goli"),
+      __dayMonth: DocStr("DaaGoli", "ni daa wula goli"),
+      __dayWeek: DocStr("DaaNyimdi", "ni daa wula week"),
+      __hour: DocStr("Yaa", "ni daa yaa"),
+      __minute: DocStr("Miniti", "ni daa miniti"),
+      __second: DocStr("Sekond", "ni daa sekond"),
     },
   },
+
   types: {
-    __object: { main: "nani", __description: "la palo nani papala" },
-    __number: {
-      main: "namba",
-      __description: "yege jijik namba gbele",
-    },
-    __string: {
-      main: "kpam",
-      __description: "yege jijik kpam gbele",
-    },
-    __boolean: {
-      main: "bool",
-      values: {
-        __true: "Kanyin",
-        __false: "Kasu",
-      },
-      __description: "yege jijik boolean gbele",
-    },
+    __number: DocStr("namba", "yege jijik namba gbele"),
+    __string: DocStr("kpam", "yege jijik kpam gbele"),
+    __boolean: DocStr("bool", "yege jijik boolean gbele"),
+    __object: DocStr("nani", "la palo nani papala"),
+    __void: DocStr("kpema", "yege karda be duna ŋun o"),
+    __array: DocStr("liste", "yege liste miundo"),
   },
+
+  specialValues: {
+    __true: DocStr("Kanyin", "boolean ŋun kanyin"),
+    __false: DocStr("Kasu", "boolean ŋun kasu"),
+    __null: DocStr("Duna", "ŋun duna kuna"),
+  },
+
+  words: {
+    __new: DocStr("Pam", "la palo gbele pam karda"),
+    __this: DocStr("nini", "ni wuni nani ŋun karda weni"),
+    __extends: DocStr("Gbahi_Karda", "yege karda gbahi karda weni"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("siri", "kpam karda weni ŋun"),
+    __public: DocStr("gbele_pam", "kpam kana yelma"),
+    __protected: DocStr("toro", "kpam karda ŋun kana karda pam"),
+    __readonly: DocStr("kuli_ŋun", "ŋun yege pam daa kpo"),
+    __static: DocStr("papala", "ya karda weni nye, ka palo nye"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "beng",
-        __description: "bɛŋ ŋun ekran",
-      },
-      __scan: {
-        main: "kuli",
-        __description: "kuli ŋun kuna",
-      },
-      __return: {
-        main: "nyahim",
-        __description: "nyahim ŋun karda",
-      },
+      __print: DocStr("beng", "beng ŋun ekran"),
+      __scan: DocStr("kuli", "kuli ŋun kuna"),
+      __return: DocStr("nyahim", "nyahim ŋun karda"),
+      __break: DocStr("tuma_ko", "tuma loop"),
+      __continue: DocStr("nye_be", "nye loop pam weni"),
     },
+
     sentences: {
-      __function: {
-        main: "karda",
-        __description: "yege karda",
-      },
-      __if: {
-        main: "ni",
-        __description: "yege sariya",
-      },
-      __else: {
-        main: "ka",
-        __description: "yege sariya wua",
-      },
-      __while: {
-        main: "be",
-        __description: "yege loop be",
-      },
-      __for: {
-        main: "nge",
-        __description: "yege loop nge",
-      },
-      __switch: {
-        main: "behim",
-        __description: "yege bɛhim structure",
-      },
-      __case: {
-        main: "pam",
-        __description: "yege pam bɛhim",
-      },
-      __default: {
-        main: "nyaga",
-        __description: "yege pam nyaga",
-      },
-      __try: {
-        main: "nye",
-        __description: "yege nyɛ bloku",
-      },
-      __catch: {
-        main: "gba",
-        __description: "yege gba gafe bloku",
-      },
-      __finally: {
-        main: "tuma",
-        __description: "yege bloku tuma karda",
-      },
+      __function: DocStr("karda", "yege karda"),
+      __if: DocStr("ni", "yege sariya"),
+      __else: DocStr("ka", "yege sariya wua"),
+      __while: DocStr("be", "yege loop be"),
+      __for: DocStr("nge", "yege loop nge"),
+      __switch: DocStr("behim", "yege behim structure"),
+      __case: DocStr("pam", "yege pam behim"),
+      __default: DocStr("nyaga", "yege pam nyaga behim"),
+      __try: DocStr("nye", "yege nye bloku"),
+      __catch: DocStr("gba", "yege gba gafe bloku"),
+      __finally: DocStr("tuma", "yege bloku tuma karda"),
+      __class: DocStr("gbele_karda", "yege gbele karda"),
+      __constructor: DocStr("la_palo", "miundo ni yege nani gbele karda"),
     },
   },
+
   errors: {
-    main: {
-      tag: "GAFE",
-      message: "Gafe karda system",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "GAFE_WUHIM",
-      message: "Gafe yenge wuhim",
-    },
-    __TypeError: {
-      tag: "GAFE_GBELE",
-      message: "Gbele ziga karda",
-    },
-    __ReferenceError: {
-      tag: "GAFE_YEGE",
-      message: "Jijik duna kuna",
-    },
-    __SyntaxError: {
-      tag: "GAFE_SINTAKS",
-      message: "Koodu ziga",
-    },
-    __RangeError: {
-      tag: "GAFE_NDO",
-      message: "Namba ndo zola",
-    },
-    __URIError: {
-      tag: "GAFE_URI",
-      message: "URI ziga ye",
-    },
-    __EvalError: {
-      tag: "GAFE_EVAL",
-      message: "Gafe eval",
-    },
+    __labels: errorLabel(
+      "Kumen",
+      "Ngun",
+      "Jijik",
+      "Nani_Ŋun",
+      "Nani",
+      "Be_Daa",
+      "Daa_Kpo",
+      "Jijik_Papala",
+      "Pam_Eve",
+      "Song_Kara",
+      "Token_Ziga",
+      "Karda_Ndo",
+      "Token",
+      "Tuma_Wuhim",
+    ),
+    main: errorMessage("GAFE", "gafe karda system"),
+    __TypeError: errorMessage("GAFE_GBELE", "gbele ziga karda"),
+    __InitError: errorMessage("GAFE_YEGE_PALO", "jijik duna yege palo"),
+    __ReferenceError: errorMessage(
+      "GAFE_YEGE",
+      "jijik, karda kana biblioteka duna kuna",
+    ),
+    __SyntaxError: errorMessage("GAFE_SINTAKS", "koodu ziga"),
+    __RangeError: errorMessage("GAFE_NDO", "namba ndo zola"),
+    __URIError: errorMessage("GAFE_URI", "URI ziga ye"),
+    __EvalError: errorMessage("GAFE_EVAL", "gafe eval"),
+    __UNKNOWN_ERROR: errorMessage("GAFE_WUHIM", "gafe yenge wuhim"),
+  },
+
+  example: {
+    __array: [
+      "nyam",
+      "suli",
+      "nani_pam",
+      "toro_kpam",
+      "rangi",
+      "nyaga_beng",
+      "kuna_pam",
+      "gbele_liste",
+      "ndo_ŋun",
+      "gbele_yelma",
+    ],
+    __boolean: [
+      "hali",
+      "niMawuko",
+      "niGbahi",
+      "niBeng",
+      "anaKarda",
+      "niNaata",
+      "niWuni",
+      "niTuma",
+      "niKanyin",
+      "niKpema",
+    ],
+    __function: [
+      "daaInnle",
+      "daaŊun",
+      "kardaBofya",
+      "pakuaData",
+      "kardaDaa",
+      "pikoKuna",
+      "nyeliForm",
+      "bengNani",
+      "sasiHali",
+      "kalkuloJumla",
+    ],
+    __number: [
+      "nyimdi_pam",
+      "nyimdi",
+      "ndo",
+      "jumla",
+      "sara",
+      "faharasa",
+      "yaa_pam",
+      "kpo",
+      "ndo_ŋun",
+      "waktu",
+    ],
+    __object: [
+      "nani_palo",
+      "kuna_pam",
+      "nyaga_karda",
+      "nyahim",
+      "sara_kpo",
+      "karda_pam",
+      "profil",
+      "gbele_kuna",
+      "daa_pam",
+      "yaa_karda",
+    ],
+    __string: [
+      "inne",
+      "kumen_zori",
+      "kumen_kpo",
+      "email",
+      "kpam_siri",
+      "kumen",
+      "toro",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "naata",
+      "yege_palo",
+      "saniya",
+      "nyahim_pam",
+      "kpema",
+      "tuma_naata",
+      "saniya_cache",
+      "toro_DB",
+      "cig_email",
+      "beng_karda",
+    ],
   },
 }).grammar();

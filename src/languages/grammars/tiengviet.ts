@@ -1,260 +1,249 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const tiengviet = new Language({
   language: "tiengviet",
   about:
-    "ENIDE la mot trinh bien dich nguon sang nguon co the dich duoc, cho phep lap trinh bang bat ky ngon ngu nao",
+    "ENIDE là một trình biên dịch nguồn sang nguồn có thể dịch được, cho phép lập trình bằng bất kỳ ngôn ngữ nào",
 
-  include: {
-    main: "BaoGom",
-    __description: "Được sử dụng để bao gồm ngôn ngữ hoặc thư viện",
-  },
+  include: DocStr(
+    "BaoGom",
+    "Được sử dụng để bao gồm ngôn ngữ hoặc thư viện",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "Ve",
-        __description: "de lay thong tin ve ENIDE",
-      },
-      __help: {
-        main: "TroGiup",
-        __description: "de lay danh sach tat ca cac lenh co san",
-      },
-      __version: {
-        main: "PhienBan",
-        __description: "de lay phien ban hien tai cua ENIDE",
-      },
-      __languages: {
-        main: "NgonNgu",
-        __description: "de lay danh sach tat ca cac ngon ngu co san",
-      },
-      __documentation: {
-        main: "TaiLieu",
-        __description: "de lay tai lieu cho mot ngon ngu",
-      },
-    },
+    __about: DocStr("Ve", "để lấy thông tin về ENIDE"),
+    __help: DocStr("TroGiup", "để lấy danh sách tất cả các lệnh có sẵn"),
+    __version: DocStr("PhienBan", "để lấy phiên bản hiện tại của ENIDE"),
+    __languages: DocStr("NgonNgu", "để lấy danh sách tất cả các ngôn ngữ có sẵn"),
+    __documentation: DocStr("TaiLieu", "để lấy tài liệu cho một ngôn ngữ"),
+    __grammar: DocStr("NguPhap", "để lấy ngữ pháp cho một ngôn ngữ"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("ChuanMuc", "để truy cập các phương thức chuẩn hữu ích"),
+      __isarray: DocStr("LaMang", "để kiểm tra một giá trị có phải là mảng không"),
+      __isobject: DocStr("LaDoiTuong", "để kiểm tra một giá trị có phải là đối tượng không"),
+      __typeof: DocStr("KieuDu", "để lấy kiểu của một giá trị"),
+      __parse: DocStr(
+        "Parse",
+        "để phân tích một chuỗi thành giá trị đúng kiểu",
+      ),
+    },
+
     __math: {
-      main: {
-        main: "Toan",
-        __description: "de truy cap cac ham toan hoc",
-      },
-      __pi: {
-        main: "PI",
-        __description: "de lay gia tri cua pi",
-      },
-      __sqrt: {
-        main: "CanBacHai",
-        __description: "de lay can bac hai",
-      },
-      __pow: {
-        main: "LuyThua",
-        __description: "de tinh luy thua cua mot so",
-      },
-      __round: {
-        main: "LamTron",
-        __description: "de lam tron mot so",
-      },
-      __random: {
-        main: "NgauNhien",
-        __description: "de lay mot so ngau nhien",
-      },
-      __max: {
-        main: "LonNhat",
-        __description: "de lay gia tri lon nhat",
-      },
-      __min: {
-        main: "NhoNhat",
-        __description: "de lay gia tri nho nhat",
-      },
-      __isNumber: {
-        main: "LaSo",
-        __description: "de kiem tra mot gia tri co phai la so khong",
-      },
-      __isInteger: {
-        main: "LaSoNguyen",
-        __description: "de kiem tra mot gia tri co phai la so nguyen khong",
-      },
-      __isFloat: {
-        main: "LaSoThapPhan",
-        __description: "de kiem tra mot gia tri co phai la so thap phan khong",
-      },
+      main: DocStr("Toan", "để truy cập các hàm toán học"),
+      __pi: DocStr("PI", "để lấy giá trị của pi"),
+      __sqrt: DocStr("CanBacHai", "để lấy căn bậc hai"),
+      __pow: DocStr("LuyThua", "để tính lũy thừa của một số"),
+      __round: DocStr("LamTron", "để làm tròn một số"),
+      __random: DocStr("NgauNhien", "để lấy một số ngẫu nhiên"),
+      __max: DocStr("LonNhat", "để lấy giá trị lớn nhất"),
+      __min: DocStr("NhoNhat", "để lấy giá trị nhỏ nhất"),
+      __isNumber: DocStr("LaSo", "để kiểm tra một giá trị có phải là số không"),
+      __isInteger: DocStr("LaSoNguyen", "để kiểm tra một giá trị có phải là số nguyên không"),
+      __isFloat: DocStr("LaSoThapPhan", "để kiểm tra một giá trị có phải là số thập phân không"),
+      __cos: DocStr("Cos", "để lấy cosin của một góc theo radian"),
+      __sin: DocStr("Sin", "để lấy sin của một góc theo radian"),
+      __tan: DocStr("Tan", "để lấy tang của một góc theo radian"),
     },
 
     __string: {
-      main: {
-        main: "Chuoi",
-        __description: "de truy cap cac ham thao tac chuoi",
-      },
-      __length: {
-        main: "DoDai",
-        __description: "de lay do dai cua mot chuoi",
-      },
-      __toUpperCase: {
-        main: "VietHoa",
-        __description: "de chuyen doi mot chuoi sang chu hoa",
-      },
-      __toLowerCase: {
-        main: "VietThuong",
-        __description: "de chuyen doi mot chuoi sang chu thuong",
-      },
+      main: DocStr("Chuoi", "để truy cập các hàm thao tác chuỗi"),
+      __length: DocStr("DoDai", "để lấy độ dài của một chuỗi"),
+      __toUpperCase: DocStr("VietHoa", "để chuyển đổi một chuỗi sang chữ hoa"),
+      __toLowerCase: DocStr("VietThuong", "để chuyển đổi một chuỗi sang chữ thường"),
+      __include: DocStr("CoChua", "để kiểm tra một chuỗi có chứa chuỗi con không"),
+      __repeat: DocStr("LapLai", "để lặp lại một chuỗi một số lần"),
     },
 
     __date: {
-      main: {
-        main: "Ngay",
-        __description: "de truy cap cac ham thao tac ngay va gio",
-      },
-      __year: {
-        main: "Nam",
-        __description: "de lay nam",
-      },
-      __month: {
-        main: "Thang",
-        __description: "de lay thang",
-      },
-      __dayMonth: {
-        main: "NgayTrongThang",
-        __description: "de lay ngay trong thang",
-      },
-      __dayWeek: {
-        main: "NgayTrongTuan",
-        __description: "de lay ngay trong tuan",
-      },
-      __hour: {
-        main: "Gio",
-        __description: "de lay gio",
-      },
-      __minute: {
-        main: "Phut",
-        __description: "de lay phut",
-      },
-      __second: {
-        main: "Giay",
-        __description: "de lay giay",
-      },
+      main: DocStr("Ngay", "để truy cập các hàm thao tác ngày và giờ"),
+      __now: DocStr("BayGio", "để lấy ngày và giờ hiện tại"),
+      __year: DocStr("Nam", "để lấy năm"),
+      __month: DocStr("Thang", "để lấy tháng"),
+      __dayMonth: DocStr("NgayTrongThang", "để lấy ngày trong tháng"),
+      __dayWeek: DocStr("NgayTrongTuan", "để lấy ngày trong tuần"),
+      __hour: DocStr("Gio", "để lấy giờ"),
+      __minute: DocStr("Phut", "để lấy phút"),
+      __second: DocStr("Giay", "để lấy giây"),
     },
   },
 
   types: {
-    __object: {
-      main: "DoiTuong",
-      __description: "de khai bao mot doi tuong tinh",
-    },
-    __number: {
-      main: "So",
-      __description: "de khai bao mot bien kieu so",
-    },
-    __string: {
-      main: "Chuoi",
-      __description: "de khai bao mot bien kieu chuoi",
-    },
-    __boolean: {
-      main: "Logic",
-      values: { __true: "Dung", __false: "Sai" },
-      __description: "de khai bao mot bien kieu logic",
-    },
+    __number: DocStr("So", "để khai báo một biến kiểu số"),
+    __string: DocStr("Chuoi", "để khai báo một biến kiểu chuỗi"),
+    __boolean: DocStr("Logic", "để khai báo một biến kiểu logic"),
+    __object: DocStr("DoiTuong", "để khai báo một đối tượng tĩnh"),
+    __void: DocStr("Rong", "để khai báo một hàm không trả về giá trị"),
+    __array: DocStr("Mang", "để khai báo một cấu trúc dữ liệu mảng"),
+  },
+
+  specialValues: {
+    __true: DocStr("Dung", "giá trị logic đúng"),
+    __false: DocStr("Sai", "giá trị logic sai"),
+    __null: DocStr("Rong", "sự vắng mặt của giá trị"),
+  },
+
+  words: {
+    __new: DocStr("Moi", "để tạo một thể hiện mới của một lớp"),
+    __this: DocStr("Nay", "để truy cập thuộc tính của lớp hiện tại"),
+    __extends: DocStr("MoRong", "để khai báo rằng một lớp kế thừa từ lớp khác"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("RiengTu", "chỉ có thể truy cập bên trong lớp"),
+    __public: DocStr("CongKhai", "có thể truy cập từ bất kỳ đâu"),
+    __protected: DocStr("BaoVe", "có thể truy cập trong lớp và các lớp con"),
+    __readonly: DocStr("ChiDoc", "giá trị chỉ có thể được gán một lần"),
+    __static: DocStr("TinhTinh", "thuộc về lớp, không thuộc về thể hiện"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "In",
-        __description: "de in mot gia tri ra man hinh",
-      },
-      __scan: {
-        main: "Nhap",
-        __description: "de doc mot gia tri tu dau vao",
-      },
-      __return: {
-        main: "TraVe",
-        __description: "de tra ve mot gia tri tu mot ham",
-      },
+      __print: DocStr("In", "để in một giá trị ra màn hình"),
+      __scan: DocStr("Nhap", "để đọc một giá trị từ đầu vào"),
+      __return: DocStr("TraVe", "để trả về một giá trị từ một hàm"),
+      __break: DocStr("Dung", "để thoát khỏi vòng lặp"),
+      __continue: DocStr("TiepTuc", "để nhảy đến lần lặp tiếp theo"),
     },
 
     sentences: {
-      __function: {
-        main: "Ham",
-        __description: "de khai bao mot ham",
-      },
-      __if: {
-        main: "Neu",
-        __description: "de khai bao mot dieu kien",
-      },
-      __else: {
-        main: "KhongThi",
-        __description: "de khai bao mot dieu kien thay the",
-      },
-      __while: {
-        main: "TrongKhi",
-        __description: "de khai bao mot vong lap while",
-      },
-      __for: {
-        main: "Cho",
-        __description: "de khai bao mot vong lap for",
-      },
-      __switch: {
-        main: "LuaChon",
-        __description: "de khai bao mot cau truc chon lua",
-      },
-      __case: {
-        main: "TruongHop",
-        __description: "de khai bao mot truong hop trong cau truc chon lua",
-      },
-      __default: {
-        main: "MacDinh",
-        __description:
-          "de khai bao truong hop mac dinh trong cau truc chon lua",
-      },
-      __try: {
-        main: "Thu",
-        __description: "de khai bao mot khoi thu nghiem",
-      },
-      __catch: {
-        main: "Bat",
-        __description: "de khai bao mot khoi xu ly loi",
-      },
-      __finally: {
-        main: "CuoiCung",
-        __description: "de khai bao mot khoi luon luon thuc thi",
-      },
+      __function: DocStr("Ham", "để khai báo một hàm"),
+      __if: DocStr("Neu", "để khai báo một điều kiện"),
+      __else: DocStr("KhongThi", "để khai báo một điều kiện thay thế"),
+      __while: DocStr("TrongKhi", "để khai báo một vòng lặp while"),
+      __for: DocStr("Cho", "để khai báo một vòng lặp for"),
+      __switch: DocStr("LuaChon", "để khai báo một cấu trúc chọn lựa"),
+      __case: DocStr("TruongHop", "để khai báo một trường hợp trong cấu trúc chọn lựa"),
+      __default: DocStr("MacDinh", "để khai báo trường hợp mặc định trong cấu trúc chọn lựa"),
+      __try: DocStr("Thu", "để khai báo một khối thử nghiệm"),
+      __catch: DocStr("Bat", "để khai báo một khối xử lý lỗi"),
+      __finally: DocStr("CuoiCung", "để khai báo một khối luôn luôn thực thi"),
+      __class: DocStr("Lop", "để khai báo một lớp"),
+      __constructor: DocStr("KhoiTao", "cấu trúc để khai báo các thuộc tính trong lớp"),
     },
   },
 
   errors: {
-    main: {
-      tag: "LOI",
-      message: "Loi he thong chung",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "LOI_KHONG_XAC_DINH",
-      message: "Loi hoan toan khong xac dinh",
-    },
-    __TypeError: {
-      tag: "LOI_KIEU",
-      message: "Kieu du lieu khong hop le trong phep toan",
-    },
-    __ReferenceError: {
-      tag: "LOI_THAM_CHIEU",
-      message: "Bien khong ton tai trong pham vi",
-    },
-    __SyntaxError: {
-      tag: "LOI_CU_PHAP",
-      message: "Ma nguon khong hop le",
-    },
-    __RangeError: {
-      tag: "LOI_PHAM_VI",
-      message: "Gia tri nam ngoai pham vi cho phep",
-    },
-    __URIError: {
-      tag: "LOI_URI",
-      message: "URI bi loi hoac khong hop le",
-    },
-    __EvalError: {
-      tag: "LOI_EVAL",
-      message: "Loi lien quan den ham eval",
-    },
+    __labels: errorLabel(
+      "ThongBao",
+      "GiaTri",
+      "BienSo",
+      "ThuocTinh",
+      "DoiTuong",
+      "DuocMongDoi",
+      "DaNhan",
+      "GanHangSo",
+      "ThamSoTrung",
+      "GoiY",
+      "Token_KhongHopLe",
+      "TranStack",
+      "Token",
+      "KetThucBatNgo",
+    ),
+    main: errorMessage("LOI", "lỗi hệ thống chung"),
+    __TypeError: errorMessage("LOI_KIEU", "kiểu dữ liệu không hợp lệ trong phép toán"),
+    __InitError: errorMessage(
+      "LOI_KHOI_TAO",
+      "biến chưa được khởi tạo",
+    ),
+    __ReferenceError: errorMessage(
+      "LOI_THAM_CHIEU",
+      "biến, hàm hoặc thư viện không tồn tại trong phạm vi",
+    ),
+    __SyntaxError: errorMessage("LOI_CU_PHAP", "mã nguồn không hợp lệ"),
+    __RangeError: errorMessage("LOI_PHAM_VI", "giá trị nằm ngoài phạm vi cho phép"),
+    __URIError: errorMessage("LOI_URI", "URI bị lỗi hoặc không hợp lệ"),
+    __EvalError: errorMessage("LOI_EVAL", "lỗi liên quan đến hàm eval"),
+    __UNKNOWN_ERROR: errorMessage("LOI_KHONG_XAC_DINH", "lỗi hoàn toàn không xác định"),
+  },
+
+  example: {
+    __array: [
+      "thucPham",
+      "quocGia",
+      "mucLuc",
+      "tags",
+      "mauSac",
+      "sanPham",
+      "nguoiDung",
+      "danhMuc",
+      "diem",
+      "ngonNgu",
+    ],
+    __boolean: [
+      "trangThai",
+      "laNguoiLon",
+      "daKichHoat",
+      "hienThi",
+      "coQuyenTruyCap",
+      "daDangNhap",
+      "daKichHoat",
+      "daHoanThanh",
+      "daXacMinh",
+      "daXoa",
+    ],
+    __function: [
+      "layTen",
+      "layGiaTri",
+      "xuLyNhap",
+      "layDuLieu",
+      "dinhDangNgay",
+      "phanTichDauVao",
+      "xacThucBieuMau",
+      "hienThiPhanTu",
+      "capNhatTrangThai",
+      "tinhTongCong",
+    ],
+    __number: [
+      "tuoi",
+      "nam",
+      "soLuong",
+      "tongCong",
+      "giaTien",
+      "chiSo",
+      "thoiGian",
+      "soLuong",
+      "diem",
+      "timeout",
+    ],
+    __object: [
+      "nguoi",
+      "nguoiDung",
+      "config",
+      "phanHoi",
+      "thanhToan",
+      "caiDat",
+      "hoSo",
+      "diaChi",
+      "sieuDuLieu",
+      "phienLam",
+    ],
+    __string: [
+      "ten",
+      "tieuDe",
+      "moTa",
+      "email",
+      "matKhau",
+      "tinNhan",
+      "nhan",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "dangNhap",
+      "khoiTao",
+      "xoaSach",
+      "datLai",
+      "huyBo",
+      "dangXuat",
+      "xoaCache",
+      "luuVaoCSDL",
+      "guiEmail",
+      "ghiNhatKy",
+    ],
   },
 }).grammar();

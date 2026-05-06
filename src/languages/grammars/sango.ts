@@ -1,309 +1,247 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const sango = new Language({
   language: "sango",
-
   about: "ENIDE zo transpiler ngu a fa program na yeke zo biani",
 
-  include: {
-    main: "Zi",
-    __description:
-      "A sala na ni ti zi yanga ti kodoro wala abibliotheque, na yeke kanga ti kodoro ti program",
-  },
+  include: DocStr(
+    "zi",
+    "a sala na ni ti zi yanga ti kodoro wala abibliotheque ti program",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "na",
-        __description: "na tene na ENIDE, a fa ndenge systeme na sara",
-      },
-
-      __help: {
-        main: "sara",
-        __description: "a kanga liste ti koda nyonso na yeke na ENIDE",
-      },
-
-      __version: {
-        main: "tenu",
-        __description: "a yeke fanga tenu ti ENIDE na systeme",
-      },
-
-      __languages: {
-        main: "yeke",
-        __description: "a kanga liste ti ndia nyonso ti language na ENIDE",
-      },
-
-      __documentation: {
-        main: "mbeti",
-        __description: "mbeti nyonso ti ndenge ENIDE a sara na ndenge a yeke",
-      },
-    },
+    __about: DocStr("na", "na tene na ENIDE, a fa ndenge systeme na sara"),
+    __help: DocStr("sara", "a kanga liste ti koda nyonso na yeke na ENIDE"),
+    __version: DocStr("tenu", "a yeke fanga tenu ti ENIDE na systeme"),
+    __languages: DocStr(
+      "yeke",
+      "a kanga liste ti ndia nyonso ti language na ENIDE",
+    ),
+    __documentation: DocStr("mbeti", "mbeti nyonso ti ndenge ENIDE a sara"),
+    __grammar: DocStr("ndia", "a fa ndia ti koda na yanga ti kodoro so"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("standard", "ndia ti koda ti base ti systeme"),
+      __isarray: DocStr("yeke_lista", "a tala soki valeur a yeke lista"),
+      __isobject: DocStr("yeke_lo", "a tala soki valeur a yeke lo (object)"),
+      __typeof: DocStr("ngere_ti", "a fa ngere wala type ti valeur ni"),
+      __parse: DocStr("fafa", "a change mbeto na namba wala lo"),
+    },
     __math: {
-      main: {
-        main: "matika",
-        __description: "module ti namba na matematika, a sara calcul nyonso",
-      },
-
-      __pi: {
-        main: "PI",
-        __description: "namba PI, a yeke constant na matematika",
-      },
-
-      __sqrt: {
-        main: "finiSquare",
-        __description: "operation ti kufini square ti namba nyonso",
-      },
-
-      __pow: {
-        main: "force",
-        __description: "a yeke pesa force na namba, na sens ti puissance",
-      },
-
-      __round: {
-        main: "veke",
-        __description: "a kanga namba na valeur ya proche",
-      },
-
-      __random: {
-        main: "londo",
-        __description: "a zenga namba na ndenge ya hasard",
-      },
-
-      __max: {
-        main: "nzoni",
-        __description: "a pona namba ya mingi kati na ba valeurs",
-      },
-
-      __min: {
-        main: "pere",
-        __description: "a pona namba ya moke kati na ba valeurs",
-      },
-
-      __isNumber: {
-        main: "nambaNa",
-        __description: "a tala soki valeur a yeke namba",
-      },
-
-      __isInteger: {
-        main: "nambaToto",
-        __description: "a tala soki namba a yeke entier sans decimal",
-      },
-
-      __isFloat: {
-        main: "desimal",
-        __description: "a tala soki namba a yeke na partie decimal",
-      },
+      main: DocStr(
+        "matika",
+        "module ti namba na matematika, a sara calcul nyonso",
+      ),
+      __pi: DocStr("PI", "namba PI, a yeke constant na matematika"),
+      __sqrt: DocStr("finiSquare", "operation ti kufini square ti namba"),
+      __pow: DocStr("force", "a yeke pesa force na namba (puissance)"),
+      __round: DocStr("veke", "a kanga namba na valeur ya proche"),
+      __random: DocStr("londo", "a zenga namba na ndenge ya hasard"),
+      __max: DocStr("nzoni", "a pona namba ya mingi kati na ba valeurs"),
+      __min: DocStr("pere", "a pona namba ya moke kati na ba valeurs"),
+      __isNumber: DocStr("nambaNa", "a tala soki valeur a yeke namba"),
+      __isInteger: DocStr("nambaToto", "a tala soki namba a yeke entier"),
+      __isFloat: DocStr("desimal", "a tala soki namba a yeke na desimal"),
+      __cos: DocStr("cos", "calcul ti cosinus"),
+      __sin: DocStr("sin", "calcul ti sinus"),
+      __tan: DocStr("tan", "calcul ti tangenta"),
     },
 
     __string: {
-      main: {
-        main: "mbeto",
-        __description: "module ti ba texte na manipulation ti ba chaines",
-      },
-
-      __length: {
-        main: "leke",
-        __description: "a pesa longueur ya mbeto",
-      },
-
-      __toUpperCase: {
-        main: "mbetoNzoni",
-        __description: "a change ba lettres nyonso na majuscule",
-      },
-
-      __toLowerCase: {
-        main: "mbetoPere",
-        __description: "a change ba lettres nyonso na minuscule",
-      },
+      main: DocStr("mbeto", "module ti ba texte na manipulation ti mbeto"),
+      __length: DocStr("leke", "a pesa longueur ya mbeto"),
+      __toUpperCase: DocStr("mbetoNzoni", "a change mbeto na majuscule"),
+      __toLowerCase: DocStr("mbetoPere", "a change mbeto na minuscule"),
+      __include: DocStr("na_be", "a tala soki mbeto a yeke na moko kete mbeto"),
+      __repeat: DocStr("firi", "a diko mbeto firi mingi"),
     },
 
     __date: {
-      main: {
-        main: "lo",
-        __description: "module ti temps na ba date nyonso",
-      },
-
-      __year: {
-        main: "ngbo",
-        __description: "a pesa annee ya date",
-      },
-
-      __month: {
-        main: "nze",
-        __description: "a pesa mois ya date",
-      },
-
-      __dayMonth: {
-        main: "loNze",
-        __description: "a pesa jour na kati ya mois",
-      },
-
-      __dayWeek: {
-        main: "loWeek",
-        __description: "a pesa jour ya semaine",
-      },
-
-      __hour: {
-        main: "ape",
-        __description: "a pesa heure ya moment",
-      },
-
-      __minute: {
-        main: "miniti",
-        __description: "a pesa minute ya temps",
-      },
-
-      __second: {
-        main: "sekonde",
-        __description: "a pesa seconde ya temps",
-      },
+      main: DocStr("lo", "module ti temps na ba date nyonso"),
+      __now: DocStr("fadeso", "a pesa date na heure ti fadeso"),
+      __year: DocStr("ngbo", "a pesa annee ya date"),
+      __month: DocStr("nze", "a pesa mois ya date"),
+      __dayMonth: DocStr("loNze", "a pesa jour na kati ya mois"),
+      __dayWeek: DocStr("loWeek", "a pesa jour ya semaine"),
+      __hour: DocStr("ape", "a pesa heure ya moment"),
+      __minute: DocStr("miniti", "a pesa minute ya temps"),
+      __second: DocStr("sekonde", "a pesa seconde ya temps"),
     },
   },
 
   types: {
-    __object: {
-      main: "lo",
-      __description: "type ya object, structure ya ba donnees",
-    },
+    __number: DocStr("namba", "ndia ti namba"),
+    __string: DocStr("mbeto", "ndia ti texte"),
+    __boolean: DocStr("bool", "ndia ti ta wala mvene"),
+    __object: DocStr("lo", "ndia ti lo wala object"),
+    __void: DocStr("senze", "a fa so fonction a zonga na ye moko te"),
+    __array: DocStr("lista", "ndia ti lista ti ba ye"),
+  },
 
-    __number: {
-      main: "namba",
-      __description: "type ya valeur numerique",
-    },
+  specialValues: {
+    __true: DocStr("ta", "valeur ti biani"),
+    __false: DocStr("mvene", "valeur ti mvene"),
+    __null: DocStr("pasi", "a fa so ye oko ayeke te"),
+  },
 
-    __string: {
-      main: "mbeto",
-      __description: "type ya texte na ba chaines",
-    },
+  words: {
+    __new: DocStr("fini", "a kela moko fini instanza ti class"),
+    __this: DocStr("so", "a fa lo (object) ti fadeso"),
+    __extends: DocStr("ngu", "a fa so class so a londo na moko class"),
+  },
 
-    __boolean: {
-      main: "bool",
-      values: {
-        __true: "ta",
-        __false: "mvene",
-      },
-      __description: "type ya vrai ou faux",
-    },
+  accessModifiers: {
+    __private: DocStr("ndo", "a yeke gi na yâ ti class ni"),
+    __public: DocStr("zigi", "azo nyonso alingbi ti bâ ni"),
+    __protected: DocStr("bata", "a yeke gi na yâ ti class na amolenge ni"),
+    __readonly: DocStr("diko_gi", "a lingbi ti diko ni gi dikongo"),
+    __static: DocStr("kpengba", "a yeke ti class, me ti moko instanza te"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "vo",
-        __description: "a lakisa valeur na ecran",
-      },
-
-      __scan: {
-        main: "sese",
-        __description: "a zua donnee na user",
-      },
-
-      __return: {
-        main: "eke",
-        __description: "a zonga valeur na fonction",
-      },
+      __print: DocStr("vo", "a lakisa valeur na ecran"),
+      __scan: DocStr("sese", "a zua donnee na tî user"),
+      __return: DocStr("eke", "a zonga valeur na fonction"),
+      __break: DocStr("kanga", "a kanga loop fadeso"),
+      __continue: DocStr("ngbâ", "a gue na moko itération ti loop"),
     },
 
     sentences: {
-      __function: {
-        main: "sara",
-        __description: "a kela fonction ya code",
-      },
-
-      __if: {
-        main: "na",
-        __description: "condition ya verification",
-      },
-
-      __else: {
-        main: "nga",
-        __description: "alternative ya condition",
-      },
-
-      __while: {
-        main: "tene",
-        __description: "loop oyo e zongaka soki condition ezali vrai",
-      },
-
-      __for: {
-        main: "nge",
-        __description: "loop ya repetition na compteur",
-      },
-
-      __switch: {
-        main: "supu",
-        __description: "structure ya choix mingi",
-      },
-
-      __case: {
-        main: "lo",
-        __description: "cas moko na switch",
-      },
-
-      __default: {
-        main: "ndeke",
-        __description: "cas par defaut",
-      },
-
-      __try: {
-        main: "mbi",
-        __description: "bloc ya test ya erreur",
-      },
-
-      __catch: {
-        main: "ndo",
-        __description: "bloc ya capture ya erreur",
-      },
-
-      __finally: {
-        main: "peko",
-        __description: "bloc oyo e sala toujours",
-      },
+      __function: DocStr("sara", "a kela fonction ya code"),
+      __if: DocStr("na", "ndia ti verification"),
+      __else: DocStr("nga", "alternative soki ndia a yeke mvene"),
+      __while: DocStr("tene", "loop so a ngbâ ti sara soki ndia ayeke ta"),
+      __for: DocStr("nge", "loop ya repetition na compteur"),
+      __switch: DocStr("supu", "ndia ti choix mingi"),
+      __case: DocStr("lo", "moko cas na yâ ti supu"),
+      __default: DocStr("ndeke", "cas soki moko ye a hunda te"),
+      __try: DocStr("mbi", "a tara ti sara moko koda"),
+      __catch: DocStr("ndo", "a gbu balua soki a londo"),
+      __finally: DocStr("peko", "koda so a yeke sara lakue na peko"),
+      __class: DocStr("kodoro", "a kela moko fini kodoro (class)"),
+      __constructor: DocStr("leke", "fonction ti leke moko object"),
     },
   },
 
   errors: {
-    main: {
-      tag: "BALUA",
-      message: "balua ti systeem, probleme esalami",
-    },
+    __labels: errorLabel(
+      "Tene",
+      "Ngere",
+      "Variabla",
+      "Lo",
+      "Object",
+      "Ku",
+      "Wara",
+      "Kanga_na_constanta",
+      "Parameter_firi",
+      "Wango",
+      "Token_mvene",
+      "Stack_overflow",
+      "Token",
+      "Hun_ti_input_mvene",
+    ),
+    main: errorMessage("BALUA", "balua ti systeem, probleme esalami"),
+    __TypeError: errorMessage("BALUA_YEKE", "type ya valeur ezali mabe"),
+    __InitError: errorMessage("BALUA_LEKE", "variabla a leke de mvene te"),
+    __ReferenceError: errorMessage(
+      "BALUA_TENE",
+      "reference e zangi to e fandi te",
+    ),
+    __SyntaxError: errorMessage("BALUA_SINTAKS", "erreur ya structure ya code"),
+    __RangeError: errorMessage("BALUA_NGERE", "valeur eleki limite"),
+    __URIError: errorMessage("BALUA_URI", "balua ti URI"),
+    __EvalError: errorMessage("BALUA_EVAL", "balua ti eval"),
+    __UNKNOWN_ERROR: errorMessage("BALUA_LONDO", "balua oyo eyebani te"),
+  },
 
-    __UNKNOWN_ERROR: {
-      tag: "BALUA_LONDO",
-      message: "balua oyo eyebani te",
-    },
-
-    __TypeError: {
-      tag: "BALUA_YEKE",
-      message: "type ya valeur ezali mabe",
-    },
-
-    __ReferenceError: {
-      tag: "BALUA_TENE",
-      message: "reference e zangi to e fandi te",
-    },
-
-    __SyntaxError: {
-      tag: "BALUA_SINTAKS",
-      message: "erreur ya structure ya code",
-    },
-
-    __RangeError: {
-      tag: "BALUA_LEKE",
-      message: "valeur eleki limite",
-    },
-
-    __URIError: {
-      tag: "BALUA_URI",
-      message: "erreur ya URI",
-    },
-
-    __EvalError: {
-      tag: "BALUA_EVAL",
-      message: "erreur ya eval",
-    },
+  example: {
+    __array: [
+      "kobe",
+      "kodoro",
+      "lista_iri",
+      "namba",
+      "couleur",
+      "mbeto",
+      "azo",
+      "yeke",
+      "punc",
+      "yanga",
+    ],
+    __boolean: [
+      "status",
+      "yeke_ta",
+      "lingbi_sara",
+      "leke_awe",
+      "autorisè",
+      "fandi",
+      "na_nduzu",
+      "hun_awe",
+      "tara_awe",
+      "stizè",
+    ],
+    __function: [
+      "waraIri",
+      "calculNgere",
+      "faDatas",
+      "lekeProfil",
+      "formatMbeto",
+      "taraKoda",
+      "taraDatas",
+      "bataMbeti",
+      "tokuaTene",
+      "summaNyonso",
+    ],
+    __number: [
+      "ngu",
+      "ngbo_dun",
+      "media",
+      "total",
+      "ngere",
+      "index",
+      "l'heure",
+      "mingi",
+      "score",
+      "ape",
+    ],
+    __object: [
+      "zo",
+      "client",
+      "leke_ye",
+      "kiri",
+      "futa",
+      "config",
+      "profil",
+      "adressa",
+      "metadata",
+      "sessiun",
+    ],
+    __string: [
+      "iri",
+      "titel",
+      "ndia",
+      "email",
+      "parola",
+      "tene",
+      "tag",
+      "cle",
+      "url",
+      "link",
+    ],
+    __void: [
+      "partir",
+      "stizè",
+      "ferme",
+      "netteye",
+      "futi",
+      "sigua",
+      "vabidar_buffer",
+      "bata_nyonso",
+      "tokua",
+      "iri_tene",
+    ],
   },
 }).grammar();

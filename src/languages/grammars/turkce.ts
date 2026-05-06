@@ -1,261 +1,249 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const turkce = new Language({
   language: "turkce",
   about:
     "ENIDE herhangi bir dilde programlamaya izin veren tercüme edilebilir bir transpiler'dir",
 
-  include: {
-    main: "DahilEtme",
-    __description: "Dil veya kitaplıkları dahil etmek için kullanılır.",
-  },
+  include: DocStr(
+    "DahilEtme",
+    "Dil veya kitaplıkları dahil etmek için kullanılır",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "Hakkinda",
-        __description: "ENIDE hakkında bilgi almak için",
-      },
-      __help: {
-        main: "Yardim",
-        __description: "mevcut tüm komutların listesini almak için",
-      },
-      __version: {
-        main: "Sürum",
-        __description: "ENIDE'nin mevcut sürümünü almak için",
-      },
-      __languages: {
-        main: "Diller",
-        __description: "mevcut tüm dillerin listesini almak için",
-      },
-      __documentation: {
-        main: "Dok",
-        __description: "bir dil için belgeleri almak için",
-      },
-    },
+    __about: DocStr("Hakkında", "ENIDE hakkında bilgi almak için"),
+    __help: DocStr("Yardım", "mevcut tüm komutların listesini almak için"),
+    __version: DocStr("Sürüm", "ENIDE'nin mevcut sürümünü almak için"),
+    __languages: DocStr("Diller", "mevcut tüm dillerin listesini almak için"),
+    __documentation: DocStr("Dok", "bir dil için belgeleri almak için"),
+    __grammar: DocStr("Dilbilgisi", "bir dil için dilbilgisini almak için"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("Standart", "standart yardımcı yöntemlere erişim için"),
+      __isarray: DocStr("DiziMi", "bir değerin dizi olup olmadığını kontrol etmek için"),
+      __isobject: DocStr("NesneMi", "bir değerin nesne olup olmadığını kontrol etmek için"),
+      __typeof: DocStr("Tür", "bir değerin türünü almak için"),
+      __parse: DocStr(
+        "Parse",
+        "bir değeri dizgiden doğru ayrıştırılmış değere dönüştürmek için",
+      ),
+    },
+
     __math: {
-      main: {
-        main: "Matematik",
-        __description: "matematik fonksiyonlarına erişim için",
-      },
-      __pi: {
-        main: "PI",
-        __description: "pi değerini almak için",
-      },
-      __sqrt: {
-        main: "KareKok",
-        __description: "kare koku almak için",
-      },
-      __pow: {
-        main: "Us",
-        __description: "bir sayının üssünü almak için",
-      },
-      __round: {
-        main: "Yuvarla",
-        __description: "bir sayıyı yuvarlamak için",
-      },
-      __random: {
-        main: "Rastgele",
-        __description: "rastgele sayı almak için",
-      },
-      __max: {
-        main: "Maksimum",
-        __description: "maksimum değeri almak için",
-      },
-      __min: {
-        main: "Minimum",
-        __description: "minimum değeri almak için",
-      },
-      __isNumber: {
-        main: "SayiMi",
-        __description: "bir değerin sayı olup olmadığını kontrol etmek için",
-      },
-      __isInteger: {
-        main: "TamSayiMi",
-        __description:
-          "bir değerin tam sayı olup olmadığını kontrol etmek için",
-      },
-      __isFloat: {
-        main: "OndalikMi",
-        __description:
-          "bir değerin ondalık sayı olup olmadığını kontrol etmek için",
-      },
+      main: DocStr("Matematik", "matematik fonksiyonlarına erişim için"),
+      __pi: DocStr("PI", "pi değerini almak için"),
+      __sqrt: DocStr("KareKök", "kare kökü almak için"),
+      __pow: DocStr("Üs", "bir sayının üssünü almak için"),
+      __round: DocStr("Yuvarla", "bir sayıyı yuvarlamak için"),
+      __random: DocStr("Rastgele", "rastgele sayı almak için"),
+      __max: DocStr("Maksimum", "maksimum değeri almak için"),
+      __min: DocStr("Minimum", "minimum değeri almak için"),
+      __isNumber: DocStr("SayıMı", "bir değerin sayı olup olmadığını kontrol etmek için"),
+      __isInteger: DocStr("TamSayıMı", "bir değerin tam sayı olup olmadığını kontrol etmek için"),
+      __isFloat: DocStr("OndalıkMı", "bir değerin ondalık sayı olup olmadığını kontrol etmek için"),
+      __cos: DocStr("Cos", "radyan cinsinden bir açının kosinüsünü almak için"),
+      __sin: DocStr("Sin", "radyan cinsinden bir açının sinüsünü almak için"),
+      __tan: DocStr("Tan", "radyan cinsinden bir açının tanjantını almak için"),
     },
 
     __string: {
-      main: {
-        main: "Metin",
-        __description: "metin işlem fonksiyonlarına erişim için",
-      },
-      __length: {
-        main: "Uzunluk",
-        __description: "bir metnin uzunluğunu almak için",
-      },
-      __toUpperCase: {
-        main: "BuyukHarfe",
-        __description: "bir metni büyük harfe dönüştürmek için",
-      },
-      __toLowerCase: {
-        main: "KucukHarfe",
-        __description: "bir metni küçük harfe dönüştürmek için",
-      },
+      main: DocStr("Metin", "metin işlem fonksiyonlarına erişim için"),
+      __length: DocStr("Uzunluk", "bir metnin uzunluğunu almak için"),
+      __toUpperCase: DocStr("BüyükHarfe", "bir metni büyük harfe dönüştürmek için"),
+      __toLowerCase: DocStr("KüçükHarfe", "bir metni küçük harfe dönüştürmek için"),
+      __include: DocStr("İçeriyor", "bir metnin alt metin içerip içermediğini kontrol etmek için"),
+      __repeat: DocStr("Tekrarla", "bir metni belirli sayıda tekrarlamak için"),
     },
 
     __date: {
-      main: {
-        main: "Tarih",
-        __description: "tarih ve saat fonksiyonlarına erişim için",
-      },
-      __year: {
-        main: "Yil",
-        __description: "yılı almak için",
-      },
-      __month: {
-        main: "Ay",
-        __description: "ayı almak için",
-      },
-      __dayMonth: {
-        main: "AyinGunu",
-        __description: "ayın gününü almak için",
-      },
-      __dayWeek: {
-        main: "HaftaninGunu",
-        __description: "haftanın gününü almak için",
-      },
-      __hour: {
-        main: "Saat",
-        __description: "saati almak için",
-      },
-      __minute: {
-        main: "Dakika",
-        __description: "dakikayı almak için",
-      },
-      __second: {
-        main: "Saniye",
-        __description: "saniyeyi almak için",
-      },
+      main: DocStr("Tarih", "tarih ve saat fonksiyonlarına erişim için"),
+      __now: DocStr("Şimdi", "güncel tarih ve saati almak için"),
+      __year: DocStr("Yıl", "yılı almak için"),
+      __month: DocStr("Ay", "ayı almak için"),
+      __dayMonth: DocStr("AyınGünü", "ayın gününü almak için"),
+      __dayWeek: DocStr("HaftanınGünü", "haftanın gününü almak için"),
+      __hour: DocStr("Saat", "saati almak için"),
+      __minute: DocStr("Dakika", "dakikayı almak için"),
+      __second: DocStr("Saniye", "saniyeyi almak için"),
     },
   },
 
   types: {
-    __object: {
-      main: "Nesne",
-      __description: "statik bir nesne tanımlamak için",
-    },
-    __number: {
-      main: "Sayi",
-      __description: "sayı türünde değişken bildirmek için",
-    },
-    __string: {
-      main: "Metin",
-      __description: "metin türünde değişken bildirmek için",
-    },
-    __boolean: {
-      main: "Bool",
-      values: { __true: "Dogru", __false: "Yanlis" },
-      __description: "mantıksal türünde değişken bildirmek için",
-    },
+    __number: DocStr("Sayı", "sayı türünde değişken bildirmek için"),
+    __string: DocStr("Metin", "metin türünde değişken bildirmek için"),
+    __boolean: DocStr("Bool", "mantıksal türünde değişken bildirmek için"),
+    __object: DocStr("Nesne", "statik bir nesne tanımlamak için"),
+    __void: DocStr("Boş", "değer döndürmeyen fonksiyon bildirmek için"),
+    __array: DocStr("Dizi", "dizi veri yapısı bildirmek için"),
+  },
+
+  specialValues: {
+    __true: DocStr("Doğru", "boolean doğru değeri"),
+    __false: DocStr("Yanlış", "boolean yanlış değeri"),
+    __null: DocStr("Boşluk", "değerin yokluğu"),
+  },
+
+  words: {
+    __new: DocStr("Yeni", "bir sınıfın yeni örneğini oluşturmak için"),
+    __this: DocStr("Bu", "kendi sınıfındaki özelliklere erişmek için"),
+    __extends: DocStr("Uzatır", "bir sınıfın başka bir sınıftan miras aldığını bildirmek için"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("Özel", "yalnızca sınıf içinde erişilebilir"),
+    __public: DocStr("Genel", "her yerden erişilebilir"),
+    __protected: DocStr("Korumalı", "sınıf ve alt sınıflarında erişilebilir"),
+    __readonly: DocStr("SadecOku", "değer yalnızca bir kez atanabilir"),
+    __static: DocStr("Statik", "sınıfa ait, örneklere değil"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "Yazdir",
-        __description: "ekrana değer yazdırmak için",
-      },
-      __scan: {
-        main: "Oku",
-        __description: "girişten değer okumak için",
-      },
-      __return: {
-        main: "Dondur",
-        __description: "bir fonksiyondan değer döndürmek için",
-      },
+      __print: DocStr("Yazdır", "ekrana değer yazdırmak için"),
+      __scan: DocStr("Oku", "girişten değer okumak için"),
+      __return: DocStr("Döndür", "bir fonksiyondan değer döndürmek için"),
+      __break: DocStr("Dur", "döngüden çıkmak için"),
+      __continue: DocStr("Devam", "döngünün sonraki yinelemesine atlamak için"),
     },
 
     sentences: {
-      __function: {
-        main: "Fonksiyon",
-        __description: "fonksiyon bildirmek için",
-      },
-      __if: {
-        main: "Eger",
-        __description: "koşul bildirmek için",
-      },
-      __else: {
-        main: "Degilse",
-        __description: "alternatif koşul bildirmek için",
-      },
-      __while: {
-        main: "Iken",
-        __description: "iken döngüsü bildirmek için",
-      },
-      __for: {
-        main: "Icin",
-        __description: "için döngüsü bildirmek için",
-      },
-      __switch: {
-        main: "Sec",
-        __description: "seçim yapısı bildirmek için",
-      },
-      __case: {
-        main: "Durum",
-        __description: "seçim yapısında durum bildirmek için",
-      },
-      __default: {
-        main: "Varsayilan",
-        __description: "seçim yapısında varsayılan durumu bildirmek için",
-      },
-      __try: {
-        main: "Dene",
-        __description: "dene bloğu bildirmek için",
-      },
-      __catch: {
-        main: "Yakala",
-        __description: "hata işlem bloğu bildirmek için",
-      },
-      __finally: {
-        main: "Sonunda",
-        __description: "her zaman yürütülen bloğu bildirmek için",
-      },
+      __function: DocStr("Fonksiyon", "fonksiyon bildirmek için"),
+      __if: DocStr("Eğer", "koşul bildirmek için"),
+      __else: DocStr("Değilse", "alternatif koşul bildirmek için"),
+      __while: DocStr("İken", "iken döngüsü bildirmek için"),
+      __for: DocStr("İçin", "için döngüsü bildirmek için"),
+      __switch: DocStr("Seç", "seçim yapısı bildirmek için"),
+      __case: DocStr("Durum", "seçim yapısında durum bildirmek için"),
+      __default: DocStr("Varsayılan", "seçim yapısında varsayılan durumu bildirmek için"),
+      __try: DocStr("Dene", "dene bloğu bildirmek için"),
+      __catch: DocStr("Yakala", "hata işlem bloğu bildirmek için"),
+      __finally: DocStr("Sonunda", "her zaman yürütülen bloğu bildirmek için"),
+      __class: DocStr("Sınıf", "sınıf bildirmek için"),
+      __constructor: DocStr("Yapıcı", "sınıftaki özellikleri bildirmek için yapı"),
     },
   },
 
   errors: {
-    main: {
-      tag: "HATA",
-      message: "Genel sistem hatası",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "BILINMEYEN_HATA",
-      message: "Tamamen bilinmeyen hata",
-    },
-    __TypeError: {
-      tag: "TUR_HATASI",
-      message: "İşlemde geçersiz tür",
-    },
-    __ReferenceError: {
-      tag: "REFERANS_HATASI",
-      message: "Değişken kapsam içerisinde mevcut değil",
-    },
-    __SyntaxError: {
-      tag: "SOZDIZIMI_HATASI",
-      message: "Geçersiz kod",
-    },
-    __RangeError: {
-      tag: "ARALIK_HATASI",
-      message: "Değer izin verilen aralık dışında",
-    },
-    __URIError: {
-      tag: "URI_HATASI",
-      message: "Yanlış biçimlenmiş veya geçersiz URI",
-    },
-    __EvalError: {
-      tag: "EVAL_HATASI",
-      message: "eval ile ilgili hata",
-    },
+    __labels: errorLabel(
+      "Mesaj",
+      "Değer",
+      "Değişken",
+      "Özellik",
+      "Nesne",
+      "Beklenen",
+      "Alınan",
+      "Sabit_Atama",
+      "Yinelenen_Parametre",
+      "İpucu",
+      "Geçersiz_Token",
+      "Yığın_Taşması",
+      "Token",
+      "Beklenmedik_Son",
+    ),
+    main: errorMessage("HATA", "genel sistem hatası"),
+    __TypeError: errorMessage("TÜR_HATASI", "işlemde geçersiz tür"),
+    __InitError: errorMessage(
+      "BAŞLATMA_HATASI",
+      "değişken başlatılmamış",
+    ),
+    __ReferenceError: errorMessage(
+      "REFERANS_HATASI",
+      "değişken, fonksiyon veya kitaplık kapsam içinde mevcut değil",
+    ),
+    __SyntaxError: errorMessage("SÖZDIZIMI_HATASI", "geçersiz kod"),
+    __RangeError: errorMessage("ARALIK_HATASI", "değer izin verilen aralık dışında"),
+    __URIError: errorMessage("URI_HATASI", "yanlış biçimlenmiş veya geçersiz URI"),
+    __EvalError: errorMessage("EVAL_HATASI", "eval ile ilgili hata"),
+    __UNKNOWN_ERROR: errorMessage("BİLİNMEYEN_HATA", "tamamen bilinmeyen hata"),
+  },
+
+  example: {
+    __array: [
+      "yiyecekler",
+      "ülkeler",
+      "öğeler",
+      "tags",
+      "renkler",
+      "ürünler",
+      "kullanıcılar",
+      "kategoriler",
+      "puanlar",
+      "diller",
+    ],
+    __boolean: [
+      "durum",
+      "yetişkinMi",
+      "aktifMi",
+      "görünürMü",
+      "iznVarMı",
+      "girişYapıldıMı",
+      "etkinleştirildiMi",
+      "tamamlandıMı",
+      "doğrulandıMı",
+      "silindi",
+    ],
+    __function: [
+      "adıAl",
+      "değerAl",
+      "tıklamayıİşle",
+      "veriGetir",
+      "tarihBiçimlendir",
+      "girişiAyrıştır",
+      "formuDoğrula",
+      "öğeyiRender",
+      "durumuGüncelle",
+      "toplamıHesapla",
+    ],
+    __number: [
+      "yaş",
+      "yıl",
+      "sayaç",
+      "toplam",
+      "fiyat",
+      "indeks",
+      "süre",
+      "miktar",
+      "puan",
+      "timeout",
+    ],
+    __object: [
+      "kişi",
+      "kullanıcı",
+      "config",
+      "yanıt",
+      "ödeme",
+      "ayarlar",
+      "profil",
+      "adres",
+      "metadata",
+      "oturum",
+    ],
+    __string: [
+      "ad",
+      "başlık",
+      "açıklama",
+      "email",
+      "şifre",
+      "mesaj",
+      "etiket",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "girişYap",
+      "başlat",
+      "temizle",
+      "sıfırla",
+      "yok_et",
+      "çıkışYap",
+      "önbelleğiTemizle",
+      "VTKaydet",
+      "epostaGönder",
+      "olayıKaydet",
+    ],
   },
 }).grammar();

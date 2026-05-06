@@ -1,229 +1,254 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const islenska = new Language({
   language: "islenska",
   about:
-    "ENIDE er thythjanlegur uppbyggir sem leyfir forritun a hvaða tungu sem er",
-  include: {
-    main: "Innifala",
-    __description: "Notað til að innifala tungumál eða söfn",
-  },
+    "ENIDE er þýðanlegur uppbyggir sem leyfir forritun á hvaða tungu sem er",
+
+  include: DocStr(
+    "Innifala",
+    "notað til að innifala tungumál, söfn eða gagnagrindur úr öðrum skrám",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "um",
-        __description: "til að fá upplýsingar um ENIDE",
-      },
-      __help: {
-        main: "hjalp",
-        __description: "til að fá lista yfir allar tiltækar skipanir",
-      },
-      __version: {
-        main: "utgafa",
-        __description: "til að fá gildandi útgáfu af ENIDE",
-      },
-      __languages: {
-        main: "tungur",
-        __description: "til að fá lista yfir allar tiltækar tungur",
-      },
-      __documentation: {
-        main: "skjal",
-        __description: "til að fá skjölun fyrir tungu",
-      },
-    },
+    __about: DocStr("um", "til að fá upplýsingar um ENIDE"),
+    __help: DocStr("hjalp", "til að fá lista yfir alla tiltæka skipanir"),
+    __version: DocStr("utgafa", "til að fá núverandi útgáfu af ENIDE"),
+    __languages: DocStr("tungur", "til að fá lista yfir allar tiltækar tungur"),
+    __documentation: DocStr("skjal", "til að fá skjölun fyrir tungumál"),
+    __grammar: DocStr(
+      "malfraedi",
+      "til að fá málfræði skilgreiningu tungumáls",
+    ),
   },
+
   library: {
+    __standard: {
+      main: DocStr("staðall", "til að nálgast gagnleg staðlaðar aðgerðir"),
+      __isarray: DocStr("ErFylki", "til að athuga hvort gildi sé fylki"),
+      __isobject: DocStr("ErHlutur", "til að athuga hvort gildi sé hlutur"),
+      __typeof: DocStr("Typa", "til að fá gerð gildis"),
+      __parse: DocStr("Parse", "til að breyta texta í rétt gildi"),
+    },
     __math: {
-      main: {
-        main: "staerdfraedi",
-        __description: "til að nálgast stærðfræðilegar föll",
-      },
-      __pi: {
-        main: "PI",
-        __description: "til að fá gildi pi",
-      },
-      __sqrt: {
-        main: "FerningRot",
-        __description: "til að fá ferningrót",
-      },
-      __pow: {
-        main: "Veldi",
-        __description: "til að fá veldi tölu",
-      },
-      __round: {
-        main: "Sletta",
-        __description: "til að slétta tölu",
-      },
-      __random: {
-        main: "Slembi",
-        __description: "til að fá slembitölu",
-      },
-      __max: {
-        main: "Hamark",
-        __description: "til að fá hámarksgildi",
-      },
-      __min: {
-        main: "Lagmark",
-        __description: "til að fá lágmarksgildi",
-      },
-      __isNumber: {
-        main: "ErTala",
-        __description: "til að athuga hvort gildi sé tala",
-      },
-      __isInteger: {
-        main: "ErHeiltala",
-        __description: "til að athuga hvort gildi sé heiltala",
-      },
-      __isFloat: {
-        main: "ErTugabrot",
-        __description: "til að athuga hvort gildi sé tugabrot",
-      },
+      main: DocStr("staerdfraedi", "til að nálgast stærðfræðilegar aðgerðir"),
+      __pi: DocStr("PI", "til að fá gildi pi"),
+      __sqrt: DocStr("FerningRot", "til að fá ferningrót af tölu"),
+      __pow: DocStr("Veldi", "til að fá veldi tveggja talna"),
+      __round: DocStr("Sletta", "til að slétta tölu"),
+      __random: DocStr("Slembi", "til að fá slembitölu"),
+      __max: DocStr("Hamark", "til að fá hámarksgildi"),
+      __min: DocStr("Lagmark", "til að fá lágmarksgildi"),
+      __isNumber: DocStr("ErTala", "til að athuga hvort gildi sé tala"),
+      __isInteger: DocStr(
+        "ErHeiltala",
+        "til að athuga hvort gildi sé heiltala",
+      ),
+      __isFloat: DocStr("ErTugabrot", "til að athuga hvort gildi sé tugabrot"),
+      __cos: DocStr("Cos", "til að fá kósínus horns"),
+      __sin: DocStr("Sin", "til að fá sínus horns"),
+      __tan: DocStr("Tan", "til að fá tangens horns"),
     },
+
     __string: {
-      main: {
-        main: "texti",
-        __description: "til að nálgast strengjameðferðarföll",
-      },
-      __length: {
-        main: "Lengd",
-        __description: "til að fá lengd strengs",
-      },
-      __toUpperCase: {
-        main: "IHastafi",
-        __description: "til að breyta streng í hástafi",
-      },
-      __toLowerCase: {
-        main: "ILagstafi",
-        __description: "til að breyta streng í lágstafi",
-      },
+      main: DocStr("texti", "til að meðhöndla textastrengi"),
+      __length: DocStr("Lengd", "til að fá lengd strengs"),
+      __toUpperCase: DocStr("IHastafi", "til að breyta í hástafi"),
+      __toLowerCase: DocStr("ILagstafi", "til að breyta í lágstafi"),
+      __include: DocStr(
+        "Inniheldur",
+        "til að athuga hvort strengur inniheldur undirstreng",
+      ),
+      __repeat: DocStr(
+        "Endurtaka",
+        "til að endurtaka streng ákveðinn fjölda sinnum",
+      ),
     },
+
     __date: {
-      main: {
-        main: "dagsetning",
-        __description: "til að nálgast dagsetningar og tímaföll",
-      },
-      __year: {
-        main: "Ar",
-        __description: "til að fá árið",
-      },
-      __month: {
-        main: "Manudur",
-        __description: "til að fá mánuðinn",
-      },
-      __dayMonth: {
-        main: "DagurManudur",
-        __description: "til að fá dag mánaðarins",
-      },
-      __dayWeek: {
-        main: "DagurVika",
-        __description: "til að fá dag vikunnar",
-      },
-      __hour: {
-        main: "Klukkustund",
-        __description: "til að fá klukkustundina",
-      },
-      __minute: {
-        main: "Minutu",
-        __description: "til að fá mínútuna",
-      },
-      __second: {
-        main: "Sekunda",
-        __description: "til að fá sekúnduna",
-      },
+      main: DocStr("dagsetning", "til að meðhöndla dagsetningar og tíma"),
+      __now: DocStr("Nu", "til að fá núverandi dagsetningu og tíma"),
+      __year: DocStr("Ar", "til að fá árið"),
+      __month: DocStr("Manudur", "til að fá mánuðinn"),
+      __dayMonth: DocStr("DagurManudur", "til að fá dag mánaðarins"),
+      __dayWeek: DocStr("DagurVika", "til að fá dag vikunnar"),
+      __hour: DocStr("Klukkustund", "til að fá klukkustundina"),
+      __minute: DocStr("Minutu", "til að fá mínútuna"),
+      __second: DocStr("Sekunda", "til að fá sekúnduna"),
     },
   },
+
   types: {
-    __object: { main: "hlutur", __description: "til að lýsa kyrrstæðum hlut" },
-    __number: {
-      main: "tala",
-      __description: "til að lýsa breytu af gerð tala",
-    },
-    __string: {
-      main: "strengur",
-      __description: "til að lýsa breytu af gerð strengur",
-    },
-    __boolean: {
-      main: "bool",
-      values: { __true: "Satt", __false: "Osatt" },
-      __description: "til að lýsa breytu af gerð bool",
-    },
+    __number: DocStr("tala", "til að lýsa breytu af gerð tala"),
+    __string: DocStr("strengur", "til að lýsa breytu af gerð strengur"),
+    __boolean: DocStr("bool", "til að lýsa breytu af gerð bool"),
+    __object: DocStr("hlutur", "til að lýsa kyrrstæðum hlut"),
+    __void: DocStr("tomur", "til að lýsa falli sem skilar engu"),
+    __array: DocStr("fylki", "til að lýsa fylki"),
   },
+
+  specialValues: {
+    __true: DocStr("Satt", "satt booleant gildi"),
+    __false: DocStr("Osatt", "ósatt booleant gildi"),
+    __null: DocStr("Null", "engin gildi"),
+  },
+
+  words: {
+    __new: DocStr("nyr", "til að búa til nýja tilvik af klasa"),
+    __this: DocStr("thetta", "til að nálgast eiginleika núverandi klasa"),
+    __extends: DocStr("erfir", "til að lýsa því að klasi erfi frá öðrum"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("einkamál", "aðeins aðgengilegt innan klasans"),
+    __public: DocStr("opinbert", "aðgengilegt alls staðar"),
+    __protected: DocStr("verndað", "aðgengilegt í klasa og undirklösum"),
+    __readonly: DocStr("lesaEingongu", "gildi má aðeins úthluta einu sinni"),
+    __static: DocStr("statiskur", "tilheyrir klasa en ekki tilviki"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "prenta",
-        __description: "til að prenta gildi á skjáinn",
-      },
-      __scan: {
-        main: "lesa",
-        __description: "til að lesa gildi frá inntaki",
-      },
-      __return: {
-        main: "skila",
-        __description: "til að skila gildi frá falli",
-      },
+      __print: DocStr("prenta", "til að prenta gildi á skjá"),
+      __scan: DocStr("lesa", "til að lesa gildi frá inntaki"),
+      __return: DocStr("skila", "til að skila gildi úr falli"),
+      __break: DocStr("stoppa", "til að hætta í lykkju"),
+      __continue: DocStr("haldaAfram", "til að halda áfram í næstu ítrun"),
     },
+
     sentences: {
-      __function: {
-        main: "fall",
-        __description: "til að lýsa falli",
-      },
-      __if: {
-        main: "ef",
-        __description: "til að lýsa skilyrði",
-      },
-      __else: {
-        main: "annars",
-        __description: "til að lýsa öðru skilyrði",
-      },
-      __while: {
-        main: "medan",
-        __description: "til að lýsa meðan-lykkju",
-      },
-      __for: {
-        main: "fyrir",
-        __description: "til að lýsa fyrir-lykkju",
-      },
-      __switch: {
-        main: "val",
-        __description: "til að lýsa valstrúktúr",
-      },
-      __case: {
-        main: "tilfelli",
-        __description: "til að lýsa tilfelli í valstrúktúr",
-      },
-      __default: {
-        main: "sjalfgefid",
-        __description: "til að lýsa sjálfgefna tilfellinu í valstrúktúr",
-      },
-      __try: {
-        main: "reyna",
-        __description: "til að lýsa reyna-blokk",
-      },
-      __catch: {
-        main: "gripa",
-        __description: "til að lýsa villumeðferðarblokk",
-      },
-      __finally: {
-        main: "loks",
-        __description: "til að lýsa blokk sem keyrir alltaf",
-      },
+      __function: DocStr("fall", "til að lýsa falli"),
+      __if: DocStr("ef", "til að lýsa skilyrði"),
+      __else: DocStr("annars", "til að lýsa öðru skilyrði"),
+      __while: DocStr("medan", "til að lýsa medan-lykkju"),
+      __for: DocStr("fyrir", "til að lýsa fyrir-lykkju"),
+      __switch: DocStr("val", "til að lýsa valstrúktúr"),
+      __case: DocStr("tilfelli", "til að lýsa tilfelli"),
+      __default: DocStr("sjalfgefid", "þegar ekkert tilfelli passar"),
+      __try: DocStr("reyna", "til að lýsa reyna-blokk"),
+      __catch: DocStr("gripa", "til að lýsa villumeðferðarblokk"),
+      __finally: DocStr("loks", "keyrir alltaf"),
+      __class: DocStr("klass", "til að lýsa klasa"),
+      __constructor: DocStr("smidur", "smíðari til að stilla eiginleika klasa"),
     },
   },
+
   errors: {
-    main: { tag: "VILLA", message: "Almenn kerfis villa" },
-    __UNKNOWN_ERROR: {
-      tag: "OKUNNUG_VILLA",
-      message: "Algjorlega okunnug villa",
-    },
-    __TypeError: { tag: "GERDA_VILLA", message: "Ogild gerd i adgerd" },
-    __ReferenceError: {
-      tag: "TILVISUN_VILLA",
-      message: "Breyta er ekki til i umfangi",
-    },
-    __SyntaxError: { tag: "MALFRAEDI_VILLA", message: "Ogildur kodi" },
-    __RangeError: { tag: "BIL_VILLA", message: "Gildi utan leyfds bils" },
-    __URIError: { tag: "URI_VILLA", message: "Rangt samsett eda ogild URI" },
-    __EvalError: { tag: "EVAL_VILLA", message: "Villa tengd eval" },
+    __labels: errorLabel(
+      "Skilaboð",
+      "Gildi",
+      "Breyta",
+      "Eiginleiki",
+      "Hlutur",
+      "Væntanlegt",
+      "Móttekið",
+      "Fast Úthlutun",
+      "Tvítak Færibreytu",
+      "Ábending",
+      "Ógildur Token",
+      "Stafla Yfirflæði",
+      "Token",
+      "Óvæntur Endir Inntaks",
+    ),
+    main: errorMessage("VILLA", "almenn kerfisvilla"),
+    __TypeError: errorMessage("GERDA_VILLA", "ógild gerð í aðgerð"),
+    __InitError: errorMessage("UPPH AFS_VILLA", "breyta var ekki upphafsett"),
+    __ReferenceError: errorMessage(
+      "TILVISUN_VILLA",
+      "breyta, fall eða safn finnst ekki",
+    ),
+    __SyntaxError: errorMessage("MALFRAEDI_VILLA", "ógildur kóði"),
+    __RangeError: errorMessage("BIL_VILLA", "gildi utan leyfilegs bils"),
+    __URIError: errorMessage("URI_VILLA", "rangt samsett eða ógildur URI"),
+    __EvalError: errorMessage("EVAL_VILLA", "villa tengd eval"),
+    __UNKNOWN_ERROR: errorMessage("OKUNNUG_VILLA", "algerlega óþekkt villa"),
+  },
+
+  example: {
+    __array: [
+      "nemendur",
+      "tolur",
+      "nofn",
+      "hlutir",
+      "gildi",
+      "vinir",
+      "verkefni",
+      "dagar",
+      "manudir",
+      "skrar",
+    ],
+    __boolean: [
+      "virkt",
+      "stadfest",
+      "opinn",
+      "lokad",
+      "greitt",
+      "logad",
+      "leyft",
+      "satt",
+      "osatt",
+      "notandinn",
+    ],
+    __function: [
+      "faNafn",
+      "faGildi",
+      "lista",
+      "faGogn",
+      "sniðaGogn",
+      "parseInntak",
+      "gildaForm",
+      "uppfæraHlut",
+      "uppfæraStodu",
+      "reiknaSamtals",
+    ],
+    __number: [
+      "aldur",
+      "fjoldi",
+      "summa",
+      "verd",
+      "hiti",
+      "hraði",
+      "styrkur",
+      "punktar",
+      "lengd",
+      "breidd",
+    ],
+    __object: [
+      "notandi",
+      "bifreið",
+      "kennari",
+      "bok",
+      "nemandi",
+      "verslun",
+      "reikningur",
+      "leikur",
+      "mynd",
+      "vinnsla",
+    ],
+    __string: [
+      "nafn",
+      "kennitala",
+      "lykilord",
+      "texti",
+      "stadsetning",
+      "simanumer",
+      "netfang",
+      "titill",
+      "lysing",
+      "litur",
+    ],
+    __void: [
+      "innskra",
+      "starta",
+      "hreinsa",
+      "endurstilla",
+      "eyda",
+      "utskra",
+      "hreinsaCache",
+      "vista",
+      "sendaTolk",
+      "skra",
+    ],
   },
 }).grammar();

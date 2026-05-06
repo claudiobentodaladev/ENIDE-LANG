@@ -1,246 +1,241 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const kanuri = new Language({
   language: "kanuri",
   about: "ENIDE ye transpiler nze sarte du program karda fata ye",
-  include: {
-    main: "Kaltin",
-    __description: "Də ləngə awu biblioteka kaltinfə ro nafa dunya",
-  },
+
+  include: DocStr(
+    "Kaltin",
+    "Də ləngə awu biblioteka o struktura kaltinfə ro nafa dunya",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "kara",
-        __description: "wuye kara ENIDE ye",
-      },
-      __help: {
-        main: "faga",
-        __description: "wuye liste fata karda ye",
-      },
-      __version: {
-        main: "version",
-        __description: "wuye ENIDE version fata ye",
-      },
-      __languages: {
-        main: "karda",
-        __description: "wuye karda liste fata ye",
-      },
-      __documentation: {
-        main: "sura",
-        __description: "wuye karda sura",
-      },
-    },
+    __about: DocStr("kara", "wuye kara ENIDE ye"),
+    __help: DocStr("faga", "wuye liste fata karda ye"),
+    __version: DocStr("version", "wuye ENIDE version fata ye"),
+    __languages: DocStr("karda", "wuye karda liste fata ye"),
+    __documentation: DocStr("sura", "wuye karda sura"),
+    __grammar: DocStr("grama", "wuye grama karda ye"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("karda", "karda do ye ngəna karda"),
+      __isarray: DocStr("ArrayYe", "wante kalam array ye"),
+      __isobject: DocStr("KaduYe", "wante kalam kadu ye"),
+      __typeof: DocStr("Suwe", "wuye suwe kalam ye"),
+      __parse: DocStr("Parse", "zara ye kalam ngəna ye"),
+    },
     __math: {
-      main: {
-        main: "kalkulo",
-        __description: "kalkulo karda do ye",
-      },
-      __pi: {
-        main: "PI",
-        __description: "wuye pi kalam",
-      },
-      __sqrt: {
-        main: "KwadraFato",
-        __description: "wuye kwadra fato",
-      },
-      __pow: {
-        main: "Kama",
-        __description: "wuye nambar kama",
-      },
-      __round: {
-        main: "Gana",
-        __description: "gana nambar",
-      },
-      __random: {
-        main: "Baya",
-        __description: "wuye baya nambar",
-      },
-      __max: {
-        main: "Zola",
-        __description: "wuye kalam zola",
-      },
-      __min: {
-        main: "Dike",
-        __description: "wuye kalam dike",
-      },
-      __isNumber: {
-        main: "NambarYe",
-        __description: "wante kalam nambar ye",
-      },
-      __isInteger: {
-        main: "NambarKun",
-        __description: "wante kalam nambar kun ye",
-      },
-      __isFloat: {
-        main: "Desimal",
-        __description: "wante kalam desimal ye",
-      },
+      main: DocStr("kalkulo", "kalkulo karda do ye"),
+      __pi: DocStr("PI", "wuye pi kalam"),
+      __sqrt: DocStr("KwadraFato", "wuye kwadra fato"),
+      __pow: DocStr("Kama", "wuye nambar kama"),
+      __round: DocStr("Gana", "gana nambar"),
+      __random: DocStr("Baya", "wuye baya nambar"),
+      __max: DocStr("Zola", "wuye kalam zola"),
+      __min: DocStr("Dike", "wuye kalam dike"),
+      __isNumber: DocStr("NambarYe", "wante kalam nambar ye"),
+      __isInteger: DocStr("NambarKun", "wante kalam nambar kun ye"),
+      __isFloat: DocStr("Desimal", "wante kalam desimal ye"),
+      __cos: DocStr("Cos", "wuye cos sudut"),
+      __sin: DocStr("Sin", "wuye sin sudut"),
+      __tan: DocStr("Tan", "wuye tan sudut"),
     },
+
     __string: {
-      main: {
-        main: "kura",
-        __description: "zara karda do ye",
-      },
-      __length: {
-        main: "Siga",
-        __description: "wuye zara siga",
-      },
-      __toUpperCase: {
-        main: "KaDoGolo",
-        __description: "zara golo huru ye",
-      },
-      __toLowerCase: {
-        main: "KaDoDike",
-        __description: "zara dike huru ye",
-      },
+      main: DocStr("zara", "zara karda do ye"),
+      __length: DocStr("Siga", "wuye zara siga"),
+      __toUpperCase: DocStr("KaDoGolo", "zara golo huru ye"),
+      __toLowerCase: DocStr("KaDoDike", "zara dike huru ye"),
+      __include: DocStr("Də", "wante zara də substring ye"),
+      __repeat: DocStr("Sartu", "sartu zara nambar ye"),
     },
+
     __date: {
-      main: {
-        main: "wulo",
-        __description: "wulo kardo karda do ye",
-      },
-      __year: {
-        main: "Kuro",
-        __description: "wuye kuro",
-      },
-      __month: {
-        main: "Woyi",
-        __description: "wuye woyi",
-      },
-      __dayMonth: {
-        main: "WuloWoyi",
-        __description: "wuye wulo woyi ye",
-      },
-      __dayWeek: {
-        main: "WuloWiku",
-        __description: "wuye wulo wiku ye",
-      },
-      __hour: {
-        main: "Saati",
-        __description: "wuye saati",
-      },
-      __minute: {
-        main: "Dakika",
-        __description: "wuye dakika",
-      },
-      __second: {
-        main: "Saniya",
-        __description: "wuye saniya",
-      },
+      main: DocStr("wulo", "wulo karda do ye"),
+      __now: DocStr("Yanzu", "wuye wulo yanzu"),
+      __year: DocStr("Kuro", "wuye kuro"),
+      __month: DocStr("Woyi", "wuye woyi"),
+      __dayMonth: DocStr("WuloWoyi", "wuye wulo woyi ye"),
+      __dayWeek: DocStr("WuloWiku", "wuye wulo wiku ye"),
+      __hour: DocStr("Saati", "wuye saati"),
+      __minute: DocStr("Dakika", "wuye dakika"),
+      __second: DocStr("Saniya", "wuye saniya"),
     },
   },
+
   types: {
-    __object: { main: "kadu", __description: "ci kadu siri labo" },
-    __number: {
-      main: "nambar",
-      __description: "yege jijik nambar ye",
-    },
-    __string: {
-      main: "zara",
-      __description: "yege jijik zara ye",
-    },
-    __boolean: {
-      main: "bool",
-      values: { __true: "Jiri", __false: "Kandi" },
-      __description: "yege jijik boolean ye",
-    },
+    __number: DocStr("nambar", "yege jijik nambar ye"),
+    __string: DocStr("zara", "yege jijik zara ye"),
+    __boolean: DocStr("bool", "yege jijik boolean ye"),
+    __object: DocStr("kadu", "ci kadu siri labo"),
+    __void: DocStr("bazu", "larma ye ka kalam yege"),
+    __array: DocStr("array", "yege array struktura"),
   },
+
+  specialValues: {
+    __true: DocStr("Jiri", "boolean jiri"),
+    __false: DocStr("Kandi", "boolean kandi"),
+    __null: DocStr("Null", "kalam duna"),
+  },
+
+  words: {
+    __new: DocStr("fata", "kada instance fata di larma"),
+    __this: DocStr("wande", "wuye kadu wande ye"),
+    __extends: DocStr("də", "yege larma də larma wua"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("siri", "mung wulo larma"),
+    __public: DocStr("gama", "duna dunya karda"),
+    __protected: DocStr("hifazi", "larma e sublarma"),
+    __readonly: DocStr("karaMung", "kalam yanzu mung"),
+    __static: DocStr("kun", "larma ye, ka instance"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "ziga",
-        __description: "ziga kalam ekran ye",
-      },
-      __scan: {
-        main: "dende",
-        __description: "dende kalam kuna ye",
-      },
-      __return: {
-        main: "yege",
-        __description: "yege kalam karda ye",
-      },
+      __print: DocStr("ziga", "ziga kalam ekran ye"),
+      __scan: DocStr("dende", "dende kalam kuna ye"),
+      __return: DocStr("yege", "yege kalam karda ye"),
+      __break: DocStr("dari", "dari loop ye"),
+      __continue: DocStr("dəgə", "dəgə loop ye"),
     },
+
     sentences: {
-      __function: {
-        main: "larma",
-        __description: "yege larma",
-      },
-      __if: {
-        main: "wo",
-        __description: "yege sariya",
-      },
-      __else: {
-        main: "ye",
-        __description: "yege sariya wua",
-      },
-      __while: {
-        main: "fato",
-        __description: "yege loop fato",
-      },
-      __for: {
-        main: "kuna",
-        __description: "yege loop kuna",
-      },
-      __switch: {
-        main: "suwe",
-        __description: "yege suwe suru",
-      },
-      __case: {
-        main: "kolo",
-        __description: "yege kolo suwe ye",
-      },
-      __default: {
-        main: "karibe",
-        __description: "yege kolo karibe",
-      },
-      __try: {
-        main: "gande",
-        __description: "yege gande bloku",
-      },
-      __catch: {
-        main: "duna",
-        __description: "yege duna gafe bloku",
-      },
-      __finally: {
-        main: "kune",
-        __description: "yege bloku kune karda",
-      },
+      __function: DocStr("larma", "yege larma"),
+      __if: DocStr("wo", "yege sariya"),
+      __else: DocStr("ye", "yege sariya wua"),
+      __while: DocStr("fato", "yege loop fato"),
+      __for: DocStr("kuna", "yege loop kuna"),
+      __switch: DocStr("suwe", "yege suwe suru"),
+      __case: DocStr("kolo", "yege kolo suwe ye"),
+      __default: DocStr("karibe", "yege kolo karibe"),
+      __try: DocStr("gande", "yege gande bloku"),
+      __catch: DocStr("duna", "yege duna gafe bloku"),
+      __finally: DocStr("kune", "bloku kune karda"),
+      __class: DocStr("larma", "yege larma"),
+      __constructor: DocStr("konstruktor", "struktura pa kadu larma ye"),
     },
   },
+
   errors: {
-    main: {
-      tag: "GAFE",
-      message: "Gafe karda sistem ye",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "GAFE_MBA",
-      message: "Gafe wuye yenge",
-    },
-    __TypeError: {
-      tag: "GAFE_SUWE",
-      message: "Suwe ziga karda ye",
-    },
-    __ReferenceError: {
-      tag: "GAFE_YEGE",
-      message: "Jijik duna kuna ye",
-    },
-    __SyntaxError: {
-      tag: "GAFE_SINTAKS",
-      message: "Koodu ziga ke",
-    },
-    __RangeError: {
-      tag: "GAFE_SIGA",
-      message: "Kalam siga zola ye",
-    },
-    __URIError: {
-      tag: "GAFE_URI",
-      message: "URI ziga ye",
-    },
-    __EvalError: {
-      tag: "GAFE_EVAL",
-      message: "Gafe eval ye",
-    },
+    __labels: errorLabel(
+      "Sako",
+      "Kalam",
+      "Jijik",
+      "Kadu",
+      "Kadu",
+      "Dəgə",
+      "Də",
+      "Siri Assignment",
+      "Duplicate Parameter",
+      "Nənga",
+      "Token Ziga",
+      "Stack Overflow",
+      "Token",
+      "Kara Input Duna",
+    ),
+    main: errorMessage("GAFE", "gafe karda sistem ye"),
+    __TypeError: errorMessage("GAFE_SUWE", "suwe ziga karda ye"),
+    __InitError: errorMessage("GAFE_FATA", "jijik ka fata ye"),
+    __ReferenceError: errorMessage(
+      "GAFE_YEGE",
+      "jijik, larma o biblioteka duna",
+    ),
+    __SyntaxError: errorMessage("GAFE_SINTAKS", "koodu ziga ke"),
+    __RangeError: errorMessage("GAFE_SIGA", "kalam siga zola ye"),
+    __URIError: errorMessage("GAFE_URI", "URI ziga ye"),
+    __EvalError: errorMessage("GAFE_EVAL", "gafe eval ye"),
+    __UNKNOWN_ERROR: errorMessage("GAFE_MBA", "gafe wuye yenge"),
+  },
+
+  example: {
+    __array: [
+      "abinci",
+      "kasashe",
+      "abubuwa",
+      "tag",
+      "kala",
+      "kayayyaki",
+      "masu amfani",
+      "rukuni",
+      "maki",
+      "harsuna",
+    ],
+    __boolean: [
+      "aiki",
+      "manyan",
+      "bude",
+      "gani",
+      "yarda",
+      "shiga",
+      "kunna",
+      "kammala",
+      "tabbatar",
+      "share",
+    ],
+    __function: [
+      "samoSuna",
+      "samoKalam",
+      "jerin",
+      "samoBayani",
+      "tsaraBayani",
+      "parseInput",
+      "tabbatarForm",
+      "sabonAbubuwa",
+      "sabonHali",
+      "lissafaJumla",
+    ],
+    __number: [
+      "shekaru",
+      "shekara",
+      "matsakaici",
+      "jimla",
+      "farashi",
+      "inda",
+      "lokaci",
+      "adadi",
+      "maki",
+      "lokaci",
+    ],
+    __object: [
+      "mutum",
+      "mai amfani",
+      "saitin",
+      "amsa",
+      "biya",
+      "saituna",
+      "bayani",
+      "adireshi",
+      "metadata",
+      "zama",
+    ],
+    __string: [
+      "suna",
+      "take",
+      "bayani",
+      "email",
+      "kalmar sirri",
+      "sako",
+      "alamar",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "shiga",
+      "fara",
+      "share",
+      "sake",
+      "share",
+      "fita",
+      "shareCache",
+      "adana",
+      "aikaEmail",
+      "shigo",
+    ],
   },
 }).grammar();

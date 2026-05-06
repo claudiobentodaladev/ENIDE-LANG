@@ -1,242 +1,306 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const gaeilge = new Language({
   language: "gaeilge",
   about:
-    "Is transpiler inaistrithe e ENIDE a ligeann duit riomhclaru in aon teanga",
-  include: {
-    main: "Cuir_san_aireamh",
-    __description: "Úsáidtear chun teanga nó leabharlanna a chur san áireamh",
-  },
+    "Is transpiler inaistrithe é ENIDE a ligeann duit ríomhchlárú in aon teanga",
+
+  include: DocStr(
+    "Cuir_san_áireamh",
+    "Úsáidtear chun teanga nó leabharlanna a chur san áireamh",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "faoi",
-        __description: "chun eolas faoi ENIDE a fhail",
-      },
-      __help: {
-        main: "cabhair",
-        __description: "chun liosta na n-orduithe ar fad ata ar fail a fhail",
-      },
-      __version: {
-        main: "leagan",
-        __description: "chun leagan reatha ENIDE a fhail",
-      },
-      __languages: {
-        main: "teangacha",
-        __description: "chun liosta na dteangacha ar fad ata ar fail a fhail",
-      },
-      __documentation: {
-        main: "doc",
-        __description: "chun docimead teanga a fhail",
-      },
-    },
+    __about: DocStr("faoi", "chun eolas faoi ENIDE a fháil"),
+    __help: DocStr(
+      "cabhair",
+      "chun liosta na n-orduithe ar fad atá ar fáil a fháil",
+    ),
+    __version: DocStr("leagan", "chun leagan reatha ENIDE a fháil"),
+    __languages: DocStr(
+      "teangacha",
+      "chun liosta na dteangacha ar fad atá ar fáil a fháil",
+    ),
+    __documentation: DocStr("doc", "chun doiciméad teanga a fháil"),
+    __grammar: DocStr("gramadach", "chun gramadach teanga a fháil"),
   },
+
   library: {
+    __standard: {
+      main: DocStr(
+        "caighdeánach",
+        "chun rochtain a fháil ar mhodhanna caighdeánacha úsáideacha",
+      ),
+      __isarray: DocStr("IsEagar", "chun seiceáil an luach eagar"),
+      __isobject: DocStr("IsRud", "chun seiceáil an luach rud"),
+      __typeof: DocStr("Cineál", "chun cineál luach a fháil"),
+      __parse: DocStr("Parse", "chun teaghrán a pharsáil go dtí a luach ceart"),
+    },
+
     __math: {
-      main: {
-        main: "matamaitic",
-        __description: "chun rochtain a fhail ar fheidhmeanna matamaitice",
-      },
-      __pi: {
-        main: "PI",
-        __description: "chun luach pi a fhail",
-      },
-      __sqrt: {
-        main: "FreamhCearnach",
-        __description: "chun an fhreamh chearnach a fhail",
-      },
-      __pow: {
-        main: "Cumhacht",
-        __description: "chun cumhacht uimhir a fhail",
-      },
-      __round: {
-        main: "Cruinnigh",
-        __description: "chun uimhir a chruinniu",
-      },
-      __random: {
-        main: "Randamach",
-        __description: "chun uimhir randamach a fhail",
-      },
-      __max: {
-        main: "Uasmheid",
-        __description: "chun an luach is mo a fhail",
-      },
-      __min: {
-        main: "Iosmheid",
-        __description: "chun an luach is lu a fhail",
-      },
-      __isNumber: {
-        main: "IsUimhir",
-        __description: "chun seiceail an luach uimhir",
-      },
-      __isInteger: {
-        main: "IsSlanuimhir",
-        __description: "chun seiceail an luach slanuimhir",
-      },
-      __isFloat: {
-        main: "IsDeachulach",
-        __description: "chun seiceail an luach deachulach",
-      },
+      main: DocStr(
+        "matamaitic",
+        "chun rochtain a fháil ar fheidhmeanna matamaitice",
+      ),
+      __pi: DocStr("PI", "chun luach pi a fháil"),
+      __sqrt: DocStr("FreamhCearnach", "chun an fhreamh chearnach a fháil"),
+      __pow: DocStr("Cumhacht", "chun cumhacht uimhir a fháil"),
+      __round: DocStr("Cruinnigh", "chun uimhir a chruinniú"),
+      __random: DocStr("Randamach", "chun uimhir randamach a fháil"),
+      __max: DocStr("Uasmhéid", "chun an luach is mó a fháil"),
+      __min: DocStr("Íosmhéid", "chun an luach is lú a fháil"),
+      __isNumber: DocStr("IsUimhir", "chun seiceáil an luach uimhir"),
+      __isInteger: DocStr("IsSlánuimhir", "chun seiceáil an luach slánuimhir"),
+      __isFloat: DocStr("IsDeachúlach", "chun seiceáil an luach deachúlach"),
+      __cos: DocStr("Cos", "chun cosinus uillinn i radaiméadar a fháil"),
+      __sin: DocStr("Sin", "chun síneas uillinn i radaiméadar a fháil"),
+      __tan: DocStr("Tan", "chun tangant uillinn i radaiméadar a fháil"),
     },
+
     __string: {
-      main: {
-        main: "teaghra",
-        __description:
-          "chun rochtain a fhail ar fheidhmeanna ionramhala teaghran",
-      },
-      __length: {
-        main: "Fad",
-        __description: "chun fad teaghrain a fhail",
-      },
-      __toUpperCase: {
-        main: "GoCeannlitreacha",
-        __description: "chun teaghra a thiontú go ceannlitreacha",
-      },
-      __toLowerCase: {
-        main: "GoLitreachaBeaga",
-        __description: "chun teaghra a thiontú go litreacha beaga",
-      },
+      main: DocStr(
+        "teaghrán",
+        "chun rochtain a fháil ar fheidhmeanna ionramhála teaghráin",
+      ),
+      __length: DocStr("Fad", "chun fad teaghráin a fháil"),
+      __toUpperCase: DocStr(
+        "GoCeannlitreacha",
+        "chun teaghrán a thiontú go ceannlitreacha",
+      ),
+      __toLowerCase: DocStr(
+        "GoLitreachaBeaga",
+        "chun teaghrán a thiontú go litreacha beaga",
+      ),
+      __include: DocStr(
+        "ÁirítearAnn",
+        "chun seiceáil an bhfuil foteaghrán i dteaghrán",
+      ),
+      __repeat: DocStr(
+        "Athrith",
+        "chun teaghrán a athrith líon áirithe uaireanta",
+      ),
     },
+
     __date: {
-      main: {
-        main: "data",
-        __description: "chun rochtain a fhail ar fheidhmeanna data agus ama",
-      },
-      __year: {
-        main: "Bliain",
-        __description: "chun an bhliain a fhail",
-      },
-      __month: {
-        main: "Mi",
-        __description: "chun an mi a fhail",
-      },
-      __dayMonth: {
-        main: "LaenaMi",
-        __description: "chun la na mi a fhail",
-      },
-      __dayWeek: {
-        main: "LaenaSheachtain",
-        __description: "chun la na seachtaine a fhail",
-      },
-      __hour: {
-        main: "Uair",
-        __description: "chun an uair a fhail",
-      },
-      __minute: {
-        main: "Noimead",
-        __description: "chun an noiméad a fhail",
-      },
-      __second: {
-        main: "Soicind",
-        __description: "chun an soicind a fhail",
-      },
+      main: DocStr(
+        "dáta",
+        "chun rochtain a fháil ar fheidhmeanna dáta agus ama",
+      ),
+      __now: DocStr("Anois", "chun an dáta agus am reatha a fháil"),
+      __year: DocStr("Bliain", "chun an bhliain a fháil"),
+      __month: DocStr("Mí", "chun an mhí a fháil"),
+      __dayMonth: DocStr("LáenaMí", "chun lá na míosa a fháil"),
+      __dayWeek: DocStr("LáenaSeachtain", "chun lá na seachtaine a fháil"),
+      __hour: DocStr("Uair", "chun an uair a fháil"),
+      __minute: DocStr("Nóiméad", "chun an nóiméad a fháil"),
+      __second: DocStr("Soicind", "chun an soicind a fháil"),
     },
   },
+
   types: {
-    __object: { main: "rud", __description: "chun rud staiteach a dhearbhu" },
-    __number: {
-      main: "uimhir",
-      __description: "chun athrog den chineál uimhir a dhearbhu",
-    },
-    __string: {
-      main: "teaghra",
-      __description: "chun athrog den chineál teaghráin a dhearbhu",
-    },
-    __boolean: {
-      main: "bool",
-      values: {
-        __true: "Fior",
-        __false: "Breag",
-      },
-      __description: "chun athrog den chineál Boole a dhearbhu",
-    },
+    __number: DocStr("uimhir", "chun athróg den chineál uimhir a dhearbhú"),
+    __string: DocStr(
+      "teaghrán",
+      "chun athróg den chineál teaghráin a dhearbhú",
+    ),
+    __boolean: DocStr("bool", "chun athróg den chineál Boole a dhearbhú"),
+    __object: DocStr("rud", "chun rud stataiceach a dhearbhú"),
+    __void: DocStr("folús", "chun feidhm a dhearbhú nach dtugann luach ar ais"),
+    __array: DocStr("eagar", "chun struchtúr sonraí eagair a dhearbhú"),
   },
+
+  specialValues: {
+    __true: DocStr("Fíor", "luach Boole fíor"),
+    __false: DocStr("Bréag", "luach Boole bréag"),
+    __null: DocStr("nialasach", "easpa luach"),
+  },
+
+  words: {
+    __new: DocStr("nua", "chun sampla nua de rang a chruthú"),
+    __this: DocStr("seo", "chun rochtain a fháil ar thréithe an ranga féin"),
+    __extends: DocStr(
+      "síneann",
+      "chun a dhearbhú go n-oidhreann rang ó rang eile",
+    ),
+  },
+
+  accessModifiers: {
+    __private: DocStr("príobháideach", "inrochtana laistigh den rang amháin"),
+    __public: DocStr("poiblí", "inrochtana ó áit ar bith"),
+    __protected: DocStr(
+      "cosanta",
+      "inrochtana laistigh den rang agus a fhorranganna",
+    ),
+    __readonly: DocStr(
+      "léamh_amháin",
+      "ní féidir an luach a shannadh ach uair amháin",
+    ),
+    __static: DocStr("statach", "baineann leis an rang, ní leis na samplaí"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "priontail",
-        __description: "chun luach a phriontail ar an scailean",
-      },
-      __scan: {
-        main: "leigh",
-        __description: "chun luach a leamh on ionchur",
-      },
-      __return: {
-        main: "fill",
-        __description: "chun luach a fhilleadh o fheidhm",
-      },
+      __print: DocStr("priontáil", "chun luach a phriontáil ar an scáileán"),
+      __scan: DocStr("léigh", "chun luach a léamh ón ionchor"),
+      __return: DocStr("fill", "chun luach a fhilleadh ó fheidhm"),
+      __break: DocStr("bris", "chun lupa a bhriseadh"),
+      __continue: DocStr(
+        "lean_ar_aghaidh",
+        "chun léim go dtí an chéad athrá eile",
+      ),
     },
+
     sentences: {
-      __function: {
-        main: "feidhm",
-        __description: "chun feidhm a dhearbhu",
-      },
-      __if: {
-        main: "ma",
-        __description: "chun coinnioll a dhearbhu",
-      },
-      __else: {
-        main: "no",
-        __description: "chun coinnioll malartach a dhearbhu",
-      },
-      __while: {
-        main: "fad",
-        __description: "chun lupa fad a dhearbhu",
-      },
-      __for: {
-        main: "do",
-        __description: "chun lupa do a dhearbhu",
-      },
-      __switch: {
-        main: "rogha",
-        __description: "chun struchtúr rogha a dhearbhu",
-      },
-      __case: {
-        main: "cas",
-        __description: "chun cas sa struchtúr rogha a dhearbhu",
-      },
-      __default: {
-        main: "reidhchas",
-        __description: "chun an cas reidhchais sa struchtúr rogha a dhearbhu",
-      },
-      __try: {
-        main: "DeanIarracht",
-        __description: "chun bloc dean iarracht a dhearbhu",
-      },
-      __catch: {
-        main: "gaibh",
-        __description: "chun bloc laimhseala earraidi a dhearbhu",
-      },
-      __finally: {
-        main: "SaDeireadh",
-        __description: "chun bloc a dhearbhu a rithfidh i gconal",
-      },
+      __function: DocStr("feidhm", "chun feidhm a dhearbhú"),
+      __if: DocStr("má", "chun coinníoll a dhearbhú"),
+      __else: DocStr("nó", "chun coinníoll malartach a dhearbhú"),
+      __while: DocStr("fad", "chun lupa fad a dhearbhú"),
+      __for: DocStr("do", "chun lupa do a dhearbhú"),
+      __switch: DocStr("rogha", "chun struchtúr rogha a dhearbhú"),
+      __case: DocStr("cás", "chun cás sa struchtúr rogha a dhearbhú"),
+      __default: DocStr(
+        "réidchás",
+        "chun an cás réidh sa struchtúr rogha a dhearbhú",
+      ),
+      __try: DocStr("déanIarracht", "chun bloc déan iarracht a dhearbhú"),
+      __catch: DocStr("gaibh", "chun bloc láimhseála earráidí a dhearbhú"),
+      __finally: DocStr(
+        "saDeireadh",
+        "chun bloc a dhearbhú a rithfidh i gcónaí",
+      ),
+      __class: DocStr("rang", "chun rang a dhearbhú"),
+      __constructor: DocStr(
+        "tógálaí",
+        "struchtúr chun tréithe ranga a dhearbhú",
+      ),
     },
   },
+
   errors: {
-    main: { tag: "EARRAID", message: "Earraid ghinearalta an chorais" },
-    __UNKNOWN_ERROR: {
-      tag: "EARRAID_ANAITHNID",
-      message: "Earraid nach bhfuil aithne uirthi",
-    },
-    __TypeError: {
-      tag: "EARRAID_CINEAIL",
-      message: "Cineal neamhbhaili san oibriocht",
-    },
-    __ReferenceError: {
-      tag: "EARRAID_TAGARTHA",
-      message: "Ni ann don athrog san raon",
-    },
-    __SyntaxError: { tag: "EARRAID_COMHREIRE", message: "Cod neamhbhaili" },
-    __RangeError: {
-      tag: "EARRAID_RAOIN",
-      message: "Luach lasmuigh den raon ceadaithe",
-    },
-    __URIError: { tag: "EARRAID_URI", message: "URI michumtha no neamhbhaili" },
-    __EvalError: {
-      tag: "EARRAID_EVAL",
-      message: "Earraid a bhaineann le eval",
-    },
+    __labels: errorLabel(
+      "Teachtaireacht",
+      "Luach",
+      "Athróg",
+      "Tréith",
+      "Rud",
+      "Ionchais",
+      "Faighte",
+      "Sannadh_Tairiseach",
+      "Paraiméadar_Dúbailte",
+      "Leid",
+      "Token_Neamhbhailí",
+      "Tuile_Cruaiche",
+      "Token",
+      "Deireadh_Gan_Choinne",
+    ),
+    main: errorMessage("EARRÁID", "earráid ghinearálta an chórais"),
+    __TypeError: errorMessage(
+      "EARRÁID_CINEÁIL",
+      "cineál neamhbhailí san oibríocht",
+    ),
+    __InitError: errorMessage("EARRÁID_TOSAIGH", "níor tosaíodh an athróg"),
+    __ReferenceError: errorMessage(
+      "EARRÁID_TAGARTHA",
+      "ní ann don athróg, fheidhm nó leabharlann sa raon",
+    ),
+    __SyntaxError: errorMessage("EARRÁID_COMHRÉIRE", "cód neamhbhailí"),
+    __RangeError: errorMessage(
+      "EARRÁID_RAOIN",
+      "luach lasmuigh den raon ceadaithe",
+    ),
+    __URIError: errorMessage("EARRÁID_URI", "URI míchumtha nó neamhbhailí"),
+    __EvalError: errorMessage("EARRÁID_EVAL", "earráid a bhaineann le eval"),
+    __UNKNOWN_ERROR: errorMessage(
+      "EARRÁID_ANAITHNID",
+      "earráid nach bhfuil aithne uirthi",
+    ),
+  },
+
+  example: {
+    __array: [
+      "bia",
+      "tíortha",
+      "míreanna",
+      "tags",
+      "dathanna",
+      "táirgí",
+      "úsáideoirí",
+      "catagóirí",
+      "pointí",
+      "teangacha",
+    ],
+    __boolean: [
+      "staid",
+      "isAosaigh",
+      "isGníomhach",
+      "isInfeicthe",
+      "taCead",
+      "taLogáilteIsteach",
+      "taÁbhaithe",
+      "taCríochnaithe",
+      "taFíoraithe",
+      "taScriosta",
+    ],
+    __function: [
+      "faighAinm",
+      "faighLuach",
+      "láimhseáilCliceáil",
+      "faighSonraí",
+      "formáidDáta",
+      "parsáilIonchor",
+      "bailíochtaighFoirm",
+      "rindreáilMír",
+      "nuashonraighStaid",
+      "ríomhIomlán",
+    ],
+    __number: [
+      "aois",
+      "bliain",
+      "comhaireamh",
+      "iomlán",
+      "praghas",
+      "innéacs",
+      "fad_ama",
+      "cainníocht",
+      "pointí",
+      "timeout",
+    ],
+    __object: [
+      "duine",
+      "úsáideoir",
+      "config",
+      "freagra",
+      "íocaíocht",
+      "socruithe",
+      "próifíl",
+      "seoladh",
+      "meiteashonraí",
+      "seisiún",
+    ],
+    __string: [
+      "ainm",
+      "teideal",
+      "cur_síos",
+      "email",
+      "pasfhocal",
+      "teachtaireacht",
+      "lipéad",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "logáilIsteach",
+      "tosaigh",
+      "glan",
+      "athshocraigh",
+      "scrios",
+      "logáilAmach",
+      "folmhaighCache",
+      "sábháilChuigDB",
+      "seolEmail",
+      "logáilImeacht",
+    ],
   },
 }).grammar();

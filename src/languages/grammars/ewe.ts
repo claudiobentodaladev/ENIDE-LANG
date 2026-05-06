@@ -1,250 +1,249 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const ewe = new Language({
   language: "ewe",
   about:
-    "ENIDE nye transpiler si woate gake afedeka si na nu woawo nunoglо gbe siwo kata me",
-  include: {
-    main: "Dekeme",
-    __description: "Wozanɛ be woatsɔ gbe alo agbalẽdzraɖoƒewo ade eme",
-  },
+    "ENIDE nye transpiler si woate gake afedeka si na nu woawo nunoglo gbe siwo kata me",
+
+  include: DocStr(
+    "Dekeme",
+    "wozane be woatso gbe alo agbaledzradonuwo alo nudodowo ade eme le dometata bubu me",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "kple",
-        __description: "dze xexlẽme ENIDE ŋu",
-      },
-      __help: {
-        main: "kpekpedenu",
-        __description: "dze nyatakaka si wòte le fia ata",
-      },
-      __version: {
-        main: "version",
-        __description: "dze ENIDE version si le egbe",
-      },
-      __languages: {
-        main: "gbegbe",
-        __description: "dze gbegbe siwo kata wòte fia ata",
-      },
-      __documentation: {
-        main: "nudodo",
-        __description: "dze gbe nudodo",
-      },
-    },
+    __about: DocStr("kple", "dze xexleme ENIDE nu"),
+    __help: DocStr("kpekpedenu", "dze nyatakaka si wote le fia ata"),
+    __version: DocStr("version", "dze ENIDE version si le egbe"),
+    __languages: DocStr("gbegbe", "dze gbegbe siwo kata wote fia ata"),
+    __documentation: DocStr("nudodo", "dze gbe nudodo"),
+    __grammar: DocStr("gbedonye", "dze gbe gbedonye"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("nuto", "zan nuto mɔfiala siwo kpoa nu"),
+      __isarray: DocStr("LiListe", "kpo be nkeke li liste"),
+      __isobject: DocStr("LiNu", "kpo be nkeke li nu"),
+      __typeof: DocStr("Susuwowo", "dze nkeke ƒe susuwɔwɔ"),
+      __parse: DocStr(
+        "Vivi_Gbe",
+        "gblẽ nkeke yi gbegble me la yi susuwowo nyuitɔ me",
+      ),
+    },
+
     __math: {
-      main: {
-        main: "nonometata",
-        __description: "zan nonometata mɔfiala",
-      },
-      __pi: {
-        main: "PI",
-        __description: "dze pi nkeke",
-      },
-      __sqrt: {
-        main: "SiSiGa",
-        __description: "dze square sisi",
-      },
-      __pow: {
-        main: "Dodo",
-        __description: "dze nome dodo",
-      },
-      __round: {
-        main: "Vivi",
-        __description: "vivi nome",
-      },
-      __random: {
-        main: "Nuse",
-        __description: "dze nuse nome",
-      },
-      __max: {
-        main: "Ga",
-        __description: "dze ga nkeke",
-      },
-      __min: {
-        main: "Zizi",
-        __description: "dze zizi nkeke",
-      },
-      __isNumber: {
-        main: "LiNome",
-        __description: "kpo be nkeke li nome",
-      },
-      __isInteger: {
-        main: "LiNomeKpui",
-        __description: "kpo be nkeke li nome kpui",
-      },
-      __isFloat: {
-        main: "LiDesimal",
-        __description: "kpo be nkeke li desimal",
-      },
+      main: DocStr("nonometata", "zan nonometata mofiala"),
+      __pi: DocStr("PI", "dze pi nkeke"),
+      __sqrt: DocStr("SiSiGa", "dze square sisi"),
+      __pow: DocStr("Dodo", "dze nome dodo"),
+      __round: DocStr("Vivi", "vivi nome"),
+      __random: DocStr("Nuse", "dze nuse nome"),
+      __max: DocStr("Ga", "dze ga nkeke"),
+      __min: DocStr("Zizi", "dze zizi nkeke"),
+      __isNumber: DocStr("LiNome", "kpo be nkeke li nome"),
+      __isInteger: DocStr("LiNomeKpui", "kpo be nkeke li nome kpui"),
+      __isFloat: DocStr("LiDesimal", "kpo be nkeke li desimal"),
+      __cos: DocStr("Cos", "dze cosinus le radian me"),
+      __sin: DocStr("Sin", "dze sinus le radian me"),
+      __tan: DocStr("Tan", "dze tangent le radian me"),
     },
+
     __string: {
-      main: {
-        main: "gbegble",
-        __description: "zan gbegble mɔfiala",
-      },
-      __length: {
-        main: "Didi",
-        __description: "dze gbegble didi",
-      },
-      __toUpperCase: {
-        main: "KoTuiGa",
-        __description: "gblẽ gbegble yi tui ga me",
-      },
-      __toLowerCase: {
-        main: "KoTuiZizi",
-        __description: "gblẽ gbegble yi tui zizi me",
-      },
+      main: DocStr("gbegble", "zan gbegble mofiala"),
+      __length: DocStr("Didi", "dze gbegble didi"),
+      __toUpperCase: DocStr("KoTuiGa", "gble gbegble yi tui ga me"),
+      __toLowerCase: DocStr("KoTuiZizi", "gble gbegble yi tui zizi me"),
+      __include: DocStr("LiEme", "kpo be gbegble li gbegble bubu eme"),
+      __repeat: DocStr("Megbexɔxɔ", "megbe gbegble dzi zɔzɔ"),
     },
+
     __date: {
-      main: {
-        main: "nkeke",
-        __description: "zan nkeke kple gafofo mɔfiala",
-      },
-      __year: {
-        main: "Fe",
-        __description: "dze fe",
-      },
-      __month: {
-        main: "Gleti",
-        __description: "dze gleti",
-      },
-      __dayMonth: {
-        main: "NkekeGleti",
-        __description: "dze nkeke le gleti me",
-      },
-      __dayWeek: {
-        main: "NkekeVivo",
-        __description: "dze nkeke le vivo me",
-      },
-      __hour: {
-        main: "Gafofo",
-        __description: "dze gafofo",
-      },
-      __minute: {
-        main: "Miniti",
-        __description: "dze miniti",
-      },
-      __second: {
-        main: "Sekond",
-        __description: "dze sekond",
-      },
+      main: DocStr("nkeke", "zan nkeke kple gafofo mofiala"),
+      __now: DocStr("Fifia", "dze nkeke kple gafofo si le egbe"),
+      __year: DocStr("Fe", "dze fe"),
+      __month: DocStr("Gleti", "dze gleti"),
+      __dayMonth: DocStr("NkekeGleti", "dze nkeke le gleti me"),
+      __dayWeek: DocStr("NkekeVivo", "dze nkeke le vivo me"),
+      __hour: DocStr("Gafofo", "dze gafofo"),
+      __minute: DocStr("Miniti", "dze miniti"),
+      __second: DocStr("Sekond", "dze sekond"),
     },
   },
+
   types: {
-    __object: { main: "nu", __description: "be woate nu le nutata me" },
-    __number: {
-      main: "nome",
-      __description: "ɖe ŋku nome ƒe susuwɔwɔ me",
-    },
-    __string: {
-      main: "gbegble",
-      __description: "ɖe ŋku gbegble ƒe susuwɔwɔ me",
-    },
-    __boolean: {
-      main: "bool",
-      values: {
-        __true: "Nyatefe",
-        __false: "Alakpa",
-      },
-      __description: "ɖe ŋku boolean ƒe susuwɔwɔ me",
-    },
+    __number: DocStr("nome", "de nku nome fe susuwowo me"),
+    __string: DocStr("gbegble", "de nku gbegble fe susuwowo me"),
+    __boolean: DocStr("bool", "de nku boolean fe susuwowo me"),
+    __object: DocStr("nu", "be woate nu le nutata me"),
+    __void: DocStr("gbagbe", "de nku mofiala si nado nkeke o"),
+    __array: DocStr("liste", "de nku liste fe nutata me"),
   },
+
+  specialValues: {
+    __true: DocStr("Nyatefe", "boolean nkeke nyatefe"),
+    __false: DocStr("Alakpa", "boolean nkeke alakpa"),
+    __null: DocStr("Meli", "nkeke meli eme o"),
+  },
+
+  words: {
+    __new: DocStr("Vɔvɔ", "wɔ klase ƒe dometata vɔvɔ"),
+    __this: DocStr("eya", "zan klase ƒe nutatawo le klase ƒe eme"),
+    __extends: DocStr("dodo_me", "fia be klase ɖe klase bubu ŋu"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("dome", "woate le klase eme koe"),
+    __public: DocStr("gbegbeme", "woate le ƒe kataa"),
+    __protected: DocStr("kpokpodenu", "woate le klase kple klase bubuwo me"),
+    __readonly: DocStr("kle_koe", "woate ŋlɔ nkeke avo eve o"),
+    __static: DocStr("nutata", "ya klase ta wòle, me ya dometata ta o"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "fia",
-        __description: "fia nkeke le ekran dzi",
-      },
-      __scan: {
-        main: "kle",
-        __description: "kle nkeke le zala ga",
-      },
-      __return: {
-        main: "do",
-        __description: "do nkeke le mɔfiala me",
-      },
+      __print: DocStr("fia", "fia nkeke le ekran dzi"),
+      __scan: DocStr("kle", "kle nkeke le zala ga"),
+      __return: DocStr("do", "do nkeke le mofiala me"),
+      __break: DocStr("tsoa", "tsoa loop me"),
+      __continue: DocStr("yi_eŋu", "yi loop ƒe zɔzɔ bubu ŋu"),
     },
+
     sentences: {
-      __function: {
-        main: "mofiala",
-        __description: "de nku mofiala",
-      },
-      __if: {
-        main: "ne",
-        __description: "de nku kpo nyata",
-      },
-      __else: {
-        main: "la",
-        __description: "de nku kpo nyata wo",
-      },
-      __while: {
-        main: "ge",
-        __description: "de nku loop ge",
-      },
-      __for: {
-        main: "na",
-        __description: "de nku loop na",
-      },
-      __switch: {
-        main: "tia",
-        __description: "de nku tia fe nyata",
-      },
-      __case: {
-        main: "nyata",
-        __description: "de nku nyata le tia me",
-      },
-      __default: {
-        main: "makemake",
-        __description: "de nku nyata makemake",
-      },
-      __try: {
-        main: "kpo",
-        __description: "de nku kpo bloku",
-      },
-      __catch: {
-        main: "tso",
-        __description: "de nku tso geleme bloku",
-      },
-      __finally: {
-        main: "gbato",
-        __description: "de nku bloku si wo na nudodo",
-      },
+      __function: DocStr("mofiala", "de nku mofiala"),
+      __if: DocStr("ne", "de nku kpo nyata"),
+      __else: DocStr("la", "de nku kpo nyata wo"),
+      __while: DocStr("ge", "de nku loop ge"),
+      __for: DocStr("na", "de nku loop na"),
+      __switch: DocStr("tia", "de nku tia fe nyata"),
+      __case: DocStr("nyata", "de nku nyata le tia me"),
+      __default: DocStr("makemake", "de nku nyata makemake le tia me"),
+      __try: DocStr("kpo", "de nku kpo bloku"),
+      __catch: DocStr("tso", "de nku tso geleme bloku"),
+      __finally: DocStr("gbato", "de nku bloku si wo na nudodo"),
+      __class: DocStr("klase", "de nku klase"),
+      __constructor: DocStr(
+        "wɔwɔla",
+        "nutata si na nu woate fia klase ƒe nkekewo",
+      ),
     },
   },
+
   errors: {
-    main: {
-      tag: "GELEME",
-      message: "Geleme le sistim me",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "GELEME_VOVOTO",
-      message: "Geleme si mo vovoto",
-    },
-    __TypeError: {
-      tag: "GELEME_SUSUWOWO",
-      message: "Susuwowo nyui me wowo me",
-    },
-    __ReferenceError: {
-      tag: "GELEME_NKEKE",
-      message: "Nkeke meli eme o",
-    },
-    __SyntaxError: {
-      tag: "GELEME_SINTAKS",
-      message: "Kode nyui me o",
-    },
-    __RangeError: {
-      tag: "GELEME_DIDI",
-      message: "Nkeke le didi si dzenna ata",
-    },
-    __URIError: {
-      tag: "GELEME_URI",
-      message: "URI dzra kpee meli nyui o",
-    },
-    __EvalError: {
-      tag: "GELEME_EVAL",
-      message: "Geleme si kple eval",
-    },
+    __labels: errorLabel(
+      "Xoase",
+      "Nkeke",
+      "Nkeke_Tɔgbe",
+      "Nutata_Ƒe_Nu",
+      "Nu",
+      "Wɔwɔ_La",
+      "Yiyia",
+      "Nkeke_Tatɔ_Ŋlɔ",
+      "Kpekpe_Eve",
+      "Xoase_Kpokpodenu",
+      "Sain_Nyui_Me",
+      "Dometata_Tsroa",
+      "Sain",
+      "Ngɔlim_Si_Mewɔ",
+    ),
+    main: errorMessage("GELEME", "geleme le sistim me"),
+    __TypeError: errorMessage("GELEME_SUSUWOWO", "susuwowo nyui me wowo me"),
+    __InitError: errorMessage("GELEME_DOMETATA", "nkeke tɔgbe mewɔ dometata o"),
+    __ReferenceError: errorMessage(
+      "GELEME_NKEKE",
+      "nkeke tɔgbe, mofiala alo agbaledzradonuwo meli eme o",
+    ),
+    __SyntaxError: errorMessage("GELEME_SINTAKS", "kode nyui me o"),
+    __RangeError: errorMessage("GELEME_DIDI", "nkeke le didi si dzenna ata"),
+    __URIError: errorMessage("GELEME_URI", "URI dzra kpee meli nyui o"),
+    __EvalError: errorMessage("GELEME_EVAL", "geleme si kple eval"),
+    __UNKNOWN_ERROR: errorMessage("GELEME_VOVOTO", "geleme si mo vovoto"),
+  },
+
+  example: {
+    __array: [
+      "nunyane",
+      "xeviwo",
+      "nuwo",
+      "dzidziɖoƒewo",
+      "vuvoliwo",
+      "nufiawowo",
+      "aɖaŋulawo",
+      "kpekpedewo",
+      "ŋkekewo",
+      "gbegbewo",
+    ],
+    __boolean: [
+      "nyatawo",
+      "liDuɖe",
+      "liWɔwɔ",
+      "liFifia",
+      "lia_Nusẽ",
+      "liDome",
+      "liWɔwɔ_La",
+      "liVa",
+      "liKpo",
+      "liSu",
+    ],
+    __function: [
+      "dzenyeNyemegbe",
+      "dzenyeNkeke",
+      "wɔBubu",
+      "tsɔNyatakaka",
+      "ŋlɔNkeke",
+      "viviGaleme",
+      "kpoFom",
+      "fiaEva",
+      "toNyata",
+      "wɔJumlisha",
+    ],
+    __number: [
+      "nkeke_biorbe",
+      "fe",
+      "woawo",
+      "jumlisha",
+      "kpe",
+      "indeks",
+      "gafofo",
+      "ɖekpɔɖeka",
+      "ŋkeke",
+      "timeout",
+    ],
+    __object: [
+      "ame",
+      "aɖaŋula",
+      "nyatakaka",
+      "xoase",
+      "sara",
+      "kpekpedenu",
+      "profil",
+      "fomeŋu",
+      "nyatakakalawo",
+      "dometata",
+    ],
+    __string: [
+      "nyemegbe",
+      "dzidzinu",
+      "nufianu",
+      "email",
+      "ŋlɔ_nyui",
+      "xoase",
+      "dzidziɖoƒe",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "dome_yi",
+      "dometata",
+      "kpɔ_yi",
+      "megbe_to",
+      "dzu",
+      "bɔ_yi",
+      "kpɔ_cache",
+      "ŋlɔ_DB",
+      "cɔ_email",
+      "ŋlɔ_nyatawo",
+    ],
   },
 }).grammar();

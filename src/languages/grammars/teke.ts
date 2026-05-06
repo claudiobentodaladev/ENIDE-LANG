@@ -1,258 +1,242 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const teke = new Language({
   language: "teke",
   about: "ENIDE i transpiler ngo sili program na lolo nge biani",
 
-  include: {
-    main: "Kotisa",
-    __description: "Isalilu mu kotisa ndimi mpe babiblioteke",
-  },
+  include: DocStr(
+    "Kotisa",
+    "isalilu mu kotisa ndimi, babiblioteke mpe miundo ya data faili weni",
+  ),
 
   commands: {
-    all: {
-      __about: {
-        main: "NaProgramu",
-        __description: "baka kumen na ENIDE",
-      },
-      __help: {
-        main: "Fula",
-        __description: "baka liste koda biani",
-      },
-      __version: {
-        main: "Version",
-        __description: "baka ENIDE version tene",
-      },
-      __languages: {
-        main: "Lolo",
-        __description: "baka lolo liste biani",
-      },
-      __documentation: {
-        main: "Mvula",
-        __description: "baka lolo mvula",
-      },
-    },
+    __about: DocStr("NaProgramu", "baka kumen na ENIDE"),
+    __help: DocStr("Fula", "baka liste koda biani"),
+    __version: DocStr("Version", "baka ENIDE version tene"),
+    __languages: DocStr("Lolo", "baka lolo liste biani"),
+    __documentation: DocStr("Mvula", "baka lolo mvula"),
+    __grammar: DocStr("Lolo_Karda", "baka lolo karda"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("Ndeke_Sara", "duti na ndeke sara koda"),
+      __isarray: DocStr("ListeNa", "tene liste supu na"),
+      __isobject: DocStr("NtoNa", "tene nto supu na"),
+      __typeof: DocStr("LoloNa", "baka supu lolo"),
+      __parse: DocStr("Fetola", "fetola nkolo ka lolo wene"),
+    },
+
     __math: {
-      main: {
-        main: "Kalkilo",
-        __description: "duti na kalkilo sara",
-      },
-      __pi: {
-        main: "PI",
-        __description: "baka pi supu",
-      },
-      __sqrt: {
-        main: "SquareFini",
-        __description: "baka square fini",
-      },
-      __pow: {
-        main: "Ngolo",
-        __description: "baka namba ngolo",
-      },
-      __round: {
-        main: "Veke",
-        __description: "veke namba",
-      },
-      __random: {
-        main: "Lendo",
-        __description: "baka lendo namba",
-      },
-      __max: {
-        main: "Nene",
-        __description: "baka supu nene",
-      },
-      __min: {
-        main: "Futi",
-        __description: "baka supu futi",
-      },
-      __isNumber: {
-        main: "NambaNa",
-        __description: "tene namba supu na",
-      },
-      __isInteger: {
-        main: "NambaToto",
-        __description: "tene namba toto supu na",
-      },
-      __isFloat: {
-        main: "Desimal",
-        __description: "tene desimal supu na",
-      },
+      main: DocStr("Kalkilo", "duti na kalkilo sara"),
+      __pi: DocStr("PI", "baka pi supu"),
+      __sqrt: DocStr("SquareFini", "baka square fini"),
+      __pow: DocStr("Ngolo", "baka namba ngolo"),
+      __round: DocStr("Veke", "veke namba"),
+      __random: DocStr("Lendo", "baka lendo namba"),
+      __max: DocStr("Nene", "baka supu nene"),
+      __min: DocStr("Futi", "baka supu futi"),
+      __isNumber: DocStr("NambaNa", "tene namba supu na"),
+      __isInteger: DocStr("NambaToto", "tene namba toto supu na"),
+      __isFloat: DocStr("Desimal", "tene desimal supu na"),
+      __cos: DocStr("Cos", "baka cosinus radian"),
+      __sin: DocStr("Sin", "baka sinus radian"),
+      __tan: DocStr("Tan", "baka tangent radian"),
     },
 
     __string: {
-      main: {
-        main: "Nkolo",
-        __description: "duti na nkolo sara",
-      },
-      __length: {
-        main: "Mbola",
-        __description: "baka nkolo mbola",
-      },
-      __toUpperCase: {
-        main: "KaNene",
-        __description: "nkolo nene letra",
-      },
-      __toLowerCase: {
-        main: "KaFuti",
-        __description: "nkolo futi letra",
-      },
+      main: DocStr("Nkolo", "duti na nkolo sara"),
+      __length: DocStr("Mbola", "baka nkolo mbola"),
+      __toUpperCase: DocStr("KaNene", "nkolo nene letra"),
+      __toLowerCase: DocStr("KaFuti", "nkolo futi letra"),
+      __include: DocStr("Nkolo_Mo", "tene nkolo mo nkolo weni"),
+      __repeat: DocStr("Eke_Tena", "eke nkolo supu pam"),
     },
 
     __date: {
-      main: {
-        main: "Mfulu",
-        __description: "duti na mfulu ape sara",
-      },
-      __year: {
-        main: "Mvula",
-        __description: "baka mvula",
-      },
-      __month: {
-        main: "Ngondo",
-        __description: "baka ngondo",
-      },
-      __dayMonth: {
-        main: "MfuluNgondo",
-        __description: "baka mfulu ngondo",
-      },
-      __dayWeek: {
-        main: "MfuluWeek",
-        __description: "baka mfulu week",
-      },
-      __hour: {
-        main: "Ngonga",
-        __description: "baka ngonga",
-      },
-      __minute: {
-        main: "Miniti",
-        __description: "baka miniti",
-      },
-      __second: {
-        main: "Sekonde",
-        __description: "baka sekonde",
-      },
+      main: DocStr("Mfulu", "duti na mfulu ape sara"),
+      __now: DocStr("Sasa", "baka mfulu ape tene"),
+      __year: DocStr("Mvula", "baka mvula"),
+      __month: DocStr("Ngondo", "baka ngondo"),
+      __dayMonth: DocStr("MfuluNgondo", "baka mfulu ngondo"),
+      __dayWeek: DocStr("MfuluWeek", "baka mfulu week"),
+      __hour: DocStr("Ngonga", "baka ngonga"),
+      __minute: DocStr("Miniti", "baka miniti"),
+      __second: DocStr("Sekonde", "baka sekonde"),
     },
   },
 
   types: {
-    __object: {
-      main: "Nto",
-      __description: "ko vova nto ya kuzibika",
-    },
-    __number: {
-      main: "Namba",
-      __description: "tene jijik namba lolo",
-    },
-    __string: {
-      main: "Nkolo",
-      __description: "tene jijik nkolo lolo",
-    },
-    __boolean: {
-      main: "Bool",
-      values: { __true: "Kidye", __false: "Luvunu" },
-      __description: "tene jijik boolean lolo",
-    },
+    __number: DocStr("Namba", "tene jijik namba lolo"),
+    __string: DocStr("Nkolo", "tene jijik nkolo lolo"),
+    __boolean: DocStr("Bool", "tene jijik boolean lolo"),
+    __object: DocStr("Nto", "ko vova nto ya kuzibika"),
+    __void: DocStr("Mpamba", "tene sara ngo eke supu te"),
+    __array: DocStr("Liste", "tene liste miundo"),
+  },
+
+  specialValues: {
+    __true: DocStr("Kidye", "boolean supu kidye"),
+    __false: DocStr("Luvunu", "boolean supu luvunu"),
+    __null: DocStr("Vana", "supu vana kuna"),
+  },
+
+  words: {
+    __new: DocStr("Pamba", "ko vova pamba lolo sara"),
+    __this: DocStr("Ino", "duti na nto supu sara weni"),
+    __extends: DocStr("Kotisa_Sara", "tene sara kotisa sara weni"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("Siri", "duti na sara weni po"),
+    __public: DocStr("Biani", "duti na biani nge"),
+    __protected: DocStr("Bika", "duti na sara ape sara pam"),
+    __readonly: DocStr("Sese_Po", "supu tene pam kpo daa"),
+    __static: DocStr("Kuzibika", "ya sara weni na, pamba te"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "Vo",
-        __description: "vo supu ekran",
-      },
-      __scan: {
-        main: "Sese",
-        __description: "sese supu muntu",
-      },
-      __return: {
-        main: "Eke",
-        __description: "eke supu sara",
-      },
+      __print: DocStr("Vo", "vo supu ekran"),
+      __scan: DocStr("Sese", "sese supu muntu"),
+      __return: DocStr("Eke", "eke supu sara"),
+      __break: DocStr("Peko_Ko", "peko loop"),
+      __continue: DocStr("Tena_Nge", "tena loop pam weni"),
     },
 
     sentences: {
-      __function: {
-        main: "Sara",
-        __description: "tene sara",
-      },
-      __if: {
-        main: "Na", // Mantido (era o original)
-        __description: "tene sariya",
-      },
-      __else: {
-        main: "Nga",
-        __description: "tene sariya wua",
-      },
-      __while: {
-        main: "Tene",
-        __description: "tene loop tene",
-      },
-      __for: {
-        main: "Nge",
-        __description: "tene loop nge",
-      },
-      __switch: {
-        main: "Supu",
-        __description: "tene supu structure",
-      },
-      __case: {
-        main: "Lo",
-        __description: "tene lo supu",
-      },
-      __default: {
-        main: "Ndeke",
-        __description: "tene lo ndeke",
-      },
-      __try: {
-        main: "Mbi",
-        __description: "tene mbi bloku",
-      },
-      __catch: {
-        main: "Ndo",
-        __description: "tene ndo gafe bloku",
-      },
-      __finally: {
-        main: "Peko",
-        __description: "tene bloku peko sara",
-      },
+      __function: DocStr("Sara", "tene sara"),
+      __if: DocStr("Na", "tene sariya"),
+      __else: DocStr("Nga", "tene sariya wua"),
+      __while: DocStr("Tene", "tene loop tene"),
+      __for: DocStr("Nge", "tene loop nge"),
+      __switch: DocStr("Supu", "tene supu structure"),
+      __case: DocStr("Lo", "tene lo supu"),
+      __default: DocStr("Ndeke", "tene lo ndeke supu"),
+      __try: DocStr("Mbi", "tene mbi bloku"),
+      __catch: DocStr("Ndo", "tene ndo mpasi bloku"),
+      __finally: DocStr("Peko", "tene bloku peko sara"),
+      __class: DocStr("Lolo_Sara", "tene lolo sara"),
+      __constructor: DocStr("Vova_Sara", "miundo ni tene nto lolo sara"),
     },
   },
 
   errors: {
-    main: {
-      tag: "MPASI",
-      message: "Mpasi karda systeem",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "MPASI_LENDO",
-      message: "Mpasi lendo yenge",
-    },
-    __TypeError: {
-      tag: "MPASI_LOLO",
-      message: "Lolo ziga sara",
-    },
-    __ReferenceError: {
-      tag: "MPASI_TENE",
-      message: "Jijik duna kuna",
-    },
-    __SyntaxError: {
-      tag: "MPASI_SINTAKS",
-      message: "Koodu ziga",
-    },
-    __RangeError: {
-      tag: "MPASI_MBOLA",
-      message: "Supu mbola zola",
-    },
-    __URIError: {
-      tag: "MPASI_URI",
-      message: "URI ziga ye",
-    },
-    __EvalError: {
-      tag: "MPASI_EVAL",
-      message: "Mpasi eval",
-    },
+    __labels: errorLabel(
+      "Kumen",
+      "Supu",
+      "Jijik",
+      "Nto_Supu",
+      "Nto",
+      "Be_Tene",
+      "Baka_Ko",
+      "Jijik_Kuzibika",
+      "Pam_Eve",
+      "Fula_Kara",
+      "Token_Ziga",
+      "Sara_Mbola",
+      "Token",
+      "Peko_Lendo",
+    ),
+    main: errorMessage("MPASI", "mpasi karda systeem"),
+    __TypeError: errorMessage("MPASI_LOLO", "lolo ziga sara"),
+    __InitError: errorMessage("MPASI_TENE_PALO", "jijik duna tene palo"),
+    __ReferenceError: errorMessage(
+      "MPASI_TENE",
+      "jijik, sara mpe babiblioteke duna kuna",
+    ),
+    __SyntaxError: errorMessage("MPASI_SINTAKS", "koodu ziga"),
+    __RangeError: errorMessage("MPASI_MBOLA", "supu mbola zola"),
+    __URIError: errorMessage("MPASI_URI", "URI ziga ye"),
+    __EvalError: errorMessage("MPASI_EVAL", "mpasi eval"),
+    __UNKNOWN_ERROR: errorMessage("MPASI_LENDO", "mpasi lendo yenge"),
+  },
+
+  example: {
+    __array: [
+      "biadia",
+      "mboka",
+      "nto_biani",
+      "toro_nkolo",
+      "rangi",
+      "biloko",
+      "batu",
+      "lolo_liste",
+      "supu_ndo",
+      "lolo_biani",
+    ],
+    __boolean: [
+      "hali",
+      "moto_nene",
+      "sara_na",
+      "moneka",
+      "na_nzela",
+      "yaka",
+      "sala",
+      "peko",
+      "kidye_na",
+      "boma",
+    ],
+    __function: [
+      "bakaInne",
+      "bakaSupu",
+      "saraBofya",
+      "bakaData",
+      "saraMfulu",
+      "fetolaKuna",
+      "teneForm",
+      "voNto",
+      "sasiHali",
+      "kalkiloJumlal",
+    ],
+    __number: [
+      "mvula_pam",
+      "mvula",
+      "mbola",
+      "jumlal",
+      "sara_ko",
+      "indeks",
+      "ngonga_pam",
+      "kpo",
+      "supu_ndo",
+      "wakati",
+    ],
+    __object: [
+      "muntu",
+      "moto_sara",
+      "ndeke_sara",
+      "eke_ko",
+      "sara_ko",
+      "koda_pam",
+      "profil",
+      "adireshi",
+      "data_pam",
+      "ngonga_sara",
+    ],
+    __string: [
+      "inne",
+      "kumen_nene",
+      "kumen_ko",
+      "email",
+      "nkolo_siri",
+      "kumen",
+      "toro",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "yaka",
+      "tene_palo",
+      "saniya",
+      "eke_pam",
+      "boma",
+      "peko_yaka",
+      "saniya_cache",
+      "toro_DB",
+      "tuma_email",
+      "vo_karda",
+    ],
   },
 }).grammar();

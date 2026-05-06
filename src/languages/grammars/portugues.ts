@@ -1,251 +1,280 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const portugues = new Language({
   language: "portugues",
   about:
-    "ENIDE e um transpilador traduzivel que permite programar em qualquer idioma",
-  include: {
-    main: "Incluir",
-    __description: "Usado para incluir idioma ou bibliotecas",
-  },
+    "ENIDE é um transpilador poliglota que permite programar em qualquer idioma",
+
+  include: DocStr(
+    "incluír",
+    "usado para incluir idioma, bibliotecas ou estruturas de dados de outros ficheiros",
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "sobre",
-        __description: "para obter as informações sobre o ENIDE",
-      },
-      __help: {
-        main: "ajuda",
-        __description: "para obter a lista de todos os comandos disponíveis",
-      },
-      __version: {
-        main: "versao",
-        __description: "para obter a versão atual do ENIDE",
-      },
-      __languages: {
-        main: "linguas",
-        __description: "para obter a lista de todos os idiomas disponíveis",
-      },
-      __documentation: {
-        main: "manual",
-        __description: "para obter a documentação de um idioma",
-      },
-    },
+    __about: DocStr("sobre", "para obter informações sobre o ENIDE"),
+    __help: DocStr(
+      "ajuda",
+      "para obter a lista de todos os comandos disponíveis",
+    ),
+    __version: DocStr("versão", "para obter a versão atual do ENIDE"),
+    __languages: DocStr(
+      "idiomas",
+      "para obter a lista de todos os idiomas disponíveis",
+    ),
+    __documentation: DocStr("manual", "para obter a documentação de um idioma"),
+    __grammar: DocStr("gramatica", "para obter a gramatíca de um idioma"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("padrão", "para accessar metodos padrão uteis"),
+      __isarray: DocStr("evector", "para verificar se o valor é um vector"),
+      __isobject: DocStr("eobjecto", "para verificar se o valor é um objecto"),
+      __typeof: DocStr("Tipo", "para obter o tipo de um valor"),
+      __parse: DocStr(
+        "Parse",
+        "para parserizar um valor de texto para o seu valor correcto",
+      ),
+    },
     __math: {
-      main: {
-        main: "matematica",
-        __description: "para acessar as funções matemáticas",
-      },
-      __pi: {
-        main: "PI",
-        __description: "para obter o valor de pi",
-      },
-      __sqrt: {
-        main: "Raiz",
-        __description: "para obter a raiz quadrada",
-      },
-      __pow: {
-        main: "Potencia",
-        __description: "para obter a potência de um número",
-      },
-      __round: {
-        main: "Arredondar",
-        __description: "para arredondar um número",
-      },
-      __random: {
-        main: "Aleatorio",
-        __description: "para obter um número aleatório",
-      },
-      __max: {
-        main: "Maximo",
-        __description: "para obter o valor máximo",
-      },
-      __min: {
-        main: "Minimo",
-        __description: "para obter o valor mínimo",
-      },
-      __isNumber: {
-        main: "ENumero",
-        __description: "para verificar se um valor é um número",
-      },
-      __isInteger: {
-        main: "EInteiro",
-        __description: "para verificar se um valor é um inteiro",
-      },
-      __isFloat: {
-        main: "EDecimal",
-        __description: "para verificar se um valor é um decimal",
-      },
+      main: DocStr("matématica", "para aceder às funções matemáticas"),
+      __pi: DocStr("PI", "para obter o valor de pi"),
+      __sqrt: DocStr("Raiz", "para obter a raiz quadrada de um número"),
+      __pow: DocStr("Potência", "para obter a potência de um número"),
+      __round: DocStr("Arredondar", "para arredondar um número"),
+      __random: DocStr("Aleatorio", "para obter um número aleatório"),
+      __max: DocStr("Maximo", "para obter o valor máximo"),
+      __min: DocStr("Minimo", "para obter o valor mínimo"),
+      __isNumber: DocStr("ÉNumero", "para verificar se um valor é um número"),
+      __isInteger: DocStr(
+        "ÉInteiro",
+        "para verificar se um valor é um inteiro",
+      ),
+      __isFloat: DocStr("ÉDecimal", "para verificar se um valor é um decimal"),
+      __cos: DocStr("Cos", "para obter o cosseno de um ângulo em radianos"),
+      __sin: DocStr("Sin", "para obter o seno de um ângulo em radianos"),
+      __tan: DocStr("Tan", "para obter a tangente de um ângulo em radianos"),
     },
+
     __string: {
-      main: {
-        main: "texto",
-        __description: "para acessar as funções de manipulação de texto",
-      },
-      __length: {
-        main: "Tamanho",
-        __description: "para obter o tamanho de uma string",
-      },
-      __toUpperCase: {
-        main: "Maiusculo",
-        __description: "para converter uma string para maiúsculo",
-      },
-      __toLowerCase: {
-        main: "Minusculo",
-        __description: "para converter uma string para minúsculo",
-      },
+      main: DocStr("texto", "para aceder às funções de manipulação de texto"),
+      __length: DocStr("Tamanho", "para obter o tamanho de uma string"),
+      __toUpperCase: DocStr(
+        "Maiúsculo",
+        "para converter uma string para maiúsculas",
+      ),
+      __toLowerCase: DocStr(
+        "Minúsculo",
+        "para converter uma string para minúsculas",
+      ),
+      __include: DocStr(
+        "Incluí",
+        "para verificar se uma string contém uma substring",
+      ),
+      __repeat: DocStr("Repetir", "para repetir uma string um número de vezes"),
     },
+
     __date: {
-      main: {
-        main: "data",
-        __description: "para acessar as funções de manipulação de data e hora",
-      },
-      __year: {
-        main: "Ano",
-        __description: "para obter o ano",
-      },
-      __month: {
-        main: "Mes",
-        __description: "para obter o mês",
-      },
-      __dayMonth: {
-        main: "DiaMes",
-        __description: "para obter o dia do mês",
-      },
-      __dayWeek: {
-        main: "DiaSemana",
-        __description: "para obter o dia da semana",
-      },
-      __hour: {
-        main: "Hora",
-        __description: "para obter a hora",
-      },
-      __minute: {
-        main: "Minuto",
-        __description: "para obter o minuto",
-      },
-      __second: {
-        main: "Segundo",
-        __description: "para obter o segundo",
-      },
+      main: DocStr(
+        "data",
+        "para aceder às funções de manipulação de data e hora",
+      ),
+      __now: DocStr("Agora", "para obter a data e hora atual"),
+      __year: DocStr("Ano", "para obter o ano"),
+      __month: DocStr("Mês", "para obter o mês"),
+      __dayMonth: DocStr("DiaMês", "para obter o dia do mês"),
+      __dayWeek: DocStr("DiaSemana", "para obter o dia da semana"),
+      __hour: DocStr("Hora", "para obter a hora"),
+      __minute: DocStr("Minuto", "para obter o minuto"),
+      __second: DocStr("Segundo", "para obter o segundo"),
     },
   },
+
   types: {
-    __object: {
-      main: "objecto",
-      __description: "para declarar um objeto estático",
-    },
-    __number: {
-      main: "numero",
-      __description: "para declarar uma variável do tipo número",
-    },
-    __string: {
-      main: "texto",
-      __description: "para declarar uma variável do tipo texto",
-    },
-    __boolean: {
-      main: "bool",
-      values: { __true: "Verdadeiro", __false: "Falso" },
-      __description: "para declarar uma variável do tipo booleano",
-    },
+    __number: DocStr("número", "para declarar uma variável do tipo número"),
+    __string: DocStr("texto", "para declarar uma variável do tipo texto"),
+    __boolean: DocStr("bool", "para declarar uma variável do tipo booleano"),
+    __object: DocStr("objecto", "para declarar um objeto estático"),
+    __void: DocStr("vazio", "para declarar uma função que não retorna valor"),
+    __array: DocStr("vector", "para declarar uma estrutura em vector"),
   },
+
+  specialValues: {
+    __true: DocStr("verdadeiro", "valor booleano verdadeiro"),
+    __false: DocStr("falso", "valor booleano falso"),
+    __null: DocStr("nulo", "ausência de valor"),
+  },
+
+  words: {
+    __new: DocStr("criar", "para criar uma nova instância de uma classe"),
+    __this: DocStr("este", "para acessar atributo da propria classe"),
+    __extends: DocStr(
+      "estender",
+      "para declarar que uma classe herda de outra",
+    ),
+  },
+
+  accessModifiers: {
+    __private: DocStr("privado", "acessível apenas dentro da classe"),
+    __public: DocStr("público", "acessível de qualquer lugar"),
+    __protected: DocStr("protegido", "acessível na classe e subclasses"),
+    __readonly: DocStr("lerapenas", "valor só pode ser atribuído uma vez"),
+    __static: DocStr("estatico", "pertence à classe e não à instância"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "escreva",
-        __description: "para imprimir um valor na tela",
-      },
-      __scan: {
-        main: "leia",
-        __description: "para ler um valor da entrada",
-      },
-      __return: {
-        main: "retorna",
-        __description: "para retornar um valor da função",
-      },
+      __print: DocStr("escreva", "para imprimir um valor no ecrã"),
+      __scan: DocStr("leia", "para ler um valor da entrada"),
+      __return: DocStr("retornar", "para retornar um valor de uma função"),
+      __break: DocStr("parar", "para sair de um ciclo"),
+      __continue: DocStr("continuar", "para saltar para a próxima iteração"),
     },
+
     sentences: {
-      __function: {
-        main: "funcao",
-        __description: "para declarar uma função",
-      },
-      __if: {
-        main: "se",
-        __description: "para declarar uma condição",
-      },
-      __else: {
-        main: "senao",
-        __description: "para declarar uma condição alternativa",
-      },
-      __while: {
-        main: "enquanto",
-        __description: "para declarar um loop enquanto",
-      },
-      __for: {
-        main: "para",
-        __description: "para declarar um loop para",
-      },
-      __switch: {
-        main: "escolha",
-        __description: "para declarar uma estrutura de seleção",
-      },
-      __case: {
-        main: "caso",
-        __description: "para declarar um caso na estrutura de seleção",
-      },
-      __default: {
-        main: "contrario",
-        __description: "para declarar o caso padrão na estrutura de seleção",
-      },
-      __try: {
-        main: "tentar",
-        __description: "para declarar um bloco de tentativa",
-      },
-      __catch: {
-        main: "erro",
-        __description: "para declarar um bloco de tratamento de erro",
-      },
-      __finally: {
-        main: "final",
-        __description:
-          "para declarar um bloco que é executado independentemente",
-      },
+      __function: DocStr("função", "para declarar uma função"),
+      __if: DocStr("se", "para declarar uma condição"),
+      __else: DocStr("senão", "para declarar uma condição alternativa"),
+      __while: DocStr("enquanto", "para declarar um ciclo enquanto"),
+      __for: DocStr("para", "para declarar um ciclo for"),
+      __switch: DocStr("escolha", "para declarar uma estrutura de seleção"),
+      __case: DocStr("caso", "para declarar um caso na seleção"),
+      __default: DocStr("contrário", "quando nenhum dos casos é encontrado"),
+      __try: DocStr("tentar", "para declarar um bloco de tentativa"),
+      __catch: DocStr("errar", "para declarar um bloco de erro"),
+      __finally: DocStr("final", "executa independentemente do resultado"),
+      __class: DocStr("classe", "para declarar uma classe"),
+      __constructor: DocStr(
+        "construtor",
+        "estrutura que permite declarar atributes em uma class",
+      ),
     },
   },
+
   errors: {
-    main: {
-      tag: "ERRO",
-      message: "Erro generico do sistema.",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "ERRO_DESCONHECIDO",
-      message: "Erro completamente desconhecido",
-    },
-    __TypeError: {
-      tag: "ERRO_DE_TIPO",
-      message: "Tipo invalido em operacao",
-    },
-    __ReferenceError: {
-      tag: "ERRO_DE_REFERENCIA",
-      message: "Variavel nao existe no escopo",
-    },
-    __SyntaxError: {
-      tag: "ERRO_DE_SINTAXE",
-      message: "Codigo invalido",
-    },
-    __RangeError: {
-      tag: "ERRO_DE_LIMITE",
-      message: "Valor fora dos limites permitidos",
-    },
-    __URIError: {
-      tag: "ERRO_DE_URI",
-      message: "URI mal formatada ou invalida",
-    },
-    __EvalError: {
-      tag: "ERRO_DO_EVAL",
-      message: "Erro relacionado ao eval",
-    },
+    __labels: errorLabel(
+      "Mensagem",
+      "Valor",
+      "Variável",
+      "Propriedade",
+      "Objeto",
+      "Esperado",
+      "Recebido",
+      "Atribuição Constante",
+      "Parâmetro Duplicado",
+      "Dica",
+      "Token Inválido",
+      "Estouro de Pilha",
+      "Token",
+      "Fim de Entrada Inesperado",
+    ),
+    main: errorMessage("ERRO", "erro genérico do sistema"),
+    __TypeError: errorMessage("ERRO_DE_TIPO", "tipo inválido na operação"),
+    __InitError: errorMessage(
+      "ERRO_DE_INICIALIZAÇÃO",
+      "variável não foi inicializada",
+    ),
+    __ReferenceError: errorMessage(
+      "ERRO_DE_REFERÊNCIA",
+      "variável, função ou biblioteca não existe no escopo",
+    ),
+    __SyntaxError: errorMessage("ERRO_DE_SINTAXE", "código inválido"),
+    __RangeError: errorMessage(
+      "ERRO_DE_LIMITE",
+      "valor fora do intervalo permitido",
+    ),
+    __URIError: errorMessage("ERRO_DE_URI", "URI mal formada ou inválida"),
+    __EvalError: errorMessage("ERRO_DE_EVAL", "erro relacionado ao eval"),
+    __UNKNOWN_ERROR: errorMessage(
+      "ERRO_DESCONHECIDO",
+      "erro completamente desconhecido",
+    ),
+  },
+  example: {
+    __array: [
+      "alimentos",
+      "países",
+      "items",
+      "tags",
+      "cores",
+      "productos",
+      "usuarios",
+      "categorias",
+      "pontos",
+      "idiomas",
+    ],
+    __boolean: [
+      "éstado",
+      "éAduslto",
+      "éstaActivo",
+      "éVisível",
+      "temPermissão",
+      "estáLogado",
+      "estáAbilitado",
+      "estáFeito",
+      "estáVerificado",
+      "estáDeletado",
+    ],
+    __function: [
+      "obterNome",
+      "obterValor",
+      "lista",
+      "obterDados",
+      "formatarDados",
+      "parsearEntrada",
+      "validarFormulario",
+      "actualizarItens",
+      "actualizarEstado",
+      "calcularTotal",
+    ],
+    __number: [
+      "idade",
+      "ano",
+      "média",
+      "total",
+      "preço",
+      "índice",
+      "duração",
+      "quantidade",
+      "pontos",
+      "tempo",
+    ],
+    __object: [
+      "pessoa",
+      "usuario",
+      "config",
+      "resposta",
+      "pagamento",
+      "definições",
+      "perfil",
+      "endereço",
+      "metadados",
+      "sessão",
+    ],
+    __string: [
+      "nome",
+      "titulo",
+      "descrição",
+      "email",
+      "palavraPasse",
+      "mensagem",
+      "rotulo",
+      "token",
+      "url",
+      "slug",
+    ],
+    __void: [
+      "login",
+      "iniciar",
+      "limpar",
+      "redefinir",
+      "destruir",
+      "desLOgar",
+      "limparCache",
+      "salvar",
+      "envirnoEmail",
+      "entrar",
+    ],
   },
 }).grammar();

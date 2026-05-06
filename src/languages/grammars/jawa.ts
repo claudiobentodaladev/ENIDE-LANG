@@ -1,241 +1,239 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const jawa = new Language({
   language: "jawa",
   about:
     "ENIDE iku transpiler sing bisa diterjemahake kang ngidini pemrograman ing basa apa wae",
-  include: {
-    main: "Nglebokake",
-    __description: "Digunakake kanggo nglebokake basa utawa perpustakaan",
-  },
+
+  include: DocStr(
+    "Nglebokake",
+    "Digunakake kanggo nglebokake basa, perpustakaan, utawa struktur saka file liyane"
+  ),
+
   commands: {
-    all: {
-      __about: {
-        main: "bab",
-        __description: "kanggo ngerti informasi bab ENIDE",
-      },
-      __help: {
-        main: "tulung",
-        __description: "kanggo ngerti dhaftar kabeh perintah kang kasedhiya",
-      },
-      __version: {
-        main: "versi",
-        __description: "kanggo ngerti versi ENIDE saiki",
-      },
-      __languages: {
-        main: "basa",
-        __description: "kanggo ngerti dhaftar kabeh basa kang kasedhiya",
-      },
-      __documentation: {
-        main: "dok",
-        __description: "kanggo ngerti dokumentasi sawijining basa",
-      },
-    },
+    __about: DocStr("bab", "kanggo ngerti informasi bab ENIDE"),
+    __help: DocStr("tulung", "kanggo ngerti dhaftar kabeh perintah sing kasedhiya"),
+    __version: DocStr("versi", "kanggo ngerti versi ENIDE saiki"),
+    __languages: DocStr("basa", "kanggo ngerti dhaftar kabeh basa sing kasedhiya"),
+    __documentation: DocStr("dok", "kanggo ngerti dokumentasi sawijining basa"),
+    __grammar: DocStr("gramatika", "kanggo ngerti gramatika sawijining basa"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("standar", "kanggo ngakses metode standar sing migunani"),
+      __isarray: DocStr("IkuArray", "kanggo mriksa apa nilai iku array"),
+      __isobject: DocStr("IkuObyek", "kanggo mriksa apa nilai iku obyek"),
+      __typeof: DocStr("Jenis", "kanggo ngerti jenis saka nilai"),
+      __parse: DocStr("Parse", "kanggo ngowahi teks dadi nilai sing bener"),
+    },
     __math: {
-      main: {
-        main: "matematika",
-        __description: "kanggo ngakses fungsi matematika",
-      },
-      __pi: {
-        main: "PI",
-        __description: "kanggo ngerti nilai pi",
-      },
-      __sqrt: {
-        main: "AkarKuadrat",
-        __description: "kanggo ngerti akar kuadrat",
-      },
-      __pow: {
-        main: "Pangkat",
-        __description: "kanggo ngerti pangkat sawijining angka",
-      },
-      __round: {
-        main: "Bunderke",
-        __description: "kanggo mbunderke angka",
-      },
-      __random: {
-        main: "Acak",
-        __description: "kanggo ngerti angka acak",
-      },
-      __max: {
-        main: "PalingGedhe",
-        __description: "kanggo ngerti nilai paling gedhe",
-      },
-      __min: {
-        main: "PalingCilik",
-        __description: "kanggo ngerti nilai paling cilik",
-      },
-      __isNumber: {
-        main: "IkuAngka",
-        __description: "kanggo mriksa apa nilai iku angka",
-      },
-      __isInteger: {
-        main: "IkuBulat",
-        __description: "kanggo mriksa apa nilai iku angka bulat",
-      },
-      __isFloat: {
-        main: "IkuDesimal",
-        __description: "kanggo mriksa apa nilai iku angka desimal",
-      },
+      main: DocStr("matematika", "kanggo ngakses fungsi matematika"),
+      __pi: DocStr("PI", "kanggo ngerti nilai pi"),
+      __sqrt: DocStr("AkarKuadrat", "kanggo ngerti akar kuadrat"),
+      __pow: DocStr("Pangkat", "kanggo ngerti pangkat sawijining angka"),
+      __round: DocStr("Bunderke", "kanggo mbunderke angka"),
+      __random: DocStr("Acak", "kanggo ngerti angka acak"),
+      __max: DocStr("PalingGedhe", "kanggo ngerti nilai paling gedhe"),
+      __min: DocStr("PalingCilik", "kanggo ngerti nilai paling cilik"),
+      __isNumber: DocStr("IkuAngka", "kanggo mriksa apa nilai iku angka"),
+      __isInteger: DocStr("IkuBulat", "kanggo mriksa apa nilai iku angka bulat"),
+      __isFloat: DocStr("IkuDesimal", "kanggo mriksa apa nilai iku angka desimal"),
+      __cos: DocStr("Cos", "kanggo ngerti cosinus sudut"),
+      __sin: DocStr("Sin", "kanggo ngerti sinus sudut"),
+      __tan: DocStr("Tan", "kanggo ngerti tangen sudut"),
     },
+
     __string: {
-      main: {
-        main: "tulisan",
-        __description: "kanggo ngakses fungsi manipulasi teks",
-      },
-      __length: {
-        main: "Dawane",
-        __description: "kanggo ngerti dawane teks",
-      },
-      __toUpperCase: {
-        main: "DadiBesar",
-        __description: "kanggo ngowahi teks dadi huruf gedhe",
-      },
-      __toLowerCase: {
-        main: "DadiCilik",
-        __description: "kanggo ngowahi teks dadi huruf cilik",
-      },
+      main: DocStr("tulisan", "kanggo ngakses fungsi manipulasi teks"),
+      __length: DocStr("Dawane", "kanggo ngerti dawane teks"),
+      __toUpperCase: DocStr("DadiBesar", "kanggo ngowahi teks dadi huruf gedhe"),
+      __toLowerCase: DocStr("DadiCilik", "kanggo ngowahi teks dadi huruf cilik"),
+      __include: DocStr("Ngandhut", "kanggo mriksa apa teks ngandhut substring"),
+      __repeat: DocStr("Baleni", "kanggo mbaleni teks kaping pirang-pirang"),
     },
+
     __date: {
-      main: {
-        main: "tanggal",
-        __description: "kanggo ngakses fungsi tanggal lan wektu",
-      },
-      __year: {
-        main: "Taun",
-        __description: "kanggo ngerti taun",
-      },
-      __month: {
-        main: "Sasi",
-        __description: "kanggo ngerti sasi",
-      },
-      __dayMonth: {
-        main: "DinaIngSasi",
-        __description: "kanggo ngerti dina ing sasi",
-      },
-      __dayWeek: {
-        main: "DinaIngPekanan",
-        __description: "kanggo ngerti dina ing pekanan",
-      },
-      __hour: {
-        main: "Jam",
-        __description: "kanggo ngerti jam",
-      },
-      __minute: {
-        main: "Menit",
-        __description: "kanggo ngerti menit",
-      },
-      __second: {
-        main: "Detik",
-        __description: "kanggo ngerti detik",
-      },
+      main: DocStr("tanggal", "kanggo ngakses fungsi tanggal lan wektu"),
+      __now: DocStr("Saiki", "kanggo ngerti tanggal lan wektu saiki"),
+      __year: DocStr("Taun", "kanggo ngerti taun"),
+      __month: DocStr("Sasi", "kanggo ngerti sasi"),
+      __dayMonth: DocStr("DinaIngSasi", "kanggo ngerti dina ing sasi"),
+      __dayWeek: DocStr("DinaIngPekanan", "kanggo ngerti dina ing pekanan"),
+      __hour: DocStr("Jam", "kanggo ngerti jam"),
+      __minute: DocStr("Menit", "kanggo ngerti menit"),
+      __second: DocStr("Detik", "kanggo ngerti detik"),
     },
   },
+
   types: {
-    __object: { main: "obyek", __description: "kanggo ngumumake obyek statis" },
-    __number: {
-      main: "angka",
-      __description: "kanggo ngumumake variabel jenis angka",
-    },
-    __string: {
-      main: "teks",
-      __description: "kanggo ngumumake variabel jenis teks",
-    },
-    __boolean: {
-      main: "bool",
-      values: { __true: "Bener", __false: "Salah" },
-      __description: "kanggo ngumumake variabel jenis bool",
-    },
+    __number: DocStr("angka", "kanggo ngumumake variabel jenis angka"),
+    __string: DocStr("teks", "kanggo ngumumake variabel jenis teks"),
+    __boolean: DocStr("bool", "kanggo ngumumake variabel jenis bool"),
+    __object: DocStr("obyek", "kanggo ngumumake obyek statis"),
+    __void: DocStr("kosong", "kanggo fungsi sing ora ngasilake nilai"),
+    __array: DocStr("array", "kanggo ngumumake struktur array"),
   },
+
+  specialValues: {
+    __true: DocStr("Bener", "nilai boolean bener"),
+    __false: DocStr("Salah", "nilai boolean salah"),
+    __null: DocStr("Null", "ora ana nilai"),
+  },
+
+  words: {
+    __new: DocStr("anyar", "kanggo nggawe instance anyar saka kelas"),
+    __this: DocStr("iki", "kanggo ngakses properti kelas dhewe"),
+    __extends: DocStr("ngwaris", "kanggo ngumumake kelas sing ngwaris saka liyane"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("pribadi", "mung bisa diakses ing jero kelas"),
+    __public: DocStr("umum", "bisa diakses saka ngendi wae"),
+    __protected: DocStr("dilindungi", "bisa diakses ing kelas lan subkelas"),
+    __readonly: DocStr("macaMung", "nilai mung bisa diwenehi sepisan"),
+    __static: DocStr("statis", "milik kelas, dudu instance"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "cithak",
-        __description: "kanggo nyithak nilai ing layar",
-      },
-      __scan: {
-        main: "waca",
-        __description: "kanggo maca nilai saka input",
-      },
-      __return: {
-        main: "balekake",
-        __description: "kanggo mbalekake nilai saka fungsi",
-      },
+      __print: DocStr("cithak", "kanggo nyithak nilai ing layar"),
+      __scan: DocStr("waca", "kanggo maca nilai saka input"),
+      __return: DocStr("balekake", "kanggo mbalekake nilai saka fungsi"),
+      __break: DocStr("mandek", "kanggo mandek ing perulangan"),
+      __continue: DocStr("terus", "kanggo nerusake menyang iterasi sabanjure"),
     },
+
     sentences: {
-      __function: {
-        main: "fungsi",
-        __description: "kanggo ngumumake fungsi",
-      },
-      __if: {
-        main: "yen",
-        __description: "kanggo ngumumake kondisi",
-      },
-      __else: {
-        main: "liyane",
-        __description: "kanggo ngumumake kondisi alternatif",
-      },
-      __while: {
-        main: "nalika",
-        __description: "kanggo ngumumake perulangan nalika",
-      },
-      __for: {
-        main: "kanggo",
-        __description: "kanggo ngumumake perulangan kanggo",
-      },
-      __switch: {
-        main: "pilih",
-        __description: "kanggo ngumumake struktur pilihan",
-      },
-      __case: {
-        main: "kasus",
-        __description: "kanggo ngumumake kasus ing struktur pilihan",
-      },
-      __default: {
-        main: "gawan",
-        __description: "kanggo ngumumake kasus gawan ing struktur pilihan",
-      },
-      __try: {
-        main: "nyoba",
-        __description: "kanggo ngumumake blok nyoba",
-      },
-      __catch: {
-        main: "cekel",
-        __description: "kanggo ngumumake blok penanganan kesalahan",
-      },
-      __finally: {
-        main: "pungkasane",
-        __description: "kanggo ngumumake blok kang tansah dijalanake",
-      },
+      __function: DocStr("fungsi", "kanggo ngumumake fungsi"),
+      __if: DocStr("yen", "kanggo ngumumake kondisi"),
+      __else: DocStr("liyane", "kanggo ngumumake kondisi alternatif"),
+      __while: DocStr("nalika", "kanggo ngumumake perulangan nalika"),
+      __for: DocStr("kanggo", "kanggo ngumumake perulangan kanggo"),
+      __switch: DocStr("pilih", "kanggo ngumumake struktur pilihan"),
+      __case: DocStr("kasus", "kanggo ngumumake kasus"),
+      __default: DocStr("gawan", "yen ora ana kasus sing cocog"),
+      __try: DocStr("nyoba", "kanggo ngumumake blok nyoba"),
+      __catch: DocStr("cekel", "kanggo ngumumake blok penanganan kesalahan"),
+      __finally: DocStr("pungkasane", "blok sing tansah dijalankan"),
+      __class: DocStr("kelas", "kanggo ngumumake kelas"),
+      __constructor: DocStr("konstruktor", "struktur kanggo ngumumake properti ing kelas"),
     },
   },
+
   errors: {
-    main: { tag: "KESALAHAN", message: "Kesalahan sistem umum" },
-    __UNKNOWN_ERROR: {
-      tag: "KESALAHAN_ORA_DIKENAL",
-      message: "Kesalahan kang ora dikenal babar pisan",
-    },
-    __TypeError: {
-      tag: "KESALAHAN_JENIS",
-      message: "Jenis ora valid ing operasi",
-    },
-    __ReferenceError: {
-      tag: "KESALAHAN_REFERENSI",
-      message: "Variabel ora ana ing jangkauan",
-    },
-    __SyntaxError: { tag: "KESALAHAN_SINTAKS", message: "Kode ora valid" },
-    __RangeError: {
-      tag: "KESALAHAN_RENTANG",
-      message: "Nilai ing njaba rentang kang diidini",
-    },
-    __URIError: {
-      tag: "KESALAHAN_URI",
-      message: "URI salah wujud utawa ora valid",
-    },
-    __EvalError: {
-      tag: "KESALAHAN_EVAL",
-      message: "Kesalahan sing gegandhengan karo eval",
-    },
+    __labels: errorLabel(
+      "Pesan",
+      "Nilai",
+      "Variabel",
+      "Properti",
+      "Obyek",
+      "Dikarepake",
+      "Ditampa",
+      "Penugasan Konstan",
+      "Parameter Duplikat",
+      "Petunjuk",
+      "Token Ora Valid",
+      "Stack Overflow",
+      "Token",
+      "Pungkasan Input Ora Kaduga"
+    ),
+    main: errorMessage("KESALAHAN", "kesalahan sistem umum"),
+    __TypeError: errorMessage("KESALAHAN_JENIS", "jenis ora valid ing operasi"),
+    __InitError: errorMessage("KESALAHAN_INISIALISASI", "variabel durung diinisialisasi"),
+    __ReferenceError: errorMessage("KESALAHAN_REFERENSI", "variabel, fungsi utawa perpustakaan ora ditemokake"),
+    __SyntaxError: errorMessage("KESALAHAN_SINTAKS", "kode ora valid"),
+    __RangeError: errorMessage("KESALAHAN_RENTANG", "nilai ing njaba rentang sing diidini"),
+    __URIError: errorMessage("KESALAHAN_URI", "URI salah wujud utawa ora valid"),
+    __EvalError: errorMessage("KESALAHAN_EVAL", "kesalahan sing gegandhengan karo eval"),
+    __UNKNOWN_ERROR: errorMessage("KESALAHAN_ORA_DIKENAL", "kesalahan kang ora dikenal babar pisan"),
+  },
+
+  example: {
+    __array: [
+      "pangan",
+      "negara",
+      "barang",
+      "tag",
+      "warna",
+      "produk",
+      "panganggo",
+      "kategori",
+      "poin",
+      "basa"
+    ],
+    __boolean: [
+      "aktif",
+      "dewasa",
+      "terbuka",
+      " katon",
+      "duweIjin",
+      "wisLogin",
+      "diaktifake",
+      "rampung",
+      "diverifikasi",
+      "dibusak"
+    ],
+    __function: [
+      "entukJeneng",
+      "entukNilai",
+      "daftar",
+      "jupukData",
+      "formatData",
+      "parseInput",
+      "validasiForm",
+      "anyariBarang",
+      "anyariStatus",
+      "itungTotal"
+    ],
+    __number: [
+      "umur",
+      "taun",
+      "rataRata",
+      "total",
+      "rega",
+      "indeks",
+      "durasi",
+      "jumlah",
+      "poin",
+      "wektu"
+    ],
+    __object: [
+      "wong",
+      "panganggo",
+      "konfigurasi",
+      "jawaban",
+      "pembayaran",
+      "pengaturan",
+      "profil",
+      "alamat",
+      "metadata",
+      "sesi"
+    ],
+    __string: [
+      "jeneng",
+      "judul",
+      "katrangan",
+      "email",
+      "sandhi",
+      "pesen",
+      "label",
+      "token",
+      "url",
+      "slug"
+    ],
+    __void: [
+      "login",
+      "wiwiti",
+      "resiki",
+      "reset",
+      "rusak",
+      "logout",
+      "resikiCache",
+      "simpen",
+      "kirimEmail",
+      "mlebu"
+    ],
   },
 }).grammar();

@@ -1,259 +1,275 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const umbundu = new Language({
   language: "umbundu",
   about:
     "ENIDE i transpilador uo kuhindulukilako yoneka yo kuprograma mu ndimi yosi",
 
-  include: {
-    main: "OkukapaMo",
-    __description: "Ci lingiwa oku kapa mo elimi ale o mambululyu",
-  },
+  include: DocStr("OkukapaMo", "Ci lingiwa oku kapa mo elimi ale o mambululyu"),
 
   commands: {
-    all: {
-      __about: {
-        main: "Ehulo",
-        __description: "okupulapula omalaka kombanda yaENIDE",
-      },
-      __help: {
-        main: "Epukululo",
-        __description: "okupulapula ovilista vya milayo yosi yokufikamena",
-      },
-      __version: {
-        main: "Olupale",
-        __description: "okupulapula olupale lwokulyo lwa ENIDE",
-      },
-      __languages: {
-        main: "Ondimi",
-        __description: "okupulapula ovilista vya ondimi yosi yokufikamena",
-      },
-      __documentation: {
-        main: "Doc",
-        __description: "okupulapula ovilembiso vya olulimi",
-      },
-    },
+    __about: DocStr("Ehulo", "okupulapula omalaka kombanda ya ENIDE"),
+    __help: DocStr(
+      "Epukululo",
+      "okupulapula ovilista vya milayo yosi yokufikamena",
+    ),
+    __version: DocStr("Olupale", "okupulapula olupale lwokulyo lwa ENIDE"),
+    __languages: DocStr(
+      "Ondimi",
+      "okupulapula ovilista vya ondimi yosi yokufikamena",
+    ),
+    __documentation: DocStr("Doc", "okupulapula ovilembiso vya olulimi"),
+    __grammar: DocStr("Naxve", "ovihandeleko vio kusoneka elimi"),
   },
 
   library: {
+    __standard: {
+      main: DocStr("Standard", "esasy ulgam funksiyalaryna giris"),
+      __isarray: DocStr("ISanaw", "okutalela nge omuholo i onombolo yokima"),
+      __isobject: DocStr("IOmbuto", "okutalela nge omuholo i ombuto"),
+      __typeof: DocStr("OmuximaWa", "okupulapula omuxima wa uytgeyji"),
+      __parse: DocStr(
+        "Okutandula",
+        "okuhindulukilako o qoraal ku omuxima wa ximbue",
+      ),
+    },
     __math: {
-      main: {
-        main: "Omatematika",
-        __description: "okufika oviungula vya omatematika",
-      },
-      __pi: {
-        main: "PI",
-        __description: "okupulapula omuholo wa pi",
-      },
-      __sqrt: {
-        main: "OmulamuWaNzole",
-        __description: "okupulapula omulamu wa nzole",
-      },
-      __pow: {
-        main: "Ongeve",
-        __description: "okupulapula ongeve yo onombolo",
-      },
-      __round: {
-        main: "Okuzunguluka",
-        __description: "okuzungulusa onombolo",
-      },
-      __random: {
-        main: "Okasoni",
-        __description: "okupulapula onombolo yokasoni",
-      },
-      __max: {
-        main: "Okulamba",
-        __description: "okupulapula omuholo okulamba",
-      },
-      __min: {
-        main: "Okufioti",
-        __description: "okupulapula omuholo okufioti",
-      },
-      __isNumber: {
-        main: "IOnombolo",
-        __description: "okutalela nge omuholo i onombolo",
-      },
-      __isInteger: {
-        main: "IOnomboloKima",
-        __description: "okutalela nge omuholo i onombolo yokima",
-      },
-      __isFloat: {
-        main: "IOnomboloKipande",
-        __description: "okutalela nge omuholo i onombolo yokipande",
-      },
+      main: DocStr("Omatematika", "okufika oviungula vya omatematika"),
+      __pi: DocStr("PI", "okupulapula omuholo wa pi"),
+      __sqrt: DocStr("OmulamuWaNzole", "okupulapula omulamu wa nzole"),
+      __pow: DocStr("Ongeve", "okupulapula ongeve yo onombolo"),
+      __round: DocStr("Okuzunguluka", "okuzungulusa onombolo"),
+      __random: DocStr("Okasoni", "okupulapula onombolo yokasoni"),
+      __max: DocStr("Okulamba", "okupulapula omuholo okulamba"),
+      __min: DocStr("Okufioti", "okupulapula omuholo okufioti"),
+      __isNumber: DocStr("IOnombolo", "okutalela nge omuholo i onombolo"),
+      __isInteger: DocStr(
+        "IOnomboloKima",
+        "okutalela nge omuholo i onombolo yokima",
+      ),
+      __isFloat: DocStr(
+        "IOnomboloKipande",
+        "okutalela nge omuholo i onombolo yokipande",
+      ),
+      __cos: DocStr("cos", "okutalela cosine"),
+      __sin: DocStr("sin", "okutalela sine"),
+      __tan: DocStr("tan", "okutalela tangent"),
     },
 
     __string: {
-      main: {
-        main: "Ovilembiso",
-        __description: "okufika oviungula vyo kusobola ovilembiso",
-      },
-      __length: {
-        main: "Omulali",
-        __description: "okupulapula omulali wovilembiso",
-      },
-      __toUpperCase: {
-        main: "KuNeneNene",
-        __description: "okuhindulukilako ovilembiso ku nene nene",
-      },
-      __toLowerCase: {
-        main: "KuFiotiFioti",
-        __description: "okuhindulukilako ovilembiso ku fioti fioti",
-      },
+      main: DocStr("Ovilembiso", "okufika oviungula vyo kusobola ovilembiso"),
+      __length: DocStr("Omulali", "okupulapula omulali wovilembiso"),
+      __toUpperCase: DocStr(
+        "KuNeneNene",
+        "okuhindulukilako ovilembiso ku nene nene",
+      ),
+      __toLowerCase: DocStr(
+        "KuFiotiFioti",
+        "okuhindulukilako ovilembiso ku fioti fioti",
+      ),
+      __include: DocStr(
+        "Kukuvetela",
+        "okutalela nge ovilembiso vi vetele qoraal",
+      ),
+      __repeat: DocStr("Okupitula", "okupitula ovilembiso ovipitulo vialua"),
     },
 
     __date: {
-      main: {
-        main: "Esiku",
-        __description: "okufika oviungula vya esiku ni engonga",
-      },
-      __year: {
-        main: "Omvula",
-        __description: "okupulapula omvula",
-      },
-      __month: {
-        main: "Ongonda",
-        __description: "okupulapula ongonda",
-      },
-      __dayMonth: {
-        main: "EsikuNgonda",
-        __description: "okupulapula esiku lya ongonda",
-      },
-      __dayWeek: {
-        main: "EsikuSemana",
-        __description: "okupulapula esiku lya semana",
-      },
-      __hour: {
-        main: "Engonga",
-        __description: "okupulapula engonga",
-      },
-      __minute: {
-        main: "Ominuto",
-        __description: "okupulapula ominuto",
-      },
-      __second: {
-        main: "Osegundo",
-        __description: "okupulapula osegundo",
-      },
+      main: DocStr("Esiku", "okufika oviungula vya esiku ni engonga"),
+      __now: DocStr("Kaliye", "esiku ni engonga ya kaliye"),
+      __year: DocStr("Omvula", "okupulapula omvula"),
+      __month: DocStr("Ongonda", "okupulapula ongonda"),
+      __dayMonth: DocStr("EsikuNgonda", "okupulapula esiku lya ongonda"),
+      __dayWeek: DocStr("EsikuSemana", "okupulapula esiku lya semana"),
+      __hour: DocStr("Engonga", "okupulapula engonga"),
+      __minute: DocStr("Ominuto", "okupulapula ominuto"),
+      __second: DocStr("Osegundo", "okupulapula osegundo"),
     },
   },
 
   types: {
-    __object: {
-      main: "Ombuto",
-      __description: "okwamba ombuto ombimbi",
-    },
-    __number: {
-      main: "Onombolo",
-      __description: "okufumana ovivikilanga vyo muxima onombolo",
-    },
-    __string: {
-      main: "Ovilembiso",
-      __description: "okufumana ovivikilanga vyo muxima ovilembiso",
-    },
-    __boolean: {
-      main: "Bool",
-      values: { __true: "Ocili", __false: "Uhembi" },
-      __description: "okufumana ovivikilanga vyo muxima bool",
-    },
+    __number: DocStr("Onombolo", "okufumana ovivikilanga vyo muxima onombolo"),
+    __string: DocStr(
+      "Ovilembiso",
+      "okufumana ovivikilanga vyo muxima ovilembiso",
+    ),
+    __boolean: DocStr("Bool", "okufumana ovivikilanga vyo muxima bool"),
+    __object: DocStr("Ombuto", "okwamba ombuto ombimbi"),
+    __void: DocStr("Opullu", "ombi yetu ka i vutula omuholo"),
+    __array: DocStr("Olista", "omuxima wa olista yo ovina"),
+  },
+
+  specialValues: {
+    __true: DocStr("Ocili", "mu logiki omuholo uo cili"),
+    __false: DocStr("Uhembi", "mu logiki omuholo uo uhembi"),
+    __null: DocStr("Lacimue", "eyi i lekisa nge ka kuli omuholo"),
+  },
+
+  words: {
+    __new: DocStr("Okaliye", "okululika ombuto yokaliye"),
+    __this: DocStr("Eci", "oku lekisa ku ombuto ya kaliye"),
+    __extends: DocStr("Okulanda", "oku landa ovituwa via klas"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("Vupombo", "ci taviwa lika mu kanyamo ka klas"),
+    __public: DocStr("Vuavele", "ci taviwa mu afu yosi"),
+    __protected: DocStr("Vukangue", "ci taviwa mu klas ni vana va landa"),
+    __readonly: DocStr("OkulivisaLika", "omuholo kau sobiwa"),
+    __static: DocStr("Static", "ci tiamela ku klas, ka ci tiamela ku ombuto"),
   },
 
   methods: {
     method: {
-      __print: {
-        main: "Okulembisa",
-        __description: "okulembisa omuholo ku ekele",
-      },
-      __scan: {
-        main: "Okusosa",
-        __description: "okusosa omuholo ku njila yokuingila",
-      },
-      __return: {
-        main: "Okuvutuka",
-        __description: "okuvutula omuholo ku oviungula",
-      },
+      __print: DocStr("Okulembisa", "okulembisa omuholo ku ekele"),
+      __scan: DocStr("Okusosa", "okusosa omuholo ku njila yokuingila"),
+      __return: DocStr("Okuvutuka", "okuvutula omuholo ku oviungula"),
+      __break: DocStr("Okutata", "okutata ngiedi ya kaliye"),
+      __continue: DocStr("Okutwalako", "okuenda ku ngiedi yi landa"),
     },
 
     sentences: {
-      __function: {
-        main: "Oviungula",
-        __description: "okufumana oviungula",
-      },
-      __if: {
-        main: "Nge",
-        __description: "okufumana kondisaun",
-      },
-      __else: {
-        main: "Kana",
-        __description: "okufumana kondisaun yokanka",
-      },
-      __while: {
-        main: "Ngiedi",
-        __description: "okufumana ngiedi wa ngiedi",
-      },
-      __for: {
-        main: "Ku",
-        __description: "okufumana ngiedi wa ku",
-      },
-      __switch: {
-        main: "Okusongola",
-        __description: "okufumana estrutura yokusongola",
-      },
-      __case: {
-        main: "Okima",
-        __description: "okufumana okima mu estrutura yokusongola",
-      },
-      __default: {
-        main: "Onsuka",
-        __description: "okufumana okima konsuka mu estrutura yokusongola",
-      },
-      __try: {
-        main: "Okusuka",
-        __description: "okufumana bloku ya okusuka",
-      },
-      __catch: {
-        main: "Okukanga",
-        __description: "okufumana bloku yokulukila ominsangu",
-      },
-      __finally: {
-        main: "Konsuka",
-        __description: "okufumana bloku yokusalama ntangu yosi",
-      },
+      __function: DocStr("Oviungula", "okufumana oviungula"),
+      __if: DocStr("Nge", "okufumana kondisaun"),
+      __else: DocStr("Kana", "okufumana kondisaun yokanka"),
+      __while: DocStr("Ngiedi", "okufumana ngiedi wa ngiedi"),
+      __for: DocStr("Ku", "okufumana ngiedi wa ku"),
+      __switch: DocStr("Okusongola", "okufumana estrutura yokusongola"),
+      __case: DocStr("Okima", "okufumana okima mu estrutura yokusongola"),
+      __default: DocStr(
+        "Onsuka",
+        "okufumana okima konsuka mu estrutura yokusongola",
+      ),
+      __try: DocStr("Okusuka", "okufumana bloku ya okusuka"),
+      __catch: DocStr("Okukanga", "okufumana bloku yokulukila ominsangu"),
+      __finally: DocStr("Konsuka", "okufumana bloku yokusalama ntangu yosi"),
+      __class: DocStr("Klas", "okululika klas yokaliye"),
+      __constructor: DocStr("Okululika", "oviungula vyo okululika ombuto"),
     },
   },
 
   errors: {
-    main: {
-      tag: "OLUSITA",
-      message: "Olusita lwa sistema",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "OlusitaOlusiziwa",
-      message: "Olusita olo olusiziwa",
-    },
-    __TypeError: {
-      tag: "OlusitaMuxima",
-      message: "Omuxima owabela mu oviungula",
-    },
-    __ReferenceError: {
-      tag: "OlusitaReferencia",
-      message: "Ovivikilanga ovijila mu scope",
-    },
-    __SyntaxError: {
-      tag: "OlusitaSintaxe",
-      message: "Codigo owabela",
-    },
-    __RangeError: {
-      tag: "OlusitaRango",
-      message: "Omuholo ofuila rango ya kuluvula",
-    },
-    __URIError: {
-      tag: "OlusitaUri",
-      message: "URI owabela to invalid",
-    },
-    __EvalError: {
-      tag: "OlusitaEval",
-      message: "Olusita lwa eval",
-    },
+    __labels: errorLabel(
+      "Esapulo",
+      "Omuholo",
+      "Ovivikilanga",
+      "Ocituwa",
+      "Ombuto",
+      "Okulavelela",
+      "Okusanga",
+      "OkukapaKonstante",
+      "ParametroYapandulula",
+      "Epukululo",
+      "OlembaYavela",
+      "StackYapula",
+      "Olemba",
+      "EsuloKaLialavelele",
+    ),
+    main: errorMessage("OLUSITA", "Olusita lwa sistema"),
+    __TypeError: errorMessage("OlusitaMuxima", "Omuxima owabela mu oviungula"),
+    __InitError: errorMessage(
+      "OlusitaInit",
+      "Ovivikilanga ka via kapiwile mo omuholo",
+    ),
+    __ReferenceError: errorMessage(
+      "OlusitaReferencia",
+      "Ovivikilanga ovijila mu scope",
+    ),
+    __SyntaxError: errorMessage("OlusitaSintaxe", "Codigo owabela"),
+    __RangeError: errorMessage(
+      "OlusitaRango",
+      "Omuholo ofuila rango ya kuluvula",
+    ),
+    __URIError: errorMessage("OlusitaUri", "URI owabela to invalid"),
+    __EvalError: errorMessage("OlusitaEval", "Olusita lwa eval"),
+    __UNKNOWN_ERROR: errorMessage("OlusitaOlusiziwa", "Olusita olo olusiziwa"),
+  },
+
+  example: {
+    __array: [
+      "pizzas",
+      "olupale",
+      "olista_onombolo",
+      "onombolo",
+      "ovivala",
+      "ovipindi",
+      "olista_oluse",
+      "ovipulu",
+      "pontos",
+      "ondimi",
+    ],
+    __boolean: [
+      "ekalo",
+      "ci_talavaya",
+      "access_yapua",
+      "tayari",
+      "confirmado",
+      "yapandwa",
+      "itwalako",
+      "yapua",
+      "verificado",
+      "cancelado",
+    ],
+    __function: [
+      "getEdu",
+      "calcularValor",
+      "exibirDados",
+      "updateProfil",
+      "formatarTexto",
+      "analisarCodigo",
+      "checkDados",
+      "salvarDoc",
+      "enviarMensagem",
+      "addAhlisi",
+    ],
+    __number: [
+      "anyamo",
+      "omvula_okuciwa",
+      "media",
+      "total",
+      "omuholo",
+      "indice",
+      "ntangu",
+      "kilikisu",
+      "pontos",
+      "engonga",
+    ],
+    __object: [
+      "omunu",
+      "cliente",
+      "configuracao",
+      "okutambulula",
+      "pagamento",
+      "perfil",
+      "endereco",
+      "metadados",
+      "sessao",
+      "ombuto",
+    ],
+    __string: [
+      "edu",
+      "endereco",
+      "deskrisun",
+      "email",
+      "senha",
+      "esapulo",
+      "numbelo",
+      "chave",
+      "url",
+      "link",
+    ],
+    __void: [
+      "enda",
+      "delete",
+      "talama",
+      "limpar",
+      "yoka",
+      "tunda",
+      "vutula",
+      "saveAhlisi",
+      "tuma",
+      "ingila",
+    ],
   },
 }).grammar();

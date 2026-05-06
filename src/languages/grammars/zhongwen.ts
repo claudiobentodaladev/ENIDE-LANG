@@ -1,250 +1,251 @@
 import { Language } from "../grammar.class.js";
+import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const zhongwen = new Language({
   language: "zhongwen",
   about:
     "ENIDE shi yige ke fanyi de yuan daima zhuanhuangi, yingxu shiyong rhenhe yuyan biancheng",
-  include: {
-    main: "BaoHan",
-    __description: "Yong yu bao han yu yan huo ku",
-  },
+
+  include: DocStr("BaoHan", "Yong yu bao han yu yan huo ku"),
+
   commands: {
-    all: {
-      __about: {
-        main: "GuanYu",
-        __description: "huoqu guanyu ENIDE de xinxi",
-      },
-      __help: {
-        main: "BangZhu",
-        __description: "huoqu suoyou keyong mingling de liebiao",
-      },
-      __version: {
-        main: "BanBen",
-        __description: "huoqu ENIDE de dangqian banben",
-      },
-      __languages: {
-        main: "YuYan",
-        __description: "huoqu suoyou keyong yuyan de liebiao",
-      },
-      __documentation: {
-        main: "WenDang",
-        __description: "huoqu yuyan de wendang",
-      },
-    },
+    __about: DocStr("GuanYu", "huoqu guanyu ENIDE de xinxi"),
+    __help: DocStr("BangZhu", "huoqu suoyou keyong mingling de liebiao"),
+    __version: DocStr("BanBen", "huoqu ENIDE de dangqian banben"),
+    __languages: DocStr("YuYan", "huoqu suoyou keyong yuyan de liebiao"),
+    __documentation: DocStr("WenDang", "huoqu yuyan de wendang"),
+    __grammar: DocStr("YuFa", "huoqu yuyan de yufa guize"),
   },
+
   library: {
+    __standard: {
+      main: DocStr("BiaoZhun", "fangwen biao zhun xi tong ku"),
+      __isarray: DocStr("ShiShuZu", "jiancha zhi shifou wei shuzu"),
+      __isobject: DocStr("ShiDuiXiang", "jiancha zhi shifou wei duixiang"),
+      __typeof: DocStr("LeiXing", "huoqu bianliang de leixing"),
+      __parse: DocStr("JieXi", "jiang zi fu chuan zhuan huan wei shu ju"),
+    },
     __math: {
-      main: {
-        main: "ShuXue",
-        __description: "fangwen shuxue hanshu",
-      },
-      __pi: {
-        main: "PI",
-        __description: "huoqu pi de zhi",
-      },
-      __sqrt: {
-        main: "PingFangGen",
-        __description: "huoqu pingfanggen",
-      },
-      __pow: {
-        main: "Mi",
-        __description: "huoqu shuzi de mi",
-      },
-      __round: {
-        main: "SiSheWuRu", // Correção principal
-        __description: "dui shuzi jinxing sishiwuru",
-      },
-      __random: {
-        main: "SuiJi",
-        __description: "huoqu suijishu",
-      },
-      __max: {
-        main: "ZuiDaZhi",
-        __description: "huoqu zuidazhi",
-      },
-      __min: {
-        main: "ZuiXiaoZhi",
-        __description: "huoqu zuixiaozhi",
-      },
-      __isNumber: {
-        main: "ShiShuZi",
-        __description: "jiancha zhi shifou wei shuzi",
-      },
-      __isInteger: {
-        main: "ShiZhengShu",
-        __description: "jiancha zhi shifou wei zhengshu",
-      },
-      __isFloat: {
-        main: "ShiXiaoShu",
-        __description: "jiancha zhi shifou wei xiaoshu",
-      },
+      main: DocStr("ShuXue", "fangwen shuxue hanshu"),
+      __pi: DocStr("PI", "huoqu pi de zhi"),
+      __sqrt: DocStr("PingFangGen", "huoqu pingfanggen"),
+      __pow: DocStr("Mi", "huoqu shuzi de mi"),
+      __round: DocStr("SiSheWuRu", "dui shuzi jinxing sishiwuru"),
+      __random: DocStr("SuiJi", "huoqu suijishu"),
+      __max: DocStr("ZuiDaZhi", "huoqu zuidazhi"),
+      __min: DocStr("ZuiXiaoZhi", "huoqu zuixiaozhi"),
+      __isNumber: DocStr("ShiShuZi", "jiancha zhi shifou wei shuzi"),
+      __isInteger: DocStr("ShiZhengShu", "jiancha zhi shifou wei zhengshu"),
+      __isFloat: DocStr("ShiXiaoShu", "jiancha zhi shifou wei xiaoshu"),
+      __cos: DocStr("YuXian", "huoqu yu xian zhi"),
+      __sin: DocStr("ZhengXian", "huoqu zheng xian zhi"),
+      __tan: DocStr("ZhengQie", "huoqu zheng qie zhi"),
     },
+
     __string: {
-      main: {
-        main: "ZiFuChuan",
-        __description: "fangwen zifuchuan caozuo hanshu",
-      },
-      __length: {
-        main: "ChangDu",
-        __description: "huoqu zifuchuan changdu",
-      },
-      __toUpperCase: {
-        main: "ZhuanDaXie",
-        __description: "jiang zifuchuan zhuanhuan wei daxie",
-      },
-      __toLowerCase: {
-        main: "ZhuanXiaoXie",
-        __description: "jiang zifuchuan zhuanhuan wei xiaoxie",
-      },
+      main: DocStr("ZiFuChuan", "fangwen zifuchuan caozuo hanshu"),
+      __length: DocStr("ChangDu", "huoqu zifuchuan changdu"),
+      __toUpperCase: DocStr(
+        "ZhuanDaXie",
+        "jiang zifuchuan zhuanhuan wei daxie",
+      ),
+      __toLowerCase: DocStr(
+        "ZhuanXiaoXie",
+        "jiang zifuchuan zhuanhuan wei xiaoxie",
+      ),
+      __include: DocStr("BaoKuo", "jiancha shi fou bao han mou ge zi fu"),
+      __repeat: DocStr("ChongFu", "chong fu zi fu chuan"),
     },
+
     __date: {
-      main: {
-        main: "RiQi",
-        __description: "fangwen riqi he shijian caozuo hanshu",
-      },
-      __year: {
-        main: "Nian",
-        __description: "huoqu nianfen",
-      },
-      __month: {
-        main: "Yue",
-        __description: "huoqu yuefen",
-      },
-      __dayMonth: {
-        main: "Ri",
-        __description: "huoqu yue fen de riqi",
-      },
-      __dayWeek: {
-        main: "XingQi",
-        __description: "huoqu xingqi ji",
-      },
-      __hour: {
-        main: "XiaoShi",
-        __description: "huoqu xiaoshi",
-      },
-      __minute: {
-        main: "FenZhong",
-        __description: "huoqu fenzhong",
-      },
-      __second: {
-        main: "Miao",
-        __description: "huoqu miao",
-      },
+      main: DocStr("RiQi", "fangwen riqi he shijian caozuo hanshu"),
+      __now: DocStr("XianZai", "huoqu dang qian ri qi he shi jian"),
+      __year: DocStr("Nian", "huoqu nianfen"),
+      __month: DocStr("Yue", "huoqu yuefen"),
+      __dayMonth: DocStr("Ri", "huoqu yue fen de riqi"),
+      __dayWeek: DocStr("XingQi", "huoqu xingqi ji"),
+      __hour: DocStr("XiaoShi", "huoqu xiaoshi"),
+      __minute: DocStr("FenZhong", "huoqu fenzhong"),
+      __second: DocStr("Miao", "huoqu miao"),
     },
   },
+
   types: {
-    __object: {
-      main: "DuiXiang",
-      __description: "yongyu shengming yige jingzhi duixiang",
-    },
-    __number: {
-      main: "ShuZi",
-      __description: "shengming shuzi leixing de bianliang",
-    },
-    __string: {
-      main: "ZiFuChuan",
-      __description: "shengming zifuchuan leixing de bianliang",
-    },
-    __boolean: {
-      main: "BuLin",
-      values: { __true: "Zhen", __false: "Jia" },
-      __description: "shengming bulin leixing de bianliang",
-    },
+    __number: DocStr("ShuZi", "shengming shuzi leixing de bianliang"),
+    __string: DocStr("ZiFuChuan", "shengming zifuchuan leixing de bianliang"),
+    __boolean: DocStr("BuLin", "shengming bulin leixing de bianliang"),
+    __object: DocStr("DuiXiang", "yongyu shengming yige jingzhi duixiang"),
+    __void: DocStr("Kong", "hanshu bu fan hui ren he zhi"),
+    __array: DocStr("ShuZu", "shuju de lie biao leixing"),
   },
+
+  specialValues: {
+    __true: DocStr("Zhen", "luoji zhen zhi"),
+    __false: DocStr("Jia", "luoji jia zhi"),
+    __null: DocStr("Wu", "biao shi mei you zhi"),
+  },
+
+  words: {
+    __new: DocStr("XinJian", "chuang jian xin de duixiang"),
+    __this: DocStr("BenShen", "zhi xiang dang qian duixiang"),
+    __extends: DocStr("JiCheng", "ji cheng ling wai yi ge lei"),
+  },
+
+  accessModifiers: {
+    __private: DocStr("SiYou", "jin限 lei nei bu fang wen"),
+    __public: DocStr("GongGong", "ren he di fang dou ke fang wen"),
+    __protected: DocStr("ShouBaoHu", "lei ji zi lei ke fang wen"),
+    __readonly: DocStr("ZhiDu", "bu ke xiu gai de zhi"),
+    __static: DocStr("JingTai", "shuyu lei er bu shi shi li"),
+  },
+
   methods: {
     method: {
-      __print: {
-        main: "DaYin",
-        __description: "zai pingmu shang dayin zhi",
-      },
-      __scan: {
-        main: "ShuRu",
-        __description: "cong shuru zhong dudu zhi",
-      },
-      __return: {
-        main: "FanHui",
-        __description: "cong hanshu fanhui zhi",
-      },
+      __print: DocStr("DaYin", "zai pingmu shang dayin zhi"),
+      __scan: DocStr("ShuRu", "cong shuru zhong dudu zhi"),
+      __return: DocStr("FanHui", "cong hanshu fanhui zhi"),
+      __break: DocStr("ZhongDuan", "tiao chu dang qian xunhuan"),
+      __continue: DocStr("JiXu", "tiao guo dang qian jin cheng"),
     },
+
     sentences: {
-      __function: {
-        main: "HanShu",
-        __description: "shengming hanshu",
-      },
-      __if: {
-        main: "RuGuo",
-        __description: "shengming tiaojian",
-      },
-      __else: {
-        main: "FouZe",
-        __description: "shengming beixuan tiaojian",
-      },
-      __while: {
-        main: "Dang",
-        __description: "shengming while xunhuan",
-      },
-      __for: {
-        main: "XunHuan",
-        __description: "shengming for xunhuan",
-      },
-      __switch: {
-        main: "KaiGuan",
-        __description: "shengming xuanze jiegou",
-      },
-      __case: {
-        main: "QingKuang",
-        __description: "shengming xuanze jiegou zhong de qingkuang",
-      },
-      __default: {
-        main: "MoRen",
-        __description: "shengming moren qingkuang",
-      },
-      __try: {
-        main: "ChangShi", // Correção semântica
-        __description: "shengming try kuai",
-      },
-      __catch: {
-        main: "BuHuo", // Correção semântica
-        __description: "shengming cuowu chuli kuai",
-      },
-      __finally: {
-        main: "ZuiHou",
-        __description: "shengming zong shi zhixing de kuai",
-      },
+      __function: DocStr("HanShu", "shengming hanshu"),
+      __if: DocStr("RuGuo", "shengming tiaojian"),
+      __else: DocStr("FouZe", "shengming beixuan tiaojian"),
+      __while: DocStr("Dang", "shengming while xunhuan"),
+      __for: DocStr("XunHuan", "shengming for xunhuan"),
+      __switch: DocStr("KaiGuan", "shengming xuanze jiegou"),
+      __case: DocStr("QingKuang", "shengming xuanze jiegou zhong de qingkuang"),
+      __default: DocStr("MoRen", "shengming moren qingkuang"),
+      __try: DocStr("ChangShi", "shengming try kuai"),
+      __catch: DocStr("BuHuo", "shengming cuowu chuli kuai"),
+      __finally: DocStr("ZuiHou", "shengming zong shi zhixing de kuai"),
+      __class: DocStr("Lei", "shengming yi ge xin de lei"),
+      __constructor: DocStr("GouZao", "yong yu chu shi hua duixiang de hanshu"),
     },
   },
+
   errors: {
-    main: {
-      tag: "CUOWU",
-      message: "XiTong tongyong cuowu",
-    },
-    __UNKNOWN_ERROR: {
-      tag: "WEI_ZHI_CUOWU",
-      message: "WanQuan wei zhi de cuowu",
-    },
-    __TypeError: {
-      tag: "LEI_XING_CUOWU",
-      message: "CaoZuo zhong de wu xiao lei xing",
-    },
-    __ReferenceError: {
-      tag: "YIN_YONG_CUOWU",
-      message: "BianLiang zai zuo yong yu nei bu cun zai",
-    },
-    __SyntaxError: {
-      tag: "YU_FA_CUOWU",
-      message: "WuXiao de dai ma",
-    },
-    __RangeError: {
-      tag: "FAN_WEI_CUOWU",
-      message: "Zhi chao chu le ying xu fan wei",
-    },
-    __URIError: {
-      tag: "URI_CUOWU",
-      message: "GeShi yi chang huo wu xiao de URI",
-    },
-    __EvalError: {
-      tag: "EVAL_CUOWU",
-      message: "Yu eval you guan de cuowu",
-    },
+    __labels: errorLabel(
+      "XiaoXi",
+      "Zhi",
+      "BianLiang",
+      "ShuXing",
+      "DuiXiang",
+      "QiDai",
+      "HuoDe",
+      "ChangLiangFuZhi",
+      "CanShuChongFu",
+      "BangZhu",
+      "FuHaoWuXiao",
+      "ZhanYiChu",
+      "FuHao",
+      "ShuRuJieShu",
+    ),
+    main: errorMessage("CUOWU", "XiTong tongyong cuowu"),
+    __TypeError: errorMessage(
+      "LEI_XING_CUOWU",
+      "CaoZuo zhong de wu xiao lei xing",
+    ),
+    __InitError: errorMessage("CHU_SHI_HUA_CUOWU", "Bianliang wei chu shi hua"),
+    __ReferenceError: errorMessage(
+      "YIN_YONG_CUOWU",
+      "BianLiang zai zuo yong yu nei bu cun zai",
+    ),
+    __SyntaxError: errorMessage("YU_FA_CUOWU", "WuXiao de dai ma"),
+    __RangeError: errorMessage(
+      "FAN_WEI_CUOWU",
+      "Zhi chao chu le ying xu fan wei",
+    ),
+    __URIError: errorMessage("URI_CUOWU", "GeShi yi chang huo wu xiao de URI"),
+    __EvalError: errorMessage("EVAL_CUOWU", "Yu eval you guan de cuowu"),
+    __UNKNOWN_ERROR: errorMessage("WEI_ZHI_CUOWU", "WanQuan wei zhi de cuowu"),
+  },
+
+  example: {
+    __array: [
+      "pizashuzu",
+      "chengshi",
+      "shuzuliebiao",
+      "shuzi",
+      "yanse",
+      "xiangmu",
+      "renyuan",
+      "bumen",
+      "fenshu",
+      "yuyan",
+    ],
+    __boolean: [
+      "zhuangtai",
+      "yunxingzhong",
+      "youquanxian",
+      "wancheng",
+      "queren",
+      "kaiqi",
+      "jixu",
+      "jieshu",
+      "yiyanzheng",
+      "quxiao",
+    ],
+    __function: [
+      "huoquMingzi",
+      "jisuanZhi",
+      "xianshiShuju",
+      "gengxinPeizhi",
+      "geShiHua",
+      "fenxiDaima",
+      "jianchaShuju",
+      "baocunWendan",
+      "fasongXiaoXi",
+      "tianjiaChengyuan",
+    ],
+    __number: [
+      "nianling",
+      "chushengnian",
+      "pingjunzhi",
+      "zonghe",
+      "jiage",
+      "suoyin",
+      "shijian",
+      "shuliang",
+      "defen",
+      "xiaoshi",
+    ],
+    __object: [
+      "yonghu",
+      "kehu",
+      "peizhi",
+      "xiangying",
+      "zhifu",
+      "gerenziliao",
+      "dizhi",
+      "yuanshuju",
+      "huidiaon",
+      "duixiang",
+    ],
+    __string: [
+      "mingzi",
+      "dizhi",
+      "miaoshu",
+      "youxiang",
+      "mima",
+      "xiaoxi",
+      "bianhao",
+      "yaoshi",
+      "lianjie",
+      "wangzhi",
+    ],
+    __void: [
+      "zouba",
+      "shanchu",
+      "tingzhi",
+      "qingchu",
+      "xiaohui",
+      "tuichu",
+      "qingkonghuanchong",
+      "baocunsuoyou",
+      "fasong",
+      "denglu",
+    ],
   },
 }).grammar();
