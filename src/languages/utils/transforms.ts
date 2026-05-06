@@ -1,68 +1,58 @@
-import { Capitalize } from "../utils/capitalize.js";
-import { Normalize } from "../utils/unicodeNormalize.js";
+import { low, up, norm, normCap, normUp } from "./cases.string.js";
 
 import { DocStructure } from "../grammar.interface.js";
 import { ErrorLabels, ErrorStructure } from "../interfaces/error.interface.js";
 
-// ─── Primitives ───────────────────────────────────────────────────────────────
-
-export const low = (s: string) => s.toLowerCase();
-export const up = (s: string) => s.toUpperCase();
-export const norm = (s: string) => Normalize(low(s));
-export const normUp = (s: string) => Normalize(up(s));
-export const normCap = (s: string) => Normalize(Capitalize(s));
-
-/** main → norm(lowercase)     | keywords, sentences, methods  */
 export const normEntry = (entry: Partial<DocStructure>) => {
   return {
-    main: norm(entry.main ?? ""),
-    __description: low(entry.__description ?? ""),
+    main: norm(entry.main ?? "", true),
+    __description: low(entry.__description ?? "", false),
   };
 };
 
-/** main → normCap(Capitalize) | library sub-functions         */
 export const capEntry = (entry: Partial<DocStructure>) => {
   return {
-    main: normCap(entry.main ?? ""),
-    __description: low(entry.__description ?? ""),
+    main: normCap(entry.main ?? "", true),
+    __description: low(entry.__description ?? "", false),
   };
 };
 
-/** main → normUp(uppercase)   | special case: Math.PI         */
 export const upEntry = (entry: Partial<DocStructure>) => {
   return {
-    main: normUp(entry.main ?? ""),
-    __description: low(entry.__description ?? ""),
+    main: normUp(entry.main ?? "", true),
+    __description: low(entry.__description ?? "", false),
   };
 };
 
-/** { tag, message }           | error entries                  */
 export const errorEntry = (entry: Partial<ErrorStructure>) => {
-  return { tag: up(entry.tag ?? ""), message: low(entry.message ?? "") };
+  return {
+    tag: up(entry.tag ?? "", true),
+    message: low(entry.message ?? "", false),
+  };
 };
 
 export const errorLabelEntry = (entry: Partial<ErrorLabels>): ErrorLabels => {
   return {
-    message: normCap(entry.message ?? ""),
-    value: low(entry.value ?? ""),
-    variable: low(entry.variable ?? ""),
-    property: low(entry.property ?? ""),
-    object: low(entry.object ?? ""),
-    expected: low(entry.expected ?? ""),
-    received: low(entry.received ?? ""),
+    message: normCap(entry.message ?? "", false),
+    value: low(entry.value ?? "", false),
+    variable: low(entry.variable ?? "", false),
+    property: low(entry.property ?? "", false),
+    object: low(entry.object ?? "", false),
+    expected: low(entry.expected ?? "", false),
+    received: low(entry.received ?? "", false),
 
-    token: low(entry.token ?? ""),
-    hint: low(entry.hint ?? ""),
-    unexpectedEnd: low(entry.unexpectedEnd ?? ""),
-    invalidToken: low(entry.invalidToken ?? ""),
-    stackOverflow: low(entry.stackOverflow ?? ""),
-    constAssignment: low(entry.constAssignment ?? ""),
-    duplicateParam: low(entry.duplicateParam ?? ""),
+    token: low(entry.token ?? "", false),
+    hint: low(entry.hint ?? "", false),
+    unexpectedEnd: low(entry.unexpectedEnd ?? "", false),
+    invalidToken: low(entry.invalidToken ?? "", false),
+    stackOverflow: low(entry.stackOverflow ?? "", false),
+    constAssignment: low(entry.constAssignment ?? "", false),
+    duplicateParam: low(entry.duplicateParam ?? "", false),
   };
 };
 
-//=====
-
 export const exemplesEntry = (entry: string[]) => {
-  return entry?.map(norm).filter((item) => item !== null);
+  return entry
+    ?.map((items) => norm(items, true))
+    .filter((item) => item !== null);
 };

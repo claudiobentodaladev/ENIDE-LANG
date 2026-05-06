@@ -1,5 +1,5 @@
 import { LanguageGrammar } from "./grammar.interface.js";
-import { norm, low } from "./utils/transforms.js";
+import { norm, low } from "./utils/cases.string.js";
 import { mapCommands } from "./mappers/commands.mapper.js";
 import { mapLibrary } from "./mappers/library.mapper.js";
 import { mapMethods } from "./mappers/methods.mapper.js";
@@ -23,12 +23,12 @@ export class Language {
     const Grammar = this.#grammar;
 
     return {
-      language: norm(Grammar.language ?? ""),
-      about: norm(Grammar.about ?? ""),
+      language: norm(Grammar.language ?? "", true),
+      about: norm(Grammar.about ?? "", false),
 
       include: {
-        main: norm(Grammar.include?.main ?? ""),
-        __description: low(Grammar.include?.__description ?? ""),
+        main: norm(Grammar.include?.main ?? "", true),
+        __description: low(Grammar.include?.__description ?? "", false),
       },
 
       commands: mapCommands(Grammar.commands),

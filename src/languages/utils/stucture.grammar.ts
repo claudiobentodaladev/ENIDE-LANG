@@ -1,11 +1,11 @@
 import { ErrorStructure, ErrorLabels } from "../interfaces/error.interface.js";
 import { DocStructure } from "../grammar.interface.js";
-import { norm, low } from "./transforms.js";
+import { norm, low } from "./cases.string.js";
 
 export function DocStr(main: string, __description: string): DocStructure {
   return {
-    main: norm(main),
-    __description: low(__description),
+    main: norm(main, true),
+    __description: low(__description, false),
   };
 }
 
