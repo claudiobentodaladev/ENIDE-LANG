@@ -7,7 +7,7 @@ export const portugues = new Language({
     "ENIDE é um transpilador poliglota que permite programar em qualquer idioma",
 
   include: DocStr(
-    "incluír",
+    "incluir",
     "usado para incluir idioma, bibliotecas ou estruturas de dados de outros ficheiros",
   ),
 
@@ -23,22 +23,22 @@ export const portugues = new Language({
       "para obter a lista de todos os idiomas disponíveis",
     ),
     __documentation: DocStr("manual", "para obter a documentação de um idioma"),
-    __grammar: DocStr("gramatica", "para obter a gramatíca de um idioma"),
+    __grammar: DocStr("gramática", "para obter a gramática de um idioma"),
   },
 
   library: {
     __standard: {
-      main: DocStr("padrão", "para accessar metodos padrão uteis"),
-      __isarray: DocStr("evector", "para verificar se o valor é um vector"),
-      __isobject: DocStr("eobjecto", "para verificar se o valor é um objecto"),
+      main: DocStr("padrão", "para acessar métodos padrão úteis"),
+      __isarray: DocStr("éVector", "para verificar se o valor é um vector"),
+      __isobject: DocStr("éObjecto", "para verificar se o valor é um objecto"),
       __typeof: DocStr("Tipo", "para obter o tipo de um valor"),
       __parse: DocStr(
         "Parse",
-        "para parserizar um valor de texto para o seu valor correcto",
+        "para converter um valor de texto para o seu valor correcto",
       ),
     },
     __math: {
-      main: DocStr("matématica", "para aceder às funções matemáticas"),
+      main: DocStr("matemática", "para aceder às funções matemáticas"),
       __pi: DocStr("PI", "para obter o valor de pi"),
       __sqrt: DocStr("Raiz", "para obter a raiz quadrada de um número"),
       __pow: DocStr("Potência", "para obter a potência de um número"),
@@ -119,7 +119,7 @@ export const portugues = new Language({
     __private: DocStr("privado", "acessível apenas dentro da classe"),
     __public: DocStr("público", "acessível de qualquer lugar"),
     __protected: DocStr("protegido", "acessível na classe e subclasses"),
-    __readonly: DocStr("lerapenas", "valor só pode ser atribuído uma vez"),
+    __readonly: DocStr("lerApenas", "valor só pode ser atribuído uma vez"),
     __static: DocStr("estatico", "pertence à classe e não à instância"),
   },
 
@@ -147,7 +147,7 @@ export const portugues = new Language({
       __class: DocStr("classe", "para declarar uma classe"),
       __constructor: DocStr(
         "construtor",
-        "estrutura que permite declarar atributes em uma class",
+        "estrutura que permite declarar atributos numa classe",
       ),
     },
   },
@@ -205,13 +205,13 @@ export const portugues = new Language({
       "idiomas",
     ],
     __boolean: [
-      "éstado",
-      "éAduslto",
-      "éstaActivo",
+      "estado",
+      "éAdulto",
+      "estáAtivo",
       "éVisível",
       "temPermissão",
       "estáLogado",
-      "estáAbilitado",
+      "estáHabilitado",
       "estáFeito",
       "estáVerificado",
       "estáDeletado",
@@ -270,10 +270,10 @@ export const portugues = new Language({
       "limpar",
       "redefinir",
       "destruir",
-      "desLOgar",
+      "deslogar",
       "limparCache",
       "salvar",
-      "envirnoEmail",
+      "enviarEmail",
       "entrar",
     ],
   },
