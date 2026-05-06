@@ -1,36 +1,21 @@
-const SPECIAL_REPLACEMENTS: Record<string, string> = {
-  æ: "ae",
-  Æ: "AE",
-  œ: "oe",
-  Œ: "OE",
-  ß: "ss",
-  ð: "d",
-  Ð: "D",
-  þ: "th",
-  Þ: "TH",
-  ø: "o",
-  Ø: "O",
-  ł: "l",
-  Ł: "L",
-  đ: "d",
-  Đ: "D",
-  ħ: "h",
-  Ħ: "H",
-  ŧ: "t",
-  Ŧ: "T",
-  ŋ: "n",
-  Ŋ: "N",
-  ı: "i",
-  İ: "I",
-  ĳ: "ij",
-  Ĳ: "IJ",
-};
+import { GLOBAL_MAP } from "../GLOBALMAP.js";
 
 export function Normalize(str: string): string {
-  return str
+  if (!str) return "";
+
+  let normalized = str
     .split("")
-    .map((char) => SPECIAL_REPLACEMENTS[char] ?? char)
-    .join("")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+    .map((char) => {
+      const lower = char.toLowerCase();
+      const mapped = GLOBAL_MAP[lower];
+      if (mapped) {
+        return char === char.toUpperCase() ? mapped.toUpperCase() : mapped;
+      }
+      return char;
+    })
+    .join("");
+
+  normalized = normalized.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+  return normalized.replace(/[^\x00-\x7F]/g, "");
 }
