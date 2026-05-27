@@ -4,11 +4,11 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const amharic = new Language({
   language: "amharic",
   about:
-    "ENIDE bemananyawum quanquwa prwgiram lemadreg yemiyachil transpiler new",
+    "ENIDE bemanignawum quanquwa program lemadreg yemiyachil transpiler new",
 
   include: DocStr(
     "Makatet",
-    "Qwanqwawochin weyim béta-matsahiftin lémakatet yagelyilal",
+    "Qwanqwawochin weyim béta-matsahiftin lémakatet yageligilal",
   ),
 
   commands: {
@@ -26,7 +26,7 @@ export const amharic = new Language({
       __isarray: DocStr("TseyitaNew", "tseyita mehonun lemaregaget"),
       __isobject: DocStr("NegerNew", "neger mehonun lemaregaget"),
       __typeof: DocStr("Aynet", "ye waga aynet lemagnet"),
-      __parse: DocStr("Parse", "qalt wedad le_aynetu waga lemeferem"),
+      __parse: DocStr("Parse", "qalt weda le_aynetu waga lemalewet"),
     },
 
     __math: {
@@ -51,7 +51,7 @@ export const amharic = new Language({
       __length: DocStr("Rizmet", "ye qalt rizmet lemagnet"),
       __toUpperCase: DocStr("TilaqFidel", "wed tilaq fidel lemalewet"),
       __toLowerCase: DocStr("TinnishFidel", "wed tinnish fidel lemalewet"),
-      __include: DocStr("Yilegnal", "qalt substring yizazal lemaregaget"),
+      __include: DocStr("Yilegnal", "qalt substring yizwal lemaregaget"),
       __repeat: DocStr("Keter", "qalt yemit_keter gizie lemameles"),
     },
 
@@ -72,46 +72,46 @@ export const amharic = new Language({
     __number: DocStr("qutir", "ye qutir aynet variable lemasayet"),
     __string: DocStr("qalt", "ye qalt aynet variable lemasayet"),
     __boolean: DocStr(
-      "ewunet_hetet",
-      "ye ewunet hetet aynet variable lemasayet",
+      "ewunet_haset",
+      "ye ewunet inna haset aynet variable lemasayet",
     ),
-    __object: DocStr("neger", "yemayitakakel neger lemasayet"),
+    __object: DocStr("neger", "ye neger aynet variable lemasayet"),
     __void: DocStr("meleshet_yelem", "waga yemayimeles tighbar lemasayet"),
     __array: DocStr("tseyita", "ye tseyita data_structure lemasayet"),
   },
 
   specialValues: {
-    __true: DocStr("Ewnet", "ye ewunet hetet boolean waga"),
-    __false: DocStr("Haset", "ye haset hetet boolean waga"),
+    __true: DocStr("Ewnet", "ye ewunet boolean waga"),
+    __false: DocStr("Haset", "ye haset boolean waga"),
     __null: DocStr("yelem", "ye waga ymara"),
   },
 
   words: {
     __new: DocStr("hadis", "ye kilil hadis instance lemasayet"),
     __this: DocStr("iras", "ye irasuan atribute lemawet"),
-    __extends: DocStr("asteded", "kilil ke_lela kilil yiresahal lemawoket"),
+    __extends: DocStr("aswerris", "kilil ke_lela kilil yiwersal lemawoket"),
   },
 
   accessModifiers: {
     __private: DocStr("wesn", "bekilil wist bila yigebawal"),
     __public: DocStr("tiliqu", "keyand yigebawal"),
     __protected: DocStr("tegon", "bekilil inna belioch kilil yigebawal"),
-    __readonly: DocStr("lemat_bila", "waga methegem yekalal"),
-    __static: DocStr("yemayitakakil", "le_kililu yehonal, le_instance aydelem"),
+    __readonly: DocStr("lemanbeb_bicha", "waga meqeyer yekalkalal"),
+    __static: DocStr("yemayineqaneq", "le_kililu yehonal, le_instance aydelem"),
   },
 
   methods: {
     method: {
-      __print: DocStr("atim", "waga lessayet"),
-      __scan: DocStr("anbib", "waga leanbebt"),
+      __print: DocStr("atim", "waga lemasayet"),
+      __scan: DocStr("anbib", "waga lemanbeb"),
       __return: DocStr("mellis", "waga lememelles"),
-      __break: DocStr("teha", "loop lemetat"),
-      __continue: DocStr("tikim", "le_next_iteration lemegbat"),
+      __break: DocStr("tew", "loop lemaqwarat"),
+      __continue: DocStr("quetil", "le_next_iteration lemegbat"),
     },
 
     sentences: {
       __function: DocStr("tighbar", "tighbar lememessret"),
-      __if: DocStr("kama", "huneta lemamlket"),
+      __if: DocStr("kehone", "huneta lemamaleket"),
       __else: DocStr("kalehoni", "le_huneta_meleyet"),
       __while: DocStr("iskihon", "iskihon loop lemeziget"),
       __for: DocStr("le", "le loop lemeziget"),
@@ -119,7 +119,7 @@ export const amharic = new Language({
       __case: DocStr("huneta", "ye mircha aynet lemassayet"),
       __default: DocStr("idile", "idile huneta lemassayet"),
       __try: DocStr("mokkir", "ye_mokkir_block lememessret"),
-      __catch: DocStr("yay", "sihitet lemeyaz"),
+      __catch: DocStr("yaz", "sihitet lemeyaz"),
       __finally: DocStr("mecherrasha", "bemecherrasha yimeta"),
       __class: DocStr("kilil", "kilil lememessret"),
       __constructor: DocStr("mesret", "ye kilil atribute lemasayet mesret"),
@@ -138,8 +138,8 @@ export const amharic = new Language({
       "Tikim_Methegem",
       "YeTekerakari_Parameter",
       "Tirit",
-      "Yetesashire_Token",
-      "YeStack_Memtat",
+      "Yetesasate_Token",
+      "YeStack_Mewtat",
       "Token",
       "Yemitawweq_Yelem",
     ),
@@ -154,7 +154,7 @@ export const amharic = new Language({
     __RangeError: errorMessage("YE_WESSEN_SIHITET", "bewessen wichi new"),
     __URIError: errorMessage(
       "YE_URI_SIHITET",
-      "URI yetesasare weyim yasazazal",
+      "URI yetesasate weyim yaltateme",
     ),
     __EvalError: errorMessage("YE_EVAL_SIHITET", "eval sihitet"),
     __UNKNOWN_ERROR: errorMessage("YALETAWWEQE_SIHITET", "yaletawweqe sihitet"),

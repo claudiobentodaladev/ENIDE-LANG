@@ -116,7 +116,10 @@ export const afrikaans = new Language({
   words: {
     __new: DocStr("nuwe", "om 'n nuwe instansie van 'n klas te skep"),
     __this: DocStr("self", "om toegang tot eie klas-eienskappe te kry"),
-    __extends: DocStr("verleng", "om te verklaar dat 'n klas van 'n ander erf"),
+    __extends: DocStr(
+      "brei_uit",
+      "om te verklaar dat 'n klas van 'n ander erf",
+    ),
   },
 
   accessModifiers: {
@@ -192,7 +195,7 @@ export const afrikaans = new Language({
     __TypeError: errorMessage("TIPE_FOUT", "ongeldige tipe in operasie"),
     __InitError: errorMessage(
       "INISIALISERING_FOUT",
-      "veranderlike is nie geinitialiseer nie",
+      "veranderlike is nie geïnisialiseer nie",
     ),
     __ReferenceError: errorMessage(
       "VERWYSING_FOUT",
@@ -217,7 +220,7 @@ export const afrikaans = new Language({
       "kleure",
       "produkte",
       "gebruikers",
-      "kategoriee",
+      "kategorieë",
       "punte",
       "tale",
     ],
@@ -225,7 +228,7 @@ export const afrikaans = new Language({
       "status",
       "isVolwasse",
       "isAktief",
-      "isSignbaar",
+      "isSienbaar",
       "hetToestemming",
       "isAangemeld",
       "isGeaktiveer",
@@ -283,7 +286,7 @@ export const afrikaans = new Language({
     ],
     __void: [
       "aanmeld",
-      "initialiseer",
+      "inisialiseer",
       "skoonmaak",
       "herstel",
       "vernietig",

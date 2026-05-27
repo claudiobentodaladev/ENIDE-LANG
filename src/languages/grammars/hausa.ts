@@ -34,7 +34,7 @@ export const hausa = new Language({
       __pi: DocStr("PI", "samun lambar pi"),
       __sqrt: DocStr("tushe", "samun tushen lamba"),
       __pow: DocStr("iko", "samun ikon lamba"),
-      __round: DocStr("kewaye", "kewayen lamba"),
+      __round: DocStr("kusantarwa", "kusantar da lamba"),
       __random: DocStr("bazata", "samun lambar bazata"),
       __max: DocStr("babba", "lamba mafi girma"),
       __min: DocStr("kankane", "lamba mafi kankanta"),
@@ -50,7 +50,7 @@ export const hausa = new Language({
       main: DocStr("rubutu", "sarrafa rubutu"),
       __length: DocStr("tsawo", "tsawon rubutu"),
       __toUpperCase: DocStr("babbaku", "mayar da rubutu babban baki"),
-      __toLowerCase: DocStr("kankanku", "mayar da rubutu kankanin baki"),
+      __toLowerCase: DocStr("kananan_baki", "mayar da rubutu kananan baki"),
       __include: DocStr(
         "ya_kunsa",
         "duba idan rubutu yana dauke da wani bangare",

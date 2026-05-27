@@ -4,11 +4,11 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const ndebele = new Language({
   language: "ndebele",
   about:
-    "ENIDE iyikhompayila eguqulwayo evumela ukuphrograma nganoma yiluphi ulimi",
+    "I-ENIDE iyikhompayila eguqulelayo evumela ukuhlelwa kwezinhlelo nganoma yiluphi ulimi",
 
   include: DocStr(
     "Fakela",
-    "Kusetshenziswa ukufaka izilimi, izinqolobane noma amamojula amanye",
+    "Kusetshenziswa ukufaka izilimi, izinqolobane okanye amamojula emithombo yakwamanye amazwe",
   ),
 
   commands: {
@@ -19,51 +19,87 @@ export const ndebele = new Language({
       "Izilimi",
       "Ukuthola uhlu lwezilimi zonke ezitholakalayo",
     ),
-    __documentation: DocStr("Amabhuku", "Ukuthola imibhalo yolimi le-ENIDE"),
-    __grammar: DocStr("Isintaksi", "Ukuthola imithetho yolimi"),
+    __documentation: DocStr(
+      "Amadokhumenti",
+      "Ukuthola imibhalo namadokhumenti olwazi lolimi",
+    ),
+    __grammar: DocStr("Isintaksi", "Ukuthola imithetho yesintaksi yolimi"),
   },
 
   library: {
     __standard: {
-      main: DocStr("Okujwayelekile", "Imisebenzi eyinhloko yohlelo"),
-      __isarray: DocStr("IluHlu", "Ukuhlola ukuthi inani luluhlu"),
-      __isobject: DocStr("Iyinto", "Ukuhlola ukuthi inani liyinto"),
-      __typeof: DocStr("UhloboLwa", "Ukuthola uhlobo lwenani"),
-      __parse: DocStr("Guqula", "Ukuguqula intambo ibe luhlobo olufanele"),
+      main: DocStr("Okusekelweko", "Imisebenzi eyinhloko yohlelo lwesistimu"),
+      __isarray: DocStr("IngoLuhlu", "Ukuhlola ukuthi inani luluhlu (array)"),
+      __isobject: DocStr("IngyInto", "Ukuhlola ukuthi inani liyinto (object)"),
+      __typeof: DocStr("UhloboLwa", "Ukuthola uhlobo lwenani ledatha"),
+      __parse: DocStr(
+        "Cazulula",
+        "Ukuguqula intambo yombhalo ibe luhlobo lwedatha olufaneleyo",
+      ),
     },
     __math: {
       main: DocStr("Izibalo", "Ukufinyelela imisebenzi yezibalo"),
-      __pi: DocStr("PI", "Inani le-Pi elinqunyiwe"),
-      __sqrt: DocStr("IsiqueloSikwele", "Ukuthola isiquelo sikwele senombolo"),
-      __pow: DocStr("Amandla", "Ukuthola amandla enombolo"),
-      __round: DocStr("Jikeleza", "Ukujikeleza inombolo iye kuleyo eseduze"),
-      __random: DocStr("Okungahleliwe", "Ukukhiqiza inombolo engahleliwe"),
-      __max: DocStr("Enkulu", "Ukuthola inani elikhulu kunawa wonke"),
-      __min: DocStr("Encane", "Ukuthola inani elincane kunawa wonke"),
-      __isNumber: DocStr("InguNombolo", "Ukuhlola ukuthi inani lingunombolo"),
-      __isInteger: DocStr(
-        "InguNomboloYonke",
-        "Ukuhlola ukuthi inombolo iphelele",
+      __pi: DocStr("PI", "Inani le-konstante Pi elinqunyiwe"),
+      __sqrt: DocStr(
+        "IsiquSikaSkwele",
+        "Ukuthola isiqu sika-skwele senombolo (square root)",
       ),
-      __isFloat: DocStr("InguDesimali", "Ukuhlola ukuthi inani lingedesimali"),
-      __cos: DocStr("Kos", "Ukuthola i-cosine"),
-      __sin: DocStr("Sin", "Ukuthola i-sine"),
-      __tan: DocStr("Tan", "Ukuthola i-tangent"),
+      __pow: DocStr("Amandla", "Ukuthola amandla enombolo (puissance)"),
+      __round: DocStr(
+        "Sondeza",
+        "Ukusondeza inombolo iye kuleyo eseduze kakhulu",
+      ),
+      __random: DocStr(
+        "Okungahleliwe",
+        "Ukukhiqiza inombolo engahleliwe ngebhaqo",
+      ),
+      __max: DocStr(
+        "EnkuluKakhulu",
+        "Ukuthola inani elikhulu kunawa wonke aphaziweyo",
+      ),
+      __min: DocStr(
+        "EncaneKakhulu",
+        "Ukuthola inani elincane kunawa wonke aphaziweyo",
+      ),
+      __isNumber: DocStr("Iyinombolo", "Ukuhlola ukuthi inani liyinombolo na"),
+      __isInteger: DocStr(
+        "IyinomboloEpheleleyo",
+        "Ukuhlola ukuthi inombolo iphelele engelasidatshana (integer)",
+      ),
+      __isFloat: DocStr("Iyidesimali", "Ukuhlola ukuthi inani liyidesimali"),
+      __cos: DocStr("kos", "Ukuthola i-cosine"),
+      __sin: DocStr("sin", "Ukuthola i-sine"),
+      __tan: DocStr("tan", "Ukuthola i-tangent"),
     },
 
     __string: {
-      main: DocStr("Intambo", "Imisebenzi yokulungisa imibhalo"),
-      __length: DocStr("Ubude", "Ukuthola ubude bentambo"),
-      __toUpperCase: DocStr("Amakhulu", "Ukuguqula umbhalo ube mkhulu"),
-      __toLowerCase: DocStr("Amancane", "Ukuguqula umbhalo ube mncane"),
-      __include: DocStr("Iqukethe", "Ukuhlola ukuthi intambo iqukethe umbhalo"),
-      __repeat: DocStr("Phinda", "Ukuphinda intambo kaningi"),
+      main: DocStr(
+        "Umbhalo",
+        "Imisebenzi yokulungisa imibhalo lezintambo zamazwi (string)",
+      ),
+      __length: DocStr("Ubude", "Ukuthola ubude bentambo yombhalo"),
+      __toUpperCase: DocStr(
+        "Ngezinkulu",
+        "Ukuguqula umbhalo ube ngezinhlamvu ezinkulu",
+      ),
+      __toLowerCase: DocStr(
+        "Ngezincane",
+        "Ukuguqula umbhalo ube ngezinhlamvu ezincane",
+      ),
+      __include: DocStr(
+        "Iqukethe",
+        "Ukuhlola ukuthi intambo iqukethe umbhalo othile phakathi",
+      ),
+      __repeat: DocStr(
+        "Phinda",
+        "Ukuphinda intambo yombhalo kaningi ngalezo zikhathi ezibekiweyo",
+      ),
     },
 
     __date: {
-      main: DocStr("Usuku", "Imisebenzi yosuku nesikhathi"),
-      __now: DocStr("Manje", "Ukuthola isikhathi samanje"),
-      __year: DocStr("Unyaka", "Ukuthola unyaka"),
+      main: DocStr("Usuku", "Imisebenzi yosuku nesikhathi sesistimu"),
+      __now: DocStr("Manje", "Ukuthola usuku nesikhathi samanje"),
+      __year: DocStr("Unyaka", "Ukuthola unyaka riripo"),
       __month: DocStr("Inyanga", "Ukuthola inyanga"),
       __dayMonth: DocStr("UsukuLwenyanga", "Ukuthola usuku lwenyanga"),
       __dayWeek: DocStr("UsukuLweviki", "Ukuthola usuku lweviki"),
@@ -75,59 +111,98 @@ export const ndebele = new Language({
 
   types: {
     __number: DocStr("Inombolo", "Ukumemezela okuguqukayo kwenombolo"),
-    __string: DocStr("Intambo", "Ukumemezela okuguqukayo kombhalo"),
-    __boolean: DocStr("Bool", "Ukumemezela okuguqukayo kwe-logic"),
-    __object: DocStr("Into", "Ukumemezela into esayithi"),
-    __void: DocStr("Lutho", "Umsebenzi ongabuyi lutho"),
-    __array: DocStr("Uhlu", "Ukumemezela uhlu lwezinto"),
+    __string: DocStr("Umbhalo", "Ukumemezela okuguqukayo kombhalo"),
+    __boolean: DocStr("Ibhuli", "Ukumemezela okuguqukayo kwe-logic (boolean)"),
+    __object: DocStr("Into", "Ukumemezela into emileyo engatshintshelwayo"),
+    __void: DocStr("Ize", "Umsebenzi ongabuyisi lutho lwenani emuva"),
+    __array: DocStr("Uhlu", "Ukumemezela uhlu lwezinto ezilandelanayo (array)"),
   },
 
   specialValues: {
-    __true: DocStr("Liqiniso", "Inani eliqinisile"),
-    __false: DocStr("Amanga", "Inani elingaqinisanga"),
-    __null: DocStr("Abenkho", "Inani elingenalutho"),
+    __true: DocStr("Liqiniso", "Inani eliqinisileyo (true)"),
+    __false: DocStr("Amanga", "Inani elingaqinisanga (false)"),
+    __null: DocStr("Akulalutho", "Inani elikhombisa ukuthi akunani kule ndawo"),
   },
 
   words: {
-    __new: DocStr("Okusha", "Ukudala into entsha"),
-    __this: DocStr("Lokhu", "Ukubhekisela kule nto"),
-    __extends: DocStr("Inweba", "Ukunwebela kwelinye ikilasi"),
+    __new: DocStr("Okusha", "Ukudala into entsha (instance) evela ekilasini"),
+    __this: DocStr("Lokhu", "Ukubhekisela kule nto yamanje ekuleli kilasi"),
+    __extends: DocStr(
+      "Inweba",
+      "Ukunwebela noma ukuthatha ilifa kwelinye ikilasi (inheritance)",
+    ),
   },
 
   accessModifiers: {
-    __private: DocStr("Ngasese", "Kufinyeleleka kuphela kuleli kilasi"),
-    __public: DocStr("Obala", "Kufinyeleleka noma kuphi"),
-    __protected: DocStr("Kuvikelwe", "Kufinyeleleka nasekilasini elithathiwe"),
-    __readonly: DocStr("FundaKuphela", "Inani elingaguquki emva kokubekwa"),
-    __static: DocStr("Okumile", "Kungokwekilasi hhayi into edaliwe"),
+    __private: DocStr(
+      "Ngasese",
+      "Kufinyeleleka kuphela ngaphakathi kwaleli kilasi uqobo",
+    ),
+    __public: DocStr(
+      "Obala",
+      "Kufinyeleleka noma ngasiphi isikhundla okanye elinye ikilasi",
+    ),
+    __protected: DocStr(
+      "Kuvikelwe",
+      "Kufinyeleleka ngezizukulwane laphaya ekilasini elithathiweyo",
+    ),
+    __readonly: DocStr(
+      "FundaKuphela",
+      "Inani elingakwazi ukuguqulwa ngemva kokubhalwa kwayo",
+    ),
+    __static: DocStr(
+      "Okumile",
+      "Kungokwekilasi lonke, hhayi okwento eyodwa edaliweyo",
+    ),
   },
 
   methods: {
     method: {
-      __print: DocStr("Bonisa", "Ukubonisa inani kusikrini"),
-      __scan: DocStr("Funda", "Ukufunda inani kumsebenzisi"),
-      __return: DocStr("Buyisa", "Ukubuyisa inani emsebenzini"),
-      __break: DocStr("Nqamula", "Ukuphuma uluphu"),
-      __continue: DocStr("Qhubeka", "Ukuya ekuphindeni okulandelayo"),
+      __print: DocStr("Bonisa", "Ukubonisa okanye ukuphrinta inani kusikrini"),
+      __scan: DocStr("Funda", "Ukufunda inani elivela kumsebenzisi (input)"),
+      __return: DocStr(
+        "Buyisa",
+        "Ukubuyisa inani elivela emsebenzini (function)",
+      ),
+      __break: DocStr("Nqamula", "Ukuphuma uluphu (loop) ngokushesha"),
+      __continue: DocStr(
+        "Qhubeka",
+        "Ukuya ekuphindeni okulandelayo kwesinyathelo seluphu",
+      ),
     },
 
     sentences: {
-      __function: DocStr("Umsebenzi", "Ukumemezela umsebenzi omusha"),
-      __if: DocStr("Uma", "Ukuhlola isimo"),
-      __else: DocStr("Okunye", "Isimo uma esokuqala singelona"),
-      __while: DocStr("Ngenkathi", "Uluphu esebenza ngesimo"),
-      __for: DocStr("Phinda", "Uluphu ephindwayo ngenani"),
-      __switch: DocStr("Khetha", "Isakhiwo sokukhetha phakathi kwezimo"),
-      __case: DocStr("Icala", "Icala elithile ekukhetheni"),
-      __default: DocStr(
-        "Okuzenzakalayo",
-        "Okwenziwayo uma kungekho cala elifanayo",
+      __function: DocStr("Umsebenzi", "Ukumemezela umsebenzi omusha wekhodi"),
+      __if: DocStr("Uma", "Ukuhlola isimo sombandela wokuqala"),
+      __else: DocStr(
+        "Okunye",
+        "Isimo esizakwenzeka uma isimo sokuqala singelona iqiniso",
       ),
-      __try: DocStr("Zama", "Ukuqala ukuvivinya ikhodi"),
-      __catch: DocStr("Bamba", "Ukubamba isiphutha esenzekile"),
-      __finally: DocStr("Ekugcineni", "Ikhodi esebenza noma kunesiphutha"),
-      __class: DocStr("Ikilasi", "Ukumemezela ikilasi"),
-      __constructor: DocStr("Umakhi", "Umsebenzi owakha into"),
+      __while: DocStr(
+        "Ngenkathi",
+        "Uluphu olusebenza ngenkathi isimo siseqiniso",
+      ),
+      __for: DocStr("Nge", "Uluphu ephindwayo ngenani elinqunyiweyo lokubala"),
+      __switch: DocStr(
+        "Khetha",
+        "Isakhiwo sokukhetha phakathi kwezimo eziningi ezahlukeneyo",
+      ),
+      __case: DocStr("Isimo", "Isimo esithile esilindelweyo ekukhetheni"),
+      __default: DocStr(
+        "Esimiselweyo",
+        "Okwenziwayo ngokuzenzakalelayo uma kungekho simo esifanayo",
+      ),
+      __try: DocStr("Zama", "Ukuqala ukuvivinya ikhodi engaba leziphutha"),
+      __catch: DocStr("Bamba", "Ukubamba nokulungisa iphutha esenzekileyo"),
+      __finally: DocStr(
+        "Ekugcineni",
+        "Ikhodi esebenza njalo ngemva kokuzama lezokubamba",
+      ),
+      __class: DocStr("Ikilasi", "Ukumemezela ikilasi elitsha"),
+      __constructor: DocStr(
+        "Umakhi",
+        "Umsebenzi okhethekileyo owakha uze uqalise into entsha",
+      ),
     },
   },
 
@@ -140,37 +215,43 @@ export const ndebele = new Language({
       "Into",
       "Obukulindelekile",
       "Okutholakele",
-      "Ukunika_Ikustante",
-      "Ipharamitha_Ephindiwe",
+      "UkunikaIkustante",
+      "IpharamithaEphindiwe",
       "Isu",
-      "Ithokheni_Engalunganga",
-      "Iphutha_Le-Stack",
+      "IthokheniEngalunganga",
+      "IphuthaLeStack",
       "Ithokheni",
-      "Ukuphela_Okungalindelekile",
+      "UkuphelaOkungalindelekile",
     ),
-    main: errorMessage("ISIPHUTHA", "Isiphutha esijwayelekile sohlelo"),
+    main: errorMessage("IPHUTHA", "Iphutha esijwayelekile sohlelo lwesistimu"),
     __TypeError: errorMessage(
-      "ISIPHUTHA_SOHLOBO",
-      "Uhlobo alufanele emsebenzini",
+      "IPHUTHA_LOHLOBO",
+      "Uhlobo lwedatha alufanele kulo msebenzi owenziwayo",
     ),
     __InitError: errorMessage(
-      "ISIPHUTHA_SOKUQALA",
-      "Inani aliqaliswanga kahle",
+      "IPHUTHA_LOKUQALA",
+      "Inani lohlobo lwedatha aliqaliswanga kahle ngaphambilini",
     ),
     __ReferenceError: errorMessage(
-      "ISIPHUTHA_SOKUKHOMBA",
-      "Inani alitholakali",
+      "IPHUTHA_LOKUKHOMBA",
+      "Inani okanye umbhalo okhonjiweyo awutholakali kulo mda",
     ),
     __SyntaxError: errorMessage(
-      "ISIPHUTHA_SESINTAKSI",
-      "Isakhiwo sekhodi asilungile",
+      "IPHUTHA_LESINTAKSI",
+      "Isakhiwo sombhalo wekhodi asilunganga ngokwemithetho",
     ),
-    __RangeError: errorMessage("ISIPHUTHA_SOHLU", "Inani lingaphandle kohlu"),
-    __URIError: errorMessage("ISIPHUTHA_URI", "URI ayilungile"),
-    __EvalError: errorMessage("ISIPHUTHA_EVAL", "Isiphutha kumsebenzi we-eval"),
+    __RangeError: errorMessage(
+      "IPHUTHA_LOHLU",
+      "Inani lingaphandle kohlu okanye umda ovunyelweyo",
+    ),
+    __URIError: errorMessage("IPHUTHA_URI", "I-URI ayilunganga kakhulu"),
+    __EvalError: errorMessage(
+      "IPHUTHA_EVAL",
+      "Iphutha elivela kumsebenzi we-eval",
+    ),
     __UNKNOWN_ERROR: errorMessage(
-      "ISIPHUTHA_ESINGAZIWA",
-      "Isiphutha esingaziwa nhlobo",
+      "IPHUTHA_ESINGAZIWA",
+      "Iphutha elingaziwa nhlobo leli elingabhalwanga ndawo",
     ),
   },
 

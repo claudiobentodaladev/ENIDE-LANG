@@ -17,7 +17,7 @@ export const portugues = new Language({
       "ajuda",
       "para obter a lista de todos os comandos disponíveis",
     ),
-    __version: DocStr("versão", "para obter a versão atual do ENIDE"),
+    __version: DocStr("versão", "para obter a versão actual do ENIDE"),
     __languages: DocStr(
       "idiomas",
       "para obter a lista de todos os idiomas disponíveis",
@@ -137,7 +137,7 @@ export const portugues = new Language({
       __if: DocStr("se", "para declarar uma condição"),
       __else: DocStr("senão", "para declarar uma condição alternativa"),
       __while: DocStr("enquanto", "para declarar um ciclo enquanto"),
-      __for: DocStr("para", "para declarar um ciclo for"),
+      __for: DocStr("para", "para declarar um ciclo de repetição"),
       __switch: DocStr("escolha", "para declarar uma estrutura de seleção"),
       __case: DocStr("caso", "para declarar um caso na seleção"),
       __default: DocStr("contrário", "quando nenhum dos casos é encontrado"),

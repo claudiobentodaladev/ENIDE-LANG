@@ -12,7 +12,7 @@ export const yoruba = new Language({
 
   commands: {
     __about: DocStr("Nipa", "lati gba alaye nipa ENIDE"),
-    __help: DocStr("Iranlowo", "lati gba atokun gbogbo aawon ase to wa"),
+    __help: DocStr("Iranlowo", "lati gba atokun gbogbo awon ase to wa"),
     __version: DocStr("Eya", "lati gba eya lowolowo ti ENIDE"),
     __languages: DocStr("Ede", "lati gba atokun gbogbo ede ti o wa"),
     __documentation: DocStr("Iwe", "lati gba iwe ase fun ede"),
@@ -123,7 +123,6 @@ export const yoruba = new Language({
       __constructor: DocStr("Olupile", "ise pataki lati pilẹ nkan"),
     },
   },
-
   errors: {
     __labels: errorLabel(
       "Ifiranse",

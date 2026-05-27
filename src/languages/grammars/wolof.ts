@@ -3,11 +3,12 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const wolof = new Language({
   language: "wolof",
-  about: "ENIDE moy un transpiler bu dem ay laaj ci kenn ci benn ci dekk bi",
+  about:
+    "ENIDE ab transpiler la buy soppi kodi mbind mu dadi dundal lakk yu bari",
 
   include: DocStr(
     "Boole",
-    "Nu koy jefandikoo ngir boole lakk walla mbindu-teere yi",
+    "Nu koy jefandikoo ngir boole lakk walla mbindu-teere yi kuuma kaye yu bees",
   ),
 
   commands: {
@@ -15,7 +16,7 @@ export const wolof = new Language({
     __help: DocStr("Ndimbal", "jend liste yi nep ngay soxor"),
     __version: DocStr("Version", "jend version bi tey bi ENIDE"),
     __languages: DocStr("Lakk", "jend liste yi nep lakk yi"),
-    __documentation: DocStr("Dekk", "jend documentation lakk bi"),
+    __documentation: DocStr("Teere", "jend teere documentation lakk bi"),
     __grammar: DocStr("Sintaks", "won leen sartu mbindu lakk bi"),
   },
 
@@ -23,9 +24,12 @@ export const wolof = new Language({
     __standard: {
       main: DocStr("Standard", "liggey yu mujj ci sisteem bi"),
       __isarray: DocStr("DafaListe", "xool bu jem dafay liste"),
-      __isobject: DocStr("DafaBepp", "xool bu jem dafay bepp (object)"),
+      __isobject: DocStr("DafaObject", "xool bu jem dafay object"),
       __typeof: DocStr("YoonuJem", "jend yoonu jem bi"),
-      __parse: DocStr("Xamle", "peretvoryuye tekst u vidpovidnyy typ danykh"),
+      __parse: DocStr(
+        "Xamle",
+        "soppi mbind mi mu dadi doon li mu wara doon ci anamyu xamle",
+      ),
     },
     __math: {
       main: DocStr("Matematig", "dugg ci liggey matematig"),
@@ -45,12 +49,12 @@ export const wolof = new Language({
     },
 
     __string: {
-      main: DocStr("Xare", "dugg ci liggey xare (strings)"),
-      __length: DocStr("Gudde", "jend gudde xare bi"),
-      __toUpperCase: DocStr("KaWaxtuGorgor", "teral xare ci kaso gorgor"),
-      __toLowerCase: DocStr("KaWaxtuNdaw", "teral xare ci kaso ndaw"),
-      __include: DocStr("AmNa", "xool bu xare bi am na mbind mi"),
-      __repeat: DocStr("Bamaat", "bamaat xare bi lu bari yoon"),
+      main: DocStr("Mbind", "dugg ci liggey mbind mi"),
+      __length: DocStr("Gudde", "jend gudde mbind bi"),
+      __toUpperCase: DocStr("MbindMuMag", "teral mbind mi ci herufi yu mag"),
+      __toLowerCase: DocStr("MbindMuNdaw", "teral mbind mi ci herufi yu ndaw"),
+      __include: DocStr("AmNa", "xool bu mbind mi am na mbind mi ci biir"),
+      __repeat: DocStr("Bamaat", "bamaat mbind mi lu bari yoon"),
     },
 
     __date: {
@@ -68,9 +72,9 @@ export const wolof = new Language({
 
   types: {
     __number: DocStr("Numero", "wax jem yi ci yoon numero"),
-    __string: DocStr("Xare", "wax jem yi ci yoon xare"),
+    __string: DocStr("Mbind", "wax jem yi ci yoon mbind"),
     __boolean: DocStr("Bool", "wax jem yi ci yoon boolean"),
-    __object: DocStr("Bepp", "def bepp bu dek"),
+    __object: DocStr("Object", "def object bu dek"),
     __void: DocStr("Nenn", "liggey bi du dellu dara"),
     __array: DocStr("Liste", "wax jem yi ci yoon liste"),
   },
@@ -82,8 +86,8 @@ export const wolof = new Language({
   },
 
   words: {
-    __new: DocStr("Bees", "sos bepp bu bees"),
-    __this: DocStr("Lii", "joksi ci bepp bi ne legi"),
+    __new: DocStr("Bees", "sos object bu bees"),
+    __this: DocStr("Lii", "joksi ci object bi ne legi"),
     __extends: DocStr("Wey", "donn sarti benen klase"),
   },
 
@@ -117,7 +121,7 @@ export const wolof = new Language({
       __catch: DocStr("Jot", "wax bloku jot jafe-jafe (catch)"),
       __finally: DocStr("CiKaw", "wax bloku bu dafay liggey ndaxte (finally)"),
       __class: DocStr("Klase", "sos benn klase"),
-      __constructor: DocStr("Sosekat", "liggey buy sos bepp bi"),
+      __constructor: DocStr("Sosekat", "liggey buy sos object bi"),
     },
   },
 
@@ -125,9 +129,9 @@ export const wolof = new Language({
     __labels: errorLabel(
       "Bataaxal",
       "Jem",
-      "Zminna",
-      "Vlastyvist",
-      "Bepp",
+      "Soppiku",
+      "Melokan",
+      "Object",
       "LiNuLoon",
       "LiNuJot",
       "SoppiKonstante",
@@ -136,11 +140,11 @@ export const wolof = new Language({
       "MbinduBaaxul",
       "StackFees",
       "Mbind",
-      "JeexalVvodu",
+      "JeexalMbind",
     ),
     main: errorMessage("JAFE", "Jafe ci biir sisteem bi"),
     __TypeError: errorMessage("JafeYoon", "Yoon bi baax dafa fay liggey"),
-    __InitError: errorMessage("JafeInit", "Zminna bi amul dara ci biir"),
+    __InitError: errorMessage("JafeInit", "Soppiku bi amul dara ci biir"),
     __ReferenceError: errorMessage("JafeDakkal", "Jem amul ci emb bi"),
     __SyntaxError: errorMessage("JafeSintaks", "Code bi baaxul"),
     __RangeError: errorMessage("JafeWeesu", "Jem bi dees ci jem bi weesu"),
@@ -196,7 +200,7 @@ export const wolof = new Language({
       "waktu",
       "bari",
       "note",
-      "hodyna",
+      "waxtu",
     ],
     __object: [
       "nit",
@@ -220,7 +224,7 @@ export const wolof = new Language({
       "nimo",
       "caabi",
       "url",
-      "posylannya",
+      "lëkkalekaay",
     ],
     __void: [
       "demal",

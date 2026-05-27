@@ -67,9 +67,9 @@ export const lingala = new Language({
         "EzaliDesimale",
         "mpo na kotala soki motango ezali desimale",
       ),
-      __cos: DocStr("Cos", "mpo na kozwa cosinus ya kongo (angle)"),
-      __sin: DocStr("Sin", "mpo na kozwa sinus ya kongo"),
-      __tan: DocStr("Tan", "mpo na kozwa tangente ya kongo"),
+      __cos: DocStr("Cos", "mpo na kozwa cosinus ya likoni (angle)"),
+      __sin: DocStr("Sin", "mpo na kozwa sinus ya likoni"),
+      __tan: DocStr("Tan", "mpo na kozwa tangente ya likoni"),
     },
 
     __string: {
@@ -132,7 +132,7 @@ export const lingala = new Language({
       "ekoki komonana na kelasi mpe oyo ekolanda yango",
     ),
     __readonly: DocStr("kotanga_kaka", "ekoki kobongwana mbala moko kaka"),
-    __static: DocStr("ya_kozinga", "ezali ya kelasi, kasi ya eloko moko te"),
+    __static: DocStr("ya_kotelema", "ezali ya kelasi, kasi ya eloko moko te"),
   },
 
   methods: {
@@ -153,7 +153,7 @@ export const lingala = new Language({
       __switch: DocStr("pona", "mpo na kopona na kati ya biloko mingi"),
       __case: DocStr("likambo", "likambo moko na kati ya pona"),
       __default: DocStr("ya_suka", "ntango likambo moko te emonani"),
-      __try: DocStr("meka", "mpo na komeka kódigo"),
+      __try: DocStr("meka", "mpo na komeka makomi"),
       __catch: DocStr("kamata", "mpo na kokamata mabunga"),
       __finally: DocStr("na_nsuka", "esalemaka ntango nyonso na suka"),
       __class: DocStr("kelasi", "mpo na koloba lolenge ya kelasi"),
@@ -171,15 +171,15 @@ export const lingala = new Language({
       "Variable",
       "Likambo",
       "Eloko",
-      "Oyo ekundami",
+      "Oyo ezelami",
       "Oyo ezwami",
       "Kobongola Konstante",
       "Parametre ya mbala mibale",
       "Toli",
-      "Token ya mabe",
+      "Elembo ya mabe",
       "Pile etondi",
-      "Token",
-      "Suka ya makomi ekundami te",
+      "Elembo",
+      "Suka ya makomi ezorami te",
     ),
     main: errorMessage("LIBUNGA", "libunga ya nse ya systeme"),
     __TypeError: errorMessage(
@@ -191,10 +191,13 @@ export const lingala = new Language({
       "variable ebandisami naino te",
     ),
     __ReferenceError: errorMessage(
-      "LIBUNGA_ELOKO",
-      "variable, mosala to biblioteka ezali te",
+      "LIBUNGA_TÁNDO",
+      "variable, mosala to biblioteka ezali te na tando oyo",
     ),
-    __SyntaxError: errorMessage("LIBUNGA_KOMBO", "makomi ya kódigo ezali mabe"),
+    __SyntaxError: errorMessage(
+      "LIBUNGA_MAKOMI",
+      "makomi ya kódigo ezali mabe",
+    ),
     __RangeError: errorMessage(
       "LIBUNGA_NTAKA",
       "motango eleki ndelo oyo epesami",

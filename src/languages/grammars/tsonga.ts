@@ -4,192 +4,291 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const tsonga = new Language({
   language: "tsonga",
   about:
-    "ENIDE i transpiler leri nga hundzuliwa leri pfumelaka ku tsala program hi rito rihani",
+    "ENIDE i khompayila ya ku hundzuluxa (transpiler) leyi pfumelelaka ku tsala maphrogireme hi ririmi rihi na rihi",
 
-  include: DocStr("Katsa", "Swi tirhisiwa ku katsa ririmi kumbe tilayiburari"),
+  include: DocStr(
+    "Katsa",
+    "Ku tirhisiwa ku katsa tindzimi, tilayiburari, kumbe amamojula man'wana",
+  ),
 
   commands: {
-    __about: DocStr("HiEnide", "ku kuma vuxokoxoko hi ENIDE"),
-    __help: DocStr("Pfuno", "ku kuma ndlela ya milayo yolohe leyi nga kona"),
-    __version: DocStr("Version", "ku kuma version ya sweswi ya ENIDE"),
+    __about: DocStr("Mayelana", "Ku kuma vuxokoxoko ni datha hi ENIDE"),
+    __help: DocStr("Pfuno", "Ku kuma xitalo xa milayo hinkwayo leyi nga kona"),
+    __version: DocStr("Vhezini", "Ku kuma vhezini ya sweswi ya ENIDE"),
     __languages: DocStr(
       "Tindzimi",
-      "ku kuma ndlela ya tindzimi tinhungu leyi nga kona",
+      "Ku kuma xitalo xa tindzimi hinkwato leti nga kona",
     ),
-    __documentation: DocStr("Matsalwa", "ku kuma matsalwa ya rito"),
-    __grammar: DocStr("Vukomu", "ku kuma vukomu bya rito"),
+    __documentation: DocStr(
+      "Matsalwa",
+      "Ku kuma matsalwa ni amadokhumenti ya ririmi ra ENIDE",
+    ),
+    __grammar: DocStr("Isintaksi", "Ku kuma mithetho ya isintaksi ya ririmi"),
   },
 
   library: {
     __standard: {
-      main: DocStr(
-        "Ntolovelo",
-        "ku fikelela misepelo ya ntolovelo leyi pfumelekaka",
+      main: DocStr("Ntolovelo", "Ku fikelela mitirho ya ntolovelo ya sisiteme"),
+      __isarray: DocStr(
+        "IngoLixaka",
+        "Ku kambela loko inani ri ri lixaka (array)",
       ),
-      __isarray: DocStr("ILisiti", "ku hlaya leswi nhlayo i lisiti"),
-      __isobject: DocStr("IXinto", "ku hlaya leswi nhlayo i xinto"),
-      __typeof: DocStr("Muxaka", "ku kuma muxaka wa nhlayo"),
-      __parse: DocStr("Parse", "ku hundzula xitambo ku va nhlayo ya kahle"),
+      __isobject: DocStr(
+        "IngoXilo",
+        "Ku kambela loko inani ri ri xilo (object)",
+      ),
+      __typeof: DocStr("MuxakaWa", "Ku kuma muxaka wa inani ra datha"),
+      __parse: DocStr(
+        "Cazulula",
+        "Ku hundzuluxa xitambo ku va muxaka wa datha lowu faneleke",
+      ),
     },
 
     __math: {
-      main: DocStr("Matematiki", "ku fikelela misepelo ya matematiki"),
-      __pi: DocStr("PI", "ku kuma nhlayo ya pi"),
-      __sqrt: DocStr("MihlaNasquare", "ku kuma mihla wa square"),
-      __pow: DocStr("Matimba", "ku kuma matimba ya nomboro"),
-      __round: DocStr("Tsindzisa", "ku tsindzisa nomboro"),
-      __random: DocStr("Ngopfu", "ku kuma nomboro ya mbhalo"),
-      __max: DocStr("Kulu", "ku kuma nhlayo yo kululeka"),
-      __min: DocStr("Ntsongo", "ku kuma nhlayo yo ntsongotsongo"),
-      __isNumber: DocStr("INomboro", "ku hlaya leswi nhlayo i nomboro"),
-      __isInteger: DocStr(
-        "INomboroKamalo",
-        "ku hlaya leswi nhlayo i nomboro kamalo",
+      main: DocStr("Matematiki", "Ku fikelela mitirho ya matematiki"),
+      __pi: DocStr("PI", "Inani leri vekiweke ra konstante Pi"),
+      __sqrt: DocStr(
+        "RimitsuRaSkwere",
+        "Ku kuma rimitsu ra skwere ra nomboro (square root)",
       ),
-      __isFloat: DocStr("IDesimali", "ku hlaya leswi nhlayo i desimali"),
-      __cos: DocStr("Cos", "ku kuma cosinus ya nkongomelo eka radiyan"),
-      __sin: DocStr("Sin", "ku kuma sinus ya nkongomelo eka radiyan"),
-      __tan: DocStr("Tan", "ku kuma tangens ya nkongomelo eka radiyan"),
+      __pow: DocStr("Amandla", "Ku kuma amandla ya nomboro"),
+      __round: DocStr(
+        "Sondeza",
+        "Ku sondeza nomboro eka leyi nga kusuhi kakhulu",
+      ),
+      __random: DocStr(
+        "HiBhaqo",
+        "Ku tumbuluxa nomboro leyi nga hleliwangiki (random)",
+      ),
+      __max: DocStr(
+        "YikuluKulu",
+        "Ku kuma inani leri nga rikulu kakhulu eka hinkwato",
+      ),
+      __min: DocStr(
+        "YintsongoTsongo",
+        "Ku kuma inani leri nga ritsongo kakhulu eka hinkwato",
+      ),
+      __isNumber: DocStr("INomboro", "Ku kambela loko inani ri ri nomboro na"),
+      __isInteger: DocStr(
+        "INomboroYipheleleke",
+        "Ku kambela loko nomboro yi phelele handle ka desimali (integer)",
+      ),
+      __isFloat: DocStr("IDesimali", "Ku kambela loko inani ri ri desimali"),
+      __cos: DocStr("cos", "Ku kuma cosine ya nkongomelo eka radiyan"),
+      __sin: DocStr("sin", "Ku kuma sine ya nkongomelo eka radiyan"),
+      __tan: DocStr("tan", "Ku kuma tangent ya nkongomelo eka radiyan"),
     },
 
     __string: {
-      main: DocStr("Xitambo", "ku fikelela misepelo ya ku lulamisela xitambo"),
-      __length: DocStr("Xitalo", "ku kuma xitalo xa xitambo"),
+      main: DocStr(
+        "Xitambo",
+        "Mitirho yo lulamisa matsalwa ni switambo zamazwi (string)",
+      ),
+      __length: DocStr("Ubude", "Ku kuma ubude bya xitambo bya matsalwa"),
       __toUpperCase: DocStr(
-        "KwaHarufuKulu",
-        "ku hundzula xitambo ku va harufu tikulu",
+        "MaletereLamankulu",
+        "Ku hundzuluxa matsalwa leswaku ya va hi maletere lamankulu",
       ),
       __toLowerCase: DocStr(
-        "KwaHarufuNtsongo",
-        "ku hundzula xitambo ku va harufu tintsongo",
+        "MaletereLamantsongo",
+        "Ku hundzuluxa matsalwa leswaku ya va hi maletere lamantsongo",
       ),
       __include: DocStr(
-        "XiKatsa",
-        "ku hlaya leswi xitambo xi katsa xitambo xin'wana",
+        "Xikatsa",
+        "Ku kambela loko xitambo xi ri ni matsalwa man'wana phakathi",
       ),
-      __repeat: DocStr("Phinda", "ku phinda xitambo nomboro ya minkarhi"),
+      __repeat: DocStr(
+        "Phinda",
+        "Ku phinda xitambo ka mfanelo ya minkarhi leyi vekiweke",
+      ),
     },
 
     __date: {
-      main: DocStr("Siku", "ku fikelela misepelo ya siku na nkarhi"),
-      __now: DocStr("Sweswi", "ku kuma siku na nkarhi wa sweswi"),
-      __year: DocStr("Lembe", "ku kuma lembe"),
-      __month: DocStr("Inyanga", "ku kuma inyanga"),
-      __dayMonth: DocStr("SikuInyanga", "ku kuma siku ra inyanga"),
-      __dayWeek: DocStr("SikuWiki", "ku kuma siku ra wiki"),
-      __hour: DocStr("Hora", "ku kuma hora"),
-      __minute: DocStr("Minete", "ku kuma minete"),
-      __second: DocStr("Sekhonde", "ku kuma sekhonde"),
+      main: DocStr("Siku", "Mitirho ya siku ni nkarhi wa sisiteme"),
+      __now: DocStr("Sweswi", "Ku kuma siku ni nkarhi wa sweswi"),
+      __year: DocStr("Lembe", "Ku kuma lembe leri tirhaka"),
+      __month: DocStr("Inyanga", "Ku kuma inyanga"),
+      __dayMonth: DocStr("SikuRaInyanga", "Ku kuma siku ra inyanga"),
+      __dayWeek: DocStr("SikuRaVhiki", "Ku kuma siku ra vhiki"),
+      __hour: DocStr("Ihora", "Ku kuma ihora"),
+      __minute: DocStr("Minete", "Ku kuma minete"),
+      __second: DocStr("Sekonde", "Ku kuma sekonde"),
     },
   },
 
   types: {
-    __number: DocStr("Nomboro", "ku pasalatsa ku cinca ka muxaka wa nomboro"),
-    __string: DocStr("Xitambo", "ku pasalatsa ku cinca ka muxaka wa xitambo"),
-    __boolean: DocStr("Bool", "ku pasalatsa ku cinca ka muxaka wa boolean"),
-    __object: DocStr("Xinto", "ku landza xinto xa nkoka"),
-    __void: DocStr(
-      "Nkarhi_Lowu",
-      "ku pasalatsa misepelo leyi nga buyeliki nhlayo",
+    __number: DocStr(
+      "Nomboro",
+      "Ku tivisa xicinci (variable) xa muxaka wa nomboro",
     ),
-    __array: DocStr("Lisiti", "ku pasalatsa xivumbeko xa lisiti ya swilo"),
+    __string: DocStr("Xitambo", "Ku tivisa xicinci xa muxaka wa matsalwa"),
+    __boolean: DocStr(
+      "Ibhuli",
+      "Ku tivisa xicinci xa muxaka wa logic (boolean)",
+    ),
+    __object: DocStr("Xilo", "Ku tivisa xilo xa datha (object) lexi khomiweke"),
+    __void: DocStr(
+      "Kuhava",
+      "Ntirho lowu nga vuyisiki nchumu kumbe inani emuva",
+    ),
+    __array: DocStr(
+      "Lixaka",
+      "Ku tivisa lixaka leri nga ni swilo swo hlayanyana (array)",
+    ),
   },
 
   specialValues: {
-    __true: DocStr("Ntiyiso", "nhlayo ya boolean ya ntiyiso"),
-    __false: DocStr("Mavunwa", "nhlayo ya boolean ya mavunwa"),
-    __null: DocStr("Xiviri", "ku hava ka nhlayo"),
+    __true: DocStr("Ntiyiso", "Inani ra datha ra ntiyiso (true)"),
+    __false: DocStr("Mavunwa", "Inani ra datha ra mavunwa (false)"),
+    __null: DocStr(
+      "KuhavaValu",
+      "Inani leri kombisaka leswaku ku hava nchumu kule ndhawu",
+    ),
   },
 
   words: {
-    __new: DocStr("Ntlhanu", "ku tumbuluxa xitsundzuxo xintlhanu xa kilasi"),
-    __this: DocStr("Lexi", "ku fikelela switirhisiwa swa kilasi leyi"),
+    __new: DocStr(
+      "Lexintshwa",
+      "Ku tumbuluxa xilo xintshwa lexi humaka eka kilasi",
+    ),
+    __this: DocStr("Lexi", "Ku kombetela eka xilo xa sweswi ekilasini leyi"),
     __extends: DocStr(
-      "Huma",
-      "ku pasalatsa leswi kilasi yi huma eka kilasi xin'wana",
+      "Yandlala",
+      "Ku ndlandlamuxa kumbe ku teka thaka eka kilasi yin'wana (inheritance)",
     ),
   },
 
   accessModifiers: {
-    __private: DocStr("Xisirhelelo", "swi fikeleriwa ntsena eka kilasi"),
-    __public: DocStr("Xipfumelo", "swi fikeleriwa laha hinkwaho"),
-    __protected: DocStr(
-      "Xivangelo",
-      "swi fikeleriwa eka kilasi na tikilasi ta yona",
+    __private: DocStr(
+      "Xihundla",
+      "Swi fikeleleka ntsena ngaphakathi ka kilasi leri uqobo",
     ),
-    __readonly: DocStr("Hlaya_Ntsena", "nhlayo yi nga aviwa ntsena kambe"),
-    __static: DocStr("Xintshuxo", "i ya kilasi, a yi ya xitsundzuxo"),
+    __public: DocStr("Xagwalala", "Swi fikeleleka na kwihi na kwihi ekhodini"),
+    __protected: DocStr(
+      "Xisirheleriweke",
+      "Swi fikeleleka eka kilasi leri ni man'wana lama tekeke thaka eka rona",
+    ),
+    __readonly: DocStr(
+      "HlayaNtsena",
+      "Inani leri nga cinciki endzhaku ka ku tsariwa ka rona",
+    ),
+    __static: DocStr(
+      "Lexingacinciki",
+      "I ya kilasi hi ku angarheka, ku nga ri ya xilo xin'we",
+    ),
   },
 
   methods: {
     method: {
-      __print: DocStr("Tsala", "ku tsala nhlayo eka sikirinini"),
-      __scan: DocStr("Hlaya", "ku hlaya nhlayo eka musavali"),
-      __return: DocStr("Buyela", "ku buyela nhlayo eka misepelo"),
-      __break: DocStr("Tshama", "ku tshama loop"),
-      __continue: DocStr("Tlhela", "ku tlhela eka nhlayo leyi landzelaka"),
+      __print: DocStr("Bonisa", "Ku kombisa kumbe ku tsala inani eka sikirini"),
+      __scan: DocStr(
+        "Hlaya",
+        "Ku hlaya inani leri nghenisiwaka hi mushandisi (input)",
+      ),
+      __return: DocStr(
+        "Buyisa",
+        "Ku vuyisa inani leri humaka eka ntirho (function)",
+      ),
+      __break: DocStr("Yimisa", "Ku huma eka luphu (loop) hi ku hatlisa"),
+      __continue: DocStr(
+        "Qhubeka",
+        "Ku tlulela eka jiko leri landzelaka ra luphu",
+      ),
     },
 
     sentences: {
-      __function: DocStr("Misepelo", "ku pasalatsa misepelo"),
-      __if: DocStr("Loko", "ku pasalatsa malembe"),
-      __else: DocStr("Xikona", "ku pasalatsa malembe ya nwana"),
-      __while: DocStr("Laha", "ku pasalatsa loop ya laha"),
-      __for: DocStr("KuLoop", "ku pasalatsa loop ya ku"),
-      __switch: DocStr("Hlawula", "ku pasalatsa xivumbeko xa ku hlawula"),
-      __case: DocStr(
-        "Xikongomelo",
-        "ku pasalatsa xikongomelo xivumbeko xa ku hlawula",
+      __function: DocStr("Ntirho", "Ku tivisa ntirho lowuntshwa wa khodi"),
+      __if: DocStr("Loko", "Ku kambela xiyimo xa mfanelo yo sungula"),
+      __else: DocStr(
+        "Kumbe",
+        "Xiyimo lexi nga ta endleka loko xo sungula xi ri mavunwa",
       ),
-      __default: DocStr("Kahle", "ku pasalatsa xikongomelo xa kahle"),
-      __try: DocStr("Ringeta", "ku pasalatsa bloko ya ku ringeta"),
-      __catch: DocStr("Tshixa", "ku pasalatsa bloko ya ku tshixa siphoso"),
-      __finally: DocStr("Ekuheleni", "ku pasalatsa bloko leyi tirhaka ntlhanu"),
-      __class: DocStr("Kilasi", "ku pasalatsa kilasi"),
+      __while: DocStr(
+        "Nkarhi",
+        "Luphu leyi tirhaka nkarhi lowu xiyimo xi nga ntiyiso",
+      ),
+      __for: DocStr(
+        "Phinda",
+        "Luphu leyi phindhaka ku fikela eka inani leri vekiweke",
+      ),
+      __switch: DocStr(
+        "Hlawula",
+        "Xivumbeko xo hlawula exikarhi ka swiyimo swo hlayanyana",
+      ),
+      __case: DocStr("Xiyimo", "Xiyimo xo karhi lexi leriweke eku hlawuleni"),
+      __default: DocStr(
+        "Ntolovelo",
+        "Okwenziwayo hi ntolovelo loko ku nga ri na xiyimo lexi fambelanaka",
+      ),
+      __try: DocStr(
+        "Ringeta",
+        "Ku sungula xiyenge xa khodi lexi nga vaka ni swihoxo",
+      ),
+      __catch: DocStr(
+        "Khoma",
+        "Ku khoma ni ku lulamisa xihoxo lexi nga humelela",
+      ),
+      __finally: DocStr(
+        "Ekuheleni",
+        "Khodi leyi nga ta tirha mikarhi hinkwayo endzhaku ka try ni catch",
+      ),
+      __class: DocStr("Kilasi", "Ku tivisa kilasi lerintshwa"),
       __constructor: DocStr(
-        "Xivumbeko",
-        "xivumbeko xa ku pasalatsa switirhisiwa eka kilasi",
+        "Umakhi",
+        "Ntirho wo hlawuleka lowu akaka ni ku sungulisa xilo xintshwa",
       ),
     },
   },
 
   errors: {
     __labels: errorLabel(
-      "Vito",
-      "Nhlayo",
-      "Ku_Cinca",
-      "Switirhisiwa",
-      "Xinto",
-      "Ku_Languteriwa",
-      "Ku_Amukeriwa",
-      "Ku_Ava_Xintshuxo",
-      "Paramitara_Mbirhi",
-      "Xitsundzuxo",
-      "Token_Yo_Biha",
-      "Stack_Yi_Tele",
-      "Token",
-      "Xihelelo_Xo_Biha",
+      "Umlayezo",
+      "Inani",
+      "Xicinci",
+      "Impahla",
+      "Xilo",
+      "LeswiLanguteriweke",
+      "LeswiKumiweke",
+      "KuAvaKonstante",
+      "ParamitaraEphindiweke",
+      "Isu",
+      "ThokeniYoBiha",
+      "IphuthaLestack",
+      "Thokeni",
+      "KuHelelaLokuNgaLingeriwangiki",
     ),
-    main: errorMessage("SIPHOSO", "siphoso sa ntolovelo sa sisteme"),
+    main: errorMessage("XIHOXO", "Xihoxo xa ntolovelo xa sisiteme"),
     __TypeError: errorMessage(
-      "SIPHOSO_MUXAKA",
-      "muxaka wu nga ri kahle eka ntirho",
+      "XIHOXO_XA_MUXAKA",
+      "Muxaka wa datha awu fanele kulo mfungho lowu endliwangaka",
     ),
-    __InitError: errorMessage("SIPHOSO_KUTUMELA", "ku cinca a ku thomiwanga"),
+    __InitError: errorMessage(
+      "XIHOXO_XO_SUNGULA",
+      "Xicinci a xi sunguriwanga kahle ngaphambilini",
+    ),
     __ReferenceError: errorMessage(
-      "SIPHOSO_NKOMBELO",
-      "ku cinca, misepelo kumbe layiburari a kuna eka xiyimo",
+      "XIHOXO_XO_KOMBISA",
+      "Inani okanye matsalwa leri kombiweke a ri kumiwanga kulo mda",
     ),
-    __SyntaxError: errorMessage("SIPHOSO_SINTAKISI", "khodi a yi kahle"),
+    __SyntaxError: errorMessage(
+      "XIHOXO_XA_ISINTAKSI",
+      "Xivumbeko xa khodi xi tlula mithetho ya ririmi",
+    ),
     __RangeError: errorMessage(
-      "SIPHOSO_NHLAYO",
-      "nhlayo i handle ka nhlayo leyi pfumelekiwaka",
+      "XIHOXO_XA_NTSENGO",
+      "Inani ri ngaphandle ka ntsengo lowu pfumelelweke kuxa lixaka",
     ),
-    __URIError: errorMessage("SIPHOSO_URI", "URI yo biha kumbe leyi nga kahle"),
-    __EvalError: errorMessage("SIPHOSO_EVAL", "siphoso lexi vulaneke na eval"),
+    __URIError: errorMessage(
+      "XIHOXO_XA_URI",
+      "I-URI leyi nga lungangiki mbilu",
+    ),
+    __EvalError: errorMessage(
+      "XIHOXO_XA_EVAL",
+      "Xihoxo lexi humeleleke kulo ntirho wa eval",
+    ),
     __UNKNOWN_ERROR: errorMessage(
-      "SIPHOSO_XITSAKATISO",
-      "siphoso lexi nga tivekiki",
+      "XIHOXO_LEXI_NGA_TIVEKIKI",
+      "Xihoxo lexi nga tivekiki nhlobo lexi hoxeke sisiteme",
     ),
   },
 
