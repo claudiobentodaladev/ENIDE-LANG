@@ -22,7 +22,7 @@ Thank you for taking the time to contribute. This document explains everything y
 
 ## Code of conduct
 
-All contributors are expected to engage with respect and good faith. Criticism should be directed at ideas, not people. Every contribution — regardless of the contributor's experience level — is valued.
+All contributors are expected to engage with respect and good faith. Criticism should be directed at ideas, not people. Every contribution - regardless of the contributor's experience level - is valued.
 
 ---
 
@@ -59,21 +59,28 @@ All contributors are expected to engage with respect and good faith. Criticism s
 enide-lang/
 ├── src/
 │   ├── languages/
-│   │   ├── grammars/             # Grammar definition files
-│   │   ├── grammar.class.ts      # Grammar class definition
-│   │   ├── grammar.import.ts     # Grammar import logic
-│   │   ├── grammar.ts            # Core grammar entry point
-│   │   └── language-list.json    # List of supported languages
+│   │   ├── grammars/             # Grammar definition files (one per language)
+│   │   ├── interfaces/           # TypeScript interfaces for every grammar section
+│   │   │   └── libraries/        # Interfaces for each built-in library (math, string, date, standard)
+│   │   ├── mappers/               # Normalizes each grammar section into its final shape
+│   │   ├── utils/                 # String casing, Unicode normalization, and structure helpers
+│   │   ├── GLOBALMAP.ts           # Character transliteration table
+│   │   ├── grammar.class.ts       # `Language` class definition
+│   │   ├── grammar.import.ts      # Grammar import logic
+│   │   ├── grammar.interface.ts   # Top-level `LanguageGrammar` interface
+│   │   ├── grammar.ts             # Core grammar entry point (`Grammer()`)
+│   │   └── language-list.json     # List of supported languages
 │   └── index.ts                  # Main entry point
 ├── .gitignore
 ├── package.json
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
+├── GLOBAL_REPLACE.md
 ├── readme.md
 └── tsconfig.json
 ```
 
-When making changes, always work inside `src/languages/`. If you are adding a new language, register it in `language-list.json` before creating its grammar file inside `grammars/`.
+When making changes, always work inside `src/languages/`. If you are adding a new language, register it in `language-list.json` before (or as part of) creating its grammar file inside `grammars/` - a grammar file with no matching entry in `language-list.json` is invisible to `Grammer()`. This has already happened once: `grammars/hangugeo.ts` (Korean) is a complete grammar file but isn't registered in `language-list.json` yet. Registering it is a good starting contribution if you're looking for one.
 
 ---
 
@@ -86,8 +93,8 @@ If you found a grammar error, inconsistency, or incorrect rule but are not sure 
 Your issue should include:
 
 - **File and section** where the error is located
-- **Description of the problem** — what is wrong and why
-- **Expected behavior** — what the correct rule or output should be (if known)
+- **Description of the problem** - what is wrong and why
+- **Expected behavior** - what the correct rule or output should be (if known)
 
 Apply one of the following labels to your issue:
 
@@ -100,7 +107,7 @@ Apply one of the following labels to your issue:
 
 ### Suggesting improvements
 
-For broader suggestions — new grammar structures, refactoring of existing rules, or language additions — open a **Discussion** on GitHub before submitting a pull request. This helps align your work with the project direction before you invest time writing code.
+For broader suggestions - new grammar structures, refactoring of existing rules, or language additions - open a **Discussion** on GitHub before submitting a pull request. This helps align your work with the project direction before you invest time writing code.
 
 ### Submitting a pull request
 
@@ -171,7 +178,7 @@ docs/update-contributing-guide
 ## Writing conventions
 
 - Follow the existing patterns in `grammar.class.ts` when defining new grammar rules
-- Keep grammar files focused — one responsibility per file
+- Keep grammar files focused - one responsibility per file
 - When adding a new language, always register it in `language-list.json` first
 - Maintain terminological consistency with the rest of the grammar
 - Avoid mixing grammar concerns across unrelated files

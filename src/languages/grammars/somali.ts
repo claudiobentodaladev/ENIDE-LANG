@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const somali = new Language({
   language: "somali",
   about:
-    "ENIDE waa rogrogaha koodka (transpiler) kuu oggolaanaya inaad ku qorto barnaamij kasta luuqad kasta",
-
+    "ENIDE waa luqad barnaamijyo badan oo kuu oggolaanaya inaad ku barnaamijiso luuqad kasta",
   include: DocStr(
     "SooGeli",
     "Loo isticmaalo in lagu soo geliyo luuqadaha, maktabadaha ama qaybaha dibadda ah",
@@ -43,10 +42,7 @@ export const somali = new Language({
       __sqrt: DocStr("Xidid", "Xidid laba-geesood ah (square root)"),
       __pow: DocStr("Quwad", "Kor u qaadista tiro mfanelo ah"),
       __round: DocStr("Koob", "U wareejinta tirada integer-ka ugu dhow"),
-      __random: DocStr(
-        "Nasiib",
-        "Soo saar tiro aan la saadaalin karin hi bhaqo",
-      ),
+      __random: DocStr("Nasiib", "Soo saar tiro aan la saadaalin karin"),
       __max: DocStr("UguWeyn", "Qiimaha ugu weyn ee liiska ku jira"),
       __min: DocStr("UguYar", "Qiimaha ugu yar ee liiska ku jira"),
       __isNumber: DocStr("WaaLambar", "Hubi haddii ay tahay lambar"),
@@ -201,32 +197,32 @@ export const somali = new Language({
     ),
     main: errorMessage("QALAD", "Qalad guud oo nidaamka ah"),
     __TypeError: errorMessage(
-      "QALAD_NOOCA",
+      "QALADNOOCA",
       "Nooca xogta ma ku habboon hawshan la fulinayo",
     ),
     __InitError: errorMessage(
-      "QALAD_BILOWGA",
+      "QALADBILOWGA",
       "Beddelaha si sax ah looma bilaabin",
     ),
     __ReferenceError: errorMessage(
-      "QALAD_TIXRAACA",
+      "QALADTIXRAACA",
       "Tixraaca beddelaha, hawsha, ama maktabadda ma jiro koodka dhexdiisa",
     ),
     __SyntaxError: errorMessage(
-      "QALAD_HAB_QORAAL",
+      "QALADHABQORAAL",
       "Qalad naxwaha koodka ama isintaksiga ah",
     ),
     __RangeError: errorMessage(
-      "QALAD_XADKA",
+      "QALADXADKA",
       "Qiimuhu wuxuu ka baxsan yahay xadka la ogol yahay",
     ),
-    __URIError: errorMessage("QALAD_URI", "Qaabka URI-ga la geliyay ma saxna"),
+    __URIError: errorMessage("QALADURI", "Qaabka URI-ga la geliyay ma saxna"),
     __EvalError: errorMessage(
-      "QALAD_EVAL",
+      "QALADEVAL",
       "Qalad ka dhashay hawsha eval dhexdeeda",
     ),
     __UNKNOWN_ERROR: errorMessage(
-      "QALAD_LAMA_YAQAAN",
+      "QALADLAMAYAQAAN",
       "Qalad aan la aqoon ayaa ku dhacay nidaamka",
     ),
   },

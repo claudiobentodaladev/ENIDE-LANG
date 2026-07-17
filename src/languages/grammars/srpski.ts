@@ -4,20 +4,19 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const srpski = new Language({
   language: "srpski",
   about:
-    "ENIDE je prevodivi transpajler koji omogucava programiranje na bilo kom jeziku",
-
+    "ENIDE je visijezični programski jezik koji vam omogućava da programirate na bilo kom jeziku",
   include: DocStr(
     "Ukljuci",
     "koristi se za ukljucivanje jezika, biblioteka ili struktura podataka iz drugog fajla",
   ),
 
   commands: {
-    __about: DocStr("oprogramu", "za dobijanje informacija o ENIDE-u"),
-    __help: DocStr("pomoc", "za listu svih dostupnih komandi"),
-    __version: DocStr("verzija", "za trenutnu verziju ENIDE-a"),
-    __languages: DocStr("jezici", "za listu svih dostupnih jezika"),
-    __documentation: DocStr("dokumentacija", "za dokumentaciju jezika"),
-    __grammar: DocStr("gramatika", "za gramatiku jezika"),
+    __about: DocStr("OProgramu", "za dobijanje informacija o ENIDE-u"),
+    __help: DocStr("Pomoc", "za listu svih dostupnih komandi"),
+    __version: DocStr("Verzija", "za trenutnu verziju ENIDE-a"),
+    __languages: DocStr("Jezici", "za listu svih dostupnih jezika"),
+    __documentation: DocStr("Dokumentacija", "za dokumentaciju jezika"),
+    __grammar: DocStr("Gramatika", "za gramatiku jezika"),
   },
 
   library: {
@@ -103,7 +102,7 @@ export const srpski = new Language({
     __public: DocStr("javno", "dostupno sa bilo kog mesta"),
     __protected: DocStr("zasticeno", "dostupno unutar klase i njenih podklasa"),
     __readonly: DocStr(
-      "samoZaCitanje",
+      "SamoZaCitanje",
       "vrednost se moze dodeliti samo jednom",
     ),
     __static: DocStr("staticko", "pripada klasi a ne instancama"),
@@ -147,33 +146,33 @@ export const srpski = new Language({
       "Objekat",
       "Ocekivano",
       "Primljeno",
-      "Dodela_Konstante",
-      "Duplikat_Parametra",
+      "DodelaKonstante",
+      "DuplikatParametra",
       "Savet",
-      "Nevazeci_Token",
-      "Prekoracenje_Steka",
+      "NevazeciToken",
+      "PrekoracenjeSteka",
       "Token",
-      "Neocekivani_Kraj_Ulaza",
+      "NeocekivaniKrajUlaza",
     ),
     main: errorMessage("GRESKA", "opsta sistemska greska"),
-    __TypeError: errorMessage("GRESKA_TIPA", "nevazeci tip u operaciji"),
+    __TypeError: errorMessage("GRESKATIPA", "nevazeci tip u operaciji"),
     __InitError: errorMessage(
-      "GRESKA_INICIJALIZACIJE",
+      "GRESKAINICIJALIZACIJE",
       "promenljiva nije bila inicijalizovana",
     ),
     __ReferenceError: errorMessage(
-      "GRESKA_REFERENCE",
+      "GRESKAREFERENCE",
       "promenljiva, funkcija ili biblioteka ne postoji u opsegu",
     ),
-    __SyntaxError: errorMessage("SINTAKSNA_GRESKA", "nevazeci kod"),
+    __SyntaxError: errorMessage("SINTAKSNAGRESKA", "nevazeci kod"),
     __RangeError: errorMessage(
-      "GRESKA_OPSEGA",
+      "GRESKAOPSEGA",
       "vrednost je van dozvoljenog opsega",
     ),
-    __URIError: errorMessage("URI_GRESKA", "lose formiran URI"),
-    __EvalError: errorMessage("EVAL_GRESKA", "greska povezana sa eval"),
+    __URIError: errorMessage("URIGRESKA", "lose formiran URI"),
+    __EvalError: errorMessage("EVALGRESKA", "greska povezana sa eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "NEPOZNATA_GRESKA",
+      "NEPOZNATAGRESKA",
       "potpuno nepoznata greska",
     ),
   },

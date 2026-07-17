@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const sango = new Language({
   language: "sango",
   about:
-    "ENIDE ayeke mbeni masini ti gbundungbi ti koda so amû lege ti sarango koda na ayanga ti kodoro nyonso",
-
+    "ENIDE ayeke yanga-ti-koli ti gingo bê ti ordinateur ti ambeni yanga-ti-koli nde so amû lege na mo ti sara kua na yanga-ti-koli kue",
   include: DocStr(
     "zi",
     "a sara na ni ti zingo ayanga ti kodoro wala a-bibliothèque ti koda kuuma na mbeni kaye",
@@ -35,12 +34,12 @@ export const sango = new Language({
   library: {
     __standard: {
       main: DocStr("standard", "andia ti koda ti base ti système"),
-      __isarray: DocStr("yeke_lista", "a baa soki valeur ni ayeke lista"),
+      __isarray: DocStr("YekeLista", "a baa soki valeur ni ayeke lista"),
       __isobject: DocStr(
-        "yeke_ye",
+        "YekeYe",
         "a baa soki valeur ni ayeke mbeni ye (object)",
       ),
-      __typeof: DocStr("mara_ti", "a fa mara wala type ti valeur ni"),
+      __typeof: DocStr("MaraTi", "a fa mara wala type ti valeur ni"),
       __parse: DocStr(
         "fa_nda",
         "a changer mbeti ti koda ti ga mbeni mara ti valeur",
@@ -53,7 +52,7 @@ export const sango = new Language({
       ),
       __pi: DocStr("PI", "namba ti PI so achanger pëpe na matematika"),
       __sqrt: DocStr(
-        "muri_square",
+        "MuriSquare",
         "sarango kua ti kura ti namba (racine carrée)",
       ),
       __pow: DocStr("ngangu", "a yeke mû ngangu na namba (puissance)"),
@@ -64,9 +63,9 @@ export const sango = new Language({
       __random: DocStr("gi_na_li", "fa mbeni namba gï na li (hasard)"),
       __max: DocStr("kota", "pona kota namba na popo ti a-valeur nyonso"),
       __min: DocStr("kete", "pona kete namba na popo ti a-valeur nyonso"),
-      __isNumber: DocStr("yeke_namba", "a baa soki valeur ni ayeke namba"),
+      __isNumber: DocStr("YekeNamba", "a baa soki valeur ni ayeke namba"),
       __isInteger: DocStr(
-        "namba_gima",
+        "NambaGima",
         "a baa soki namba ni ayeke namba so ayeke gima (entier)",
       ),
       __isFloat: DocStr("desimal", "a baa soki namba ni ayeke na desimal"),
@@ -79,11 +78,11 @@ export const sango = new Language({
       main: DocStr("mbeti", "kua ti manipulation ti ambeti (strings)"),
       __length: DocStr("yongo", "a fa yongo ti mbeti ni"),
       __toUpperCase: DocStr(
-        "mbeti_kota",
+        "MbetiKota",
         "a changer mbeti ni ti ga na kota mbeti (majuscule)",
       ),
       __toLowerCase: DocStr(
-        "mbeti_kete",
+        "MbetiKete",
         "a changer mbeti ni ti ga na kete mbeti (minuscule)",
       ),
       __include: DocStr(
@@ -98,8 +97,8 @@ export const sango = new Language({
       __now: DocStr("fadeso", "a fa lango na ngbonga ti fadeso"),
       __year: DocStr("ngu", "a fa ngu ti lango ni"),
       __month: DocStr("nze", "a fa nze ti lango ni"),
-      __dayMonth: DocStr("lango_nze", "a fa lango ti nze ni"),
-      __dayWeek: DocStr("lango_yenga", "a fa lango ti yenga ni"),
+      __dayMonth: DocStr("LangoNze", "a fa lango ti nze ni"),
+      __dayWeek: DocStr("LangoYenga", "a fa lango ti yenga ni"),
       __hour: DocStr("ngbonga", "a fa ngbonga ti ngoi ni"),
       __minute: DocStr("miniti", "a fa miniti ti ngoi ni"),
       __second: DocStr("sekonde", "a fa sekonde ti ngoi ni"),
@@ -132,7 +131,7 @@ export const sango = new Language({
     __public: DocStr("ti_zigi", "azo nyonso alingbi ti bâ ni"),
     __protected: DocStr("bata", "ayeke gï na yâ ti class na amolenge ni"),
     __readonly: DocStr(
-      "diko_gï",
+      "DikoGi",
       "alingbi ti diko ni gï dikongo, ti soppi pëpe",
     ),
     __static: DocStr(
@@ -177,41 +176,41 @@ export const sango = new Language({
     __labels: errorLabel(
       "Téné",
       "Ngere",
-      "Ye_ti_soppi",
+      "YeTiSoppi",
       "Ye",
-      "Ye_mveni",
+      "YeMveni",
       "Ku",
       "Wara",
-      "Kanga_na_constante",
-      "Parametra_firi",
+      "KangaNaConstante",
+      "ParametraFiri",
       "Za",
-      "Token_mvene",
-      "Stack_asi",
+      "TokenMvene",
+      "StackAsi",
       "Elembo",
-      "Hun_ti_mbeti",
+      "HunTiMbeti",
     ),
     main: errorMessage("FAUTI", "fauti ti système, kpalé asi"),
     __TypeError: errorMessage(
-      "FAUTI_MARA",
+      "FAUTIMARA",
       "mara ti valeur ni ayeke na lege ni pëpe",
     ),
     __InitError: errorMessage(
-      "FAUTI_LEKENGO",
+      "FAUTILEKENGO",
       "variabla ni aleke na lege ni pëpe",
     ),
     __ReferenceError: errorMessage(
-      "FAUTI_REFERENCE",
+      "FAUTIREFERENCE",
       "ye so mo hunda ayeke dä pëpe",
     ),
     __SyntaxError: errorMessage(
-      "FAUTI_SINTAKS",
+      "FAUTISINTAKS",
       "mwandĩko ti code ni ayeke na fauti",
     ),
-    __RangeError: errorMessage("FAUTI_NGERE", "valeur ni ahon ndö ti lege ni"),
-    __URIError: errorMessage("FAUTI_URI", "fauti ti URI so abuba"),
-    __EvalError: errorMessage("FAUTI_EVAL", "fauti ti eval"),
+    __RangeError: errorMessage("FAUTINGERE", "valeur ni ahon ndö ti lege ni"),
+    __URIError: errorMessage("FAUTIURI", "fauti ti URI so abuba"),
+    __EvalError: errorMessage("FAUTIEVAL", "fauti ti eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "FAUTI_SO_AHINGA_PEKO_TE",
+      "FAUTISOAHTINGAPEKO",
       "fauti so ahinga nda ni pëpe",
     ),
   },

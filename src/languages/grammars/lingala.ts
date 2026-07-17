@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const lingala = new Language({
   language: "lingala",
   about:
-    "ENIDE ezali transpiler poliglote oyo epesaka nzela ya kokoma programɛ na monoko nyonso",
-
+    "ENIDE ezali lokótá ya programe ya minoko mingi oyo epesaka yo nzela ya kosala programe na lokótá nionso",
   include: DocStr(
     "kotia",
     "esalelami mpo na kokotisa monoko, biblioteka to mitindo ya bileko mosusu uta na fisye mosusu",
@@ -33,11 +32,11 @@ export const lingala = new Language({
         "mpo na kokota na misala ya mobimba oyo esungaka",
       ),
       __isarray: DocStr(
-        "ezali_molongo",
+        "EzaliMolongo",
         "mpo na kotala soki motango ezali molongo (vector)",
       ),
       __isobject: DocStr(
-        "ezali_eloko",
+        "EzaliEloko",
         "mpo na kotala soki motango ezali eloko (object)",
       ),
       __typeof: DocStr("Lolenge", "mpo na kozwa lolenge ya motango"),
@@ -125,14 +124,14 @@ export const lingala = new Language({
   },
 
   accessModifiers: {
-    __private: DocStr("ya_sekele", "ekoki komonana kaka na kati ya kelasi"),
-    __public: DocStr("ya_bato", "ekoki komonana bipai nyonso"),
+    __private: DocStr("YaSekele", "ekoki komonana kaka na kati ya kelasi"),
+    __public: DocStr("YaBato", "ekoki komonana bipai nyonso"),
     __protected: DocStr(
-      "ya_kobatelama",
+      "YaKobatelama",
       "ekoki komonana na kelasi mpe oyo ekolanda yango",
     ),
-    __readonly: DocStr("kotanga_kaka", "ekoki kobongwana mbala moko kaka"),
-    __static: DocStr("ya_kotelema", "ezali ya kelasi, kasi ya eloko moko te"),
+    __readonly: DocStr("KotangaKaka", "ekoki kobongwana mbala moko kaka"),
+    __static: DocStr("YaKotelema", "ezali ya kelasi, kasi ya eloko moko te"),
   },
 
   methods: {
@@ -147,15 +146,15 @@ export const lingala = new Language({
     sentences: {
       __function: DocStr("mosala", "mpo na koloba mosala"),
       __if: DocStr("soki", "mpo na kopesa kondisyo"),
-      __else: DocStr("soki_te", "mpo na kopesa kondisyo mosusu"),
+      __else: DocStr("SokiTe", "mpo na kopesa kondisyo mosusu"),
       __while: DocStr("tango", "mpo na kosala siklu tango"),
       __for: DocStr("mpona", "mpo na kosala siklu mpona"),
       __switch: DocStr("pona", "mpo na kopona na kati ya biloko mingi"),
       __case: DocStr("likambo", "likambo moko na kati ya pona"),
-      __default: DocStr("ya_suka", "ntango likambo moko te emonani"),
+      __default: DocStr("YaSuka", "ntango likambo moko te emonani"),
       __try: DocStr("meka", "mpo na komeka makomi"),
       __catch: DocStr("kamata", "mpo na kokamata mabunga"),
-      __finally: DocStr("na_nsuka", "esalemaka ntango nyonso na suka"),
+      __finally: DocStr("NaNsuka", "esalemaka ntango nyonso na suka"),
       __class: DocStr("kelasi", "mpo na koloba lolenge ya kelasi"),
       __constructor: DocStr(
         "motongi",
@@ -171,41 +170,35 @@ export const lingala = new Language({
       "Variable",
       "Likambo",
       "Eloko",
-      "Oyo ezelami",
-      "Oyo ezwami",
-      "Kobongola Konstante",
-      "Parametre ya mbala mibale",
+      "OyoEzelami",
+      "OyoEzwami",
+      "KobongolaKonstante",
+      "ParametreYaMbalaMibale",
       "Toli",
-      "Elembo ya mabe",
-      "Pile etondi",
+      "ElemboYaMabe",
+      "PileEtondi",
       "Elembo",
-      "Suka ya makomi ezorami te",
+      "SukaYaMakomiEzoramiTe",
     ),
     main: errorMessage("LIBUNGA", "libunga ya nse ya systeme"),
-    __TypeError: errorMessage(
-      "LIBUNGA_LOBOKO",
-      "lolenge ya motango ezali mabe",
-    ),
+    __TypeError: errorMessage("LIBUNGALOBOKO", "lolenge ya motango ezali mabe"),
     __InitError: errorMessage(
-      "LIBUNGA_YAMBALA_YAMBO",
+      "LIBUNGAYAMBALAYAMBO",
       "variable ebandisami naino te",
     ),
     __ReferenceError: errorMessage(
-      "LIBUNGA_TÁNDO",
+      "LIBUNGATÁNDO",
       "variable, mosala to biblioteka ezali te na tando oyo",
     ),
-    __SyntaxError: errorMessage(
-      "LIBUNGA_MAKOMI",
-      "makomi ya kódigo ezali mabe",
-    ),
+    __SyntaxError: errorMessage("LIBUNGAMAKOMI", "makomi ya kódigo ezali mabe"),
     __RangeError: errorMessage(
-      "LIBUNGA_NTAKA",
+      "LIBUNGANTAKA",
       "motango eleki ndelo oyo epesami",
     ),
-    __URIError: errorMessage("LIBUNGA_URI", "URI ezali mabe"),
-    __EvalError: errorMessage("LIBUNGA_EVAL", "libunga na mosala ya eval"),
+    __URIError: errorMessage("LIBUNGAURI", "URI ezali mabe"),
+    __EvalError: errorMessage("LIBUNGAEVAL", "libunga na mosala ya eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "LIBUNGA_EYEBANI_TE",
+      "LIBUNGAEYEBANITE",
       "libunga oyo eyebani soki moke te",
     ),
   },

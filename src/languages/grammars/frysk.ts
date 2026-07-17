@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const frysk = new Language({
   language: "frysk",
   about:
-    "ENIDE is in oersettbere transpiler dy't programmearjen yn elke taal mooglik makket",
-
+    "ENIDE is in meartalige programmearreistaal dy't jo tastiet om yn elke taal te programmearjen.",
   include: DocStr("Ynfoegje", "Brûkt om taal of biblioteken ta te foegjen"),
 
   commands: {
@@ -42,7 +41,7 @@ export const frysk = new Language({
       ),
       __typeof: DocStr("Type", "om it type fan in wearde te krijen"),
       __parse: DocStr(
-        "Parse",
+        "Analysearje",
         "om in wearde fan tekst nei it juste type te konvertearjen",
       ),
     },
@@ -137,7 +136,7 @@ export const frysk = new Language({
   specialValues: {
     __true: DocStr("Wier", "boolske wearde wier"),
     __false: DocStr("Falsk", "boolske wearde falsk"),
-    __null: DocStr("neat", "ôfwêzigens fan wearde"),
+    __null: DocStr("Neat", "ôfwêzigens fan wearde"),
   },
 
   words: {
@@ -160,7 +159,7 @@ export const frysk = new Language({
       "tagonklik binnen de klasse en har subklassen",
     ),
     __readonly: DocStr(
-      "allinnich_leze",
+      "allinnichLeze",
       "de wearde kin mar ien kear tawiisd wurde",
     ),
     __static: DocStr("statysk", "heart by de klasse, net by eksimplaren"),
@@ -187,7 +186,7 @@ export const frysk = new Language({
       __else: DocStr("oars", "om in alternative betingst te deklarearjen"),
       __while: DocStr("wylst", "om in wylst-lus te deklarearjen"),
       __for: DocStr("foar", "om in foar-lus te deklarearjen"),
-      __switch: DocStr("karstruktur", "om in karstruktuer te deklarearjen"),
+      __switch: DocStr("karstruktuer", "om in karstruktuer te deklarearjen"),
       __case: DocStr("gefal", "om in gefal yn de karstruktuer te deklarearjen"),
       __default: DocStr(
         "standert",
@@ -219,13 +218,13 @@ export const frysk = new Language({
       "Objekt",
       "Ferwachte",
       "Ûntfongen",
-      "Konstante_Tawizing",
-      "Dûbele_Parameter",
+      "KonstanteTawizing",
+      "DûbeleParameter",
       "Tip",
-      "Unjildich_Token",
-      "Stapel_Oerstream",
+      "UnjildichToken",
+      "StapelOerstream",
       "Token",
-      "Ûnferwachte_Ein",
+      "ÛnferwachteEin",
     ),
     main: errorMessage("FLATER", "algemiene systeemflater"),
     __TypeError: errorMessage("TYPE_FLATER", "unjildich type yn de operaasje"),
@@ -266,8 +265,8 @@ export const frysk = new Language({
     __boolean: [
       "steat",
       "isWolwoeksen",
-      "isAktif",
-      "isZichtber",
+      "isAktyf",
+      "isSichtber",
       "hatTastimming",
       "isYnlogd",
       "isYnskeakele",
@@ -283,9 +282,9 @@ export const frysk = new Language({
       "datumOpmakje",
       "ynfierAnalysearje",
       "formulierFalidearje",
-      "elemintrenderje",
+      "elemintRenderje",
       "steatBywurkje",
-      "totalBerekkenje",
+      "totaalBerekkenje",
     ],
     __number: [
       "leeftyd",
@@ -295,14 +294,14 @@ export const frysk = new Language({
       "priis",
       "yndeks",
       "doer",
-      "hoeveelheid",
+      "hoemannichte",
       "punten",
-      "timeout",
+      "tiidlimyt",
     ],
     __object: [
       "persoan",
       "brûker",
-      "config",
+      "konfiguraasje",
       "antwurd",
       "betelling",
       "ynstellingen",

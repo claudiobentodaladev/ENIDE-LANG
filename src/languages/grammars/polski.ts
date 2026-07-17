@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const polski = new Language({
   language: "polski",
   about:
-    "ENIDE to tlumaczalny transpiler, ktory umozliwia programowanie w dowolnym jezyku",
-
+    "ENIDE to wielojęzyczny język programowania, który pozwala programować w dowolnym języku",
   include: DocStr(
     "dolacz",
     "używane do dołączania języków, bibliotek lub modułów zewnętrznych",
@@ -23,30 +22,24 @@ export const polski = new Language({
       "dok",
       "wyświetla dokumentację dla wybranego języka",
     ),
-    __grammar: DocStr("gramatyka", "wyświetla zasady składniowe języka"),
+    __grammar: DocStr("grammar", "wyświetla zasady składniowe języka"),
   },
 
   library: {
     __standard: {
       main: DocStr("standard", "dostęp do podstawowych funkcji systemowych"),
       __isarray: DocStr(
-        "jest_lista",
+        "JestLista",
         "sprawdza, czy wartość jest listą (tablicą)",
       ),
-      __isobject: DocStr(
-        "jest_obiektem",
-        "sprawdza, czy wartość jest obiektem",
-      ),
-      __typeof: DocStr("typ_zmienej", "zwraca typ danych zmiennej"),
+      __isobject: DocStr("JestObiektem", "sprawdza, czy wartość jest obiektem"),
+      __typeof: DocStr("TypZmiennej", "zwraca typ danych zmiennej"),
       __parse: DocStr("analizuj", "konwertuje tekst na odpowiedni typ danych"),
     },
     __math: {
       main: DocStr("matematyka", "dostęp do funkcji i stałych matematycznych"),
       __pi: DocStr("PI", "zwraca wartość liczby Pi"),
-      __sqrt: DocStr(
-        "pierwiastek_kwadratowy",
-        "oblicza pierwiastek kwadratowy",
-      ),
+      __sqrt: DocStr("PierwiastekKwadratowy", "oblicza pierwiastek kwadratowy"),
       __pow: DocStr("potega", "podnosi liczbę do potęgi"),
       __round: DocStr(
         "zaokraglij",
@@ -55,13 +48,13 @@ export const polski = new Language({
       __random: DocStr("losowy", "generuje losową liczbę"),
       __max: DocStr("maksimum", "zwraca największą wartość z listy"),
       __min: DocStr("minimum", "zwraca najmniejszą wartość z listy"),
-      __isNumber: DocStr("jest_liczba", "sprawdza, czy wartość jest liczbą"),
+      __isNumber: DocStr("JestLiczba", "sprawdza, czy wartość jest liczbą"),
       __isInteger: DocStr(
-        "jest_calkowita",
+        "JestCalkowita",
         "sprawdza, czy liczba jest całkowita",
       ),
       __isFloat: DocStr(
-        "jest_dziesietna",
+        "JestDziesietna",
         "sprawdza, czy liczba ma część ułamkową",
       ),
       __cos: DocStr("cos", "oblicza cosinus"),
@@ -72,8 +65,8 @@ export const polski = new Language({
     __string: {
       main: DocStr("tekst", "funkcje do manipulacji ciągami znaków"),
       __length: DocStr("dlugosc", "zwraca liczbę znaków w tekście"),
-      __toUpperCase: DocStr("na_wielkie", "zamienia tekst na wielkie litery"),
-      __toLowerCase: DocStr("na_male", "zamienia tekst na małe litery"),
+      __toUpperCase: DocStr("NaWielkie", "zamienia tekst na wielkie litery"),
+      __toLowerCase: DocStr("NaMale", "zamienia tekst na małe litery"),
       __include: DocStr(
         "zawiera",
         "sprawdza, czy tekst zawiera określony fragment",
@@ -86,8 +79,8 @@ export const polski = new Language({
       __now: DocStr("teraz", "zwraca aktualną datę i czas"),
       __year: DocStr("rok", "zwraca aktualny rok"),
       __month: DocStr("miesiac", "zwraca aktualny miesiąc"),
-      __dayMonth: DocStr("dzien_miesiaca", "zwraca dzień miesiąca"),
-      __dayWeek: DocStr("dzien_tygodnia", "zwraca dzień tygodnia"),
+      __dayMonth: DocStr("DzienMiesiaca", "zwraca dzień miesiąca"),
+      __dayWeek: DocStr("DzienTygodnia", "zwraca dzień tygodnia"),
       __hour: DocStr("godzina", "zwraca aktualną godzinę"),
       __minute: DocStr("minuta", "zwraca minuty"),
       __second: DocStr("sekunda", "zwraca sekundy"),
@@ -120,7 +113,7 @@ export const polski = new Language({
     __public: DocStr("publiczny", "dostępny z każdego miejsca"),
     __protected: DocStr("chroniony", "dostępny w klasie i klasach pochodnych"),
     __readonly: DocStr(
-      "tylko_odczyt",
+      "TylkoOdczyt",
       "wartość nie może być zmieniona po inicjalizacji",
     ),
     __static: DocStr("statyczny", "należy do klasy, a nie do jej instancji"),
@@ -173,36 +166,36 @@ export const polski = new Language({
       "Obiekt",
       "Oczekiwano",
       "Otrzymano",
-      "Przypisanie_do_stalej",
-      "Zdublowany_parametr",
+      "PrzypisanieDoStalej",
+      "ZdublowanyParametr",
       "Wskazowka",
-      "Nieprawidlowy_token",
-      "Przepelnienie_stosu",
+      "NieprawidlowyToken",
+      "PrzepelnienieStosu",
       "Token",
-      "Nieoczekiwany_koniec_wejscia",
+      "NieoczekiwanyKoniecWejscia",
     ),
     main: errorMessage("BLAD", "ogólny błąd systemu"),
     __TypeError: errorMessage(
-      "BLAD_TYPU",
+      "BLADTYPU",
       "nieprawidłowy typ danych w operacji",
     ),
     __InitError: errorMessage(
-      "BLAD_INICJALIZACJI",
+      "BLADINICJALIZACJI",
       "zmienna nie została zainicjalizowana",
     ),
     __ReferenceError: errorMessage(
-      "BLAD_REFERENCJI",
+      "BLADREFERENCJI",
       "odwołanie do nieistniejącej zmiennej",
     ),
-    __SyntaxError: errorMessage("BLAD_SKLADNI", "błąd w składni kodu"),
+    __SyntaxError: errorMessage("BLADSKLADNI", "błąd w składni kodu"),
     __RangeError: errorMessage(
-      "BLAD_ZAKRESU",
+      "BLADZAKRESU",
       "wartość poza dopuszczalnym zakresem",
     ),
-    __URIError: errorMessage("BLAD_URI", "nieprawidłowy format URI"),
-    __EvalError: errorMessage("BLAD_EVAL", "błąd związany z funkcją eval"),
+    __URIError: errorMessage("BLADURI", "nieprawidłowy format URI"),
+    __EvalError: errorMessage("BLADEVAL", "błąd związany z funkcją eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "NIEZNANY_BLAD",
+      "NIEZNANYBLAD",
       "wystąpił nieoczekiwany błąd systemu",
     ),
   },

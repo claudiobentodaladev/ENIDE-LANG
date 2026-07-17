@@ -4,7 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const kimbundu = new Language({
   language: "kimbundu",
   about:
-    "ENIDE ni mubangu ua kubandeka madimi moso, kuendesa kumika isoneku mu madimi moso",
+    "ENIDE muene mbulanguji ia kusoneka kikalakalu kia kitalu, iabana uhete ua kusoneka mu didimi dioso-dioso",
 
   include: DocStr(
     "kubandeka",

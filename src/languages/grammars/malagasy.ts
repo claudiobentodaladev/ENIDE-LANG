@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const malagasy = new Language({
   language: "malagasy",
   about:
-    "ENIDE dia transpiler mamela anao hanao fandaharana amin'ny fiteny rehetra",
-
+    "ENIDE dia fiteny fandaharana amin'ny fiteny maro izay mamela anao handaharana amin'ny fiteny rehetra",
   include: DocStr(
     "ampidirina",
     "ampiasaina hampidirana fiteny, tahirim-boky, na rafitra avy amin'ny rakitra hafa",
@@ -17,7 +16,7 @@ export const malagasy = new Language({
     __version: DocStr("kinova", "hijerena ny kinova ENIDE ampiasaina"),
     __languages: DocStr("fiteny", "hijerena ny lisitry ny fiteny rehetra misy"),
     __documentation: DocStr(
-      "tahirin_kevitra",
+      "TahirinKevitra",
       "hahazoana ny torolalana momba ny fiteny",
     ),
     __grammar: DocStr("fitsipika", "hahazoana ny fitsipika mifehy ny fiteny"),
@@ -27,11 +26,11 @@ export const malagasy = new Language({
     __standard: {
       main: DocStr("fototra", "fidirana amin'ny fomba fiasa mahazatra"),
       __isarray: DocStr(
-        "karazana_lisitra",
+        "KarazanaLisitra",
         "manamarina raha lisitra (array) ny sanda",
       ),
       __isobject: DocStr(
-        "karazana_zavatra",
+        "KarazanaZavatra",
         "manamarina raha zavatra (object) ny sanda",
       ),
       __typeof: DocStr("Karazany", "mamerina ny karazana sanda"),
@@ -79,7 +78,7 @@ export const malagasy = new Language({
       ),
       __include: DocStr(
         "Ahitana",
-        "manamarina raha misy soratra hafa ao anatiny",
+        "manamarina raha misy soratra haha ao anatiny",
       ),
       __repeat: DocStr("Averimberina", "mamerina soratra araka ny isa nomena"),
     },
@@ -129,12 +128,12 @@ export const malagasy = new Language({
       "manokana",
       "tsy hita raha tsy ao anatin'ny kilasy ihany",
     ),
-    __public: DocStr("ho_ny_rehetra", "azo jerena na aiza na aiza"),
+    __public: DocStr("HoNyRehetra", "azo jerena na aiza na aiza"),
     __protected: DocStr(
       "arovana",
       "hita ao amin'ny kilasy sy ireo mandova azy",
     ),
-    __readonly: DocStr("vakiana_ihany", "tsy azo ovaina ny sandany"),
+    __readonly: DocStr("VakianaIhany", "tsy azo ovaina ny sandany"),
     __static: DocStr("static", "an'ny kilasy fa tsy an'ny santionany"),
   },
 
@@ -150,9 +149,9 @@ export const malagasy = new Language({
     sentences: {
       __function: DocStr("asa", "mamaritra asa iray"),
       __if: DocStr("raha", "mamaritra fepetra"),
-      __else: DocStr("rahatsyizany", "mamaritra fepetra hafa"),
+      __else: DocStr("rahatsyizany", "mamaritra fepetra haha"),
       __while: DocStr("mandritra", "manao fiverenana mandritra ny fepetra"),
-      __for: DocStr("ho_an_ny", "manao fiverenana voafetra"),
+      __for: DocStr("HoAnNy", "manao fiverenana voafetra"),
       __switch: DocStr("safidy", "mamaritra safidy maro"),
       __case: DocStr("tranga", "mamaritra tranga iray ao anatin'ny safidy"),
       __default: DocStr("mahazatra", "tranga raha tsy misy mifanaraka"),
@@ -173,36 +172,36 @@ export const malagasy = new Language({
       "Zavatra",
       "Andrasana",
       "Voaray",
-      "Fandaminana tsy azo ovaina",
-      "Parametatra miverina",
+      "FandaminanaTsyAzoOvaina",
+      "ParametatraMiverina",
       "Torohevitra",
-      "Token tsy mety",
-      "Stack feno loatra",
+      "TokenTsyMety",
+      "StackFenoLoatra",
       "Token",
-      "Tapaka tampoka ny fidirana",
+      "TapakaTampokaNyFidirana",
     ),
     main: errorMessage("FAHADISOANA", "fahadisoana ankapobeny"),
     __TypeError: errorMessage(
-      "DISO_KARAZANA",
+      "DISOKARAZANA",
       "tsy mety ny karazana ampiasaina",
     ),
     __InitError: errorMessage(
-      "DISO_FANOMBOHANA",
+      "DISOFANOMBOHANA",
       "tsy mbola nomena sanda ny miovaova",
     ),
     __ReferenceError: errorMessage(
-      "DISO_FANONDROANA",
+      "DISOFANONDROANA",
       "tsy misy ny miovaova na ny asa antsoina",
     ),
-    __SyntaxError: errorMessage("DISO_SINTAKSA", "diso ny fanoratana ny koda"),
+    __SyntaxError: errorMessage("DISOSINTAKSA", "diso ny fanoratana ny koda"),
     __RangeError: errorMessage(
-      "DISO_FETRA",
+      "DISOFETRA",
       "mihoatra ny fetra azo ekena ny sanda",
     ),
-    __URIError: errorMessage("DISO_URI", "diso ny endriky ny URI"),
-    __EvalError: errorMessage("DISO_EVAL", "fahadisoana momba ny eval"),
+    __URIError: errorMessage("DISOURI", "diso ny endriky ny URI"),
+    __EvalError: errorMessage("DISOEVAL", "fahadisoana momba ny eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "TSY_FANTATRA",
+      "TSYFANTATRA",
       "fahadisoana tsy fantatra tanteraka",
     ),
   },

@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const turkmen = new Language({
   language: "turkmen",
   about:
-    "ENIDE islendik dilde programlamaga mumkincilik beryan terjime edilip bilinyan transpiler",
-
+    "NIDE islendik dilde programmirläp bilýän köpdilli programmalaşdyryş dilidir",
   include: DocStr("Gosmak", "Dil ya-da kitaphanalary gosmak ucin ulanylyar"),
 
   commands: {
@@ -55,9 +54,9 @@ export const turkmen = new Language({
         "OnlukSanMy",
         "gymmatyn onluk san bolup-bolmandygyny barlayar",
       ),
-      __cos: DocStr("cos", "kosinusy hasaplayar"),
-      __sin: DocStr("sin", "sinusy hasaplayar"),
-      __tan: DocStr("tan", "tangensy hasaplayar"),
+      __cos: DocStr("Cos", "kosinusy hasaplayar"),
+      __sin: DocStr("Sin", "sinusy hasaplayar"),
+      __tan: DocStr("Tan", "tangensy hasaplayar"),
     },
 
     __string: {
@@ -190,7 +189,7 @@ export const turkmen = new Language({
     __array: [
       "piccalar",
       "saherler",
-      "sanlar_sanawy",
+      "sanlarSanawy",
       "sanlar",
       "renkler",
       "onumler",
@@ -202,14 +201,14 @@ export const turkmen = new Language({
     __boolean: [
       "yagday",
       "isleyar",
-      "rugsat_berildi",
+      "rugsatBerildi",
       "tayyar",
       "tassyklanan",
       "baglanan",
-      "dowam_edyar",
+      "dowamEdyar",
       "tamamlandy",
       "barlanan",
-      "yatay_edildi",
+      "yatayEdildi",
     ],
     __function: [
       "adyAl",
@@ -225,7 +224,7 @@ export const turkmen = new Language({
     ],
     __number: [
       "yas",
-      "doglan_yyly",
+      "doglanYyly",
       "ortaca",
       "jemi",
       "baha",
@@ -264,10 +263,10 @@ export const turkmen = new Language({
       "poz",
       "dur",
       "temizle",
-      "yok_et",
+      "yokEt",
       "cyk",
-      "buferi_bosat",
-      "ahlisini_sakla",
+      "buferiBosat",
+      "ahlisiniSakla",
       "iber",
       "gir",
     ],

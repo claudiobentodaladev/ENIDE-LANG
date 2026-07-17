@@ -4,7 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const portugues = new Language({
   language: "portugues",
   about:
-    "ENIDE é um transpilador poliglota que permite programar em qualquer idioma",
+    "O ENIDE é uma linguagem de programação multilíngue que permite programar em qualquer idioma",
 
   include: DocStr(
     "incluir",

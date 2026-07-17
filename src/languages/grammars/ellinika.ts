@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const ellinika = new Language({
   language: "ellinika",
   about:
-    "To ENIDE einai enas metafrastikos metaplittis pou epitrepei ton programmatismo se opoiadipote glossa",
-
+    "To ENIDE einai mia polylgossi glossa programmatismou pou sas epitrepei na programmatizete se opoiadipote glossa.",
   include: DocStr(
     "Symperilipsi",
     "Chrisimopoieitai gia ti symperilipsi glossas i vivliothikon",
@@ -32,7 +31,7 @@ export const ellinika = new Language({
         "elenchos an mia timi einai antikeimeno",
       ),
       __typeof: DocStr("Typos", "gia ton typo mias timis"),
-      __parse: DocStr("Parse", "metatropi keimenou stin swsti analysi tou"),
+      __parse: DocStr("Analysi", "metatropi keimenou stin swsti analysi tou"),
     },
 
     __math: {
@@ -67,7 +66,7 @@ export const ellinika = new Language({
       __toUpperCase: DocStr("Kefalaia", "metatropi keimenou se kefalaia"),
       __toLowerCase: DocStr("Peza", "metatropi keimenou se peza"),
       __include: DocStr(
-        "Periechet",
+        "Periechei",
         "elenchos an keimeno periechet allo keimeno",
       ),
       __repeat: DocStr(
@@ -101,7 +100,7 @@ export const ellinika = new Language({
   specialValues: {
     __true: DocStr("Alithes", "logiki timi alithes"),
     __false: DocStr("Pseudes", "logiki timi pseudes"),
-    __null: DocStr("tipota", "apoysia timis"),
+    __null: DocStr("Tipota", "apoysia timis"),
   },
 
   words: {
@@ -115,7 +114,7 @@ export const ellinika = new Language({
     __public: DocStr("dimosio", "prosvasi apo opoiodipote simio"),
     __protected: DocStr("prostateymeno", "prosvasi entos klasis kai ypoklaswn"),
     __readonly: DocStr(
-      "mono_anagnosi",
+      "monoAnagnosi",
       "i timi mporei na apodothei mono mia fora",
     ),
     __static: DocStr("statiko", "anikei stin klasi kai ochi stin ekdosi"),
@@ -162,7 +161,7 @@ export const ellinika = new Language({
       "Mh_Egkyro_Token",
       "Ypervasi_Stivas",
       "Token",
-      "Anapomeno_Telos",
+      "Anamenomeno_Telos",
     ),
     main: errorMessage("SFALMA", "geniko sfalma systimatos"),
     __TypeError: errorMessage("SFALMA_TYPOU", "mi egkiros typos stin praxi"),
@@ -202,24 +201,24 @@ export const ellinika = new Language({
       "einaiEnilikos",
       "einaiEnergos",
       "einaiOratos",
-      "echetAdeia",
+      "echeiAdeia",
       "einaiSyndedemenos",
-      "einaiEnergopo",
+      "einaiEnergopoiimenos",
       "einaiOloklirwmenos",
-      "einaiEpivevai",
-      "einaiDiagramenos",
+      "einaiEpivevaiomenos",
+      "einaiDiagragmenos",
     ],
     __function: [
-      "lipiOnoma",
-      "lipiTimi",
+      "pareOnoma",
+      "pareTimi",
       "epexergasiKlik",
-      "anaktiDedomeni",
-      "morphopoiiImerominia",
+      "anaktisiDedomenon",
+      "morfopoiisiImerominias",
       "analysiEisodou",
       "epikyrosi",
-      "apodosistStocheiou",
-      "enimerosKatastasis",
-      "ypologismosYnolou",
+      "apodosiStoicheiou",
+      "enimerosiKatastasis",
+      "ypologismosSynolou",
     ],
     __number: [
       "ilikia",
@@ -231,12 +230,12 @@ export const ellinika = new Language({
       "diarkeia",
       "posotita",
       "vathmologia",
-      "timeout",
+      "chronikoOrio",
     ],
     __object: [
       "atomo",
       "christis",
-      "config",
+      "rythmisi",
       "apantisi",
       "pliromi",
       "rythmiseis",
@@ -258,16 +257,16 @@ export const ellinika = new Language({
       "slug",
     ],
     __void: [
-      "syndesmos",
+      "syndesi",
       "archikopoiisi",
       "katharismos",
-      "epanaforá",
+      "epanafora",
       "katastrofi",
-      "apossyndesi",
-      "katharismoCache",
-      "apoThikeysi",
+      "aposyndesi",
+      "katharismosMnimis",
+      "apothikeysi",
       "apostoliEmail",
-      "katagramatismos",
+      "katagrafi",
     ],
   },
 }).grammar();

@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const bulgarski = new Language({
   language: "bulgarski",
   about:
-    "ENIDE e prevodim transpiler, koito pozvoliava programirane na vsiakakuv ezik",
-
+    "ENIDE e mnogoezichen programen ezik, koyto vi pozvolyava da programirate na vsekiv ezik.",
   include: DocStr(
     "Vklyuchvane",
     "izpolzva se za vklyuchvane na ezik, biblioteki ili strukturi ot drug fail",
@@ -20,7 +19,7 @@ export const bulgarski = new Language({
       "dokumentatsia",
       "za dokumentatsiata na daden ezik",
     ),
-    __grammar: DocStr("gramatika", "za gramitikata na daden ezik"),
+    __grammar: DocStr("gramatika", "za gramatikata na daden ezik"),
   },
 
   library: {
@@ -116,14 +115,17 @@ export const bulgarski = new Language({
     ),
     __readonly: DocStr(
       "samoZaChitane",
-      "stoinostta mozhe da se prisvoiava samo vednauzh",
+      "stoinostta mozhe da se prisvoiava samo vednazh",
     ),
     __static: DocStr("statichno", "prinadlezhi na klasa a ne na ekzemplyarite"),
   },
 
   methods: {
     method: {
-      __print: DocStr("pechatai", "za izvezhdane na stoinost na ekrana"),
+      __print: DocStr(
+        "zapishi",
+        "za izvezhdane/zapisvane na stoinost na ekrana",
+      ),
       __scan: DocStr("cheti", "za chetene na stoinost ot vkhoda"),
       __return: DocStr("vurni", "za vrushtane na stoinost ot funktsia"),
       __break: DocStr("spri", "za izhod ot tsikula"),
@@ -165,7 +167,7 @@ export const bulgarski = new Language({
       "Prisvoiavane_Na_Konstanta",
       "Dublikat_Parametur",
       "Podskazka",
-      "Nevaliден_Token",
+      "Nevaliden_Token",
       "Prepulvane_Na_Stek",
       "Token",
       "Neochakvan_Krai_Na_Vkhoda",
@@ -215,20 +217,20 @@ export const bulgarski = new Language({
       "eVpisano",
       "eVklyucheno",
       "eGotovo",
-      "ePotвurdeno",
-      "eIztrито",
+      "ePotvurdeno",
+      "eIztrito",
     ],
     __function: [
-      "vzeмiIme",
-      "vzeмiStoinost",
-      "obработiKlik",
-      "zaредiDanni",
+      "vzemiIme",
+      "vzemiStoinost",
+      "obrabotiKlik",
+      "zarediDanni",
       "formatiraiData",
-      "razchleниVhod",
-      "validiтaiForma",
-      "vizualiziтaiElement",
-      "aktualiziрaiSustояnie",
-      "izчisliObshto",
+      "razchleniVhod",
+      "validitaiForma",
+      "vizualizitaiElement",
+      "aktualiziraiSustoyanie",
+      "izchisliObshto",
     ],
     __number: [
       "vazrast",
@@ -273,9 +275,9 @@ export const bulgarski = new Language({
       "nulirai",
       "unishtozhi",
       "izpisvane",
-      "iztriиКеша",
+      "iztriiKesha",
       "zapaziVBaza",
-      "izpratиEmail",
+      "izpratiEmail",
       "zapisheSubitie",
     ],
   },

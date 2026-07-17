@@ -4,10 +4,9 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const kikongo = new Language({
   language: "kikongo",
   about:
-    "ENIDE kele ndinga ya ke balulaka mpi ke salaka baprograme ya bandinga mingi yina ke pesaka nzila ya kusala baprograme na konso ndinga.",
-
+    "ENIDE i ndinga ya programe ya ndinga mingi yina ke pesa nge nzila ya kusala programe na ndinga yonso",
   include: DocStr(
-    "kuvanda ti",
+    "KuvandaTi",
     "Isadilua mu kotisa ndinga, biblioteka to struktura mu file zankaka",
   ),
 
@@ -40,18 +39,18 @@ export const kikongo = new Language({
     __math: {
       main: DocStr("matematiki", "sambu na kukota na bisalu ya matematike"),
       __pi: DocStr("PI", "sambu na kubaka ntalu ya pi ."),
-      __sqrt: DocStr("misisa ya carré", "sambu na kubaka kisina ya ntalu mosi"),
+      __sqrt: DocStr("MisisaYaCarre", "sambu na kubaka kisina ya ntalu mosi"),
       __pow: DocStr("Ngolo", "sambu na kubaka ngolo ya ntalu mosi ."),
       __round: DocStr("Rondre", "Kusala nimero ya nziunga"),
       __random: DocStr(
-        "Kaka mpidina",
+        "KakaMpidina",
         "sambu na kubaka nimero mosi ya mpamba-mpamba",
       ),
       __max: DocStr("kuluta mingi", "sambu na kubaka ntalu ya kuluta mingi"),
       __min: DocStr("Minimum", "sambu na kubaka ntalu ya kuluta fioti"),
       __isNumber: DocStr("Quantia", "sambu na kutala kana ntalu kele nimero"),
       __isInteger: DocStr(
-        "ÉInteiro", // stay
+        "ÉInteiro",
         "sambu na kutala kana ntalu mosi kele ntalu ya mvimba",
       ),
       __isFloat: DocStr(
@@ -67,15 +66,15 @@ export const kikongo = new Language({
       main: DocStr("bisono", "sambu na kukota na bisalu ya kuyidika masonama"),
       __length: DocStr("nda", "sambu na kubaka nene ya masonama"),
       __toUpperCase: DocStr(
-        "masonama ya nene",
+        "MasonamaYaNene",
         "kubalula masonama na bisono ya nene",
       ),
       __toLowerCase: DocStr(
-        "masonama ya fioti",
+        "MasonamaYaFioti",
         "Converter o texto para minúsculas.",
       ),
       __include: DocStr(
-        "kuvanda ti",
+        "KuvandaTi",
         "sambu na kutala kana masonama kele ti masonama ya fioti",
       ),
       __repeat: DocStr(
@@ -92,9 +91,9 @@ export const kikongo = new Language({
       __now: DocStr("Sesepi", "sambu na kubaka kilumbu mpi ntangu ya sesepi"),
       __year: DocStr("mvula", "sambu na kubaka mvula"),
       __month: DocStr("Ngonda", "sambu na kubaka ngonda"),
-      __dayMonth: DocStr("Kilumbu ya Ngonda", "kuzwa kilumbu ya ngonda ."),
-      __dayWeek: DocStr("Kilumbu ya mposo", "kuzwa kilumbu ya mposo"),
-      __hour: DocStr("ntangu ya kilumbu", "sambu na kuzaba ntangu ya kilumbu"),
+      __dayMonth: DocStr("KilumbuYaNgonda", "kuzwa kilumbu ya ngonda ."),
+      __dayWeek: DocStr("KilumbuYaMposo", "kuzwa kilumbu ya mposo"),
+      __hour: DocStr("NtanguYaKilumbu", "sambu na kuzaba ntangu ya kilumbu"),
       __minute: DocStr("Miniti", "kuvanda na munuta"),
       __second: DocStr("Ya zole", "sambu na kubaka ya zole"),
     },
@@ -116,7 +115,7 @@ export const kikongo = new Language({
   },
 
   words: {
-    __new: DocStr("ya_mpa", "kusala mbandu ya mpa ya nzo-nkanda"),
+    __new: DocStr("YaMpa", "kusala mbandu ya mpa ya nzo-nkanda"),
     __this: DocStr("yai", "sambu na kukota na kikalulu mosi ya klase yo mosi"),
     __extends: DocStr(
       "kutandula",
@@ -125,13 +124,10 @@ export const kikongo = new Language({
   },
 
   accessModifiers: {
-    __private: DocStr("ya kinsweki", "lenda kota kaka na kati ya nzo-nkanda"),
-    __public: DocStr("ya bantu yonso", "nge lenda kota na konso kisika"),
-    __protected: DocStr(
-      "bo me tanina",
-      "lenda kota kaka na kati ya nzo-nkanda",
-    ),
-    __readonly: DocStr("tanga kaka", "Ntalu lenda pesama kaka mbala mosi."),
+    __private: DocStr("YaKinsweki", "lenda kota kaka na kati ya nzo-nkanda"),
+    __public: DocStr("YaBantuYonso", "nge lenda kota na konso kisika"),
+    __protected: DocStr("BoMeTanina", "lenda kota kaka na kati ya nzo-nkanda"),
+    __readonly: DocStr("TangaKaka", "Ntalu lenda pesama kaka mbala mosi."),
     __static: DocStr("statique", "kele ya kitini kansi ya instance ve."),
   },
 
@@ -150,7 +146,7 @@ export const kikongo = new Language({
     sentences: {
       __function: DocStr("kisalu", "kuzabisa kisalu mosi"),
       __if: DocStr("kana", "kuzabisa kikalulu mosi"),
-      __else: DocStr("kana ve", "kuzabisa kikalulu ya nkaka"),
+      __else: DocStr("KanaVe", "kuzabisa kikalulu ya nkaka"),
       __while: DocStr("ntangu", "kuzabisa nzietelo mosi ntangu ."),
       __for: DocStr("na", "Kuzabisa nzila"),
       __switch: DocStr("nsola", "kuzabisa ngidika ya kupona"),
@@ -175,34 +171,34 @@ export const kikongo = new Language({
       "Kikalulu",
       "Kima",
       "Kuvila",
-      "Me baka",
-      "Nsobolo ya Ntandula",
-      "Kiyidika ya Mbala Zole",
+      "MeBaka",
+      "NsoboloYaNtandula",
+      "KiyidikaYaMbalaZole",
       "Ngibusa",
-      "Kizidi ya luvunu",
-      "Katuka na Kinkonzi",
+      "KizidiYaLuvunu",
+      "KatukaNaKinkonzi",
       "Kizidi",
-      "Nsuka ya Kukituka ya Mbasi",
+      "NsukaYaKukitukaYaMbasi",
     ),
     main: errorMessage("KIFU", "kifu ya lukanu ya ngidika"),
-    __TypeError: errorMessage("KIFU_YA_MUTINDU", "mutindu ya luvunu na kisalu"),
+    __TypeError: errorMessage("KIFUYAMUTINDU", "mutindu ya luvunu na kisalu"),
     __InitError: errorMessage(
-      "KIFU_YA_LUBANTIKU",
+      "KIFUYALUBANTIKU",
       "kivanduri yai me yantika naino ve",
     ),
     __ReferenceError: errorMessage(
-      "KIFU_YA_NSIKU",
+      "KIFUYANSIKU",
       "kivanduri, kisalu to nzo-mikanda kele ve na lukanu yai",
     ),
-    __SyntaxError: errorMessage("KIFU_YA_ASONO", "kizidi ya luvunu"),
+    __SyntaxError: errorMessage("KIFUYAASONO", "kizidi ya luvunu"),
     __RangeError: errorMessage(
-      "KIFU_YA_KITESO",
+      "KIFUYAKITESO",
       "ntalu kele nganda ya kiteso ya me tendulama",
     ),
-    __URIError: errorMessage("KIFU_YA_URI", "URI ya kubeba to ya luvunu"),
-    __EvalError: errorMessage("KIFU_YA_EVAL", "kifu ya me tana ti eval"),
+    __URIError: errorMessage("KIFUYAURI", "URI ya kubeba to ya luvunu"),
+    __EvalError: errorMessage("KIFUYAEVAL", "kifu ya me tana ti eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "KIFU_KIKONDA_KUZABANA",
+      "KIFUKIKONDAKUZABANA",
       "kifu mosi ya nzenza mpi ya kukonda kuzabana",
     ),
   },

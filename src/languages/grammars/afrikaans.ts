@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const afrikaans = new Language({
   language: "afrikaans",
   about:
-    "ENIDE is 'n veeltalige transpiler wat programmering in enige taal moontlik maak",
-
+    "ENIDE is 'n meertalige programmeringstaal wat jou toelaat om in enige taal te programmeer.",
   include: DocStr(
     "Insluit",
     "word gebruik om tale, biblioteke of datastrukture uit 'n ander lêer in te sluit",
@@ -88,7 +87,7 @@ export const afrikaans = new Language({
       __year: DocStr("Jaar", "om die jaar te kry"),
       __month: DocStr("Maand", "om die maand te kry"),
       __dayMonth: DocStr("DagMaand", "om die dag van die maand te kry"),
-      __dayWeek: DocStr("DagWeek", "om die dag van die week te kry"),
+      __dayWeek: DocStr("DagWeek", "om die dag van the week te kry"),
       __hour: DocStr("Uur", "om die uur te kry"),
       __minute: DocStr("Minuut", "om die minuut te kry"),
       __second: DocStr("Sekonde", "om die sekonde te kry"),
@@ -135,7 +134,7 @@ export const afrikaans = new Language({
 
   methods: {
     method: {
-      __print: DocStr("druk", "om 'n waarde op die skerm te druk"),
+      __print: DocStr("Skryf", "om 'n waarde op die skerm te druk"),
       __scan: DocStr("lees", "om 'n waarde van die invoer te lees"),
       __return: DocStr(
         "gee_terug",
@@ -154,13 +153,13 @@ export const afrikaans = new Language({
       __else: DocStr("anders", "om 'n alternatiewe voorwaarde te verklaar"),
       __while: DocStr("terwyl", "om 'n terwyl-lus te verklaar"),
       __for: DocStr("vir", "om 'n for-lus te verklaar"),
-      __switch: DocStr("keuse", "om 'n keuse struktuur te verklaar"),
-      __case: DocStr("geval", "om 'n geval in die keuse struktuur te verklaar"),
+      __switch: DocStr("keuse", "om 'n keusestruktuur te verklaar"),
+      __case: DocStr("geval", "om 'n geval in die keusestruktuur te verklaar"),
       __default: DocStr(
         "standaard",
-        "om die standaard geval in die keuse struktuur te verklaar",
+        "om die standaard geval in die keusestruktuur te verklaar",
       ),
-      __try: DocStr("probeer", "om 'n probeer blok te verklaar"),
+      __try: DocStr("probeer", "om 'n probeer-blok te verklaar"),
       __catch: DocStr("vang", "om 'n fouthanteringsblok te verklaar"),
       __finally: DocStr(
         "uiteindelik",
@@ -191,7 +190,7 @@ export const afrikaans = new Language({
       "Token",
       "Onverwagte_Einde_van_Invoer",
     ),
-    main: errorMessage("FOUT", "generiese stelsel fout"),
+    main: errorMessage("FOUT", "generiese stelselfout"),
     __TypeError: errorMessage("TIPE_FOUT", "ongeldige tipe in operasie"),
     __InitError: errorMessage(
       "INISIALISERING_FOUT",

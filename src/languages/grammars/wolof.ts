@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const wolof = new Language({
   language: "wolof",
   about:
-    "ENIDE ab transpiler la buy soppi kodi mbind mu dadi dundal lakk yu bari",
-
+    "ENIDE mooy làkku programming bu am yoonu làkk yu bari, di la may nga mëna programming ci lu nekk",
   include: DocStr(
     "Boole",
     "Nu koy jefandikoo ngir boole lakk walla mbindu-teere yi kuuma kaye yu bees",
@@ -43,9 +42,9 @@ export const wolof = new Language({
       __isNumber: DocStr("DafaNumero", "xool bu jem dafay numero"),
       __isInteger: DocStr("DafaNumeroYep", "xool bu jem dafay numero yep"),
       __isFloat: DocStr("DafaDesimal", "xool bu jem dafay desimal"),
-      __cos: DocStr("cos", "natt kosinus"),
-      __sin: DocStr("sin", "natt sinus"),
-      __tan: DocStr("tan", "natt tanjant"),
+      __cos: DocStr("Cos", "natt kosinus"),
+      __sin: DocStr("Sin", "natt sinus"),
+      __tan: DocStr("Tan", "natt tanjant"),
     },
 
     __string: {
@@ -155,25 +154,25 @@ export const wolof = new Language({
 
   example: {
     __array: [
-      "liste_pissa",
-      "dekk_yi",
-      "liste_numero",
-      "numero_yi",
-      "koleer_yi",
-      "cin_yi",
-      "nit_yi",
-      "biro_yi",
-      "note_yi",
-      "lakk_yi",
+      "listePissa",
+      "dekkYi",
+      "listeNumero",
+      "numeroYi",
+      "koleerYi",
+      "cinYi",
+      "nitYi",
+      "biroYi",
+      "noteYi",
+      "lakkYi",
     ],
     __boolean: [
       "ekalo",
-      "bi_liggey",
-      "am_ndiggel",
+      "biLiggey",
+      "amNdiggel",
       "pare",
       "deggal",
       "ubbe",
-      "mu_wey",
+      "muWey",
       "jeex",
       "seet",
       "baayi",
@@ -192,7 +191,7 @@ export const wolof = new Language({
     ],
     __number: [
       "at",
-      "at_juddu",
+      "atJuddu",
       "moyenne",
       "yep",
       "ndiege",
@@ -217,7 +216,7 @@ export const wolof = new Language({
     __string: [
       "tur",
       "dekkwaay",
-      "wan_leen",
+      "wanLeen",
       "imel",
       "pass",
       "bataaxal",

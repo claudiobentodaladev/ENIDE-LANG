@@ -4,7 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const nihongo = new Language({
   language: "nihongo",
   about:
-    "ENIDE wa dono gengo demo puroguramingu ga dekiru honyaku kano na toransupaira desu",
+    "ENIDE wa dono gengo demo puroguramingu ga dekiru honyaku kano na porigurotto toransupaira desu",
 
   include: DocStr(
     "fukumeru",
@@ -36,14 +36,14 @@ export const nihongo = new Language({
     __standard: {
       main: DocStr("hyōjun", "shisutemu no kihon mesoddo ni akusesu suru"),
       __isarray: DocStr(
-        "hairetsu_ka",
+        "HairetsuKa",
         "atai ga hairetsu ka dō ka o kakunin suru",
       ),
       __isobject: DocStr(
-        "obujekuto_ka",
+        "ObujekutoKa",
         "atai ga obujekuto ka dō ka o kakunin suru",
       ),
-      __typeof: DocStr("kata_shirabe", "atai no dēta-gata o kaesu"),
+      __typeof: DocStr("KataShirabe", "atai no dēta-gata o kaesu"),
       __parse: DocStr(
         "kaiseki",
         "mojiretsu o tekisetsu na dēta-gata ni henkan suru",
@@ -58,9 +58,9 @@ export const nihongo = new Language({
       __random: DocStr("randomu", "ransū o kaisuru"),
       __max: DocStr("saidai", "risuto no naka kara saidai-atai o shutoku suru"),
       __min: DocStr("saisho", "risuto no naka kara saisho-atai o shutoku suru"),
-      __isNumber: DocStr("sūji_ka", "atai ga sūji ka dō ka o kakunin suru"),
-      __isInteger: DocStr("seisū_ka", "atai ga seisū ka dō ka o kakunin suru"),
-      __isFloat: DocStr("shōsū_ka", "atai ga shōsū ka dō ka o kakunin suru"),
+      __isNumber: DocStr("SūjiKa", "atai ga sūji ka dō ka o kakunin suru"),
+      __isInteger: DocStr("SeisūKa", "atai ga seisū ka dō ka o kakunin suru"),
+      __isFloat: DocStr("ShōsūKa", "atai ga shōsū ka dō ka o kakunin suru"),
       __cos: DocStr("cos", "kosein o keisan suru"),
       __sin: DocStr("sin", "sain o keisan suru"),
       __tan: DocStr("tan", "tanjento o keisan suru"),
@@ -70,19 +70,19 @@ export const nihongo = new Language({
       main: DocStr("mojiretsu", "mojiretsu sōsa kansū ni akusesu suru"),
       __length: DocStr("nagasa", "mojiretsu no nagasa o shutoku suru"),
       __toUpperCase: DocStr(
-        "ōmoji_ni",
+        "ŌmojiNi",
         "mojiretsu o subete ōmoji ni henkan suru",
       ),
       __toLowerCase: DocStr(
-        "komoji_ni",
+        "KomojiNi",
         "mojiretsu o subete komoji ni henkan suru",
       ),
       __include: DocStr(
-        "fukumu_ka",
+        "FukumuKa",
         "mojiretsu ni tokutei no bubun ga fukumareru ka kakunin",
       ),
       __repeat: DocStr(
-        "kurikaeshi_moji",
+        "KurikaeshiMoji",
         "mojiretsu o shiteishita kaisū kurikaesu",
       ),
     },
@@ -131,7 +131,7 @@ export const nihongo = new Language({
       "hogosumi",
       "kurasu to sono sabukurasu kara akusesu kanō",
     ),
-    __readonly: DocStr("yomitori_senyō", "shokika go ni atai o henkō dekinai"),
+    __readonly: DocStr("YomitoriSenyō", "shokika go ni atai o henkō dekinai"),
     __static: DocStr(
       "seiteki",
       "insutansu dewa naku kurasu jishin ni zokusuru",
@@ -150,7 +150,7 @@ export const nihongo = new Language({
     sentences: {
       __function: DocStr("kansu", "kansu no sengen"),
       __if: DocStr("moshi", "jōkenbun no sengen"),
-      __else: DocStr("sore_igai", "jōken ga shin denai baai no burokku"),
+      __else: DocStr("SoreIgai", "jōken ga shin denai baai no burokku"),
       __while: DocStr("aida", "jōken ni motozuku rūpu"),
       __for: DocStr("kurikaeshi", "kauntā ni motozuku rūpu"),
       __switch: DocStr("sentaku", "fokusū no jōken bunki kōzō"),
@@ -174,41 +174,41 @@ export const nihongo = new Language({
       "Hensū",
       "Propatī",
       "Obujekuto",
-      "Kitai_sareta_mono",
-      "Ukewatashita_mono",
-      "Teisū_e_no_dainyū",
-      "Chōfuku_paramēta",
+      "KitaiSaretaMono",
+      "UkewatashitaMono",
+      "TeisūENoDainyū",
+      "ChōfukuParamēta",
       "Hinto",
-      "Fusei_na_tōkun",
-      "Sutakku_ōbāfurō",
+      "FuseiNaTōkun",
+      "SutakkuŌbāfurō",
       "Tōkun",
-      "Nyūryoku_no_yoki_senu_shūryō",
+      "NyūryokuNoYokiSenuShūryō",
     ),
     main: errorMessage("ERA", "ippan-tekina shisutemu era"),
     __TypeError: errorMessage(
-      "KATA_ERA",
+      "KATAERA",
       "kono sōsa ni taishite fusei na dēta-kata desu",
     ),
     __InitError: errorMessage(
-      "SHOKIKA_ERA",
+      "SHOKIKAERA",
       "hensū ga tekisetsu ni shokika sarete imasen",
     ),
     __ReferenceError: errorMessage(
-      "SANSHŌ_ERA",
+      "SANSHŌERA",
       "hensū mata wa kansū ga sonzai shimasen",
     ),
     __SyntaxError: errorMessage(
-      "KUMON_ERA",
+      "KUMONERA",
       "kōdo no kijutsu ni ayamari ga arimasu",
     ),
-    __RangeError: errorMessage("HANI_ERA", "atai ga kyo-yō hani-gai desu"),
-    __URIError: errorMessage("URI_ERA", "fusei na URI kōshiki desu"),
+    __RangeError: errorMessage("HANIERA", "atai ga kyo-yō hani-gai desu"),
+    __URIError: errorMessage("URIERA", "fusei na URI kōshiki desu"),
     __EvalError: errorMessage(
-      "EVAL_ERA",
+      "EVALERA",
       "eval-kansu de era ga hassei shimashita",
     ),
     __UNKNOWN_ERROR: errorMessage(
-      "FUMEI_NA_ERA",
+      "FUMEINAERA",
       "michi no era ga hassei shimashita",
     ),
   },

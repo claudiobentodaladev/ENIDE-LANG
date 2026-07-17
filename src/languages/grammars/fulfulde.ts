@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const fulfulde = new Language({
   language: "fulfulde",
   about:
-    "ENIDE woni transpiler ɗemɗe keewɗe baawnoowo winndude koodal e kala ɗemngal",
-
+    "ENIDE ko ɗemngal porogaramji ɗuuɗa-ɗemngal ngal eewnata ma a porogaram e ɗemngal kala.",
   include: DocStr(
     "Nastinki",
     "no naftire ngam naatinde ɗemngal, bibaariiji malla laabi ummoraade e deftere woɗnde",
@@ -14,10 +13,10 @@ export const fulfulde = new Language({
   commands: {
     __about: DocStr("faade", "heɓde kabaruuji faade e ENIDE"),
     __help: DocStr("ballal", "heɓde doggol yamirooje fof jeyaaɗe"),
-    __version: DocStr("version", "heɓde version jooni mo ENIDE"),
+    __version: DocStr("yaltunde", "heɓde version jooni mo ENIDE"),
     __languages: DocStr("ɗemɗe", "heɓde doggol ɗemɗe fof jeyaaɗe"),
     __documentation: DocStr("dewtere", "heɓde dewtere kumpital ngam ɗemngal"),
-    __grammar: DocStr("laawol_ɗemngal", "heɓde sifa koodal ngam ɗemngal"),
+    __grammar: DocStr("laawolƊemngal", "heɓde sifa koodal ngam ɗemngal"),
   },
 
   library: {
@@ -25,7 +24,7 @@ export const fulfulde = new Language({
       main: DocStr("std", "naatde e golle standard kuutorteeɗe"),
       __isarray: DocStr("WoniListe", "ƴeewde si darnde ndee woni liste"),
       __isobject: DocStr("WoniHuunde", "ƴeewde si darnde ndee woni huunde"),
-      __typeof: DocStr("Suudu_Mum", "heɓde suudu darnde ndee"),
+      __typeof: DocStr("SuuduMum", "heɓde suudu darnde ndee"),
       __parse: DocStr(
         "Fassire",
         "waylitde darnde ummoraade e string fayde e darnde mum sifaande",
@@ -63,10 +62,10 @@ export const fulfulde = new Language({
         "waylitde diwgol ngol fayde e manti pamɗinaaɗi",
       ),
       __include: DocStr(
-        "Holti_Ɓuri",
+        "HoltiƁuri",
         "ƴeewde si diwgol ngol ina jogii taƴre woɗnde",
       ),
-      __repeat: DocStr("Dartina_Tuma", "fadditde diwgol ngol laabi keewɗi"),
+      __repeat: DocStr("DartinaTuma", "fadditde diwgol ngol laabi keewɗi"),
     },
 
     __date: {
@@ -110,7 +109,7 @@ export const fulfulde = new Language({
     __private: DocStr("gollal", "naateteede e suudu tan"),
     __public: DocStr("fof", "naateteede fof nokku"),
     __protected: DocStr("keeɓnude", "naateteede e suudu e suuɗuuji mum"),
-    __readonly: DocStr("janngo_tan", "darnde fetteteede tuma gooto tan"),
+    __readonly: DocStr("janngoTan", "darnde fetteteede tuma gooto tan"),
     __static: DocStr("jabnore", "woni e suudu mum tigi, wanaa misal"),
   },
 
@@ -120,7 +119,7 @@ export const fulfulde = new Language({
       __scan: DocStr("janngo", "janngude darnde ummoraade e naatgol"),
       __return: DocStr("rutto", "ruttitde darnde ummoraade e golle"),
       __break: DocStr("taƴude", "yaltude e loop"),
-      __continue: DocStr("yaha_ɓuri", "diwde fayde e tuma loop garoowo"),
+      __continue: DocStr("yahaƁuri", "diwde fayde e tuma loop garoowo"),
     },
 
     sentences: {
@@ -140,7 +139,7 @@ export const fulfulde = new Language({
       __finally: DocStr("caggal", "hollirde taƴre gollaande fof mbeela ngonka"),
       __class: DocStr("suudu", "hollirde suudu"),
       __constructor: DocStr(
-        "laawol_suudu",
+        "laawolSuudu",
         "laabi baawnooji hollirde jantaareeji e nder suudu",
       ),
     },
@@ -155,13 +154,13 @@ export const fulfulde = new Language({
       "Huunde",
       "Ɗaminaaɗo",
       "Heɓaaɗo",
-      "Gollal_Tabitiingal",
-      "Parameter_Ɗidmitnaaɗo",
+      "GollalTabitiingal",
+      "ParameterƊidmitnaaɗo",
       "Walla",
-      "Sifal_Moƴƴaani",
-      "Keewal_Stack",
+      "SifalMoƴƴaani",
+      "KeewalStack",
       "Sifal",
-      "Cakkitaare_Nde_Ɗaminaaka",
+      "CakkitaareNdeƊaminaaka",
     ),
     main: errorMessage("JUUMRE", "juumre jaajunde e demngal"),
     __TypeError: errorMessage("JUUMRE_SUUDU", "suudu dañaaka e golle"),
@@ -197,7 +196,7 @@ export const fulfulde = new Language({
       "woniMawɗo",
       "woniGolle",
       "woniYiyde",
-      "heɓiAcɛ",
+      "heɓiAce",
       "woniNaatii",
       "woniYiɗaa",
       "woniTimmii",
@@ -233,19 +232,19 @@ export const fulfulde = new Language({
       "jom",
       "labari",
       "jaabawol",
-      "payload",
+      "loowdi",
       "sara",
       "profil",
       "nokku",
       "habaruuji",
-      "sahaa_golle",
+      "sahaaGolle",
     ],
     __string: [
       "inde",
       "tiitoonde",
       "hollirde",
       "email",
-      "diwgol_gollal",
+      "diwgolGollal",
       "haala",
       "tooñal",
       "token",
@@ -259,10 +258,10 @@ export const fulfulde = new Language({
       "dartirde",
       "halkaade",
       "yaltude",
-      "moƴƴinde_cache",
-      "dannaade_DB",
-      "neldude_email",
-      "winndude_golle",
+      "moƴƴindeCache",
+      "dannaadeDB",
+      "neldudeEmail",
+      "winndudeGolle",
     ],
   },
 }).grammar();

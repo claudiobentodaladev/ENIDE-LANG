@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const english = new Language({
   language: "english",
   about:
-    "ENIDE is a polyglot transpiler that allows programming in any language",
-
+    "ENIDE is a multilingual programming language that allows you to program in any language",
   include: DocStr(
     "include",
     "used to include language, libraries or data structure from another file",

@@ -3,8 +3,8 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const latviesu = new Language({
   language: "latviesu",
-  about: "ENIDE ir poliglots transpilers, kas ļauj programmēt jebkurā valodā",
-
+  about:
+    "ENIDE ir daudzvalodu programmēšanas valoda, kas ļauj programmēt jebkurā valodā",
   include: DocStr(
     "iekļaut",
     "izmanto, lai iekļautu valodu, bibliotēkas vai datu struktūras no citiem failiem",
@@ -15,18 +15,15 @@ export const latviesu = new Language({
     __help: DocStr("palīdzība", "lai iegūtu visu pieejamo komandu sarakstu"),
     __version: DocStr("versija", "lai iegūtu pašreizējo ENIDE versiju"),
     __languages: DocStr("valodas", "lai iegūtu visu pieejamo valodu sarakstu"),
-    __documentation: DocStr("rokasgrāmata", "lai iegūtu valodas dokumentāciju"),
+    __documentation: DocStr("rokasgrāmata", "lai iegūtu valodas documentation"),
     __grammar: DocStr("gramatika", "lai iegūtu valodas gramatikas aprakstu"),
   },
 
   library: {
     __standard: {
       main: DocStr("standarts", "lai piekļūtu noderīgām standarta metodēm"),
-      __isarray: DocStr("ir_masīvs", "lai pārbaudītu, vai vērtība ir masīvs"),
-      __isobject: DocStr(
-        "ir_objekts",
-        "lai pārbaudītu, vai vērtība ir objekts",
-      ),
+      __isarray: DocStr("IrMasīvs", "lai pārbaudītu, vai vērtība ir masīvs"),
+      __isobject: DocStr("IrObjekts", "lai pārbaudītu, vai vērtība ir objekts"),
       __typeof: DocStr("Tips", "lai iegūtu vērtības tipu"),
       __parse: DocStr(
         "Parsēt",
@@ -121,10 +118,7 @@ export const latviesu = new Language({
     __private: DocStr("privāts", "pieejams tikai klases iekšienē"),
     __public: DocStr("publisks", "pieejams no jebkuras vietas"),
     __protected: DocStr("aizsargāts", "pieejams klasē un tās apakšklasēs"),
-    __readonly: DocStr(
-      "tikai_lasāms",
-      "vērtību var piešķirt tikai vienu reizi",
-    ),
+    __readonly: DocStr("TikaiLasāms", "vērtību var piešķirt tikai vienu reizi"),
     __static: DocStr("statisks", "pieder klasei, nevis tās instanci"),
   },
 
@@ -169,32 +163,32 @@ export const latviesu = new Language({
       "Objekts",
       "Gaidīts",
       "Saņemts",
-      "Konstantes Piešķiršana",
-      "Dublēts Parametrs",
+      "KonstantesPiešķiršana",
+      "DublētsParametrs",
       "Padoms",
-      "Nederīgs Tokens",
-      "Steka Pārpilde",
+      "NederīgsTokens",
+      "StekaPārpilde",
       "Tokens",
-      "Negaidītas Ievades Beigas",
+      "NegaidītasIevadesBeigas",
     ),
     main: errorMessage("KĻŪDA", "sistēmas vispārīga kļūda"),
-    __TypeError: errorMessage("TIPA_KĻŪDA", "nederīgs tips operācijā"),
+    __TypeError: errorMessage("TIPAKĻŪDA", "nederīgs tips operācijā"),
     __InitError: errorMessage(
-      "INICIALIZĀCIJAS_KĻŪDA",
-      "mainīgais netika inicializēts",
+      "INICIALIZĀCIJASKĻŪDA",
+      "mainīgais netika inicialēts",
     ),
     __ReferenceError: errorMessage(
-      "ATSAUCES_KĻŪDA",
+      "ATSAUCESKĻŪDA",
       "mainīgais, funkcija vai bibliotēka neeksistē",
     ),
-    __SyntaxError: errorMessage("SINTAKSES_KĻŪDA", "nederīgs kods"),
+    __SyntaxError: errorMessage("SINTAKSESKĻŪDA", "nederīgs kods"),
     __RangeError: errorMessage(
-      "DIAPAZONA_KĻŪDA",
+      "DIAPAZONAKĻŪDA",
       "vērtība ārpus atļautā diapazona",
     ),
-    __URIError: errorMessage("URI_KĻŪDA", "slikti formēts vai nederīgs URI"),
-    __EvalError: errorMessage("EVAL_KĻŪDA", "kļūda saistībā ar eval"),
-    __UNKNOWN_ERROR: errorMessage("NEZINĀMA_KĻŪDA", "pilnīgi nezināma kļūda"),
+    __URIError: errorMessage("URIKĻŪDA", "slikti formēts vai nederīgs URI"),
+    __EvalError: errorMessage("EVALKĻŪDA", "kļūda saistībā ar eval"),
+    __UNKNOWN_ERROR: errorMessage("NEZINĀMAKĻŪDA", "pilnīgi nezināma kļūda"),
   },
 
   example: {

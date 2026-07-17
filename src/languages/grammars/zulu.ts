@@ -58,9 +58,9 @@ export const zulu = new Language({
         "Ukuhlola uma inani liyinombolo ephelele (entier)",
       ),
       __isFloat: DocStr("IyiDesimali", "Ukuhlola uma inani liyidesimali"),
-      __cos: DocStr("cos", "Ukubala i-cosine"),
-      __sin: DocStr("sin", "Ukubala i-sine"),
-      __tan: DocStr("tan", "Ukubala i-tangent"),
+      __cos: DocStr("Cos", "Ukubala i-cosine"),
+      __sin: DocStr("Sin", "Ukubala i-sine"),
+      __tan: DocStr("Tan", "Ukubala i-tangent"),
     },
 
     __string: {
@@ -228,44 +228,44 @@ export const zulu = new Language({
       "Isiphutha esijwayelekile sohlelo lwesistimu",
     ),
     __TypeError: errorMessage(
-      "ISIPHUTHA_SOHLOBO",
+      "IsiphuthaSohlobo",
       "Uhlobo lwedatha alulungile kulo msebenzi owenzwayo",
     ),
     __InitError: errorMessage(
-      "ISIPHUTHA_SOKUQALA",
+      "IsiphuthaSokuqala",
       "Inguquko ayizange iqaliswe kahle ngaphambilini",
     ),
     __ReferenceError: errorMessage(
-      "ISIPHUTHA_SOKUKHOMBA",
+      "IsiphuthaSokukhombha",
       "Inguquko okanye umbhalo okhombiwe awukho kulo mda ongenhla",
     ),
     __SyntaxError: errorMessage(
-      "ISIPHUTHA_SESINTAKSI",
+      "IsiphuthaSesintaksi",
       "Ikhodi ayibhaliwe ngokwemithetho yesintaksi",
     ),
     __RangeError: errorMessage(
-      "ISIPHUTHA_SOMDA",
+      "IsiphuthaSomda",
       "Inani lingaphandle komda okanye uhlu oluvunyelwe",
     ),
     __URIError: errorMessage(
-      "ISIPHUTHA_SE_URI",
+      "IsiphuthaSeUri",
       "I-URI enokusilela okanye engalunganga kakhulu",
     ),
     __EvalError: errorMessage(
-      "ISIPHUTHA_SE_EVAL",
+      "IsiphuthaSeEval",
       "Isiphutha esihlobene nendlela yokusebenza ye-eval",
     ),
     __UNKNOWN_ERROR: errorMessage(
-      "ISIPHUTHA_ESINGAZIWA",
+      "IsiphuthaEsingaziwa",
       "Isiphutha esingaziwa futhi esingabhalwanga ndawo",
     ),
   },
 
   example: {
     __array: [
-      "uluhlu_lwepizza",
+      "uluhluLwePizza",
       "amadolobha",
-      "uhlu_lwenombolo",
+      "uhluLweNombolo",
       "izinombolo",
       "imibala",
       "izinto",
@@ -300,7 +300,7 @@ export const zulu = new Language({
     ],
     __number: [
       "iminyaka",
-      "unyaka_wokuzalwa",
+      "unyakaWokuzalwa",
       "isilinganiso",
       "isamba",
       "intengo",
@@ -318,8 +318,8 @@ export const zulu = new Language({
       "inkokhelo",
       "iphrofayili",
       "ikheli",
-      "idatha_yemethadatha",
-      "isikhathi_seseshini",
+      "idathaYemethadatha",
+      "isikhathiSeseshini",
       "into",
     ],
     __string: [
@@ -341,8 +341,8 @@ export const zulu = new Language({
       "hlanza",
       "bulala",
       "phuma",
-      "sula_ibhafa",
-      "gcina_konke",
+      "sulaIbhafa",
+      "gcinaKonke",
       "thumela",
       "ngena",
     ],

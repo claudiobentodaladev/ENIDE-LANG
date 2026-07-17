@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const bangla = new Language({
   language: "bangla",
   about:
-    "ENIDE holo ekti onubad-joggo transpiler ja jekono bhashay programming korar sujog dey",
-
+    "ENIDE holo ekti bohubhashik programming bhasha ja apnake jekono bhashay programming korte dey.",
   include: DocStr(
     "Antarbhukta_kara",
     "Bhasha ba laibreri antarbhukta karate byabahrita haya",
@@ -65,8 +64,8 @@ export const bangla = new Language({
       ),
       __include: DocStr("AcheKi", "string-e kono substring ache ki na dekhte"),
       __repeat: DocStr(
-        "Punoravrito",
-        "string-ke nirdishto sংkhyay punoravrito korte",
+        "Punorabritti",
+        "string-ke nirdishto sonkhiyay punorabritti korte",
       ),
     },
 
@@ -117,7 +116,7 @@ export const bangla = new Language({
 
   methods: {
     method: {
-      __print: DocStr("dekhao", "screen-e man prokash korte"),
+      __print: DocStr("lekhho", "screen-e man prokash korte/likhte"),
       __scan: DocStr("input", "input theke man nite"),
       __return: DocStr("ferot", "function theke man ferot dite"),
       __break: DocStr("thamo", "loop theke ber hote"),
@@ -151,7 +150,7 @@ export const bangla = new Language({
     __labels: errorLabel(
       "Barta",
       "Man",
-      "Choroshil",
+      "Cholok",
       "Gunoboili",
       "Bastu",
       "Protyashit",
@@ -262,7 +261,7 @@ export const bangla = new Language({
       "dhongsha",
       "logout",
       "cacheKhali",
-      "dbSংrakkhon",
+      "dbSongrokkhon",
       "emailPathao",
       "ghostoNibondhon",
     ],

@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const umbundu = new Language({
   language: "umbundu",
   about:
-    "ENIDE i transpilador uo kuhindulukilako yoneka yo kuprograma mu ndimi yosi",
-
+    "ENIDE yindaka yokulonga ya ndaka ovisoko yiku kuatisa oku linga kulonga mu ndaka yosi",
   include: DocStr("OkukapaMo", "Ci lingiwa oku kapa mo elimi ale o mambululyu"),
 
   commands: {

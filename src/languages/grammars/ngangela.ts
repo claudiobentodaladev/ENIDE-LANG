@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const ngangela = new Language({
   language: "ngangela",
   about:
-    "ENIDE i transpilador wa kuhindulukilako yoneka wa kuprograma mu ndimi yonse",
-
+    "ENIDE i ndaka ya ku tunga ya ku tunga ku yela, ya ku tunga ku yela ku mu ndaka yoshe",
   include: DocStr(
     "kwambatesa",
     "chizandesa kwambatesa ndaka, mambululyu ni binkumbi bya mu bimbambala binkaka",

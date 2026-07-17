@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const russkiy = new Language({
   language: "russkiy",
   about:
-    "ENIDE - eto perevodimyy transpayler, pozvolyayushchiy programmirovat na lyubom yazyke",
-
+    "ENIDE è in lungatg da programmaziun multilingual che permet da programmar en mintga lingua",
   include: DocStr(
     "vklyuchit",
     "ispolzuyetsya dlya vklyucheniya yazykov, bibliotek ili vneshnikh moduley",

@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const indonesia = new Language({
   language: "indonesia",
   about:
-    "ENIDE adalah transpiler yang dapat diterjemahkan yang memungkinkan pemrograman dalam bahasa apa pun",
-
+    "ENIDE adalah bahasa pemrograman multibahasa yang memungkinkan Anda memprogram dalam bahasa apa pun.",
   include: DocStr(
     "Sertakan",
     "Digunakan untuk menyertakan bahasa, pustaka, atau struktur dari file lain",
@@ -179,39 +178,39 @@ export const indonesia = new Language({
       "Objek",
       "Diharapkan",
       "Diterima",
-      "Penugasan Konstan",
-      "Parameter Duplikat",
+      "PenugasanKonstan",
+      "ParameterDuplikat",
       "Petunjuk",
-      "Token Tidak Valid",
-      "Stack Overflow",
+      "TokenTidakValid",
+      "StackOverflow",
       "Token",
-      "Akhir Masukan Tak Terduga",
+      "AkhirMasukanTakTerduga",
     ),
     main: errorMessage("KESALAHAN", "kesalahan sistem umum"),
     __TypeError: errorMessage(
-      "KESALAHAN_TIPE",
+      "KESALAHANTIPE",
       "tipe tidak valid dalam operasi",
     ),
     __InitError: errorMessage(
-      "KESALAHAN_INISIALISASI",
+      "KESALAHANINISIALISASI",
       "variabel belum diinisialisasi",
     ),
     __ReferenceError: errorMessage(
-      "KESALAHAN_REFERENSI",
+      "KESALAHANREFERENSI",
       "variabel, fungsi atau pustaka tidak ditemukan",
     ),
-    __SyntaxError: errorMessage("KESALAHAN_SINTAKS", "kode tidak valid"),
+    __SyntaxError: errorMessage("KESALAHANSINTAKS", "kode tidak valid"),
     __RangeError: errorMessage(
-      "KESALAHAN_RENTANG",
+      "KESALAHANRENTANG",
       "nilai di luar rentang yang diizinkan",
     ),
     __URIError: errorMessage(
-      "KESALAHAN_URI",
+      "KESALAHANURI",
       "URI salah bentuk atau tidak valid",
     ),
-    __EvalError: errorMessage("KESALAHAN_EVAL", "kesalahan terkait eval"),
+    __EvalError: errorMessage("KESALAHANEVAL", "kesalahan terkait eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "KESALAHAN_TIDAK_DIKENAL",
+      "KESALAHANTIDAKDIKENAL",
       "kesalahan yang sama sekali tidak dikenal",
     ),
   },

@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const ndebele = new Language({
   language: "ndebele",
   about:
-    "I-ENIDE iyikhompayila eguqulelayo evumela ukuhlelwa kwezinhlelo nganoma yiluphi ulimi",
-
+    "ENIDE lulwimi lokubhala izinhlelo lwekhompyutha olunonxulumano oluphindwe kanengi olukuvumela ukuthi ubhale izinhlelo nganoma yiluphi ulimi",
   include: DocStr(
     "Fakela",
     "Kusetshenziswa ukufaka izilimi, izinqolobane okanye amamojula emithombo yakwamanye amazwe",

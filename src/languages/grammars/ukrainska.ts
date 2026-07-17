@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const ukrainska = new Language({
   language: "ukrainska",
   about:
-    "ENIDE - tse transpilyator, yakyy mozhna perekladaty, shcho dozvolyaye prohramuvaty bud-yakoyu movoyu",
-
+    "ENIDE — tse bahatomovna mova prohramuvannya, yaka dozvolyaye prohramuvaty bud'-yakoyu movoyu",
   include: DocStr(
     "Vklyuchyty",
     "Vykorystovuyet'sya dlya vklyuchennya movy abo bibliotek ya-da dasky modullary gosmak ucin ulanylyar",
@@ -55,9 +54,9 @@ export const ukrainska = new Language({
         "pereviryaye chy ye znachennya tsilym chyslom",
       ),
       __isFloat: DocStr("TseDrobove", "pereviryaye chy ye znachennya drobovym"),
-      __cos: DocStr("cos", "obchyslyuye kosynus"),
-      __sin: DocStr("sin", "obchyslyuye synus"),
-      __tan: DocStr("tan", "obchyslyuye tanhins"),
+      __cos: DocStr("Cos", "obchyslyuye kosynus"),
+      __sin: DocStr("Sin", "obchyslyuye synus"),
+      __tan: DocStr("Tan", "obchyslyuye tanhins"),
     },
 
     __string: {
@@ -194,9 +193,9 @@ export const ukrainska = new Language({
 
   example: {
     __array: [
-      "spysok_pitts",
+      "spysokPitts",
       "mista",
-      "spysok_chysel",
+      "spysokChysel",
       "chysla",
       "kolory",
       "produkty",
@@ -208,7 +207,7 @@ export const ukrainska = new Language({
     __boolean: [
       "stan",
       "pratsyuye",
-      "dostup_nadano",
+      "dostupNadano",
       "hotovyy",
       "pidtverdzheno",
       "zakryto",
@@ -231,7 +230,7 @@ export const ukrainska = new Language({
     ],
     __number: [
       "vik",
-      "rik_narodzhennya",
+      "rikNarodzhennya",
       "serednye",
       "suma",
       "tsina",

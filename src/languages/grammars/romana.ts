@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const romana = new Language({
   language: "romana",
   about:
-    "ENIDE este un transpilator traductibil care permite programarea in orice limba",
-
+    "ENIDE este un limbaj de programare multilingv care vă permite să programați în orice limbă",
   include: DocStr(
     "include",
     "folosit pentru a include limbaje, biblioteci sau module externe",
@@ -30,14 +29,11 @@ export const romana = new Language({
     __standard: {
       main: DocStr("standard", "acces la funcțiile de bază ale sistemului"),
       __isarray: DocStr(
-        "este_lista",
+        "EsteLista",
         "verifică dacă valoarea este o listă (tablou)",
       ),
-      __isobject: DocStr(
-        "este_obiect",
-        "verifică dacă valoarea este un obiect",
-      ),
-      __typeof: DocStr("tip_de", "returnează tipul de date al variabilei"),
+      __isobject: DocStr("EsteObiect", "verifică dacă valoarea este un obiect"),
+      __typeof: DocStr("TipDe", "returnează tipul de date al variabilei"),
       __parse: DocStr(
         "analizeaza",
         "convertește un text în tipul de date corespunzător",
@@ -46,7 +42,7 @@ export const romana = new Language({
     __math: {
       main: DocStr("matematica", "acces la funcții și constante matematice"),
       __pi: DocStr("PI", "valoarea constantei Pi"),
-      __sqrt: DocStr("radacina_patrata", "calculează rădăcina pătrată"),
+      __sqrt: DocStr("RadacinaPatrata", "calculează rădăcina pătrată"),
       __pow: DocStr("putere", "ridică un număr la o putere"),
       __round: DocStr(
         "rotunjeste",
@@ -55,9 +51,9 @@ export const romana = new Language({
       __random: DocStr("aleator", "generează un număr aleatoriu"),
       __max: DocStr("maxim", "returnează cea mai mare valoare dintr-o listă"),
       __min: DocStr("minim", "returnează cea mai mică valoare dintr-o listă"),
-      __isNumber: DocStr("este_numar", "verifică dacă valoarea este un număr"),
-      __isInteger: DocStr("este_intreg", "verifică dacă numărul este întreg"),
-      __isFloat: DocStr("este_zecimal", "verifică dacă numărul are zecimale"),
+      __isNumber: DocStr("EsteNumar", "verifică dacă valoarea este un număr"),
+      __isInteger: DocStr("EsteIntreg", "verifică dacă numărul este întreg"),
+      __isFloat: DocStr("EsteZecimal", "verifică dacă numărul are zecimale"),
       __cos: DocStr("cos", "calculează cosinusul"),
       __sin: DocStr("sin", "calculează sinusul"),
       __tan: DocStr("tan", "calculează tangenta"),
@@ -66,8 +62,8 @@ export const romana = new Language({
     __string: {
       main: DocStr("sir", "funcții pentru manipularea șirurilor de caractere"),
       __length: DocStr("lungime", "returnează lungimea șirului"),
-      __toUpperCase: DocStr("la_majuscule", "convertește textul în majuscule"),
-      __toLowerCase: DocStr("la_minuscule", "convertește textul în minuscule"),
+      __toUpperCase: DocStr("LaMajuscule", "convertește textul în majuscule"),
+      __toLowerCase: DocStr("LaMinuscule", "convertește textul în minuscule"),
       __include: DocStr(
         "contine",
         "verifică dacă șirul conține un anumit subșir",
@@ -80,8 +76,8 @@ export const romana = new Language({
       __now: DocStr("acum", "returnează data și ora curentă"),
       __year: DocStr("an", "returnează anul"),
       __month: DocStr("luna", "returnează luna"),
-      __dayMonth: DocStr("ziua_lunii", "returnează ziua din lună"),
-      __dayWeek: DocStr("ziua_saptamanii", "returnează ziua din săptămână"),
+      __dayMonth: DocStr("ZiuaLunii", "returnează ziua din lună"),
+      __dayWeek: DocStr("ZiuaSaptamanii", "returnează ziua din săptămână"),
       __hour: DocStr("ora", "returnează ora"),
       __minute: DocStr("minut", "returnează minutele"),
       __second: DocStr("secunda", "returnează secundele"),
@@ -117,7 +113,7 @@ export const romana = new Language({
     __public: DocStr("public", "accesibil de oriunde"),
     __protected: DocStr("protejat", "accesibil în clasă și în subclase"),
     __readonly: DocStr(
-      "doar_citire",
+      "DoarCitire",
       "valoarea nu poate fi modificată după inițializare",
     ),
     __static: DocStr("static", "aparține clasei, nu unei instanțe"),
@@ -170,36 +166,36 @@ export const romana = new Language({
       "Obiect",
       "Asteptat",
       "Primit",
-      "Atribuire_la_constanta",
-      "Parametru_duplicat",
+      "AtribuireLaConstanta",
+      "ParametruDuplicat",
       "Sfat",
-      "Token_invalid",
-      "Stack_overflow",
+      "TokenInvalid",
+      "StackOverflow",
       "Token",
-      "Sfarsit_neașteptat_al_intrării",
+      "SfarsitNeasteptatAlIntrarii",
     ),
     main: errorMessage("EROARE", "eroare generică de sistem"),
     __TypeError: errorMessage(
-      "EROARE_TIP",
+      "EROARETIP",
       "tip de date invalid pentru operație",
     ),
     __InitError: errorMessage(
-      "EROARE_INITIALIZARE",
+      "EROAREINITIALIZARE",
       "variabila nu a fost inițializată",
     ),
     __ReferenceError: errorMessage(
-      "EROARE_REFERINTA",
+      "EROAREREFERINTA",
       "referință la o variabilă inexistentă",
     ),
-    __SyntaxError: errorMessage("EROARE_SINTAXA", "eroare în sintaxa codului"),
+    __SyntaxError: errorMessage("EROARESINTAXA", "eroare în sintaxa codului"),
     __RangeError: errorMessage(
-      "EROARE_INTERVAL",
+      "EROAREINTERVAL",
       "valoare în afara limitelor permise",
     ),
-    __URIError: errorMessage("EROARE_URI", "format URI invalid"),
-    __EvalError: errorMessage("EROARE_EVAL", "eroare legată de funcția eval"),
+    __URIError: errorMessage("EROAREURI", "format URI invalid"),
+    __EvalError: errorMessage("EROAREEVAL", "eroare legată de funcția eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "EROARE_NECUNOSCUTA",
+      "EROARENECUNOSCUTA",
       "a apărut o eroare necunoscută",
     ),
   },

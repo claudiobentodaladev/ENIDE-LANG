@@ -4,10 +4,9 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const gaeilge = new Language({
   language: "gaeilge",
   about:
-    "Is transpiler inaistrithe é ENIDE a ligeann duit ríomhchlárú in aon teanga",
-
+    "Is teanga ríomhchlárúcháin ilteangach é ENIDE a ligeann duit clárú i dteanga ar bith.",
   include: DocStr(
-    "Cuir_san_áireamh",
+    "CuirSanÁireamh",
     "Úsáidtear chun teanga nó leabharlanna a chur san áireamh",
   ),
 
@@ -35,7 +34,10 @@ export const gaeilge = new Language({
       __isarray: DocStr("IsEagar", "chun seiceáil an luach eagar"),
       __isobject: DocStr("IsRud", "chun seiceáil an luach rud"),
       __typeof: DocStr("Cineál", "chun cineál luach a fháil"),
-      __parse: DocStr("Parse", "chun teaghrán a pharsáil go dtí a luach ceart"),
+      __parse: DocStr(
+        "Parsáil",
+        "chun teaghrán a pharsáil go dtí a luach ceart",
+      ),
     },
 
     __math: {
@@ -133,7 +135,7 @@ export const gaeilge = new Language({
       "inrochtana laistigh den rang agus a fhorranganna",
     ),
     __readonly: DocStr(
-      "léamh_amháin",
+      "léamhAmháin",
       "ní féidir an luach a shannadh ach uair amháin",
     ),
     __static: DocStr("statach", "baineann leis an rang, ní leis na samplaí"),
@@ -146,7 +148,7 @@ export const gaeilge = new Language({
       __return: DocStr("fill", "chun luach a fhilleadh ó fheidhm"),
       __break: DocStr("bris", "chun lupa a bhriseadh"),
       __continue: DocStr(
-        "lean_ar_aghaidh",
+        "leanArAghaidh",
         "chun léim go dtí an chéad athrá eile",
       ),
     },
@@ -186,13 +188,13 @@ export const gaeilge = new Language({
       "Rud",
       "Ionchais",
       "Faighte",
-      "Sannadh_Tairiseach",
-      "Paraiméadar_Dúbailte",
+      "SannadhTairiseach",
+      "ParaiméadarDúbailte",
       "Leid",
-      "Token_Neamhbhailí",
-      "Tuile_Cruaiche",
+      "TokenNeamhbhailí",
+      "TuileCruaiche",
       "Token",
-      "Deireadh_Gan_Choinne",
+      "DeireadhGanChoinne",
     ),
     main: errorMessage("EARRÁID", "earráid ghinearálta an chórais"),
     __TypeError: errorMessage(
@@ -222,7 +224,7 @@ export const gaeilge = new Language({
       "bia",
       "tíortha",
       "míreanna",
-      "tags",
+      "clibeanna",
       "dathanna",
       "táirgí",
       "úsáideoirí",
@@ -261,7 +263,7 @@ export const gaeilge = new Language({
       "iomlán",
       "praghas",
       "innéacs",
-      "fad_ama",
+      "fadAma",
       "cainníocht",
       "pointí",
       "timeout",
@@ -269,7 +271,7 @@ export const gaeilge = new Language({
     __object: [
       "duine",
       "úsáideoir",
-      "config",
+      "cumraíocht",
       "freagra",
       "íocaíocht",
       "socruithe",
@@ -281,8 +283,8 @@ export const gaeilge = new Language({
     __string: [
       "ainm",
       "teideal",
-      "cur_síos",
-      "email",
+      "curSíos",
+      "ríomhphost",
       "pasfhocal",
       "teachtaireacht",
       "lipéad",

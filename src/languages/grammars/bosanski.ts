@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const bosanski = new Language({
   language: "bosanski",
   about:
-    "ENIDE je prevodivi transpiler koji omogucava programiranje na bilo kojem jeziku",
-
+    "ENIDE je višejezični programski jezik koji vam omogućava da programirate na bilo kojem jeziku.",
   include: DocStr(
     "Ukljuci",
     "Koristi se za ukljucivanje jezika ili biblioteka",
@@ -47,7 +46,7 @@ export const bosanski = new Language({
         "za provjeru je li vrijednost cijeli broj",
       ),
       __isFloat: DocStr(
-        "JeDecimalan",
+        "JeDecimalni",
         "za provjeru je li vrijednost decimalni broj",
       ),
       __cos: DocStr("Cos", "za dobijanje kosinusa ugla u radijanima"),
@@ -56,12 +55,12 @@ export const bosanski = new Language({
     },
 
     __string: {
-      main: DocStr("niz", "za pristup funkcijama manipulacije nizovima"),
-      __length: DocStr("Duzina", "za dobijanje duzine niza"),
-      __toUpperCase: DocStr("NaVelike", "za pretvaranje niza u velika slova"),
-      __toLowerCase: DocStr("NaMala", "za pretvaranje niza u mala slova"),
-      __include: DocStr("Sadrzi", "za provjeru sadrzi li niz podniz"),
-      __repeat: DocStr("Ponovi", "za ponavljanje niza odredjeni broj puta"),
+      main: DocStr("tekst", "za pristup funkcijama manipulacije tekstom"),
+      __length: DocStr("Duzina", "za dobijanje duzine teksta"),
+      __toUpperCase: DocStr("NaVelike", "za pretvaranje teksta u velika slova"),
+      __toLowerCase: DocStr("NaMala", "za pretvaranje teksta u mala slova"),
+      __include: DocStr("Sadrzi", "za provjeru sadrzi li tekst podniz"),
+      __repeat: DocStr("Ponovi", "za ponavljanje teksta odredjeni broj puta"),
     },
 
     __date: {
@@ -79,9 +78,9 @@ export const bosanski = new Language({
 
   types: {
     __number: DocStr("broj", "za deklariranje varijable tipa broj"),
-    __string: DocStr("niz", "za deklariranje varijable tipa niz"),
+    __string: DocStr("tekst", "za deklariranje varijable tipa tekst"),
     __boolean: DocStr("bool", "za deklariranje varijable tipa logicki"),
-    __object: DocStr("objekat", "za deklarisanje statickog objekta"),
+    __object: DocStr("objekat", "za deklariranje statickog objekta"),
     __void: DocStr(
       "praznina",
       "za deklariranje funkcije koja ne vraca vrijednost",
@@ -117,7 +116,7 @@ export const bosanski = new Language({
 
   methods: {
     method: {
-      __print: DocStr("ispisi", "za ispis vrijednosti na ekran"),
+      __print: DocStr("zapisi", "za ispis/zapisivanje vrijednosti na ekran"),
       __scan: DocStr("ucitaj", "za ucitavanje vrijednosti s ulaza"),
       __return: DocStr("vrati", "za vracanje vrijednosti iz funkcije"),
       __break: DocStr("prekini", "za izlazak iz petlje"),

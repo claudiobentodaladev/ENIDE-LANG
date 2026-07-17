@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const oshiwambo = new Language({
   language: "oshiwambo",
   about:
-    "ENIDE oshi transpiler i na oku lukululwa tai holola okunyola omaprograma moshilongo shike osho",
-
+    "ENIDE olyo elaka lyokulonga iilonga yookompiuta lyomalaka ogendji ndyoka tali ku pe uuthemba wokulonga iilonga moshilaka kehe",
   include: DocStr(
     "kwatelamo",
     "ohashi longithwa oku kwatela mo elaka, omambo nenge iitopolwa ya za moofaila dhilwe",

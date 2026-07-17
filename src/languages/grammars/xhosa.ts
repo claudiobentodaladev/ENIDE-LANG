@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const xhosa = new Language({
   language: "xhosa",
   about:
-    "ENIDE yikhompayila eguqulelayo evumela ucwangciso-nkqubo ngoluphi na ulwimi",
-
+    "ENIDE lulwimi lwenkqubo oluneelwimi ezininzi olukuvumela ukuba wenze inkqubo ngalo naluphi na ulwimi",
   include: DocStr(
     "Fakela",
     "Kusetyenziswa ukufakela ulwimi okanye amathala eencwadi kwikhodi",
@@ -55,9 +54,9 @@ export const xhosa = new Language({
         "ukuhlola ukuba ixabiso linani elipheleleyo (entier)",
       ),
       __isFloat: DocStr("YiDesimaliNa", "ukuhlola ukuba ixabiso lidesimali"),
-      __sin: DocStr("isin", "ukubala i-sine"),
-      __cos: DocStr("icos", "ukubala i-cosine"),
-      __tan: DocStr("itan", "ukubala i-tangent"),
+      __sin: DocStr("Sin", "ukubala i-sine"),
+      __cos: DocStr("Cos", "ukubala i-cosine"),
+      __tan: DocStr("Tan", "ukubala i-tangent"),
     },
 
     __string: {
@@ -239,9 +238,9 @@ export const xhosa = new Language({
 
   example: {
     __array: [
-      "uluhlu_lwepizza",
+      "uluhluLwePizza",
       "izixeko",
-      "uhlu_lwenani",
+      "uhluLweNani",
       "amanani",
       "imibala",
       "izinto",
@@ -276,7 +275,7 @@ export const xhosa = new Language({
     ],
     __number: [
       "iminyaka",
-      "unyaka_wokuzalwa",
+      "unyakaWokuzalwa",
       "isilinganiso",
       "isamba",
       "ixabiso",
@@ -294,8 +293,8 @@ export const xhosa = new Language({
       "intlawulo",
       "iprofayili",
       "idilesi",
-      "idatha_yemetadata",
-      "ixesha_leseshoni",
+      "idathaYemetadata",
+      "ixeshaLeseshoni",
       "into",
     ],
     __string: [
@@ -317,8 +316,8 @@ export const xhosa = new Language({
       "hlanza",
       "bulala",
       "phuma",
-      "sula_ibhafa",
-      "gcina_konke",
+      "sulaIbhafa",
+      "gcinaKonke",
       "thumela",
       "ngena",
     ],

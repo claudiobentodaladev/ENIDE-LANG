@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const mirandes = new Language({
   language: "mirandes",
   about:
-    "ENIDE ye un transpilador traduzíbel que permite programar an qualquiera lhéngua",
-
+    "ENIDE ye ua lengua de porgramaçon multelingue que permite porgramar an qualquiera lengua",
   include: DocStr(
     "ancluir",
     "outelizado para ancluir lhénguas, bibliotecas ó módulos d'outros fexeiros",
@@ -32,8 +31,8 @@ export const mirandes = new Language({
   library: {
     __standard: {
       main: DocStr("padron", "acesso als métodos padron de l sistema"),
-      __isarray: DocStr("ye_arraio", "berifica se l balor ye un arraio"),
-      __isobject: DocStr("ye_oubjeto", "berifica se l balor ye un oubjeto"),
+      __isarray: DocStr("YeArraio", "berifica se l balor ye un arraio"),
+      __isobject: DocStr("YeOubjeto", "berifica se l balor ye un oubjeto"),
       __typeof: DocStr("TipoDe", "debolbe l tipo de l balor"),
       __parse: DocStr(
         "Analizar",
@@ -126,7 +125,7 @@ export const mirandes = new Language({
       "acessíbel na classe i naqueilhas qu'heirdan deilha",
     ),
     __readonly: DocStr(
-      "solo_lher",
+      "SoloLher",
       "balor que nun puode ser alterado apuis de definido",
     ),
     __static: DocStr("stático", "pertenç a la classe i nun a l'anstáncia"),
@@ -173,36 +172,33 @@ export const mirandes = new Language({
       "Oubjeto",
       "Sperado",
       "Recebido",
-      "Atribuiçon de custante",
-      "Parámetro duplicado",
+      "AtribuiçonDeCustante",
+      "ParámetroDuplicado",
       "Dica",
-      "Token inbálido",
-      "Stouro de pilha",
+      "TokenInbálido",
+      "StouroDePilha",
       "Token",
-      "Fin de l'antrada inesperado",
+      "FinDeLAntradaInesperado",
     ),
     main: errorMessage("ERRO", "erro giral de l sistema"),
-    __TypeError: errorMessage(
-      "ERRO_TIPO",
-      "tipo de dado inbálido na ouparaçon",
-    ),
+    __TypeError: errorMessage("ERROTIPO", "tipo de dado inbálido na ouparaçon"),
     __InitError: errorMessage(
-      "ERRO_ENICIALIZAÇON",
+      "ERROENICIALIZAÇON",
       "bariábel nun fui bien enicializada",
     ),
     __ReferenceError: errorMessage(
-      "ERRO_REFERÉNCIA",
+      "ERROREFERÉNCIA",
       "bariábel ó funçon nun eisiste",
     ),
-    __SyntaxError: errorMessage("ERRO_SINTAXE", "erro na scrita de l código"),
+    __SyntaxError: errorMessage("ERROSINTAXE", "erro na scrita de l código"),
     __RangeError: errorMessage(
-      "ERRO_RANGO",
+      "ERRORANGO",
       "balor fura de l lhemite permitido",
     ),
-    __URIError: errorMessage("ERRO_URI", "formato de URI inbálido"),
-    __EvalError: errorMessage("ERRO_EVAL", "erro na funçon eval"),
+    __URIError: errorMessage("ERROURI", "formato de URI inbálido"),
+    __EvalError: errorMessage("ERROEVAL", "erro na funçon eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "ERRO_DESCONHECIDO",
+      "ERRODESCONHECIDO",
       "acunteciu un erro que nun puode ser eidantificado",
     ),
   },

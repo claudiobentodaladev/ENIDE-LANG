@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const chokwe = new Language({
   language: "chokwe",
   about:
-    "ENIDE ni citumbukiso ca maliji akujima cakuwezela kulinga milimo mu liji yonse",
-
+    "ENIDE lulimi lua kusononeka programe lua malulimi anji luze luakwatha kusononeka mu lulimi lueswaho.",
   include: DocStr("kusa", "cakusa liji, ikaxi, nyi mikanda ya akuji"),
 
   commands: {

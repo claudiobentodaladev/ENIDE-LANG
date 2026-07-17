@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const lietuviu = new Language({
   language: "lietuviu",
   about:
-    "ENIDE yra daugiakalbis transpiliatorius, leidžiantis programuoti bet kuria kalba",
-
+    "ENIDE yra daugiakalbė programavimo kalba, leidžianti programuoti bet kokia kalba",
   include: DocStr(
     "įtraukti",
     "naudojama kalbai, bibliotekoms ar duomenų struktūroms iš kitų failų įtraukti",
@@ -23,8 +22,8 @@ export const lietuviu = new Language({
   library: {
     __standard: {
       main: DocStr("standartas", "pasiekti naudingus standartinius metodus"),
-      __isarray: DocStr("yra_masyvas", "patikrinti, ar reikšmė yra masyvas"),
-      __isobject: DocStr("yra_objektas", "patikrinti, ar reikšmė yra objektas"),
+      __isarray: DocStr("YraMasyvas", "patikrinti, ar reikšmė yra masyvas"),
+      __isobject: DocStr("YraObjektas", "patikrinti, ar reikšmė yra objektas"),
       __typeof: DocStr("Tipas", "gauti reikšmės tipą"),
       __parse: DocStr(
         "Analizuoti",
@@ -110,10 +109,7 @@ export const lietuviu = new Language({
     __private: DocStr("privatus", "pasiekiamas tik klasės viduje"),
     __public: DocStr("viešas", "pasiekiamas iš bet kur"),
     __protected: DocStr("saugomas", "pasiekiamas klasėje ir poklasėse"),
-    __readonly: DocStr(
-      "tik_skaitymui",
-      "reikšmė gali būti priskirta tik kartą",
-    ),
+    __readonly: DocStr("TikSkaitymui", "reikšmė gali būti priskirta tik kartą"),
     __static: DocStr("statinis", "priklauso klasei, o ne egzemplioriui"),
   },
 
@@ -155,32 +151,29 @@ export const lietuviu = new Language({
       "Objektas",
       "Tikėtasi",
       "Gauta",
-      "Konstantos priskyrimas",
-      "Dubliuotas parametras",
+      "KonstantosPriskyrimas",
+      "DubliuotasParametras",
       "Užuomina",
-      "Neteisingas raktas",
-      "Steko perpildymas",
+      "NeteisingasRaktas",
+      "StekoPerpildymas",
       "Raktas",
-      "Netikėta įvesties pabaiga",
+      "NetikėtaĮvestiesPabaiga",
     ),
     main: errorMessage("KLAIDA", "bendra sistemos klaida"),
-    __TypeError: errorMessage("TIPO_KLAIDA", "neteisingas tipas operacijoje"),
+    __TypeError: errorMessage("TIPOKLAIDA", "neteisingas tipas operacijoje"),
     __InitError: errorMessage(
-      "INICIALIZACIJOS_KLAIDA",
+      "INICIALIZACIJOSKLAIDA",
       "kintamasis nebuvo inicializuotas",
     ),
     __ReferenceError: errorMessage(
-      "NUORODOS_KLAIDA",
+      "NUORODOSKLAIDA",
       "kintamasis, funkcija ar biblioteka neegzistuoja",
     ),
-    __SyntaxError: errorMessage("SINTAKSĖS_KLAIDA", "neteisingas kodas"),
-    __RangeError: errorMessage("INTERVALO_KLAIDA", "reikšmė už leistinų ribų"),
-    __URIError: errorMessage("URI_KLAIDA", "neteisingas URI formatas"),
-    __EvalError: errorMessage("EVAL_KLAIDA", "klaida susijusi su eval"),
-    __UNKNOWN_ERROR: errorMessage(
-      "NEŽINOMA_KLAIDA",
-      "visiškai nežinoma klaida",
-    ),
+    __SyntaxError: errorMessage("SINTAKSĖSKLAIDA", "neteisingas kodas"),
+    __RangeError: errorMessage("INTERVALOKLAIDA", "reikšmė už leistinų ribų"),
+    __URIError: errorMessage("URIKLAIDA", "neteisingas URI formatas"),
+    __EvalError: errorMessage("EVALKLAIDA", "klaida susijusi su eval"),
+    __UNKNOWN_ERROR: errorMessage("NEŽINOMAKLAIDA", "visiškai nežinoma klaida"),
   },
 
   example: {
@@ -248,7 +241,7 @@ export const lietuviu = new Language({
       "vardas",
       "antraštė",
       "aprašymas",
-      "el_paštas",
+      "elPaštas",
       "slaptažodis",
       "žinutė",
       "etiketė",

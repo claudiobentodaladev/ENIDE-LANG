@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const occitan = new Language({
   language: "occitan",
   about:
-    "ENIDE es un transpilador traducible que permet de programar en quina que siá lenga",
-
+    "ENIDE es un lengatge de programacion multilingüe que permet de programar dins quin que siá lenga",
   include: DocStr(
     "inclure",
     "s'utiliza per inclure de lengatges, de bibliotècas o de moduls",
@@ -26,9 +25,9 @@ export const occitan = new Language({
   library: {
     __standard: {
       main: DocStr("estandard", "accés a las foncions de basa del sistèma"),
-      __isarray: DocStr("es_lista", "verificas se la valor es una lista"),
-      __isobject: DocStr("es_objecte", "verifica se la valor es un objecte"),
-      __typeof: DocStr("tipe_de", "retorna lo tipe de la variabla"),
+      __isarray: DocStr("EsLista", "verificas se la valor es una lista"),
+      __isobject: DocStr("EsObjecte", "verifica se la valor es un objecte"),
+      __typeof: DocStr("TipeDe", "retorna lo tipe de la variabla"),
       __parse: DocStr(
         "analisar",
         "convertís una cadena al tipe de dada correspondent",
@@ -37,7 +36,7 @@ export const occitan = new Language({
     __math: {
       main: DocStr("matematicas", "per accedir a las foncions matematicas"),
       __pi: DocStr("PI", "obten la valor de pi"),
-      __sqrt: DocStr("racina_quadrada", "obten la racina quadrada d'un nombre"),
+      __sqrt: DocStr("RacinaQuadrada", "obten la racina quadrada d'un nombre"),
       __pow: DocStr("potença", "obten la potença d'un nombre"),
       __round: DocStr(
         "arredondir",
@@ -46,13 +45,13 @@ export const occitan = new Language({
       __random: DocStr("aleatòri", "obten un nombre aleatòri"),
       __max: DocStr("maximum", "obten la valor maxima d'una lista"),
       __min: DocStr("minimum", "obten la valor minima d'una lista"),
-      __isNumber: DocStr("es_nombre", "verifica se la valor es un nombre"),
+      __isNumber: DocStr("EsNombre", "verifica se la valor es un nombre"),
       __isInteger: DocStr(
-        "es_entièr",
+        "EsEntièr",
         "verifica se la valor es un nombre entièr",
       ),
       __isFloat: DocStr(
-        "es_decimal",
+        "EsDecimal",
         "verifica se la valor es un nombre decimal",
       ),
       __cos: DocStr("cos", "calcula lo cosinus"),
@@ -67,11 +66,11 @@ export const occitan = new Language({
       ),
       __length: DocStr("longor", "obten la longor d'una cadena"),
       __toUpperCase: DocStr(
-        "a_majusculas",
+        "AMajusculas",
         "convertís una cadena en majusculas",
       ),
       __toLowerCase: DocStr(
-        "a_minusculas",
+        "AMinusculas",
         "convertís una cadena en minusculas",
       ),
       __include: DocStr("contèn", "verifica se la cadena contèn una soscadena"),
@@ -83,8 +82,8 @@ export const occitan = new Language({
       __now: DocStr("ara", "obten la data e l'ora actualas"),
       __year: DocStr("an", "obten l'an actual"),
       __month: DocStr("mes", "obten lo mes actual"),
-      __dayMonth: DocStr("jorn_mes", "obten lo jorn del mes"),
-      __dayWeek: DocStr("jorn_setmana", "obten lo jorn de la setmana"),
+      __dayMonth: DocStr("JornMes", "obten lo jorn del mes"),
+      __dayWeek: DocStr("JornSetmana", "obten lo jorn de la setmana"),
       __hour: DocStr("ora", "obten l'ora"),
       __minute: DocStr("minuta", "obten la minuta"),
       __second: DocStr("segonda", "obten la segonda"),
@@ -122,7 +121,7 @@ export const occitan = new Language({
       "protegit",
       "accessible dins la classa e sas sosclassas",
     ),
-    __readonly: DocStr("lectura_sola", "la valor pòt pas èsser modificada"),
+    __readonly: DocStr("LecturaSola", "la valor pòt pas èsser modificada"),
     __static: DocStr("estatic", "aperten a la classa e non a l'instància"),
   },
 
@@ -164,36 +163,36 @@ export const occitan = new Language({
       "Objecte",
       "Esperat",
       "Recebut",
-      "Assignacion_a_constanta",
-      "Paramètre_duplicat",
+      "AssignacionAConstanta",
+      "ParamètreDuplicat",
       "Pista",
-      "Token_invalid",
-      "Desbordament_pila",
+      "TokenInvalid",
+      "DesbordamentPila",
       "Token",
-      "Fin_inesperada_entrada",
+      "FinInesperadaEntrada",
     ),
     main: errorMessage("ERROR", "error generic del sistèma"),
-    __TypeError: errorMessage("ERROR_TIPE", "tipe invalid dins l'operacion"),
+    __TypeError: errorMessage("ERRORTIPE", "tipe invalid dins l'operacion"),
     __InitError: errorMessage(
-      "ERROR_INICIALIZACION",
+      "ERRORINICIALIZACION",
       "la variabla es pas estada inicializada",
     ),
     __ReferenceError: errorMessage(
-      "ERROR_REFERENCIA",
+      "ERRORREFERENCIA",
       "la variabla existís pas dins l'ambit",
     ),
     __SyntaxError: errorMessage(
-      "ERROR_SINTAXI",
+      "ERRORSINTAXI",
       "còdi invalid o error de sintaxi",
     ),
     __RangeError: errorMessage(
-      "ERROR_INTERVAL",
+      "ERRORINTERVAL",
       "valor fòra de l'interval permés",
     ),
-    __URIError: errorMessage("ERROR_URI", "URI malformat o invalid"),
-    __EvalError: errorMessage("ERROR_EVAL", "error ligat a la foncion eval"),
+    __URIError: errorMessage("ERRORURI", "URI malformat o invalid"),
+    __EvalError: errorMessage("ERROREVAL", "error ligat a la foncion eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "ERROR_DESCONEGUT",
+      "ERRORDESCONEGUT",
       "error completament desconegut",
     ),
   },

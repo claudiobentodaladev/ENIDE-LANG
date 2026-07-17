@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const catala = new Language({
   language: "catala",
   about:
-    "ENIDE és un transpilador traduïble que permet programar en qualsevol llengua",
-
+    "ENIDE és un llenguatge de programació multilingüe que permet programar en qualsevol llengua.",
   include: DocStr(
     "Incloure",
     "S'utilitza per incloure llenguatge o biblioteques",
@@ -112,7 +111,7 @@ export const catala = new Language({
 
   words: {
     __new: DocStr("nou", "per crear una nova instància d'una classe"),
-    __this: DocStr("açò", "per accedir als atributs de la pròpia classe"),
+    __this: DocStr("aquest", "per accedir als atributs de la pròpia classe"),
     __extends: DocStr(
       "estén",
       "per declarar que una classe hereta d'una altra",
@@ -135,7 +134,10 @@ export const catala = new Language({
 
   methods: {
     method: {
-      __print: DocStr("imprimeix", "per imprimir un valor a la pantalla"),
+      __print: DocStr(
+        "escriu",
+        "per imprimir i escriure un valor a la pantalla",
+      ),
       __scan: DocStr("llegeix", "per llegir un valor de l'entrada"),
       __return: DocStr("retorna", "per retornar un valor d'una funció"),
       __break: DocStr("trenca", "per sortir d'un bucle"),
@@ -237,7 +239,7 @@ export const catala = new Language({
       "obtenirNom",
       "obtenirValor",
       "gestionarClic",
-      "obtindreData",
+      "carregarDades",
       "formatarData",
       "analitzarEntrada",
       "validarFormulari",

@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const tsonga = new Language({
   language: "tsonga",
   about:
-    "ENIDE i khompayila ya ku hundzuluxa (transpiler) leyi pfumelelaka ku tsala maphrogireme hi ririmi rihi na rihi",
-
+    "ENIDE i ririmi ro hlela leri nga na tindzimi to tala leri ku pfumelaka ku hlela hi ririmi rohi na rihi",
   include: DocStr(
     "Katsa",
     "Ku tirhisiwa ku katsa tindzimi, tilayiburari, kumbe amamojula man'wana",
@@ -259,35 +258,32 @@ export const tsonga = new Language({
     ),
     main: errorMessage("XIHOXO", "Xihoxo xa ntolovelo xa sisiteme"),
     __TypeError: errorMessage(
-      "XIHOXO_XA_MUXAKA",
+      "XIHOXOXAMUXAKA",
       "Muxaka wa datha awu fanele kulo mfungho lowu endliwangaka",
     ),
     __InitError: errorMessage(
-      "XIHOXO_XO_SUNGULA",
+      "XIHOXOXOSUNGULA",
       "Xicinci a xi sunguriwanga kahle ngaphambilini",
     ),
     __ReferenceError: errorMessage(
-      "XIHOXO_XO_KOMBISA",
+      "XIHOXOXOKOMBISA",
       "Inani okanye matsalwa leri kombiweke a ri kumiwanga kulo mda",
     ),
     __SyntaxError: errorMessage(
-      "XIHOXO_XA_ISINTAKSI",
+      "XIHOXOXAISINTAKSI",
       "Xivumbeko xa khodi xi tlula mithetho ya ririmi",
     ),
     __RangeError: errorMessage(
-      "XIHOXO_XA_NTSENGO",
+      "XIHOXOXANTSENGO",
       "Inani ri ngaphandle ka ntsengo lowu pfumelelweke kuxa lixaka",
     ),
-    __URIError: errorMessage(
-      "XIHOXO_XA_URI",
-      "I-URI leyi nga lungangiki mbilu",
-    ),
+    __URIError: errorMessage("XIHOXOXAURI", "I-URI leyi nga lungangiki mbilu"),
     __EvalError: errorMessage(
-      "XIHOXO_XA_EVAL",
+      "XIHOXOXAEVAL",
       "Xihoxo lexi humeleleke kulo ntirho wa eval",
     ),
     __UNKNOWN_ERROR: errorMessage(
-      "XIHOXO_LEXI_NGA_TIVEKIKI",
+      "XIHOXOLEXINGATIVEKIKI",
       "Xihoxo lexi nga tivekiki nhlobo lexi hoxeke sisiteme",
     ),
   },
@@ -351,7 +347,7 @@ export const tsonga = new Language({
       "profailo",
       "ndzhawu",
       "swipimelo",
-      "nkarhi_wa_ku_tirha",
+      "nkarhiWaKuTirha",
     ],
     __string: [
       "vito",
@@ -359,7 +355,7 @@ export const tsonga = new Language({
       "vuxokoxoko",
       "email",
       "password",
-      "vito_ra_ku_tlhela",
+      "vitoRaKuTlhela",
       "maka",
       "token",
       "url",

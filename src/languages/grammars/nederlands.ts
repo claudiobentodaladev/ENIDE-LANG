@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const nederlands = new Language({
   language: "nederlands",
   about:
-    "ENIDE is een vertaalbare transpiler waarmee in elke taal geprogrammeerd kan worden",
-
+    "ENIDE is een meertalige programmeertaal waarmee je in elke taal kunt programmeren",
   include: DocStr(
     "importeren",
     "wordt gebruikt om talen, bibliotheken of modules uit andere bestanden te laden",
@@ -30,11 +29,11 @@ export const nederlands = new Language({
     __standard: {
       main: DocStr("standaard", "toegang tot de basismethoden van het systeem"),
       __isarray: DocStr(
-        "is_lijst",
+        "IsLijst",
         "controleert of de waarde een lijst (array) is",
       ),
-      __isobject: DocStr("is_object", "controleert of de waarde een object is"),
-      __typeof: DocStr("type_van", "geeft het datatype van de waarde terug"),
+      __isobject: DocStr("IsObject", "controleert of de waarde een object is"),
+      __typeof: DocStr("TypeVan", "geeft het datatype van de waarde terug"),
       __parse: DocStr(
         "analyseren",
         "converteert een tekst naar het juiste datatype",
@@ -52,13 +51,13 @@ export const nederlands = new Language({
       __random: DocStr("willekeurig", "een willekeurig getal genereren"),
       __max: DocStr("maximum", "de hoogste waarde uit een lijst ophalen"),
       __min: DocStr("minimum", "de laagste waarde uit een lijst ophalen"),
-      __isNumber: DocStr("is_getal", "controleert of de waarde een getal is"),
+      __isNumber: DocStr("IsGetal", "controleert of de waarde een getal is"),
       __isInteger: DocStr(
-        "is_geheel",
+        "IsGeheel",
         "controleert of de waarde een geheel getal is",
       ),
       __isFloat: DocStr(
-        "is_decimaal",
+        "IsDecimaal",
         "controleert of de waarde een decimaal getal is",
       ),
       __cos: DocStr("cos", "de cosinus van een getal berekenen"),
@@ -70,27 +69,27 @@ export const nederlands = new Language({
       main: DocStr("tekst", "toegang tot functies voor tekstmanipulatie"),
       __length: DocStr("lengte", "de lengte van de tekst opvragen"),
       __toUpperCase: DocStr(
-        "naar_hoofdletters",
+        "NaarHoofdletters",
         "zet alle tekst om naar hoofdletters",
       ),
       __toLowerCase: DocStr(
-        "naar_kleine_letters",
+        "NaarKleineLetters",
         "zet alle tekst om naar kleine letters",
       ),
       __include: DocStr(
         "bevat",
         "controleert of de tekst een bepaald fragment bevat",
       ),
-      __repeat: DocStr("herhaal_tekst", "tekst een aantal keer herhalen"),
+      __repeat: DocStr("HerhaalTekst", "tekst een aantal keer herhalen"),
     },
 
     __date: {
       main: DocStr("datum", "toegang tot datum- en tijdfuncties"),
-      __now: DocStr("nu", "de huidige datum en tijd ophalen"),
+      __now: DocStr("nu", "de huidige datum i tijd ophalen"),
       __year: DocStr("jaar", "het jaar ophalen"),
       __month: DocStr("maand", "de maand ophalen"),
-      __dayMonth: DocStr("dag_maand", "de dag van de maand ophalen"),
-      __dayWeek: DocStr("dag_week", "de dag van de week ophalen"),
+      __dayMonth: DocStr("DagMaand", "de dag van de maand ophalen"),
+      __dayWeek: DocStr("DagWeek", "de dag van de week ophalen"),
       __hour: DocStr("uur", "het uur ophalen"),
       __minute: DocStr("minuut", "de minuten ophalen"),
       __second: DocStr("seconde", "de seconden ophalen"),
@@ -132,7 +131,7 @@ export const nederlands = new Language({
       "toegankelijk binnen de klasse en subklassen",
     ),
     __readonly: DocStr(
-      "alleen_lezen",
+      "AlleenLezen",
       "waarde die na initialisatie niet meer kan wijzigen",
     ),
     __static: DocStr(
@@ -185,39 +184,39 @@ export const nederlands = new Language({
       "Object",
       "Verwacht",
       "Ontvangen",
-      "Toewijzing_aan_constante",
-      "Dubbele_parameter",
+      "ToewijzingAanConstante",
+      "DubbeleParameter",
       "Tip",
-      "Ongeldig_token",
-      "Stack_overloop",
+      "OngeldigToken",
+      "StackOverloop",
       "Token",
-      "Onverwacht_einde_invoer",
+      "OnverwachtEindeInvoer",
     ),
     main: errorMessage("FOUT", "algemene systeemfout"),
     __TypeError: errorMessage(
-      "TYPE_FOUT",
+      "TYPEFOUT",
       "ongeldig datatype voor deze operatie",
     ),
     __InitError: errorMessage(
-      "INITIALISATIE_FOUT",
+      "INITIALISATIEFOUT",
       "variabele is niet correct geïnitialiseerd",
     ),
     __ReferenceError: errorMessage(
-      "REFERENTIE_FOUT",
+      "REFERENTIEFOUT",
       "variabele of functie bestaat niet",
     ),
     __SyntaxError: errorMessage(
-      "SYNTAXIS_FOUT",
+      "SYNTAXISFOUT",
       "fout in de schrijfwijze van de code",
     ),
     __RangeError: errorMessage(
-      "BEREIK_FOUT",
+      "BEREIKFOUT",
       "waarde valt buiten het toegestane bereik",
     ),
-    __URIError: errorMessage("URI_FOUT", "ongeldig URI-formaat"),
-    __EvalError: errorMessage("EVAL_FOUT", "fout in de eval-functie"),
+    __URIError: errorMessage("URIFOUT", "ongeldig URI-formaat"),
+    __EvalError: errorMessage("EVALFOUT", "fout in de eval-functie"),
     __UNKNOWN_ERROR: errorMessage(
-      "ONBEKENDE_FOUT",
+      "ONBEKENDEFOUT",
       "er is een onbekende fout opgetreden",
     ),
   },

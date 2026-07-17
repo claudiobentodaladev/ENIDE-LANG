@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const galego = new Language({
   language: "galego",
   about:
-    "ENIDE é un transpilador traducible que permite programar en calquera lingua",
-
+    "ENIDE é un lingua de programación multilingüe que permite programar en calquera idioma.",
   include: DocStr("Incluír", "Úsase para incluír linguaxes ou bibliotecas"),
 
   commands: {
@@ -30,8 +29,8 @@ export const galego = new Language({
       __isobject: DocStr("ÉObxecto", "para verificar se un valor é un obxecto"),
       __typeof: DocStr("Tipo", "para obter o tipo dun valor"),
       __parse: DocStr(
-        "Parse",
-        "para analizar un valor de cadea ao seu valor analizado correcto",
+        "Analizar",
+        "para analisar un valor de cadea ao seu valor analizado correcto",
       ),
     },
 
@@ -77,7 +76,7 @@ export const galego = new Language({
     },
 
     __date: {
-      main: DocStr("data", "para acceder ás funcións de data e hora"),
+      main: DocStr("data", "para acceder aos funcións de data e hora"),
       __now: DocStr("Agora", "para obter a data e hora actuais"),
       __year: DocStr("Ano", "para obter o ano"),
       __month: DocStr("Mes", "para obter o mes"),
@@ -120,7 +119,7 @@ export const galego = new Language({
       "protexido",
       "accesible dentro da clase e as súas subclases",
     ),
-    __readonly: DocStr("só_lectura", "o valor só pode asignarse unha vez"),
+    __readonly: DocStr("sóLectura", "o valor só pode asignarse unha vez"),
     __static: DocStr("estático", "pertence á clase, non ás instancias"),
   },
 
@@ -177,13 +176,13 @@ export const galego = new Language({
       "Obxecto",
       "Esperado",
       "Recibido",
-      "Asignación_Constante",
-      "Parámetro_Duplicado",
+      "AsignaciónConstante",
+      "ParámetroDuplicado",
       "Suxestión",
-      "Token_Inválido",
-      "Desbordamento_Pila",
+      "TokenInválido",
+      "DesbordamentoPila",
       "Token",
-      "Fin_Inesperado",
+      "FinInesperado",
     ),
     main: errorMessage("ERRO", "erro xenérico do sistema"),
     __TypeError: errorMessage("ERRO_TIPO", "tipo inválido na operación"),
@@ -210,7 +209,7 @@ export const galego = new Language({
       "alimentos",
       "países",
       "elementos",
-      "tags",
+      "etiquetas",
       "cores",
       "produtos",
       "usuarios",
@@ -257,7 +256,7 @@ export const galego = new Language({
     __object: [
       "persoa",
       "usuario",
-      "config",
+      "axustes",
       "resposta",
       "pagamento",
       "configuración",
@@ -270,7 +269,7 @@ export const galego = new Language({
       "nome",
       "título",
       "descrición",
-      "email",
+      "correo",
       "contrasinal",
       "mensaxe",
       "etiqueta",
@@ -287,7 +286,7 @@ export const galego = new Language({
       "pecharSesión",
       "baleirarCache",
       "gardarNaBD",
-      "enviarEmail",
+      "enviarCorreo",
       "rexistrarEvento",
     ],
   },

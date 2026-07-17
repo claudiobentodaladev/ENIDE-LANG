@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const magyar = new Language({
   language: "magyar",
   about:
-    "Az ENIDE egy poliglott transzpiler, amely bármilyen nyelven lehetővé teszi a programozást",
-
+    "Az ENIDE egy többnyelvű programozási nyelv, amely lehetővé teszi, hogy bármilyen nyelven programozzon",
   include: DocStr(
     "beilleszt",
     "nyelv, könyvtárak vagy adatstruktúrák beillesztésére szolgál más fájlokból",
@@ -23,8 +22,8 @@ export const magyar = new Language({
   library: {
     __standard: {
       main: DocStr("alap", "hasznos standard metódusok elérése"),
-      __isarray: DocStr("tömb_e", "ellenőrzi, hogy az érték tömb-e"),
-      __isobject: DocStr("objektum_e", "ellenőrzi, hogy az érték objektum-e"),
+      __isarray: DocStr("TömbE", "ellenőrzi, hogy az érték tömb-e"),
+      __isobject: DocStr("ObjektumE", "ellenőrzi, hogy az érték objektum-e"),
       __typeof: DocStr("Típusa", "visszaadja az érték típusát"),
       __parse: DocStr(
         "Értelmez",
@@ -140,33 +139,33 @@ export const magyar = new Language({
       "Objektum",
       "Elvárt",
       "Kapott",
-      "Konstans hozzárendelés",
-      "Duplikált paraméter",
+      "KonstansHozzárendelés",
+      "DuplikáltParaméter",
       "Tipp",
-      "Érvénytelen token",
-      "Verem túlcsordulás",
+      "ÉrvénytelenToken",
+      "VeremTúlcsordulás",
       "Token",
-      "Váratlan bevitel vége",
+      "VáratlanBevitelVége",
     ),
     main: errorMessage("HIBA", "általános rendszerhiba"),
-    __TypeError: errorMessage("TÍPUS_HIBA", "érvénytelen típus a műveletben"),
+    __TypeError: errorMessage("TÍPUSHIBA", "érvénytelen típus a műveletben"),
     __InitError: errorMessage(
-      "INICIALIZÁCIÓS_HIBA",
+      "INICIALIZÁCIÓSHIBA",
       "a változó nem lett inicializálva",
     ),
     __ReferenceError: errorMessage(
-      "HIVATKOZÁS_HIBA",
+      "HIVATKOZÁSHIBA",
       "a változó, függvény vagy könyvtár nem létezik",
     ),
-    __SyntaxError: errorMessage("SZINTAXIS_HIBA", "érvénytelen kód"),
+    __SyntaxError: errorMessage("SZINTAXISHIBA", "érvénytelen kód"),
     __RangeError: errorMessage(
-      "TARTOMÁNY_HIBA",
+      "TARTOMÁNYHIBA",
       "az érték kívül esik a tartományon",
     ),
-    __URIError: errorMessage("URI_HIBA", "hibás vagy érvénytelen URI"),
-    __EvalError: errorMessage("EVAL_HIBA", "hiba az eval használatakor"),
+    __URIError: errorMessage("URIHIBA", "hibás vagy érvénytelen URI"),
+    __EvalError: errorMessage("EVALHIBA", "hiba az eval használatakor"),
     __UNKNOWN_ERROR: errorMessage(
-      "ISMERETLEN_HIBA",
+      "ISMERETLENHIBA",
       "teljesen ismeretlen hiba történt",
     ),
   },

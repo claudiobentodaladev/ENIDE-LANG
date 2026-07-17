@@ -4,18 +4,23 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const jawa = new Language({
   language: "jawa",
   about:
-    "ENIDE iku transpiler sing bisa diterjemahake kang ngidini pemrograman ing basa apa wae",
-
+    "ENIDE minangka basa pamrograman multibasa sing ngidini sampeyan program ing basa apa wae",
   include: DocStr(
     "Nglebokake",
-    "Digunakake kanggo nglebokake basa, perpustakaan, utawa struktur saka file liyane"
+    "Digunakake kanggo nglebokake basa, perpustakaan, utawa struktur saka file liyane",
   ),
 
   commands: {
     __about: DocStr("bab", "kanggo ngerti informasi bab ENIDE"),
-    __help: DocStr("tulung", "kanggo ngerti dhaftar kabeh perintah sing kasedhiya"),
+    __help: DocStr(
+      "tulung",
+      "kanggo ngerti dhaftar kabeh perintah sing kasedhiya",
+    ),
     __version: DocStr("versi", "kanggo ngerti versi ENIDE saiki"),
-    __languages: DocStr("basa", "kanggo ngerti dhaftar kabeh basa sing kasedhiya"),
+    __languages: DocStr(
+      "basa",
+      "kanggo ngerti dhaftar kabeh basa sing kasedhiya",
+    ),
     __documentation: DocStr("dok", "kanggo ngerti dokumentasi sawijining basa"),
     __grammar: DocStr("gramatika", "kanggo ngerti gramatika sawijining basa"),
   },
@@ -38,8 +43,14 @@ export const jawa = new Language({
       __max: DocStr("PalingGedhe", "kanggo ngerti nilai paling gedhe"),
       __min: DocStr("PalingCilik", "kanggo ngerti nilai paling cilik"),
       __isNumber: DocStr("IkuAngka", "kanggo mriksa apa nilai iku angka"),
-      __isInteger: DocStr("IkuBulat", "kanggo mriksa apa nilai iku angka bulat"),
-      __isFloat: DocStr("IkuDesimal", "kanggo mriksa apa nilai iku angka desimal"),
+      __isInteger: DocStr(
+        "IkuBulat",
+        "kanggo mriksa apa nilai iku angka bulat",
+      ),
+      __isFloat: DocStr(
+        "IkuDesimal",
+        "kanggo mriksa apa nilai iku angka desimal",
+      ),
       __cos: DocStr("Cos", "kanggo ngerti cosinus sudut"),
       __sin: DocStr("Sin", "kanggo ngerti sinus sudut"),
       __tan: DocStr("Tan", "kanggo ngerti tangen sudut"),
@@ -48,9 +59,18 @@ export const jawa = new Language({
     __string: {
       main: DocStr("tulisan", "kanggo ngakses fungsi manipulasi teks"),
       __length: DocStr("Dawane", "kanggo ngerti dawane teks"),
-      __toUpperCase: DocStr("DadiBesar", "kanggo ngowahi teks dadi huruf gedhe"),
-      __toLowerCase: DocStr("DadiCilik", "kanggo ngowahi teks dadi huruf cilik"),
-      __include: DocStr("Ngandhut", "kanggo mriksa apa teks ngandhut substring"),
+      __toUpperCase: DocStr(
+        "DadiBesar",
+        "kanggo ngowahi teks dadi huruf gedhe",
+      ),
+      __toLowerCase: DocStr(
+        "DadiCilik",
+        "kanggo ngowahi teks dadi huruf cilik",
+      ),
+      __include: DocStr(
+        "Ngandhut",
+        "kanggo mriksa apa teks ngandhut substring",
+      ),
       __repeat: DocStr("Baleni", "kanggo mbaleni teks kaping pirang-pirang"),
     },
 
@@ -85,7 +105,10 @@ export const jawa = new Language({
   words: {
     __new: DocStr("anyar", "kanggo nggawe instance anyar saka kelas"),
     __this: DocStr("iki", "kanggo ngakses properti kelas dhewe"),
-    __extends: DocStr("ngwaris", "kanggo ngumumake kelas sing ngwaris saka liyane"),
+    __extends: DocStr(
+      "ngwaris",
+      "kanggo ngumumake kelas sing ngwaris saka liyane",
+    ),
   },
 
   accessModifiers: {
@@ -118,7 +141,10 @@ export const jawa = new Language({
       __catch: DocStr("cekel", "kanggo ngumumake blok penanganan kesalahan"),
       __finally: DocStr("pungkasane", "blok sing tansah dijalankan"),
       __class: DocStr("kelas", "kanggo ngumumake kelas"),
-      __constructor: DocStr("konstruktor", "struktur kanggo ngumumake properti ing kelas"),
+      __constructor: DocStr(
+        "konstruktor",
+        "struktur kanggo ngumumake properti ing kelas",
+      ),
     },
   },
 
@@ -131,23 +157,38 @@ export const jawa = new Language({
       "Obyek",
       "Dikarepake",
       "Ditampa",
-      "Penugasan Konstan",
-      "Parameter Duplikat",
+      "PenugasanKonstan",
+      "ParameterDuplikat",
       "Petunjuk",
-      "Token Ora Valid",
-      "Stack Overflow",
+      "TokenOraValid",
+      "StackOverflow",
       "Token",
-      "Pungkasan Input Ora Kaduga"
+      "PungkasanInputOraKaduga",
     ),
     main: errorMessage("KESALAHAN", "kesalahan sistem umum"),
-    __TypeError: errorMessage("KESALAHAN_JENIS", "jenis ora valid ing operasi"),
-    __InitError: errorMessage("KESALAHAN_INISIALISASI", "variabel durung diinisialisasi"),
-    __ReferenceError: errorMessage("KESALAHAN_REFERENSI", "variabel, fungsi utawa perpustakaan ora ditemokake"),
-    __SyntaxError: errorMessage("KESALAHAN_SINTAKS", "kode ora valid"),
-    __RangeError: errorMessage("KESALAHAN_RENTANG", "nilai ing njaba rentang sing diidini"),
-    __URIError: errorMessage("KESALAHAN_URI", "URI salah wujud utawa ora valid"),
-    __EvalError: errorMessage("KESALAHAN_EVAL", "kesalahan sing gegandhengan karo eval"),
-    __UNKNOWN_ERROR: errorMessage("KESALAHAN_ORA_DIKENAL", "kesalahan kang ora dikenal babar pisan"),
+    __TypeError: errorMessage("KESALAHANJENIS", "jenis ora valid ing operasi"),
+    __InitError: errorMessage(
+      "KESALAHANINISIALISASI",
+      "variabel durung diinisialisasi",
+    ),
+    __ReferenceError: errorMessage(
+      "KESALAHANREFERENSI",
+      "variabel, fungsi utawa perpustakaan ora ditemokake",
+    ),
+    __SyntaxError: errorMessage("KESALAHANSINTAKS", "kode ora valid"),
+    __RangeError: errorMessage(
+      "KESALAHANRENTANG",
+      "nilai ing njaba rentang sing diidini",
+    ),
+    __URIError: errorMessage("KESALAHANURI", "URI salah wujud utawa ora valid"),
+    __EvalError: errorMessage(
+      "KESALAHANEVAL",
+      "kesalahan sing gegandhengan karo eval",
+    ),
+    __UNKNOWN_ERROR: errorMessage(
+      "KESALAHANORADIKENAL",
+      "kesalahan kang ora dikenal babar pisan",
+    ),
   },
 
   example: {
@@ -161,19 +202,19 @@ export const jawa = new Language({
       "panganggo",
       "kategori",
       "poin",
-      "basa"
+      "basa",
     ],
     __boolean: [
       "aktif",
       "dewasa",
       "terbuka",
-      " katon",
+      "katon",
       "duweIjin",
       "wisLogin",
       "diaktifake",
       "rampung",
       "diverifikasi",
-      "dibusak"
+      "dibusak",
     ],
     __function: [
       "entukJeneng",
@@ -185,7 +226,7 @@ export const jawa = new Language({
       "validasiForm",
       "anyariBarang",
       "anyariStatus",
-      "itungTotal"
+      "itungTotal",
     ],
     __number: [
       "umur",
@@ -197,7 +238,7 @@ export const jawa = new Language({
       "durasi",
       "jumlah",
       "poin",
-      "wektu"
+      "wektu",
     ],
     __object: [
       "wong",
@@ -209,7 +250,7 @@ export const jawa = new Language({
       "profil",
       "alamat",
       "metadata",
-      "sesi"
+      "sesi",
     ],
     __string: [
       "jeneng",
@@ -221,7 +262,7 @@ export const jawa = new Language({
       "label",
       "token",
       "url",
-      "slug"
+      "slug",
     ],
     __void: [
       "login",
@@ -233,7 +274,7 @@ export const jawa = new Language({
       "resikiCache",
       "simpen",
       "kirimEmail",
-      "mlebu"
+      "mlebu",
     ],
   },
 }).grammar();

@@ -3,35 +3,35 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const afaanoromoo = new Language({
   language: "afaanoromoo",
-  about: "ENIDE-n tiraansipaayilerii afaan kamittuu hiikamuu dandaau dha",
-
+  about:
+    "ENIDE-n afaan pirograaminii baay'ee yoo ta'u, afaan kaminuu pirograamii akka hojjettu si dandeessisa.",
   include: DocStr(
-    "Hamachisu",
+    "Hamachisi",
     "Afaan ykn kuusaalee itti dabalachuuf tajaajila",
   ),
 
   commands: {
-    __about: DocStr("waee", "waee ENIDE argachuuf"),
+    __about: DocStr("waa'ee", "waa'ee ENIDE argachuuf"),
     __help: DocStr("gargaarsa", "tarree ajajoota jiran hunda argachuuf"),
     __version: DocStr(
       "lakkoofsa_baasii",
       "lakkoofsa baasii ENIDE ammee argachuuf",
     ),
     __languages: DocStr("afaannota", "tarree afaannota jiran hunda argachuuf"),
-    __documentation: DocStr("dokumanti", "dokumanti afaanii argachuuf"),
+    __documentation: DocStr("dokumantii", "dokumantii afaanii argachuuf"),
     __grammar: DocStr("caasaa_afaanii", "caasaa afaanii argachuuf"),
   },
 
   library: {
     __standard: {
-      main: DocStr("sirnaa", "meeshaalee sirnaa fayyadamuuf"),
+      main: DocStr("sirna", "meeshaalee sirnaa fayyadamuuf"),
       __isarray: DocStr(
         "tarree_dha",
-        "gatiin sun tarree tauu isaa mirkaneessuuf",
+        "gatiin sun tarree ta'uu isaa mirkaneessuuf",
       ),
       __isobject: DocStr(
-        "wanti_dha",
-        "gatiin sun wanta tauu isaa mirkaneessuuf",
+        "wanta_dha",
+        "gatiin sun wanta ta'uu isaa mirkaneessuuf",
       ),
       __typeof: DocStr("gosa_isaa", "gosa gatii argachuuf"),
       __parse: DocStr(
@@ -51,19 +51,19 @@ export const afaanoromoo = new Language({
       __min: DocStr("xiqqaa", "gatii xiqqaa argachuuf"),
       __isNumber: DocStr(
         "lakkoofsa_dha",
-        "gatiin sun lakkoofsa tauu isaa mirkaneessuuf",
+        "gatiin sun lakkoofsa ta'uu isaa mirkaneessuuf",
       ),
       __isInteger: DocStr(
         "lakkoofsa_guutuu_dha",
-        "gatiin sun lakkoofsa guutuu tauu isaa mirkaneessuuf",
+        "gatiin sun lakkoofsa guutuu ta'uu isaa mirkaneessuuf",
       ),
       __isFloat: DocStr(
         "lakkoofsa_muraa_dha",
-        "gatiin sun lakkoofsa muraa tauu isaa mirkaneessuuf",
+        "gatiin sun lakkoofsa muraa ta'uu isaa mirkaneessuuf",
       ),
-      __cos: DocStr("Cos", "koosinii koonyaa raadiyeenii argachuuf"),
-      __sin: DocStr("Sin", "saayinii koonyaa raadiyeenii argachuuf"),
-      __tan: DocStr("Tan", "taanjeentii koonyaa raadiyeenii argachuuf"),
+      __cos: DocStr("Cos", "koosinii koonyaa raadiyaaniin argachuuf"),
+      __sin: DocStr("Sin", "saayinii koonyaa raadiyaaniin argachuuf"),
+      __tan: DocStr("Tan", "taanjeentii koonyaa raadiyaaniin argachuuf"),
     },
 
     __string: {
@@ -72,18 +72,18 @@ export const afaanoromoo = new Language({
       __toUpperCase: DocStr("qubee_guddaa", "jecha qubee guddaatti jijjiiruuf"),
       __toLowerCase: DocStr("qubee_xiqqaa", "jecha qubee xiqqaatti jijjiiruuf"),
       __include: DocStr(
-        "qabaa",
+        "qaba",
         "jecha tokko keessa jiraachuu isaa mirkaneessuuf",
       ),
-      __repeat: DocStr("irra_deebistu", "jecha irra deebisuuf"),
+      __repeat: DocStr("irra_deebi'i", "jecha irra deebisuuf"),
     },
 
     __date: {
       main: DocStr("guyyaa", "dalagaawwan guyyaa fi yeroo fayyadamuuf"),
       __now: DocStr("Amma", "guyyaa fi yeroo ammaa argachuuf"),
       __year: DocStr("waggaa", "waggaa argachuuf"),
-      __month: DocStr("jia", "jia argachuuf"),
-      __dayMonth: DocStr("guyyaa_jiaa", "guyyaa jiaa argachuuf"),
+      __month: DocStr("ji'a", "ji'a argachuuf"),
+      __dayMonth: DocStr("guyyaa_ji'aa", "guyyaa ji'aa argachuuf"),
       __dayWeek: DocStr("guyyaa_torbee", "guyyaa torbee argachuuf"),
       __hour: DocStr("saatii", "saatii argachuuf"),
       __minute: DocStr("daqiiqaa", "daqiiqaa argachuuf"),
@@ -95,66 +95,66 @@ export const afaanoromoo = new Language({
     __number: DocStr("lakkoofsa", "jijjiiramaa gosa lakkoofsaa labsuuf"),
     __string: DocStr("jecha", "jijjiiramaa gosa jechaa labsuuf"),
     __boolean: DocStr("loojikii", "jijjiiramaa gosa loojikii labsuuf"),
-    __object: DocStr("wanti", "wanta tasgabbaa ibsuuf"),
-    __void: DocStr("duwwaa", "dalagaa gatii hin deebisnee labsuuf"),
+    __object: DocStr("wanta", "wanta tasgabbaa'aa ibsuuf"),
+    __void: DocStr("duwwaa", "dalagaa gatii hin deebisne labsuuf"),
     __array: DocStr("tarree", "caasaa tarree labsuuf"),
   },
 
   specialValues: {
     __true: DocStr("Dhugaa", "gatii loojikii dhugaa"),
     __false: DocStr("Soba", "gatii loojikii soba"),
-    __null: DocStr("Dhabuu", "dhabuu gatii"),
+    __null: DocStr("Duwwaa", "dhabuu gatii"),
   },
 
   words: {
     __new: DocStr("Uumi", "fakkii haaraa kutaa irraa uumuuf"),
     __this: DocStr("ofii", "amala kutaa keessaa argachuuf"),
     __extends: DocStr(
-      "babalisa",
+      "babal'isi",
       "kutaan tokko kutaa biroo irraa dhaaluu isaa labsuuf",
     ),
   },
 
   accessModifiers: {
-    __private: DocStr("dhokataa", "kutaa keessatti qofa argamuu dandaau"),
-    __public: DocStr("hawaasaa", "bakka kamirraayyuu argamuu dandaau"),
+    __private: DocStr("dhokataa", "kutaa keessatti qofa argamuu danda'u"),
+    __public: DocStr("hawaasaa", "bakka kamirraayyuu argamuu danda'u"),
     __protected: DocStr(
       "eegamaa",
-      "kutaa fi kutaalee ishee keessatti argamuu dandaau",
+      "kutaa fi kutaalee ishee keessatti argamuu danda'u",
     ),
     __readonly: DocStr(
-      "dubbisaa_qofaa",
-      "gatiin yeroo tokko qofa ramadamuu dandaau",
+      "dubbisaa_qofa",
+      "gatiin yeroo tokko qofa ramadamuu danda'u",
     ),
     __static: DocStr(
-      "tasgabbaa",
+      "tasgabbaa'aa",
       "kutaatti malee fakkiilee irratti hin ramadamu",
     ),
   },
 
   methods: {
     method: {
-      __print: DocStr("maxxansi", "gatii agarsiisuuf"),
+      __print: DocStr("Barreessi", "gatii agarsiisuuf"),
       __scan: DocStr("dubbisi", "gatii galmee irraa dubbisuuf"),
       __return: DocStr("deebisi", "dalagaa irraa gatii deebisuuf"),
       __break: DocStr("dhaabi", "naannoo irraa bahuuf"),
-      __continue: DocStr("itti_fufi", "naannoo itti aanutti cehuu"),
+      __continue: DocStr("itti_fufi", "naannoo itti aanutti cehuuf"),
     },
 
     sentences: {
       __function: DocStr("dalagaa", "dalagaa labsuuf"),
       __if: DocStr("yoo", "haala labsuuf"),
-      __else: DocStr("yoo_tuu_baate", "filannoo biroo labsuuf"),
+      __else: DocStr("yoo_ta'uu_baate", "filannoo biroo labsuuf"),
       __while: DocStr("yeroo", "naannoo yeroo labsuuf"),
       __for: DocStr("hamma", "naannoo hamma labsuuf"),
       __switch: DocStr("fili", "caasaa filannoo labsuuf"),
       __case: DocStr("haala", "caasaa filannoo keessatti haala labsuuf"),
       __default: DocStr("idilee", "haala idilee caasaa filannoo keessatti"),
-      __try: DocStr("yaali", "kuta yaali labsuuf"),
-      __catch: DocStr("qabi", "kuta dogoggora qabu labsuuf"),
+      __try: DocStr("yaali", "kutaa yaalii labsuuf"),
+      __catch: DocStr("qabi", "kutaa dogoggora qabu labsuuf"),
       __finally: DocStr(
         "dhuma_irratti",
-        "kuta dhuma irratti raawwatamu labsuuf",
+        "kutaa dhuma irratti raawwatamu labsuuf",
       ),
       __class: DocStr("kutaa", "kutaa labsuuf"),
       __constructor: DocStr(
@@ -222,15 +222,15 @@ export const afaanoromoo = new Language({
     ],
     __boolean: [
       "haala",
-      "gurraacheDha",
+      "gurraachaDha",
       "sochiirraJira",
-      "mulataDha",
+      "mul'ataDha",
       "hayyamaQaba",
       "seeneDha",
       "dandeessifameDha",
       "xumurameDha",
       "mirkanaDha",
-      "haaqameDha",
+      "haqameDha",
     ],
     __function: [
       "maqaaFudhu",
@@ -242,31 +242,31 @@ export const afaanoromoo = new Language({
       "foomiiMirkaneessi",
       "meeshaaAgarsiisi",
       "haalaHaaromsi",
-      "walumaaHerregii",
+      "walumaaHerregi",
     ],
     __number: [
       "umurii",
       "waggaa",
-      "lakkaacha",
-      "waluma",
+      "lakkaawaa",
+      "walumaagala",
       "gatii",
       "tilmaama",
       "yeroo",
-      "baayina",
+      "baay'ina",
       "qabxii",
       "eeggannoo",
     ],
     __object: [
       "nama",
       "fayyadamaa",
-      "qindaaina",
+      "qindaa'ina",
       "deebii",
       "kafaltii",
       "qaaqa",
       "eenyummaa",
       "teessoo",
       "odeeffannoo",
-      "mariannoo",
+      "mari'annoo",
     ],
     __string: [
       "maqaa",
@@ -290,7 +290,7 @@ export const afaanoromoo = new Language({
       "kuufamaQulqulleessi",
       "kuufaaKeessi",
       "imeeliiErgi",
-      "galmaai",
+      "galmaahi",
     ],
   },
 }).grammar();

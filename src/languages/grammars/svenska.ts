@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const svenska = new Language({
   language: "svenska",
   about:
-    "ENIDE är en översättbar transpiler som möjliggör programmering på vilket språk som helst",
-
+    "ENIDE är ett flerspråkigt programmeringsspråk som låter dig programmera på vilket språk som helst",
   include: DocStr(
     "Inkludera",
     "används för att inkludera språk, bibliotek eller datastrukturer från en annan fil",
@@ -189,29 +188,29 @@ export const svenska = new Language({
       "Objekt",
       "Forvantad",
       "Mottagen",
-      "Konstant_Tilldelning",
-      "Dublett_Parameter",
+      "KonstantTilldelning",
+      "DublettParameter",
       "Tips",
-      "Ogiltig_Token",
-      "Stack_Overflodar",
+      "OgiltigToken",
+      "StackOverflodar",
       "Token",
-      "Ovantad_Inmatningsslut",
+      "OvantadInmatningsslut",
     ),
     main: errorMessage("FEL", "generiskt systemfel"),
-    __TypeError: errorMessage("TYP_FEL", "ogiltig typ i operationen"),
-    __InitError: errorMessage("INIT_FEL", "variabeln har inte initialiserats"),
+    __TypeError: errorMessage("TYPFEL", "ogiltig typ i operationen"),
+    __InitError: errorMessage("INITFEL", "variabeln har inte initialiserats"),
     __ReferenceError: errorMessage(
-      "REFERENS_FEL",
+      "REFERENSFEL",
       "variabeln, funktionen eller biblioteket finns inte i omfånget",
     ),
-    __SyntaxError: errorMessage("SYNTAX_FEL", "ogiltig kod"),
+    __SyntaxError: errorMessage("SYNTAXFEL", "ogiltig kod"),
     __RangeError: errorMessage(
-      "INTERVALL_FEL",
+      "INTERVALLFEL",
       "värde utanför det tillåtna intervallet",
     ),
-    __URIError: errorMessage("URI_FEL", "felformaterad eller ogiltig URI"),
-    __EvalError: errorMessage("EVAL_FEL", "fel relaterat till eval"),
-    __UNKNOWN_ERROR: errorMessage("OKANT_FEL", "fullständigt okänt fel"),
+    __URIError: errorMessage("URIFEL", "felformaterad eller ogiltig URI"),
+    __EvalError: errorMessage("EVALFEL", "fel relaterat till eval"),
+    __UNKNOWN_ERROR: errorMessage("OKANTFEL", "fullständigt okänt fel"),
   },
 
   example: {

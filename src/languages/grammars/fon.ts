@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const fon = new Language({
   language: "fon",
   about:
-    "ENIDE wɛ nyí transpiler e nɔ sixu lilɛ bo na hlɔnhlɔn nǔ kodu dodo gbe bǐ mɛ",
-
+    "ENIDE nyi programugbe ggegbe e nɔ na we gbe bo dɔ azɔ do gbe ɖebvgbɛ mɛ.",
   include: DocStr(
     "Bǐbá_dó_mɛ",
     "e nɔ zán dó gbe alɔ wemagbɛ́ta lɛ alɔ nukɔndonú lɛ dómɛ sín dometata bubu",

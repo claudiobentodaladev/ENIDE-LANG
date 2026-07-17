@@ -4,9 +4,11 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const foyroyskt = new Language({
   language: "foyroyskt",
   about:
-    "ENIDE er ein umsettanligur transpiler sum loyvir forritning á hvat mál sum er",
-
-  include: DocStr("Feila", "Verður nýtt til at feila mál ella bókasøvn"),
+    "ENIDE er eitt fjølmælt forritunarmál, ið loyvir tær at forrita á einhvørjum máli.",
+  include: DocStr(
+    "Innihalda",
+    "Verður nýtt til at innihalda mál ella bókasøvn",
+  ),
 
   commands: {
     __about: DocStr("um", "fyri at fáa upplýsingar um ENIDE"),
@@ -32,7 +34,10 @@ export const foyroyskt = new Language({
         "fyri at eftirkanna um ein verdi er ein hlutur",
       ),
       __typeof: DocStr("Slag", "fyri at fáa slag av einum verdi"),
-      __parse: DocStr("Parse", "fyri at umbreyta tekst til rættan parse-verdi"),
+      __parse: DocStr(
+        "Greina",
+        "fyri at umbreyta tekst til rættan parse-verdi",
+      ),
     },
 
     __math: {
@@ -113,7 +118,7 @@ export const foyroyskt = new Language({
   specialValues: {
     __true: DocStr("Satt", "búleskur verdi satt"),
     __false: DocStr("Ósatt", "búleskur verdi ósatt"),
-    __null: DocStr("null", "fráverið av verdi"),
+    __null: DocStr("Null", "fráverið av verdi"),
   },
 
   words: {
@@ -135,7 +140,7 @@ export const foyroyskt = new Language({
       "verndaður",
       "tilgongdur innan klassa og undirsklassum",
     ),
-    __readonly: DocStr("bert_lesa", "verdið kann bert verða sett eina ferð"),
+    __readonly: DocStr("bertLesa", "verdið kann bert verða sett eina ferð"),
     __static: DocStr("kyrrstøðugt", "tilhøyrir klassanum, ikki tilvikinum"),
   },
 
@@ -145,7 +150,7 @@ export const foyroyskt = new Language({
       __scan: DocStr("lesa", "fyri at lesa ein verdi frá innlegg"),
       __return: DocStr("returna", "fyri at returna ein verdi frá falli"),
       __break: DocStr("bróta", "fyri at fara út or lykkju"),
-      __continue: DocStr("halda_fram", "fyri at hoppa til næstu ítran"),
+      __continue: DocStr("haldaFram", "fyri at hoppa til næstu ítran"),
     },
 
     sentences: {
@@ -186,13 +191,13 @@ export const foyroyskt = new Language({
       "Hlutur",
       "Vantað",
       "Móttikið",
-      "Fastur_Útnevning",
-      "Tvífoldig_Parametri",
+      "FastUtnevning",
+      "TvífoldParametri",
       "Ráðlegging",
-      "Ógildur_Token",
-      "Stakkur_Yverfyltur",
+      "ÓgildurToken",
+      "StakkurYverfyltur",
       "Token",
-      "Óvantað_Endir",
+      "ÓvantaðurEndi",
     ),
     main: errorMessage("VILLA", "almenn kerfis villa"),
     __TypeError: errorMessage("SLAG_VILLA", "ógildur slag í operatióninni"),
@@ -261,12 +266,12 @@ export const foyroyskt = new Language({
       "tíðarskeid",
       "mengd",
       "stig",
-      "timeout",
+      "tíðarfrist",
     ],
     __object: [
       "persónur",
       "brúkari",
-      "config",
+      "uppsetan",
       "svar",
       "gjald",
       "stillingar",
@@ -294,8 +299,8 @@ export const foyroyskt = new Language({
       "endursetja",
       "eyðileggja",
       "útskráning",
-      "tømaCashe",
-      "goymaNíDB",
+      "tømaCache",
+      "goymaÍDB",
       "sendaEmail",
       "skrásetjaHending",
     ],

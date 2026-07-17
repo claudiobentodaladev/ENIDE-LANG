@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const cymraeg = new Language({
   language: "cymraeg",
   about:
-    "Mae ENIDE yn drawsbeilydd trosglwyddadwy sy'n caniatáu rhaglennu mewn unrhyw iaith",
-
+    "Mae ENIDE yn iaith raglenni amlieithog sy'n eich galluogi i raglennu mewn unrhyw iaith.",
   include: DocStr(
     "Cynnwys",
     "defnyddir i gynnwys iaith, llyfrgelloedd neu strwythurau data o ffeil arall",
@@ -35,9 +34,9 @@ export const cymraeg = new Language({
     __math: {
       main: DocStr("mathemateg", "i gael mynediad at swyddogaethau mathemateg"),
       __pi: DocStr("PI", "i gael gwerth pi"),
-      __sqrt: DocStr("Isradd", "i gael yr isradd sgwar"),
-      __pow: DocStr("Pwer", "i gael pwer rhif"),
-      __round: DocStr("Crynhoi", "i grynhoi rhif"),
+      __sqrt: DocStr("Isradd", "i gael yr isradd sgwâr"),
+      __pow: DocStr("Pŵer", "i gael pŵer rhif"),
+      __round: DocStr("Talgrynnu", "i dalgrynnu rhif"),
       __random: DocStr("Arhap", "i gael rhif ar hap"),
       __max: DocStr("Uchaf", "i gael y gwerth uchaf"),
       __min: DocStr("Isaf", "i gael y gwerth isaf"),
@@ -144,10 +143,7 @@ export const cymraeg = new Language({
       ),
       __try: DocStr("ceisio", "i ddatgan bloc ceisio"),
       __catch: DocStr("dal", "i ddatgan bloc trin gwallau"),
-      __finally: DocStr(
-        "Or_Diwedd",
-        "i ddatgan bloc sy'n gweithredu beth bynnag",
-      ),
+      __finally: DocStr("ynOlaf", "i ddatgan bloc sy'n gweithredu beth bynnag"),
       __class: DocStr("dosbarth", "i ddatgan dosbarth"),
       __constructor: DocStr(
         "adeiladwr",
@@ -200,7 +196,7 @@ export const cymraeg = new Language({
       "cynhyrchion",
       "defnyddwyr",
       "categoriau",
-      "sgорiau",
+      "sgoriau",
       "ieithoedd",
     ],
     __boolean: [
@@ -208,7 +204,7 @@ export const cymraeg = new Language({
       "ywOedolyn",
       "ywWeithredol",
       "ywWeladwy",
-      "ganddo_Ganiatad",
+      "ganddoGaniatad",
       "ywWediMewngofnodi",
       "ywWediGalluogi",
       "ywWediGorffen",
@@ -220,12 +216,12 @@ export const cymraeg = new Language({
       "caelGwerth",
       "trinClic",
       "nolData",
-      "fformatioDate",
+      "fformaduDyddiad",
       "dosrannuMewnbwn",
       "dilysuFfurflen",
       "rendroEitem",
       "diweddaruCyflwr",
-      "cyfrifoTotal",
+      "cyfrifoCyfanswm",
     ],
     __number: [
       "oedran",
@@ -270,9 +266,9 @@ export const cymraeg = new Language({
       "ailosod",
       "dinistrio",
       "allgofnodi",
-      "glanhauCelfa",
+      "glanhauStorfa",
       "cadwIDB",
-      "anffonEbost",
+      "anfonEbost",
       "cofnodiDigwyddiad",
     ],
   },

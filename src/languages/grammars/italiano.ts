@@ -4,15 +4,14 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const italiano = new Language({
   language: "italiano",
   about:
-    "ENIDE è un transpilatore traducibile che permette di programmare in qualsiasi lingua",
-
+    "ENIDE è un linguaggio di programmazione multilingue che ti permette di programmare in qualsiasi lingua",
   include: DocStr(
     "Includere",
     "Usato per includere linguaggi, librerie o strutture da altri file",
   ),
 
   commands: {
-    __about: DocStr("informazioni", "per ottenere informazioni su ENIDE"),
+    __about: DocStr("informazioni", "per ottenere informazioni um ENIDE"),
     __help: DocStr(
       "aiuto",
       "per ottenere la lista di tutti i comandi disponibili",
@@ -32,7 +31,7 @@ export const italiano = new Language({
   library: {
     __standard: {
       main: DocStr("standard", "per accedere ai metodi standard utili"),
-      __isarray: DocStr("ÈArray", "per verificare se il valore è un array"),
+      __isarray: DocStr("ÈVettori", "per verificare se il valore è un array"),
       __isobject: DocStr(
         "ÈOggetto",
         "per verificare se il valore è un oggetto",
@@ -109,7 +108,7 @@ export const italiano = new Language({
       "vuoto",
       "per dichiarare una funzione che non restituisce valore",
     ),
-    __array: DocStr("array", "per dichiarare una struttura array"),
+    __array: DocStr("vettori", "per dichiarare una struttura vettori"),
   },
 
   specialValues: {
@@ -182,33 +181,33 @@ export const italiano = new Language({
       "Oggetto",
       "Atteso",
       "Ricevuto",
-      "Assegnazione Costante",
-      "Parametro Duplicato",
+      "AssegnazioneCostante",
+      "ParametroDuplicato",
       "Suggerimento",
-      "Token Non Valido",
-      "Stack Overflow",
+      "TokenNonValido",
+      "StackOverflow",
       "Token",
-      "Fine Input Inaspettata",
+      "FineInputInaspettata",
     ),
     main: errorMessage("ERRORE", "errore generico del sistema"),
-    __TypeError: errorMessage("ERRORE_TIPO", "tipo non valido nell'operazione"),
+    __TypeError: errorMessage("ERRORETIPO", "tipo non valido nell'operazione"),
     __InitError: errorMessage(
-      "ERRORE_INIZIALIZZAZIONE",
+      "ERROREINIZIALIZZAZIONE",
       "variabile non inizializzata",
     ),
     __ReferenceError: errorMessage(
-      "ERRORE_RIFERIMENTO",
+      "ERRORERIFERIMENTO",
       "variabile, funzione o libreria non esiste nell'ambito",
     ),
-    __SyntaxError: errorMessage("ERRORE_SINTASSI", "codice non valido"),
+    __SyntaxError: errorMessage("ERRORESINTASSI", "codice non valido"),
     __RangeError: errorMessage(
-      "ERRORE_INTERVALLO",
+      "ERROREINTERVALLO",
       "valore fuori dall'intervallo consentito",
     ),
-    __URIError: errorMessage("ERRORE_URI", "URI malformato o non valido"),
-    __EvalError: errorMessage("ERRORE_EVAL", "errore relativo a eval"),
+    __URIError: errorMessage("ERROREURI", "URI malformato o non valido"),
+    __EvalError: errorMessage("ERROREEVAL", "errore relativo a eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "ERRORE_SCONOSCIUTO",
+      "ERRORESCONOSCIUTO",
       "errore completamente sconosciuto",
     ),
   },

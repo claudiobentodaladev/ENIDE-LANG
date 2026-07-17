@@ -3,8 +3,8 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const brezhoneg = new Language({
   language: "brezhoneg",
-  about: "ENIDE a zo un treuzdouger a aotre programmmañ e n'eus forzh pe yezh",
-
+  about:
+    "ENIDE a zo ur yezh programmiñ liesyezhek a aotren ac'hanoc'h da brogrammiñ e n'eus forzh pe yezh.",
   include: DocStr(
     "Enderc'hel",
     "Implijet evit enderc'hel yezhoù pe levraouegoù",
@@ -26,7 +26,7 @@ export const brezhoneg = new Language({
     __standard: {
       main: DocStr("standard", "evit tizhout arc'hwelioù standard talvoudus"),
       __isarray: DocStr("UnRolEo", "evit gwiriañ m'eo ur roll"),
-      __isobject: DocStr("UnTraEo", "evit gwiriañ m'eo ur tra"),
+      __isobject: DocStr("UnTraEo", "evit gwiriañ m'eo un tra"),
       __typeof: DocStr("Stumm", "evit kaout stumm un dalvoudenn"),
       __parse: DocStr("Parse", "evit treiñ ur chadenn d'e dalvoudenn resis"),
     },
@@ -41,8 +41,11 @@ export const brezhoneg = new Language({
       __max: DocStr("Uc'hek", "evit kaout an dalvoudenn uc'hek"),
       __min: DocStr("Izek", "evit kaout an dalvoudenn izek"),
       __isNumber: DocStr("UnNiverEo", "evit gwiriañ m'eo un niver"),
-      __isInteger: DocStr("UnNiverKealEo", "evit gwiriañ m'eo un niver keal"),
-      __isFloat: DocStr("UnNiverDekredEo", "evit gwiriañ m'eo un niver dekred"),
+      __isInteger: DocStr("UnNiverKeizEo", "evit gwiriañ m'eo un niver keiz"),
+      __isFloat: DocStr(
+        "UnNiverDezimalEo",
+        "evit gwiriañ m'eo un niver dezimal",
+      ),
       __cos: DocStr("Cos", "evit kaout kosinusoù un ugent e radiannoù"),
       __sin: DocStr("Sin", "evit kaout sinusoù un ugent e radiannoù"),
       __tan: DocStr("Tan", "evit kaout tanjantoù un ugent e radiannoù"),
@@ -83,10 +86,10 @@ export const brezhoneg = new Language({
   },
 
   types: {
-    __number: DocStr("niver", "evit diskleriañ ur variabilell niver"),
-    __string: DocStr("chadenn", "evit diskleriañ ur variabilell chadenn"),
-    __boolean: DocStr("booleen", "evit diskleriañ ur variabilell booleen"),
-    __object: DocStr("tra", "da ziskleria ur tra statis"),
+    __number: DocStr("niver", "evit diskleriañ un argemmenn niver"),
+    __string: DocStr("chadenn", "evit diskleriañ un argemmenn chadenn"),
+    __boolean: DocStr("boolean", "evit diskleriañ un argemmenn boolean"),
+    __object: DocStr("tra", "da ziskleriañ un tra statik"),
     __void: DocStr(
       "goullo",
       "evit diskleriañ un arc'hwel hep dalvoudenn distro",
@@ -95,8 +98,8 @@ export const brezhoneg = new Language({
   },
 
   specialValues: {
-    __true: DocStr("Gwir", "talvoudenn booleen gwir"),
-    __false: DocStr("Gaou", "talvoudenn booleen gaou"),
+    __true: DocStr("Gwir", "talvoudenn vooleen gwir"),
+    __false: DocStr("Gaou", "talvoudenn vooleen gaou"),
     __null: DocStr("netra", "digoll dalvoudenn"),
   },
 
@@ -125,7 +128,10 @@ export const brezhoneg = new Language({
 
   methods: {
     method: {
-      __print: DocStr("moullañ", "evit diskouez un dalvoudenn war ar skramm"),
+      __print: DocStr(
+        "skrivañ",
+        "evit diskouez/skrivañ un dalvoudenn war ar skramm",
+      ),
       __scan: DocStr("lenn", "evit lenn un dalvoudenn"),
       __return: DocStr(
         "distreiñ",
@@ -162,7 +168,7 @@ export const brezhoneg = new Language({
     __labels: errorLabel(
       "Kemennadenn",
       "Dalvoudenn",
-      "Variabilell",
+      "Argemmenn",
       "Attribut",
       "Tra",
       "Gortozet",
@@ -179,11 +185,11 @@ export const brezhoneg = new Language({
     __TypeError: errorMessage("KLUD_STUMM", "stumm direizh en oberiadur"),
     __InitError: errorMessage(
       "KLUD_KREGIÑ",
-      "n'eo ket bet kregiñ gant ar variabilell",
+      "n'eo ket bet kregiñ gant ar argemmenn",
     ),
     __ReferenceError: errorMessage(
       "KLUD_DEVEZ",
-      "variabilell, arc'hwel pe levraouegoù n'eus ket anezho er c'hasenn",
+      "argemmenn, arc'hwel pe levraouegoù n'eus ket anezho er c'hasenn",
     ),
     __SyntaxError: errorMessage("KLUD_SINTAKS", "kod direizh"),
     __RangeError: errorMessage(

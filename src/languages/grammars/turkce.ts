@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const turkce = new Language({
   language: "turkce",
   about:
-    "ENIDE herhangi bir dilde programlamaya izin veren tercüme edilebilir bir transpiler'dir",
-
+    "ENIDE, herhangi bir dilde programlamanıza olanak tanıyan çok dilli bir programlama dilidir",
   include: DocStr(
     "DahilEtme",
     "Dil veya kitaplıkları dahil etmek için kullanılır",
@@ -23,8 +22,14 @@ export const turkce = new Language({
   library: {
     __standard: {
       main: DocStr("Standart", "standart yardımcı yöntemlere erişim için"),
-      __isarray: DocStr("DiziMi", "bir değerin dizi olup olmadığını kontrol etmek için"),
-      __isobject: DocStr("NesneMi", "bir değerin nesne olup olmadığını kontrol etmek için"),
+      __isarray: DocStr(
+        "DiziMi",
+        "bir değerin dizi olup olmadığını kontrol etmek için",
+      ),
+      __isobject: DocStr(
+        "NesneMi",
+        "bir değerin nesne olup olmadığını kontrol etmek için",
+      ),
       __typeof: DocStr("Tür", "bir değerin türünü almak için"),
       __parse: DocStr(
         "Parse",
@@ -41,9 +46,18 @@ export const turkce = new Language({
       __random: DocStr("Rastgele", "rastgele sayı almak için"),
       __max: DocStr("Maksimum", "maksimum değeri almak için"),
       __min: DocStr("Minimum", "minimum değeri almak için"),
-      __isNumber: DocStr("SayıMı", "bir değerin sayı olup olmadığını kontrol etmek için"),
-      __isInteger: DocStr("TamSayıMı", "bir değerin tam sayı olup olmadığını kontrol etmek için"),
-      __isFloat: DocStr("OndalıkMı", "bir değerin ondalık sayı olup olmadığını kontrol etmek için"),
+      __isNumber: DocStr(
+        "SayıMı",
+        "bir değerin sayı olup olmadığını kontrol etmek için",
+      ),
+      __isInteger: DocStr(
+        "TamSayıMı",
+        "bir değerin tam sayı olup olmadığını kontrol etmek için",
+      ),
+      __isFloat: DocStr(
+        "OndalıkMı",
+        "bir değerin ondalık sayı olup olmadığını kontrol etmek için",
+      ),
       __cos: DocStr("Cos", "radyan cinsinden bir açının kosinüsünü almak için"),
       __sin: DocStr("Sin", "radyan cinsinden bir açının sinüsünü almak için"),
       __tan: DocStr("Tan", "radyan cinsinden bir açının tanjantını almak için"),
@@ -52,9 +66,18 @@ export const turkce = new Language({
     __string: {
       main: DocStr("Metin", "metin işlem fonksiyonlarına erişim için"),
       __length: DocStr("Uzunluk", "bir metnin uzunluğunu almak için"),
-      __toUpperCase: DocStr("BüyükHarfe", "bir metni büyük harfe dönüştürmek için"),
-      __toLowerCase: DocStr("KüçükHarfe", "bir metni küçük harfe dönüştürmek için"),
-      __include: DocStr("İçeriyor", "bir metnin alt metin içerip içermediğini kontrol etmek için"),
+      __toUpperCase: DocStr(
+        "BüyükHarfe",
+        "bir metni büyük harfe dönüştürmek için",
+      ),
+      __toLowerCase: DocStr(
+        "KüçükHarfe",
+        "bir metni küçük harfe dönüştürmek için",
+      ),
+      __include: DocStr(
+        "İçeriyor",
+        "bir metnin alt metin içerip içermediğini kontrol etmek için",
+      ),
       __repeat: DocStr("Tekrarla", "bir metni belirli sayıda tekrarlamak için"),
     },
 
@@ -89,14 +112,17 @@ export const turkce = new Language({
   words: {
     __new: DocStr("Yeni", "bir sınıfın yeni örneğini oluşturmak için"),
     __this: DocStr("Bu", "kendi sınıfındaki özelliklere erişmek için"),
-    __extends: DocStr("Uzatır", "bir sınıfın başka bir sınıftan miras aldığını bildirmek için"),
+    __extends: DocStr(
+      "Uzatır",
+      "bir sınıfın başka bir sınıftan miras aldığını bildirmek için",
+    ),
   },
 
   accessModifiers: {
     __private: DocStr("Özel", "yalnızca sınıf içinde erişilebilir"),
     __public: DocStr("Genel", "her yerden erişilebilir"),
     __protected: DocStr("Korumalı", "sınıf ve alt sınıflarında erişilebilir"),
-    __readonly: DocStr("SadecOku", "değer yalnızca bir kez atanabilir"),
+    __readonly: DocStr("SadeceOku", "değer yalnızca bir kez atanabilir"),
     __static: DocStr("Statik", "sınıfa ait, örneklere değil"),
   },
 
@@ -117,12 +143,18 @@ export const turkce = new Language({
       __for: DocStr("İçin", "için döngüsü bildirmek için"),
       __switch: DocStr("Seç", "seçim yapısı bildirmek için"),
       __case: DocStr("Durum", "seçim yapısında durum bildirmek için"),
-      __default: DocStr("Varsayılan", "seçim yapısında varsayılan durumu bildirmek için"),
+      __default: DocStr(
+        "Varsayılan",
+        "seçim yapısında varsayılan durumu bildirmek için",
+      ),
       __try: DocStr("Dene", "dene bloğu bildirmek için"),
       __catch: DocStr("Yakala", "hata işlem bloğu bildirmek için"),
       __finally: DocStr("Sonunda", "her zaman yürütülen bloğu bildirmek için"),
       __class: DocStr("Sınıf", "sınıf bildirmek için"),
-      __constructor: DocStr("Yapıcı", "sınıftaki özellikleri bildirmek için yapı"),
+      __constructor: DocStr(
+        "Yapıcı",
+        "sınıftaki özellikleri bildirmek için yapı",
+      ),
     },
   },
 
@@ -130,34 +162,37 @@ export const turkce = new Language({
     __labels: errorLabel(
       "Mesaj",
       "Değer",
-      "Değişken",
-      "Özellik",
+      "Degisken",
+      "Ozellik",
       "Nesne",
       "Beklenen",
-      "Alınan",
-      "Sabit_Atama",
-      "Yinelenen_Parametre",
-      "İpucu",
-      "Geçersiz_Token",
-      "Yığın_Taşması",
+      "Alinan",
+      "SabitAtama",
+      "YinelenenParametre",
+      "Ipucu",
+      "GecersizToken",
+      "YiginTasmasi",
       "Token",
-      "Beklenmedik_Son",
+      "BeklenmedikSon",
     ),
     main: errorMessage("HATA", "genel sistem hatası"),
-    __TypeError: errorMessage("TÜR_HATASI", "işlemde geçersiz tür"),
-    __InitError: errorMessage(
-      "BAŞLATMA_HATASI",
-      "değişken başlatılmamış",
-    ),
+    __TypeError: errorMessage("TURHATASI", "işlemde geçersiz tür"),
+    __InitError: errorMessage("BASLATMAHATASI", "değişken başlatılmamış"),
     __ReferenceError: errorMessage(
-      "REFERANS_HATASI",
+      "REFERANSHATASI",
       "değişken, fonksiyon veya kitaplık kapsam içinde mevcut değil",
     ),
-    __SyntaxError: errorMessage("SÖZDIZIMI_HATASI", "geçersiz kod"),
-    __RangeError: errorMessage("ARALIK_HATASI", "değer izin verilen aralık dışında"),
-    __URIError: errorMessage("URI_HATASI", "yanlış biçimlenmiş veya geçersiz URI"),
-    __EvalError: errorMessage("EVAL_HATASI", "eval ile ilgili hata"),
-    __UNKNOWN_ERROR: errorMessage("BİLİNMEYEN_HATA", "tamamen bilinmeyen hata"),
+    __SyntaxError: errorMessage("SOZDIZIMIHATASI", "geçersiz kod"),
+    __RangeError: errorMessage(
+      "ARALIKHATASI",
+      "değer izin verilen aralık dışında",
+    ),
+    __URIError: errorMessage(
+      "URIHATASI",
+      "yanlış biçimlenmiş veya geçersiz URI",
+    ),
+    __EvalError: errorMessage("EVALHATASI", "eval ile ilgili hata"),
+    __UNKNOWN_ERROR: errorMessage("BILINMEYENHATA", "tamamen bilinmeyen hata"),
   },
 
   example: {

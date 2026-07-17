@@ -3,7 +3,8 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 
 export const moore = new Language({
   language: "moore",
-  about: "ENIDE yaa transpiler sen seglg ta ne tigs boole faa puge",
+  about:
+    "ENIDE ya bãngre wẽnd-bãngre sẽn be ne logto-kãsems fãa, sẽn kõt fãa re-n-bãng fãa",
 
   include: DocStr("Paasgo", "Tuumd n paas buud-gomd walla sebr-roogo"),
 
@@ -98,7 +99,7 @@ export const moore = new Language({
       __scan: DocStr("Karem", "Ti karem yell"),
       __return: DocStr("Lebse", "Ti lebse yell"),
       __break: DocStr("Gidgre", "Bas tuumde"),
-      __continue: DocStr("Kell-n-tao", "Kell n tao n tuume"),
+      __continue: DocStr("KellNTao", "Kell n tao n tuume"),
     },
 
     sentences: {
@@ -120,33 +121,30 @@ export const moore = new Language({
 
   errors: {
     __labels: errorLabel(
-      "Koe-noogo",
+      "KoeNoogo",
       "Ligdi",
       "Yelle",
-      "Ting-n-taare",
+      "TingNTaare",
       "Tinga",
-      "Sen-tiga",
-      "Sen-paame",
-      "Custante-atribuicaon",
-      "Parametre-n-lebse",
+      "SenTiga",
+      "SenPaame",
+      "CustanteAtribuicaon",
+      "ParametreNLebse",
       "Songo",
-      "Token-ka-zemsa",
-      "Pila-n-stouro",
+      "TokenKaZemsa",
+      "PilaNStouro",
       "Token",
-      "Baas-unexpected",
+      "BaasUnexpected",
     ),
     main: errorMessage("KONGRE", "Sistem kongre"),
-    __TypeError: errorMessage("KONGRE_TIPO", "Tipo sen ka zems ye"),
-    __InitError: errorMessage("KONGRE_INITIAL", "Yell ka seglg faa ye"),
-    __ReferenceError: errorMessage("KONGRE_REFERENS", "Yell ka be ye"),
-    __SyntaxError: errorMessage("KONGRE_SINTAKS", "Gulsgo ka zems ye"),
-    __RangeError: errorMessage("KONGRE_LIMITI", "Yell yiida limiti"),
-    __URIError: errorMessage("KONGRE_URI", "URI ka zems ye"),
-    __EvalError: errorMessage("KONGRE_EVAL", "Eval kongre"),
-    __UNKNOWN_ERROR: errorMessage(
-      "KONGRE_SEN_KA_BANG",
-      "Kongre sen ka bang ye",
-    ),
+    __TypeError: errorMessage("KONGRETIPO", "Tipo sen ka zems ye"),
+    __InitError: errorMessage("KONGREINITIAL", "Yell ka seglg faa ye"),
+    __ReferenceError: errorMessage("KONGREREFERENS", "Yell ka be ye"),
+    __SyntaxError: errorMessage("KONGRESINTAKS", "Gulsgo ka zems ye"),
+    __RangeError: errorMessage("KONGRELIMITI", "Yell yiida limiti"),
+    __URIError: errorMessage("KONGREURI", "URI ka zems ye"),
+    __EvalError: errorMessage("KONGREEVAL", "Eval kongre"),
+    __UNKNOWN_ERROR: errorMessage("KONGRESENKABANG", "Kongre sen ka bang ye"),
   },
 
   example: {

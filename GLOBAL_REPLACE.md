@@ -1,4 +1,4 @@
-# Character Transliteration Map — `GLOBAL_MAP`
+# Character Transliteration Map - `GLOBAL_MAP`
 
 ## Overview
 
@@ -18,7 +18,7 @@ When a string is processed using this map, every character that appears as a key
 
 ### Special Latin Characters
 
-This group covers characters that exist in extended Latin alphabets used across various European languages — characters that look similar to standard Latin letters but carry diacritical features or ligatures.
+This group covers characters that exist in extended Latin alphabets used across various European languages - characters that look similar to standard Latin letters but carry diacritical features or ligatures.
 
 | Original | Becomes | Notes |
 |----------|---------|-------|
@@ -36,7 +36,7 @@ This group covers characters that exist in extended Latin alphabets used across 
 | ı / İ | i / I | Turkish dotless/dotted i |
 | ĳ / Ĳ | ij / IJ | Dutch ij digraph ligature |
 
-**Case is preserved wherever applicable** — lowercase originals produce lowercase results, and uppercase originals produce uppercase results.
+**Case is preserved wherever applicable** - lowercase originals produce lowercase results, and uppercase originals produce uppercase results.
 
 ---
 
@@ -84,7 +84,7 @@ Some highlights:
 - **One-to-many mapping:** A single character can produce multiple Latin characters (e.g., ß → ss, ж → zh). The resulting string may therefore be longer than the original.
 - **Removal:** Some characters produce an empty result and are simply dropped (ь, ъ).
 - **Case sensitivity:** The map distinguishes between uppercase and lowercase where relevant and preserves the appropriate casing in output.
-- **Unchanged characters:** Any character not listed in the map passes through unmodified — this includes standard Latin letters, digits, punctuation, and whitespace.
+- **Unchanged characters:** Any character not listed in the map passes through unmodified - this includes standard Latin letters, digits, punctuation, and whitespace.
 
 ---
 
@@ -92,12 +92,23 @@ Some highlights:
 
 | Input | Output | Language |
 |-------|--------|----------|
-| Ångström | Angstrom | — |
+| Ångström | Angstrom | - |
 | Müßiggang | Mussiggang | German |
 | Москва | Moskva | Russian |
-| Αθήνα | Athina | Greek |
-| القاهرة | Alqahrt | Arabic |
+| Αθήνα | Athna | Greek |
+| القاهرة | ALQAHR | Arabic |
 | Łódź | Lodz | Polish |
 | Þórsmörk | THorsmork | Icelandic |
 
-> Note: The examples above illustrate the map's character-level replacements. Characters not in the map (like standard accented vowels with diacritics — é, ü, etc.) would pass through unchanged unless handled by a separate normalization step.
+> Note: The examples above illustrate the map's character-level replacements. Characters not in the map (like standard accented vowels with diacritics - é, ü, etc.) would pass through unchanged unless handled by a separate normalization step.
+
+---
+
+## Known limitations
+
+These behaviours fall out of how `Normalize()` (in `src/languages/utils/unicodeNormalize.ts`) is actually implemented, and are worth knowing before relying on the output:
+
+- **Accented forms of mapped letters are not recognized.** The map is keyed on bare letters only. `GLOBAL_MAP` lookup happens *before* NFD diacritic stripping, so a character like Greek **ή** (eta with tonos) is not found as a key (only the unaccented **η** is), and after the map step it falls through to the final ASCII-only cleanup and is dropped entirely - rather than being reduced to `i` the way you might expect. This is why `Αθήνα` produces `Athna` and not `Athina`.
+- **Caseless scripts get forced to uppercase.** The case-preservation check compares a character to its own `toUpperCase()` result. For scripts without letter case (Arabic, Persian, and similar abjads), every character is equal to its own uppercase form, so the check always takes the "uppercase" branch. In practice this means any word transliterated from a caseless script comes out entirely in uppercase, e.g. `القاهرة` → `ALQAHR`, not the mixed-case `Alqahrt` you'd get from a naive Romanization.
+- **Letters with no map entry and no Latin decomposition disappear.** `ة` (ta marbuta) has no entry in `GLOBAL_MAP` and isn't in the Latin range, so it's stripped out by the final `[^\x00-\x7F]` cleanup with no replacement - it does not become `t` or `h`.
+- **Order of operations matters.** The full pipeline is: (1) character-by-character `GLOBAL_MAP` lookup, (2) NFD Unicode normalization with combining marks stripped, (3) a final regex that removes anything outside the ASCII range. A character only benefits from step 2's diacritic stripping if it wasn't already handled (or left untouched) in step 1, and it only survives step 3 if it's plain ASCII by that point.

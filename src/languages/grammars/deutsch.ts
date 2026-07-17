@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const deutsch = new Language({
   language: "deutsch",
   about:
-    "ENIDE ist ein übersetzbarer Transpiler, der das Programmieren in jeder Sprache ermöglicht",
-
+    "ENIDE ist eine mehrsprachige Programmiersprache, die es Ihnen ermöglicht, in jeder beliebigen Sprache zu programmieren.",
   include: DocStr(
     "Einbinden",
     "Wird verwendet, um Sprachen oder Bibliotheken einzubinden",
@@ -45,7 +44,7 @@ export const deutsch = new Language({
       ),
       __typeof: DocStr("Typ", "um den Typ eines Wertes zu erhalten"),
       __parse: DocStr(
-        "Parse",
+        "Parsen",
         "um einen Wert aus einer Zeichenkette in den richtigen Typ umzuwandeln",
       ),
     },
@@ -86,11 +85,11 @@ export const deutsch = new Language({
       ),
       __length: DocStr("Länge", "um die Länge einer Zeichenkette zu erhalten"),
       __toUpperCase: DocStr(
-        "ZuGroßschreibung",
+        "ZuGroßbuchstaben",
         "um eine Zeichenkette in Großbuchstaben umzuwandeln",
       ),
       __toLowerCase: DocStr(
-        "ZuKleinschreibung",
+        "ZuKleinbuchstaben",
         "um eine Zeichenkette in Kleinbuchstaben umzuwandeln",
       ),
       __include: DocStr(
@@ -140,7 +139,7 @@ export const deutsch = new Language({
   specialValues: {
     __true: DocStr("Wahr", "boolescher Wert wahr"),
     __false: DocStr("Falsch", "boolescher Wert falsch"),
-    __null: DocStr("nichts", "Abwesenheit eines Wertes"),
+    __null: DocStr("Nichts", "Abwesenheit eines Wertes"),
   },
 
   words: {
@@ -160,7 +159,7 @@ export const deutsch = new Language({
       "innerhalb der Klasse und ihrer Unterklassen zugänglich",
     ),
     __readonly: DocStr(
-      "nur_lesen",
+      "nurLesen",
       "der Wert kann nur einmal zugewiesen werden",
     ),
     __static: DocStr("statisch", "gehört zur Klasse, nicht zur Instanz"),
@@ -176,7 +175,7 @@ export const deutsch = new Language({
       ),
       __break: DocStr("abbrechen", "um eine Schleife zu verlassen"),
       __continue: DocStr(
-        "weitermachen",
+        "fortfahren",
         "um zur nächsten Iteration der Schleife zu springen",
       ),
     },
@@ -282,7 +281,7 @@ export const deutsch = new Language({
       "nameAbrufen",
       "wertAbrufen",
       "klickVerarbeiten",
-      "datenabrufen",
+      "datenAbrufen",
       "datumFormatieren",
       "eingabeVerarbeiten",
       "formularValidieren",
@@ -293,7 +292,7 @@ export const deutsch = new Language({
     __number: [
       "alter",
       "jahr",
-      "zaehler",
+      "zähler",
       "gesamt",
       "preis",
       "index",
@@ -305,7 +304,7 @@ export const deutsch = new Language({
     __object: [
       "person",
       "benutzer",
-      "config",
+      "konfiguration",
       "antwort",
       "zahlung",
       "einstellungen",

@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const shona = new Language({
   language: "shona",
   about:
-    "I-ENIDE ikhompayira inoshandura nekugonesa kuronga zvirongwa (kuprograma) mune chero mutauro wemakodhi",
-
+    "ENIDE mutauro wepurogiramu wekombiyuta unotaura mitauro yakawanda unokubvumira kunyora purogiramu mumutauro chero upi zvawo",
   include: DocStr(
     "Pinza",
     "Inoshandiswa kupinza mitauro, maraibhurari kana mamodule ekunze muchirongwa",
@@ -213,7 +212,7 @@ export const shona = new Language({
       "ZitaRakadzokororwa",
       "Rubatsiro",
       "TocheniIsiriIyo",
-      "StakaRemerwa",
+      "StackOverflow",
       "Tocheni",
       "InputYaperaZvisizvo",
     ),
@@ -222,35 +221,35 @@ export const shona = new Language({
       "Kukanganisa kwehurongwa hwechimbichimbi hwesistimu",
     ),
     __TypeError: errorMessage(
-      "KUKANGANISA_MHANDO",
+      "KUKANGANISAMHANDO",
       "Mhando yedata isiri iyo pakushanda kwekuita",
     ),
     __InitError: errorMessage(
-      "KUKANGANISA_INIT",
+      "KUKANGANISAINIT",
       "Chinhu kana variable haina kugadzirwa zvakanaka pakutanga",
     ),
     __ReferenceError: errorMessage(
-      "KUKANGANISA_REF",
+      "KUKANGANISAREF",
       "Kunongedzera kuchinhu kana chinyorwa chisipo muchikamu chino",
     ),
     __SyntaxError: errorMessage(
-      "KUKANGANISA_SYNTAX",
+      "KUKANGANISASYNTAX",
       "Manyorerwo ekodhi asiri kutevedza mitemo yesintaksi",
     ),
     __RangeError: errorMessage(
-      "KUKANGANISA_RANGE",
+      "KUKANGANISARANGE",
       "Nhamba iri kunze kwemiganhu inotenderwa nesistimu",
     ),
     __URIError: errorMessage(
-      "KUKANGANISA_URI",
+      "KUKANGANISAURI",
       "Mamiriro e-URI asiri iwo kwayo",
     ),
     __EvalError: errorMessage(
-      "KUKANGANISA_EVAL",
+      "KUKANGANISAEVAL",
       "Kukanganisa kunobva mubasa re-eval",
     ),
     __UNKNOWN_ERROR: errorMessage(
-      "KUKANGANISA_KUSAZIVIKWA",
+      "KUKANGANISAKUSAZIVIKWA",
       "Kukanganisa kusingazivikanwi kwaitika kusina kunyorwa",
     ),
   },

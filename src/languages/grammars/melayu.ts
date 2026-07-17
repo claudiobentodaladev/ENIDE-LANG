@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const melayu = new Language({
   language: "melayu",
   about:
-    "ENIDE ialah transpiler boleh terjemah yang membolehkan pengaturcaraan dalam mana-mana bahasa",
-
+    "ENIDE ialah bahasa pengaturcaraan berbilang bahasa yang membolehkan anda memprogram dalam mana-mana bahasa",
   include: DocStr(
     "termasuk",
     "digunakan untuk memasukkan bahasa, perpustakaan, atau modul daripada fail lain",
@@ -27,15 +26,15 @@ export const melayu = new Language({
     __standard: {
       main: DocStr("standard", "akses kepada kaedah standard sistem"),
       __isarray: DocStr(
-        "ialah_tatausunan",
+        "IalahTatausunan",
         "memeriksa jika nilai ialah tatausunan (array)",
       ),
-      __isobject: DocStr("ialah_objek", "memeriksa jika nilai ialah objek"),
+      __isobject: DocStr("IalahObjek", "memeriksa jika nilai ialah objek"),
       __typeof: DocStr("Jenis", "mendapatkan jenis bagi sesuatu nilai"),
       __parse: DocStr("Hurai", "menukar teks kepada jenis data yang sesuai"),
     },
     __math: {
-      main: DocStr("matematik", "akses kepada fungsi pengiraan matematik"),
+      main: DocStr("matematika", "akses kepada fungsi pengiraan matematik"),
       __pi: DocStr("PI", "mendapatkan nilai pemalar Pi"),
       __sqrt: DocStr("Punca", "mendapatkan punca kuasa dua nombor"),
       __pow: DocStr("Kuasa", "mengira kuasa bagi sesuatu nombor"),
@@ -114,7 +113,7 @@ export const melayu = new Language({
     __public: DocStr("awam", "boleh diakses dari mana-mana sahaja"),
     __protected: DocStr("dilindungi", "boleh diakses dalam kelas dan warisnya"),
     __readonly: DocStr(
-      "baca_sahaja",
+      "BacaSahaja",
       "nilai yang tidak boleh diubah selepas diisytihar",
     ),
     __static: DocStr("statik", "milik kelas itu sendiri, bukan contoh kelas"),
@@ -161,39 +160,39 @@ export const melayu = new Language({
       "Objek",
       "Dijangka",
       "Diterima",
-      "Tugasan pemalar",
-      "Parameter bertindih",
+      "TugasanPemalar",
+      "ParameterBertindih",
       "Petunjuk",
-      "Token tidak sah",
-      "Limpahan tindanan",
+      "TokenTidakSah",
+      "LimpahanTindanan",
       "Token",
-      "Akhir input tidak dijangka",
+      "AkhirInputTidakDijangka",
     ),
     main: errorMessage("RALAT", "ralat sistem umum"),
     __TypeError: errorMessage(
-      "RALAT_JENIS",
+      "RALATJENIS",
       "jenis data tidak sah dalam operasi",
     ),
     __InitError: errorMessage(
-      "RALAT_AWALAN",
+      "RALATAWALAN",
       "pemboleh ubah tidak dimulakan dengan betul",
     ),
     __ReferenceError: errorMessage(
-      "RALAT_RUJUKAN",
+      "RALATRUJUKAN",
       "pemboleh ubah atau fungsi tidak wujud",
     ),
     __SyntaxError: errorMessage(
-      "RALAT_SINTAKS",
+      "RALATSINTAKS",
       "kesalahan dalam penulisan kod",
     ),
     __RangeError: errorMessage(
-      "RALAT_JULAT",
+      "RALATJULAT",
       "nilai berada di luar julat yang dibenarkan",
     ),
-    __URIError: errorMessage("RALAT_URI", "format URI tidak sah"),
-    __EvalError: errorMessage("RALAT_EVAL", "ralat dalam fungsi eval"),
+    __URIError: errorMessage("RALATURI", "format URI tidak sah"),
+    __EvalError: errorMessage("RALATEVAL", "ralat dalam fungsi eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "RALAT_TIDAK_DIKETAHUI",
+      "RALATTIDAKDIKETAHUI",
       "ralat yang tidak dapat dikenal pasti berlaku",
     ),
   },

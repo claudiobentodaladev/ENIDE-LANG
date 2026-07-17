@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const siswati = new Language({
   language: "siswati",
   about:
-    "ENIDE likhompayila lelivumela kutsi ubhale tinhlelo ngemilimi leyehlukene ngalokuphayimfako",
-
+    "ENIDE lulwimi lwekubhala tinhlelo tekhompyutha lolunemitfombolunye lolukuvumela kutsi ubhale tinhlelo nganoma lulwimi",
   include: DocStr(
     "Katsa",
     "Kusetjentiswa kufaka tilimi, mabhayibhuli nobe tinhlelo tangephandle",
@@ -180,35 +179,35 @@ export const siswati = new Language({
     ),
     main: errorMessage("LIPHUTSA", "Liphutsa lesistimu leliphakama phambili"),
     __TypeError: errorMessage(
-      "LIPHUTSA_LOHLANGOTI",
+      "LIPHUTSALOHLANGOTI",
       "Luhlobo lwedatha lolungahambisani nalomsebenti lowentiwako",
     ),
     __InitError: errorMessage(
-      "LIPHUTSA_KUCALA",
+      "LIPHUTSAKUCALA",
       "Intfo nobe xicinci ayikakalungi kahle ekucaleni kwenkhombandlela",
     ),
     __ReferenceError: errorMessage(
-      "LIPHUTSA_LEKUTSITSA",
+      "LIPHUTSALEKUTSITSA",
       "Ligama lofuna kusebentisa alikho kulesimo salokuphindvwa",
     ),
     __SyntaxError: errorMessage(
-      "LIPHUTSA_LESIBHALO",
+      "LIPHUTSALESIBHALO",
       "Luhlelo lwekubhala isintaksi alukalungi emitfetfweni",
     ),
     __RangeError: errorMessage(
-      "LIPHUTSA_LEMNGCWE",
+      "LIPHUTSALELEMNGCWE",
       "Inombolo isemngceleni longakalungi waluluhla",
     ),
     __URIError: errorMessage(
-      "LIPHUTSA_URI",
+      "LIPHUTSAURI",
       "I-URI ayikahleleki kahle emitsintsini",
     ),
     __EvalError: errorMessage(
-      "LIPHUTSA_EVAL",
+      "LIPHUTSAEVAL",
       "Liphutsa emsebentini we-eval ngaphakathi",
     ),
     __UNKNOWN_ERROR: errorMessage(
-      "LIPHUTSA_LELINGATIWA",
+      "LIPHUTSALELINGATIWA",
       "Kuvele liphutsa lelingatiwa nhlobo lelimise sistimu",
     ),
   },

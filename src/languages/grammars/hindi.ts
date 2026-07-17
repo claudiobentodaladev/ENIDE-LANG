@@ -4,43 +4,42 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const hindi = new Language({
   language: "hindi",
   about:
-    "ENIDE ek anuvaad yogya transpiler hai jo kisi bhi bhasha mein programming ki anumati deta hai",
-
+    "ENIDE ek bahubhashi programming bhasha hai jo aapko kisi bhi bhasha mein programming karne ki anumati deti hai.",
   include: DocStr(
-    "Shamil_karna",
+    "ShamilKarna",
     "Bhasha ya library ko shamil karne ke liye upyog kiya jaata hai",
   ),
 
   commands: {
     __about: DocStr(
-      "ke_baare_mein",
+      "KeBaareMein",
       "ENIDE ke baare mein jaankari prapt karne ke liye",
     ),
     __help: DocStr(
-      "sahayata",
+      "Sahayata",
       "sabhi upalabdh commands ki soochi prapt karne ke liye",
     ),
     __version: DocStr(
-      "sanskaran",
+      "Sanskaran",
       "ENIDE ka vartaman sanskaran prapt karne ke liye",
     ),
     __languages: DocStr(
-      "bhashayein",
+      "Bhashayein",
       "sabhi upalabdh bhashaon ki soochi prapt karne ke liye",
     ),
     __documentation: DocStr(
-      "dastaavez",
+      "Dastaavez",
       "kisi bhasha ke liye dastaavez prapt karne ke liye",
     ),
     __grammar: DocStr(
-      "vyaakaran",
+      "Vyaakaran",
       "kisi bhasha ka vyaakaran prapt karne ke liye",
     ),
   },
 
   library: {
     __standard: {
-      main: DocStr("maanak", "maanak upyogi vidhiyon tak pahunchne ke liye"),
+      main: DocStr("Maanak", "maanak upyogi vidhiyon tak pahunchne ke liye"),
       __isarray: DocStr(
         "SoocheeHai",
         "jaanchne ke liye ki kya maan ek soochi hai",
@@ -57,7 +56,7 @@ export const hindi = new Language({
     },
 
     __math: {
-      main: DocStr("ganit", "ganit karyon tak pahunchne ke liye"),
+      main: DocStr("Ganit", "ganit karyon tak pahunchne ke liye"),
       __pi: DocStr("PI", "pi ka maan prapt karne ke liye"),
       __sqrt: DocStr("Vargmool", "vargmool prapt karne ke liye"),
       __pow: DocStr("Ghaat", "kisi sankhya ki ghaat prapt karne ke liye"),
@@ -86,7 +85,7 @@ export const hindi = new Language({
     },
 
     __string: {
-      main: DocStr("shabd", "shabd herafer karyon tak pahunchne ke liye"),
+      main: DocStr("Shabd", "shabd herafer karyon tak pahunchne ke liye"),
       __length: DocStr("Lambai", "string ki lambai prapt karne ke liye"),
       __toUpperCase: DocStr(
         "BadeAkshar",
@@ -97,7 +96,7 @@ export const hindi = new Language({
         "string ko chote aksharon mein badalne ke liye",
       ),
       __include: DocStr(
-        "ShamailHai",
+        "ShamilHai",
         "jaanchne ke liye ki string mein substring hai",
       ),
       __repeat: DocStr(
@@ -107,7 +106,7 @@ export const hindi = new Language({
     },
 
     __date: {
-      main: DocStr("tithi", "tithi aur samay karyon tak pahunchne ke liye"),
+      main: DocStr("Tithi", "tithi aur samay karyon tak pahunchne ke liye"),
       __now: DocStr("Abhi", "vartaman tithi aur samay prapt karne ke liye"),
       __year: DocStr("Varsh", "varsh prapt karne ke liye"),
       __month: DocStr("Maah", "maah prapt karne ke liye"),
@@ -121,87 +120,87 @@ export const hindi = new Language({
 
   types: {
     __number: DocStr(
-      "sankhya",
+      "Sankhya",
       "sankhya prakar ke variable ki ghoshna karne ke liye",
     ),
     __string: DocStr(
-      "shabd",
+      "Shabd",
       "string prakar ke variable ki ghoshna karne ke liye",
     ),
     __boolean: DocStr(
-      "bool",
+      "Bool",
       "boolean prakar ke variable ki ghoshna karne ke liye",
     ),
-    __object: DocStr("vastu", "ek sthir vastu ghoshit karne ke liye"),
+    __object: DocStr("Vastu", "ek sthir vastu ghoshit karne ke liye"),
     __void: DocStr(
-      "shunya",
+      "Shunya",
       "aisi function ghoshit karne ke liye jo maan vapas na kare",
     ),
-    __array: DocStr("soochi", "soochi data sanrachna ghoshit karne ke liye"),
+    __array: DocStr("Soochi", "soochi data sanrachna ghoshit karne ke liye"),
   },
 
   specialValues: {
     __true: DocStr("Sahi", "boolean sahi maan"),
     __false: DocStr("Galat", "boolean galat maan"),
-    __null: DocStr("khaali", "maan ki anutpasthiti"),
+    __null: DocStr("Khaali", "maan ki anutpasthiti"),
   },
 
   words: {
-    __new: DocStr("naya", "kisi class ka naya udaaharan banane ke liye"),
-    __this: DocStr("yeh", "apni class ke visheshataon tak pahunchne ke liye"),
+    __new: DocStr("Naya", "kisi class ka naya udaaharan banane ke liye"),
+    __this: DocStr("Yeh", "apni class ke visheshataon tak pahunchne ke liye"),
     __extends: DocStr(
-      "vistaar",
+      "Vistaar",
       "ghoshna karne ke liye ki class doosri class se uti hai",
     ),
   },
 
   accessModifiers: {
-    __private: DocStr("niji", "sirf class ke andar pahunch yogya"),
-    __public: DocStr("saarvjanik", "kahin se bhi pahunch yogya"),
+    __private: DocStr("Niji", "sirf class ke andar pahunch yogya"),
+    __public: DocStr("Saarvjanik", "kahin se bhi pahunch yogya"),
     __protected: DocStr(
-      "surakshit",
+      "Surakshit",
       "class aur uski subclasses mein pahunch yogya",
     ),
     __readonly: DocStr(
-      "sirf_padhna",
+      "SirfPadhna",
       "maan sirf ek baar nirdharit kiya ja sakta hai",
     ),
-    __static: DocStr("sthir", "class ka hai, instances ka nahi"),
+    __static: DocStr("Sthir", "class ka hai, instances ka nahi"),
   },
 
   methods: {
     method: {
-      __print: DocStr("dikhao", "screen par maan dikhane ke liye"),
-      __scan: DocStr("input", "input se maan padhne ke liye"),
-      __return: DocStr("vapas", "function se maan vapas karne ke liye"),
-      __break: DocStr("todo", "loop se bahar nikalne ke liye"),
-      __continue: DocStr("jaari_rakho", "agale punaravarti par jaane ke liye"),
+      __print: DocStr("Dikhao", "screen par maan dikhane ke liye"),
+      __scan: DocStr("Input", "input se maan padhne ke liye"),
+      __return: DocStr("Vapas", "function se maan vapas karne ke liye"),
+      __break: DocStr("Todo", "loop se bahar nikalne ke liye"),
+      __continue: DocStr("JaariRakho", "agale punaravarti par jaane ke liye"),
     },
 
     sentences: {
-      __function: DocStr("kaarya", "function ki ghoshna karne ke liye"),
-      __if: DocStr("agar", "shart ki ghoshna karne ke liye"),
-      __else: DocStr("nahi_toh", "vikalpik shart ki ghoshna karne ke liye"),
-      __while: DocStr("jab_tak", "while loop ki ghoshna karne ke liye"),
-      __for: DocStr("ke_liye", "for loop ki ghoshna karne ke liye"),
-      __switch: DocStr("badlo", "chayan sanrachna ki ghoshna karne ke liye"),
+      __function: DocStr("Kaarya", "function ki ghoshna karne ke liye"),
+      __if: DocStr("Agar", "shart ki ghoshna karne ke liye"),
+      __else: DocStr("NahiToh", "vikalpik shart ki ghoshna karne ke liye"),
+      __while: DocStr("JabTak", "while loop ki ghoshna karne ke liye"),
+      __for: DocStr("KeLiye", "for loop ki ghoshna karne ke liye"),
+      __switch: DocStr("Badlo", "chayan sanrachna ki ghoshna karne ke liye"),
       __case: DocStr(
-        "sthiti",
+        "Sthiti",
         "chayan sanrachna mein sthiti ki ghoshna karne ke liye",
       ),
       __default: DocStr(
-        "mool",
+        "Mool",
         "chayan sanrachna mein mool sthiti ki ghoshna karne ke liye",
       ),
-      __try: DocStr("koshish", "try block ki ghoshna karne ke liye"),
-      __catch: DocStr("pakdo", "truti nivaaran block ki ghoshna karne ke liye"),
+      __try: DocStr("Koshish", "try block ki ghoshna karne ke liye"),
+      __catch: DocStr("Pakdo", "truti nivaaran block ki ghoshna karne ke liye"),
       __finally: DocStr(
-        "antatah",
+        "Antatah",
         "antatah block ki ghoshna jo hamesha chalta hai",
       ),
-      __class: DocStr("kaksha", "class ki ghoshna karne ke liye"),
+      __class: DocStr("Kaksha", "class ki ghoshna karne ke liye"),
       __constructor: DocStr(
-        "nirmata",
+        "Nirmata",
         "class mein visheshataon ki ghoshna ke liye sanrachna",
       ),
     },
@@ -216,35 +215,32 @@ export const hindi = new Language({
       "Vastu",
       "Apekshit",
       "Prapt",
-      "Sthiraank_Nirdhaaran",
-      "Dvitiya_Paramiter",
+      "SthiraankNirdhaaran",
+      "DvitiyaParameter",
       "Sujaav",
-      "Avaidh_Token",
-      "Stack_Bhaav",
+      "AvaidhToken",
+      "StackBhaav",
       "Token",
-      "Anapekshit_Ant",
+      "AnapekshitAnt",
     ),
     main: errorMessage("TRUTI", "samanya system truti"),
-    __TypeError: errorMessage("PRAKAR_TRUTI", "operation mein avaidh prakar"),
+    __TypeError: errorMessage("PRAKARTRUTI", "operation mein avaidh prakar"),
     __InitError: errorMessage(
-      "PRARAMBH_TRUTI",
+      "PRARAMBHTRUTI",
       "variable ko aarambh nahi kiya gaya",
     ),
     __ReferenceError: errorMessage(
-      "SANDARBH_TRUTI",
+      "SANDARBHTRUTI",
       "variable, function ya library scope mein maujood nahi hai",
     ),
-    __SyntaxError: errorMessage("SYNTAX_TRUTI", "avaidh code"),
+    __SyntaxError: errorMessage("SYNTAXTRUTI", "avaidh code"),
     __RangeError: errorMessage(
-      "SEEMA_TRUTI",
+      "SEEMATRUTI",
       "maan anumati prapt seema se bahar hai",
     ),
-    __URIError: errorMessage("URI_TRUTI", "vikrut ya avaidh URI"),
-    __EvalError: errorMessage("EVAL_TRUTI", "eval se sambandhit truti"),
-    __UNKNOWN_ERROR: errorMessage(
-      "AGYAAT_TRUTI",
-      "poori tarah se agyaat truti",
-    ),
+    __URIError: errorMessage("URITRUTI", "vikrut ya avaidh URI"),
+    __EvalError: errorMessage("EVALTRUTI", "eval se sambandhit truti"),
+    __UNKNOWN_ERROR: errorMessage("AGYAATTRUTI", "poori tarah se agyaat truti"),
   },
 
   example: {
@@ -270,7 +266,7 @@ export const hindi = new Language({
       "sakshamHai",
       "pooraHai",
       "satyaapitHai",
-      "mita_diyaHai",
+      "mitaDiyaHai",
     ],
     __function: [
       "naamPrapt",

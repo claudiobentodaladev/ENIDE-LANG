@@ -4,11 +4,10 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const norsk = new Language({
   language: "norsk",
   about:
-    "ENIDE er en oversettbar transpiler som gjør det mulig å programmere på ethvert språk",
-
+    "ENIDE er et flerspråklig programmeringsspråk som lar deg programmere på hvilket som helst språk",
   include: DocStr(
     "inkluder",
-    "brukes til å inkludere språk, biblioteker eller moduler fra andre filer",
+    "brukes til å inkluder språk, biblioteker eller moduler fra andre filer",
   ),
 
   commands: {
@@ -26,9 +25,9 @@ export const norsk = new Language({
   library: {
     __standard: {
       main: DocStr("standard", "tilgang til systemets basismetoder"),
-      __isarray: DocStr("er_liste", "sjekker om verdien er en liste (array)"),
-      __isobject: DocStr("er_objekt", "sjekker om verdien er et objekt"),
-      __typeof: DocStr("type_av", "returnerer datatypen til verdien"),
+      __isarray: DocStr("ErListe", "sjekker om verdien er en liste (array)"),
+      __isobject: DocStr("ErObjekt", "sjekker om verdien er et objekt"),
+      __typeof: DocStr("TypeAv", "returnerer datatypen til verdien"),
       __parse: DocStr(
         "analyser",
         "konverterer en tekststreng til riktig datatype",
@@ -43,9 +42,9 @@ export const norsk = new Language({
       __random: DocStr("tilfeldig", "genererer et tilfeldig tall"),
       __max: DocStr("maksimum", "finner den høyeste verdien i en liste"),
       __min: DocStr("minimum", "finner den laveste verdien i en liste"),
-      __isNumber: DocStr("er_tall", "sjekker om verdien er et tall"),
-      __isInteger: DocStr("er_heltall", "sjekker om verdien er et heltall"),
-      __isFloat: DocStr("er_desimal", "sjekker om verdien er et desimaltall"),
+      __isNumber: DocStr("ErTall", "sjekker om verdien er et tall"),
+      __isInteger: DocStr("ErHeltall", "sjekker om verdien er et heltall"),
+      __isFloat: DocStr("ErDesimal", "sjekker om verdien er et desimaltall"),
       __cos: DocStr("cos", "beregner cosinus"),
       __sin: DocStr("sin", "beregner sinus"),
       __tan: DocStr("tan", "beregner tangens"),
@@ -55,11 +54,11 @@ export const norsk = new Language({
       main: DocStr("tekst", "funksjoner for tekstmanipulering"),
       __length: DocStr("lengde", "henter lengden på teksten"),
       __toUpperCase: DocStr(
-        "til_store_bokstaver",
+        "TilStoreBokstaver",
         "konverterer tekst til store bokstaver",
       ),
       __toLowerCase: DocStr(
-        "til_sma_bokstaver",
+        "TilSmaBokstaver",
         "konverterer tekst til små bokstaver",
       ),
       __include: DocStr(
@@ -67,7 +66,7 @@ export const norsk = new Language({
         "sjekker om teksten inneholder en delstreng",
       ),
       __repeat: DocStr(
-        "gjenta_tekst",
+        "GjentaTekst",
         "gjentar teksten et spesifisert antall ganger",
       ),
     },
@@ -77,7 +76,7 @@ export const norsk = new Language({
       __now: DocStr("na", "henter nåværende dato og tid"),
       __year: DocStr("ar", "henter året"),
       __month: DocStr("maned", "henter måneden"),
-      __dayMonth: DocStr("dag_i_maned", "henter dagen i måneden"),
+      __dayMonth: DocStr("DagIManed", "henter dagen i måneden"),
       __dayWeek: DocStr("ukedag", "henter ukedagen"),
       __hour: DocStr("time", "henter timen"),
       __minute: DocStr("minutt", "henter minuttene"),
@@ -117,7 +116,7 @@ export const norsk = new Language({
       "tilgjengelig i klassen og dens underklasser",
     ),
     __readonly: DocStr(
-      "kun_lesing",
+      "KunLesing",
       "verdi som ikke kan endres etter initialisering",
     ),
     __static: DocStr("statisk", "tilhører klassen selv, ikke en instans"),
@@ -161,36 +160,36 @@ export const norsk = new Language({
       "Objekt",
       "Forventet",
       "Mottatt",
-      "Tildeling_til_konstant",
-      "Duplikat_parameter",
+      "TildelingTilKonstant",
+      "DuplikatParameter",
       "Tips",
-      "Ugyldig_token",
-      "Stabel_overflyt",
+      "UgyldigToken",
+      "StabelOverflyt",
       "Token",
-      "Uventet_slutt_pa_inndata",
+      "UventetSluttPaInndata",
     ),
     main: errorMessage("FEIL", "generisk systemfeil"),
     __TypeError: errorMessage(
-      "TYPE_FEIL",
+      "TYPEFEIL",
       "ugyldig datatype for denne operasjonen",
     ),
     __InitError: errorMessage(
-      "INITIALISERINGS_FEIL",
+      "INITIALISERINGSFEIL",
       "variabelen er ikke riktig initialisert",
     ),
     __ReferenceError: errorMessage(
-      "REFERANSE_FEIL",
+      "REFERANSEFEIL",
       "variabelen eller funksjonen eksisterer ikke",
     ),
-    __SyntaxError: errorMessage("SYNTAKS_FEIL", "feil i kodens skrivemåte"),
+    __SyntaxError: errorMessage("SYNTAKSFEIL", "feil i kodens skrivemåte"),
     __RangeError: errorMessage(
-      "INTERVALL_FEIL",
+      "INTERVALLFEIL",
       "verdien er utenfor det tillatte intervallet",
     ),
-    __URIError: errorMessage("URI_FEIL", "ugyldig URI-format"),
-    __EvalError: errorMessage("EVAL_FEIL", "feil i eval-funksjonen"),
+    __URIError: errorMessage("URIFEIL", "ugyldig URI-format"),
+    __EvalError: errorMessage("EVALFEIL", "feil i eval-funksjonen"),
     __UNKNOWN_ERROR: errorMessage(
-      "UKJENT_FEIL",
+      "UKJENTFEIL",
       "en helt ukjent feil har oppstått",
     ),
   },

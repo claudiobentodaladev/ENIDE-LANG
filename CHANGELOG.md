@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `readme.md` rewritten to match the current grammar shape: documented the `words`, `specialValues`, `accessModifiers`, and `example` top-level fields, the new `__standard` library, `__grammar` command, `__break`/`__continue` methods, `__class`/`__constructor` sentences, and the `__labels`/`__InitError` additions to `errors`. Removed the outdated `BooleanStructure` description - booleans are now a plain `DocStructure` type, with `true`/`false`/`null` literals living under `specialValues`.
+- `readme.md` and `CONTRIBUTING.md` project structure diagrams updated to include `interfaces/`, `mappers/`, `utils/`, and `GLOBALMAP.ts`, which existed in the codebase but weren't documented.
+- `GLOBAL_REPLACE.md` example table corrected: `Αθήνα` transliterates to `Athna` (not `Athina`) and `القاهرة` transliterates to `ALQAHR` (not `Alqahrt`), verified against the actual `Normalize()` implementation. Added a "Known limitations" section explaining why (accented-letter lookups miss the map, caseless scripts force uppercase output, and unmapped characters with no Latin decomposition are dropped rather than approximated).
+
+### Known issues
+
+- `src/languages/grammars/hangugeo.ts` (Korean) is a complete grammar file that is **not registered** in `language-list.json`, so it's currently unreachable via `Grammer("hangugeo")`. Flagged in `readme.md` and `CONTRIBUTING.md` as an open contribution.
+
 - Ongoing grammar reviews and community contributions.
 
 ---

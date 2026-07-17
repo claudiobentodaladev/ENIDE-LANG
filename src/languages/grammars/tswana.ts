@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const tswana = new Language({
   language: "tswana",
   about:
-    "ENIDE ke transpiler e kgonang go fetolwa e e dumelelang go ngwa porogramo ka puo nngwe le nngwe",
-
+    "ENIDE ke puo ya thulaganyo ya dipuo tse dintsi e e go letlang go thulaganya ka puo nngwe le nngwe",
   include: DocStr(
     "Akaretsa",
     "E dirisetswa go akaretsa loleme kgotsa dilaeborari",
@@ -23,7 +22,7 @@ export const tswana = new Language({
       "go bona lenaane la dipuo tsotlhe tse di leng teng",
     ),
     __documentation: DocStr("Dikwalo", "go bona dikwalo tsa puo"),
-    __grammar: DocStr("Puo_ya_Puo", "go bona puo ya puo ya loleme"),
+    __grammar: DocStr("PuoYaPuo", "go bona puo ya puo ya loleme"),
   },
 
   library: {
@@ -103,7 +102,7 @@ export const tswana = new Language({
 
   words: {
     __new: DocStr("Setlha", "go bopa setlha se setjha sa klaase"),
-    __this: DocStr("Seno_Se", "go fitlhelela ditlhaloso tsa klaase ya gago"),
+    __this: DocStr("SenoSe", "go fitlhelela ditlhaloso tsa klaase ya gago"),
     __extends: DocStr(
       "Nolofatsa",
       "go phasalatsa gore klaase e tsholwa ke e nngwe",
@@ -120,7 +119,7 @@ export const tswana = new Language({
       "Sirelediwa",
       "o fitlhelelwa mo klaseng le mo disubklaaseng",
     ),
-    __readonly: DocStr("Bala_Fela", "boleng bo ka bewa fela gangwe"),
+    __readonly: DocStr("BalaFela", "boleng bo ka bewa fela gangwe"),
     __static: DocStr("Emeng", "e ya klaase, e seng ya setlha"),
   },
 
@@ -163,35 +162,35 @@ export const tswana = new Language({
       "Phetogo",
       "Tlhaloso",
       "Ntho",
-      "Go_Lebeletswe",
-      "Go_Amogelwa",
-      "Neelo_Ya_Emeng",
-      "Paramitara_E_Boeletseng",
+      "GoLebeletswe",
+      "GoAmogelwa",
+      "NeeloYaEmeng",
+      "ParamitaraEBoeletseng",
       "Tlhagiso",
-      "Token_E_Sa_Siamang",
-      "Stack_E_Tletseng",
+      "TokenESaSiamang",
+      "StackETletseng",
       "Token",
-      "Bofelo_Jo_Bo_Sa_Lebeletsewang",
+      "BofeloJoBoSaLebeletsewang",
     ),
     main: errorMessage("PHOSO", "phoso e tlwaelegileng ya sisteme"),
-    __TypeError: errorMessage("PHOSO_MOFUTA", "mofuta ga o siame mo tirisong"),
-    __InitError: errorMessage("PHOSO_SIMOLOLA", "phetogo ga e a simolola"),
+    __TypeError: errorMessage("PHOSOMofuta", "mofuta ga o siame mo tirisong"),
+    __InitError: errorMessage("PHOSOSimolola", "phetogo ga e a simolola"),
     __ReferenceError: errorMessage(
-      "PHOSO_TSHUPISO",
+      "PHOSOTshupiso",
       "phetogo, mosepamo kgotsa laeborari ga e leng mo tikologong",
     ),
-    __SyntaxError: errorMessage("PHOSO_SINTAKISI", "khoutu ga e siame"),
+    __SyntaxError: errorMessage("PHOSOSintakisi", "khoutu ga e siame"),
     __RangeError: errorMessage(
-      "PHOSO_NTLHA",
+      "PHOSONtlha",
       "boleng bo ka ntle ga ntlha e e letleliweng",
     ),
     __URIError: errorMessage(
-      "PHOSO_URI",
+      "PHOSOURI",
       "URI e senyegileng kgotsa e sa siamang",
     ),
-    __EvalError: errorMessage("PHOSO_EVAL", "phoso e e amanang le eval"),
+    __EvalError: errorMessage("PHOSOEval", "phoso e e amanang le eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "PHOSO_E_SA_ITSIWENG",
+      "PHOSOESaItsiweng",
       "phoso e e sa itsiweng gotlhe",
     ),
   },
@@ -255,7 +254,7 @@ export const tswana = new Language({
       "profaele",
       "aterese",
       "metadata",
-      "nako_ya_tiriso",
+      "nakoYaTiriso",
     ],
     __string: [
       "leina",
@@ -278,8 +277,8 @@ export const tswana = new Language({
       "tswa",
       "phepafatsaCache",
       "bolokaDatha",
-      "romela_email",
-      "kwala_ditiragalo",
+      "romelaEmail",
+      "kwalaDitiragalo",
     ],
   },
 }).grammar();

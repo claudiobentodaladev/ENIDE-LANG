@@ -4,8 +4,7 @@ import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
 export const azerbaycan = new Language({
   language: "azerbaycan",
   about:
-    "ENIDE istenilen dilde proqramlasmaga imkan veren tercume edile bilen transpaylerdir",
-
+    "ENIDE istənilən dildə proqramlaşdırmağa imkan verən çoxdilli proqramlaşdırma dilidir.",
   include: DocStr(
     "Daxil_etmek",
     "Dilleri ve ya kitabxanalari daxil etmek ucun istifade olunur",
@@ -76,12 +75,12 @@ export const azerbaycan = new Language({
         "Ehtiva",
         "metnin alt-metn icine alib-almadigini yoxlamaq ucun",
       ),
-      __repeat: DocStr("Tekrar", "metni mueyyen sayde tekrarlamaq ucun"),
+      __repeat: DocStr("Tekrar", "metni mueyyen sayda tekrarlamaq ucun"),
     },
 
     __date: {
       main: DocStr("tarix", "tarix ve vaxt funksiyalarina daxil olmaq ucun"),
-      __now: DocStr("İndi", "cari tarix ve vaxti almaq ucun"),
+      __now: DocStr("Indi", "cari tarix ve vaxti almaq ucun"),
       __year: DocStr("Il", "ili almaq ucun"),
       __month: DocStr("Ay", "ayi almaq ucun"),
       __dayMonth: DocStr("AyinGunu", "ayin gununu almaq ucun"),
@@ -97,13 +96,13 @@ export const azerbaycan = new Language({
     __string: DocStr("metn", "metn tipli deyisen elan etmek ucun"),
     __boolean: DocStr("mentiqi", "mentiqi tipli deyisen elan etmek ucun"),
     __object: DocStr("obekt", "statik obekt elan etmek ucun"),
-    __void: DocStr("neticesis", "qiymet qaytarmayan funksiya elan etmek ucun"),
+    __void: DocStr("neticesiz", "qiymet qaytarmayan funksiya elan etmek ucun"),
     __array: DocStr("massiv", "massiv data strukturu elan etmek ucun"),
   },
 
   specialValues: {
     __true: DocStr("Dogru", "mentiqi dogru qiymeti"),
-    __false: DocStr("Sehv", "mentiqi sehv qiymeti"),
+    __false: DocStr("Yalan", "mentiqi yalan qiymeti"),
     __null: DocStr("yoxdur", "qiymetin yoxlugu"),
   },
 
@@ -129,7 +128,7 @@ export const azerbaycan = new Language({
 
   methods: {
     method: {
-      __print: DocStr("cap_et", "qiymeti ekrana cixarmaq ucun"),
+      __print: DocStr("yaz", "qiymeti ekrana cixarmaq/yazmaq ucun"),
       __scan: DocStr("oxu", "giristen qiymeti oxumaq ucun"),
       __return: DocStr("qaytar", "funksiyadan qiymeti qaytarmaq ucun"),
       __break: DocStr("dur", "dovrden cixmaq ucun"),
@@ -140,7 +139,7 @@ export const azerbaycan = new Language({
       __function: DocStr("funksiya", "funksiya elan etmek ucun"),
       __if: DocStr("eger", "sert elan etmek ucun"),
       __else: DocStr("eks_halda", "alternativ sert elan etmek ucun"),
-      __while: DocStr("helenki", "helenki dovru elan etmek ucun"),
+      __while: DocStr("hele_ki", "hele ki dovru elan etmek ucun"),
       __for: DocStr("ucun", "ucun dovru elan etmek ucun"),
       __switch: DocStr("secim", "secim strukturu elan etmek ucun"),
       __case: DocStr("hal", "secim strukturunda hal elan etmek ucun"),
@@ -154,7 +153,7 @@ export const azerbaycan = new Language({
       __class: DocStr("sinif", "sinif elan etmek ucun"),
       __constructor: DocStr(
         "konstruktor",
-        "sinifde atributlari elan etmek ucun quruluş",
+        "sinifde atributlari elan etmek ucun qurulus",
       ),
     },
   },
@@ -202,7 +201,7 @@ export const azerbaycan = new Language({
       "olkeler",
       "esyalar",
       "tags",
-      "renkler",
+      "rengler",
       "mehsullar",
       "istifadeciler",
       "kateqoriyalar",
@@ -213,7 +212,7 @@ export const azerbaycan = new Language({
       "veziyyet",
       "yetkindir",
       "aktivdir",
-      "gorununur",
+      "gorunur",
       "icazesiVar",
       "girisEdib",
       "aktivEdilib",
@@ -226,7 +225,7 @@ export const azerbaycan = new Language({
       "qiymatiAl",
       "dusmeyeBas",
       "melumatAl",
-      "tariхiFormatEt",
+      "tarixiFormatEt",
       "girisiAyir",
       "formuYoxla",
       "elementiGoster",
@@ -259,8 +258,8 @@ export const azerbaycan = new Language({
     ],
     __string: [
       "ad",
-      "baslig",
-      "acıqlama",
+      "basliq",
+      "aciqlama",
       "email",
       "sifre",
       "mesaj",
@@ -274,7 +273,7 @@ export const azerbaycan = new Language({
       "basla",
       "temizle",
       "sifirla",
-      "mhevEt",
+      "mehvEt",
       "cix",
       "kesnTemizle",
       "dbdeSaxla",
