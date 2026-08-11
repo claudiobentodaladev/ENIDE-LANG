@@ -2,7 +2,7 @@ import { Normalize } from "./unicodeNormalize.js";
 
 const NoSpace = (s: string, noSpace: boolean) => {
   if (!noSpace) return s;
-  return s.trim().replace(/ +/g, "_");
+  return s.trim().replace(/ +/g, "");
 };
 
 export function capitalize(text: string | null | undefined): string {
