@@ -1,14 +1,14 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const kimbundu = new Language({
   language: "kimbundu",
   about:
-    "ENIDE muene mbulanguji ia kusoneka kikalakalu kia kitalu, iabana uhete ua kusoneka mu didimi dioso-dioso",
+    "ENIDE muene mulanguji ua kusoneka kikalakalu kia kitalu, iabana uhete ua kusoneka mu kidimi kioso-kioso",
 
   include: DocStr(
     "kubandeka",
-    "phala kubandeka madimi, mipunda isoneku mba mivulu ia itendelesu mu mifile iankua",
+    "phala kubandeka madimi, mipunda isoneku mba mivulu ia itendelesu mu mikanda yankua",
   ),
 
   commands: {
@@ -107,8 +107,44 @@ export const kimbundu = new Language({
         "phala kuíjia kizuua kia lumingu",
       ),
       __hour: DocStr("kumbi", "phala kuíjia kumbi"),
-      __minute: DocStr("kaxaxi ka kumbi", "phala kuíjia kaxaxi ka kumbi"),
-      __second: DocStr("kaxaxi kandenge", "phala kuíjia kaxaxi kandenge"),
+      __minute: DocStr("ndambu ia kumbi", "phala kuíjia ndambu ia kumbi"),
+      __second: DocStr("ndambu ndenge", "phala kuíjia ndambu ndenge"),
+      __milliseconds: DocStr("milisekundu", "phala kuíjia milisekundu"),
+    },
+
+    __array: {
+      main: DocStr("milongu", "phala kuendesa kikalakalu ia milongu"),
+      __addStart: DocStr(
+        "bandeka ku thandu",
+        "phala kubandeka mivulu miyaluka ku thandu ia milongu, ni kuvutula bunenu buakinda bua milongu",
+      ),
+      __addEnd: DocStr(
+        "bandeka ku sukilu",
+        "phala kubandeka mivulu miyaluka ku sukilu ia milongu",
+      ),
+      __join: DocStr(
+        "bhakana",
+        "phala kubhakana mivulu iosu ia milongu mu kisoneku kimoxi",
+      ),
+      __length: DocStr(
+        "milonguBunenu",
+        "phala kuíjia mba kusoneka bunenu bua milongu",
+      ),
+    },
+
+    __time: {
+      main: DocStr(
+        "thembu",
+        "phala kuendesa kikalakalu ia thembu phala kufulumuna kikalakalu kia kusoneka",
+      ),
+      __timeOut: DocStr(
+        "thembu iakabuka",
+        "phala kuendesa kikalakalu kimoxi kioso kiakabuka kaxaxi ka milisekundu iatula",
+      ),
+      __timeInterval: DocStr(
+        "thembu ia kuvutuka",
+        "phala kuendesa kikalakalu kimoxi kuvutuka mbala ni mbala mu milisekundu iatula",
+      ),
     },
   },
   types: {
@@ -117,7 +153,10 @@ export const kimbundu = new Language({
       "kisoneku",
       "phala kubandeka kialongo ia muthindu kisoneku",
     ),
-    __boolean: DocStr("bool", "phala kubandeka kialongo ia muthindu bool"),
+    __boolean: DocStr(
+      "kidi-makutu",
+      "phala kubandeka kialongo ia muthindu kidi-makutu",
+    ),
     __object: DocStr("kimbambala", "phala kubandeka kimbambala ia musoneku"),
     __void: DocStr(
       "nguma",
@@ -127,8 +166,8 @@ export const kimbundu = new Language({
   },
 
   specialValues: {
-    __true: DocStr("kidi", "valolo ia bool kidi"),
-    __false: DocStr("makutu", "valolo ia bool makutu"),
+    __true: DocStr("kidi", "valolo ia kidi-makutu kidi"),
+    __false: DocStr("makutu", "valolo ia kidi-makutu makutu"),
     __null: DocStr("kana", "kumué ia valolo"),
   },
 
@@ -161,6 +200,7 @@ export const kimbundu = new Language({
   methods: {
     method: {
       __print: DocStr("kusoneka", "phala kusoneka valolo baxa mu kitala"),
+      __clear: DocStr("kusukula", "ku sukula kishiku"),
       __scan: DocStr("kutanga", "phala kutanga valolo ixika mu mbandu itanda"),
       __return: DocStr("kuvutula", "phala kuvutula valolo mu kikalakalu"),
       __break: DocStr("kuimana", "phala kuimana mu kizingu kikalakalu"),
@@ -196,55 +236,72 @@ export const kimbundu = new Language({
     },
   },
   errors: {
-    __labels: errorLabel(
-      "Njimbu",
-      "Valolo",
-      "Kialongo",
-      "Uhete",
-      "Kimbambala",
-      "Kumueni",
-      "Kumika",
-      "Kubanda Kimbambala",
-      "Valolo Iavuluka",
-      "Kukuatisa",
-      "Token Iaxika",
-      "Kulima Pilha",
-      "Token",
-      "Sukilu Iatunda Iaxika",
-    ),
-    main: errorMessage("KITUXI", "kituxi ia muthindu kia musoneku"),
-    __TypeError: errorMessage(
-      "KITUXI_KUA_MUTHINDU",
-      "muthindu iaxika mu kikalakalu",
-    ),
-    __InitError: errorMessage(
-      "KITUXI_KUA_KUBANDEKA",
-      "kialongo kiki kitaxika kubandeka",
-    ),
+    __labels: errorLabels({
+      message: "Ijimbu",
+      value: "Valolo",
+      variable: "Kima kiakyakama",
+      property: "Uhemba",
+      object: "Kima",
+      expected: "Kukingila",
+      received: "Kutambula",
+      constAssignment: "Kibane kiakukola",
+      duplicateParam: "Kibandelu kiakiyole",
+      hint: "Kandandu",
+      invalidToken: "Tomboni kiakiebe",
+      stackOverflow: "Kibutu kiakubunduka",
+      token: "Tomboni",
+      unexpectedEnd: "Maku ma kubunda kiandala",
+      file: "Mukanda",
+      didYouMean: "ukandala kuamba",
+      includedFrom: "kuzabuka kiobia",
+      size: "Kikete",
+      index: "Muketelu",
+      path: "Njila",
+      available: "Jiababa",
+      element: "Kima",
+      hintMissingEquals: 'kukamba o "=" kua dijina ni valolo',
+      hintMissingSemicolon: 'kukamba ";" kumpúrinda kua kithuiki kiki',
+      hintUnclosedBlock: 'o "{" kiabwila mu rinya {line} kiakukitukile ni "}"',
+      hintUnclosedBracket:
+        'o "[" kiabwila mu rinya {line} kiakukitukile ni "]"',
+      hintUnclosedComment:
+        "o kibaku kiabwila mu rinya {line} kiakukitukile ni */",
+      hintUnclosedString:
+        "o mukanda kiabwila mu rinya {line} kiwotela ni aspas di kukitula",
+      hintModuleNotFound: 'modulu kiwene; kujimba mu "{path}"',
+      hintLibraryUnknown: "madilu kiayene; jiababa: {list}",
+      hintIndexRange:
+        "o vector uala ni kikete {size}; muketelu uababa: {range}",
+      hintIndexEmpty:
+        "o vector uala mu kiyala, kienhoki kiwene muketelu uababa",
+      hintNotArray: "o valulu ki kiaki vector",
+      hintNull: "valulu kiwene kiabanyinu (nulo ni kiayene)",
+      hintNaN: "o numu ki kiabi (NaN)",
+      hintInfinite: "o numu uala ni mukota",
+      hintNoInput: "o programa uandale kimbamba, n'enki o kimbamba kiabwa",
+      hintInternal:
+        "kiki kiayene ubadi ya mu nzo ya Enide, ki ubadi ya programa yé; kamba n'enki",
+      hintDuplicateProperty: 'o uhemba "{name}" uatumbukile mukwa rixi',
+      hintMissingProperty: 'o uhemba "{name}" kiuéne',
+      hintArrayMixed: "vector kiwakala kukitakana vector ni valulu",
+      hintArrayEmpty: "vector uandala valulu umoxi",
+      hintObjectArrayShape:
+        'o kima {index} kiwene kiefu kia dianga: tala o uhemba "{name}"',
+      hintLoopCounter: "o mukitulu ua ndumba uala ni numu",
+      hintErrorsFound: "{count} ubadi jiwene",
+    }),
+    main: errorMessage("UBADI", "ubadi ya kimbundu ya sistema"),
+    __TypeError: errorMessage("UBADI_UA_KIFUA", "kifua kiakiebe mu kikalakalu"),
+    __InitError: errorMessage("UBADI_UA_KUBATUKA", "variável kiayake"),
     __ReferenceError: errorMessage(
-      "KITUXI_KUA_KUTUMINA",
-      "kialongo, kikalakalu mba mipunda itendelesu ki kiala boba ê",
+      "UBADI_UA_KUTAMBULA",
+      "variável, mukitulu ni madilu kiuéne",
     ),
-    __SyntaxError: errorMessage(
-      "KITUXI_KUA_MUSONEKU",
-      "musoneku ua ijila iaxika",
-    ),
-    __RangeError: errorMessage(
-      "KITUXI_KUA_MBANDU",
-      "valolo iala mu mbandu ia kuxi kumaeni",
-    ),
-    __URIError: errorMessage(
-      "KITUXI_KUA_URI",
-      "URI iatungua iaxika mba ki ixikama ê",
-    ),
-    __EvalError: errorMessage(
-      "KITUXI_KUA_EVAL",
-      "kituxi kiazukama ni kikalakalu kia eval",
-    ),
-    __UNKNOWN_ERROR: errorMessage(
-      "KITUXI_KIKIIJIA",
-      "kituxi kiki kikiíjia mu mbandu iosu",
-    ),
+    __SyntaxError: errorMessage("UBADI_UA_SINTAXE", "kodigu kiakiebe"),
+    __RangeError: errorMessage("UBADI_UA_KIKETE", "valulu ki uala mu kikete"),
+    __URIError: errorMessage("UBADI_UA_URI", "URI kiayandame ni kiakiebe"),
+    __EvalError: errorMessage("UBADI_UA_EVAL", "ubadi ya eval"),
+    __UNKNOWN_ERROR: errorMessage("UBADI_KIUYENE", "ubadi ki kiayene"),
   },
   example: {
     __array: [

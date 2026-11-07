@@ -1,5 +1,5 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const english = new Language({
   language: "english",
@@ -29,10 +29,11 @@ export const english = new Language({
       __isobject: DocStr("isobject", "to check if the value is object"),
       __typeof: DocStr("type", "to get the type of a value"),
       __parse: DocStr(
-        "Parse",
-        "to parse a value from string to currect parsed value",
+        "parse",
+        "to parse a value from string to correct parsed value",
       ),
     },
+
     __math: {
       main: DocStr("math", "to access math functions"),
       __pi: DocStr("PI", "to get the value of pi"),
@@ -72,6 +73,35 @@ export const english = new Language({
       __hour: DocStr("Hour", "to get the hour"),
       __minute: DocStr("Minute", "to get the minute"),
       __second: DocStr("Second", "to get the second"),
+      __milliseconds: DocStr("Milliseconds", "to get the milliseconds"),
+    },
+
+    __array: {
+      main: DocStr("array", "to access array manipulation functions"),
+      __addStart: DocStr(
+        "AddStart",
+        "Inserts new elements at the start of an array, and returns the new length of the array.",
+      ),
+      __addEnd: DocStr("AddEnd", "Appends new elements to the end of an array"),
+      __join: DocStr(
+        "Join",
+        "Joins all the elements of an array into a string, separated by the specified separator string, and returns the resulting string.",
+      ),
+      __length: DocStr("arrayLength", "Gets or sets the length of the array"),
+    },
+    __time: {
+      main: DocStr(
+        "time",
+        "to access time functions to schedule the execution of code",
+      ),
+      __timeOut: DocStr(
+        "TimeOut",
+        "run a function once after a specific delay in milliseconds",
+      ),
+      __timeInterval: DocStr(
+        "TimeInterval",
+        "run a function repeatedly at fixed time intervals in milliseconds",
+      ),
     },
   },
 
@@ -81,7 +111,7 @@ export const english = new Language({
     __boolean: DocStr("bool", "to declare a variable of type boolean"),
     __object: DocStr("object", "to declare a static object"),
     __void: DocStr("void", "to declare a function that returns no value"),
-    __array: DocStr("array", "to declare a array data structure"),
+    __array: DocStr("array", "to declare an array data structure"),
   },
 
   specialValues: {
@@ -92,7 +122,7 @@ export const english = new Language({
 
   words: {
     __new: DocStr("new", "to create a new instance of a class"),
-    __this: DocStr("self", "to acess atribute in own class"),
+    __this: DocStr("self", "to access attribute in own class"),
     __extends: DocStr(
       "extends",
       "to declare that a class inherits from another",
@@ -113,6 +143,7 @@ export const english = new Language({
   methods: {
     method: {
       __print: DocStr("print", "to print a value to the screen"),
+      __clear: DocStr("clear", "to clear the screen"),
       __scan: DocStr("scan", "to read a value from input"),
       __return: DocStr("return", "to return a value from a function"),
       __break: DocStr("break", "to exit a loop"),
@@ -140,34 +171,66 @@ export const english = new Language({
       __class: DocStr("class", "to declare a class"),
       __constructor: DocStr(
         "constructor",
-        "structure that allow declare atributes in a class",
+        "structure that allow declare attributes in a class",
       ),
     },
   },
 
   errors: {
-    __labels: errorLabel(
-      "Message",
-      "Value",
-      "Variable",
-      "Property",
-      "Object",
-      "Expected",
-      "Received",
-      "Const Assignment",
-      "Duplicate Parameter",
-      "Hint",
-      "Invalid Token",
-      "Stack Overflow",
-      "Token",
-      "Unexpected End of Input",
-    ),
+    __labels: errorLabels({
+      message: "Message",
+      value: "Value",
+      variable: "Variable",
+      property: "Property",
+      object: "Object",
+      expected: "Expected",
+      received: "Received",
+      constAssignment: "Constant Assignment",
+      duplicateParam: "Duplicate Parameter",
+      hint: "Hint",
+      invalidToken: "Invalid Token",
+      stackOverflow: "Stack Overflow",
+      token: "Token",
+      unexpectedEnd: "Unexpected End of Input",
+      file: "file",
+      didYouMean: "did you mean",
+      includedFrom: "included from",
+      size: "size",
+      index: "index",
+      path: "path",
+      available: "available",
+      element: "element",
+      hintMissingEquals: 'missing "=" between name and value',
+      hintMissingSemicolon: 'missing ";" before this instruction',
+      hintUnclosedBlock: '"{" opened on line {line} is never closed with "}"',
+      hintUnclosedBracket: '"[" opened on line {line} is never closed with "]"',
+      hintUnclosedComment:
+        "comment opened on line {line} is never closed with */",
+      hintUnclosedString:
+        "string opened on line {line} is missing a closing quote",
+      hintModuleNotFound: 'module not found; searched in "{path}"',
+      hintLibraryUnknown: "unknown library; available: {list}",
+      hintIndexRange: "array has size {size}; valid indices: {range}",
+      hintIndexEmpty: "array is empty, so it has no valid indices",
+      hintNotArray: "value is not an array",
+      hintNull: "no value was provided (null or undefined)",
+      hintNaN: "number is not valid (NaN)",
+      hintInfinite: "number is infinite",
+      hintNoInput: "program requested input but input ended",
+      hintInternal:
+        "this looks like an internal Enide error, not an error in your program; please report it",
+      hintDuplicateProperty: 'property "{name}" is declared more than once',
+      hintMissingProperty: 'property "{name}" does not exist',
+      hintArrayMixed: "an array cannot mix arrays and simple values",
+      hintArrayEmpty: "an array needs at least one value",
+      hintObjectArrayShape:
+        'element {index} does not match the first element: check property "{name}"',
+      hintLoopCounter: "loop counter must be a number",
+      hintErrorsFound: "{count} errors found",
+    }),
     main: errorMessage("ERROR", "generic system error"),
     __TypeError: errorMessage("TYPE_ERROR", "invalid type in operation"),
-    __InitError: errorMessage(
-      "INIT_ERROR",
-      "variable has not been initialized",
-    ),
+    __InitError: errorMessage("INIT_ERROR", "variable has not been initialized"),
     __ReferenceError: errorMessage(
       "REFERENCE_ERROR",
       "variable, function or library does not exist in scope",

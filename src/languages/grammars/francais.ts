@@ -1,8 +1,8 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const francais = new Language({
-  language: "francais",
+  language: "français",
   about:
     "ENIDE est un langage de programmation multilingue qui vous permet de programmer dans n'importe quel langage.",
   include: DocStr(
@@ -106,6 +106,45 @@ export const francais = new Language({
       __hour: DocStr("Heure", "pour obtenir l heure"),
       __minute: DocStr("Minute", "pour obtenir la minute"),
       __second: DocStr("Seconde", "pour obtenir la seconde"),
+      __milliseconds: DocStr("Millisecondes", "pour obtenir les millisecondes"),
+    },
+
+    __array: {
+      main: DocStr(
+        "tableau",
+        "pour acceder aux fonctions de manipulation de tableaux",
+      ),
+      __addStart: DocStr(
+        "AjouterDebut",
+        "Insere de nouveaux elements au debut d un tableau et retourne la nouvelle longueur du tableau.",
+      ),
+      __addEnd: DocStr(
+        "AjouterFin",
+        "Ajoute de nouveaux elements a la fin d un tableau",
+      ),
+      __join: DocStr(
+        "Joindre",
+        "Assemble tous les elements d un tableau en une chaine, separes par la chaine separatrice specifiee, et retourne la chaine resultante.",
+      ),
+      __length: DocStr(
+        "longueurTableau",
+        "Obtient ou definit la longueur du tableau",
+      ),
+    },
+
+    __time: {
+      main: DocStr(
+        "temps",
+        "pour acceder aux fonctions de temps pour planifier l execution de code",
+      ),
+      __timeOut: DocStr(
+        "Delai",
+        "execute une fonction une fois apres un delai specifique en millisecondes",
+      ),
+      __timeInterval: DocStr(
+        "Intervalle",
+        "execute une fonction de maniere repetee a intervalles de temps fixes en millisecondes",
+      ),
     },
   },
 
@@ -162,6 +201,7 @@ export const francais = new Language({
   methods: {
     method: {
       __print: DocStr("afficher", "pour afficher une valeur a l ecran"),
+      __clear: DocStr("nettoyer", "effacer l'écran"),
       __scan: DocStr("lire", "pour lire une valeur depuis l entree"),
       __return: DocStr(
         "retourner",
@@ -210,22 +250,53 @@ export const francais = new Language({
   },
 
   errors: {
-    __labels: errorLabel(
-      "Message",
-      "Valeur",
-      "Variable",
-      "Propriete",
-      "Objet",
-      "Attendu",
-      "Recu",
-      "Assignation_Constante",
-      "Parametre_Duplique",
-      "Indice",
-      "Token_Invalide",
-      "Debordement_Pile",
-      "Token",
-      "Fin_Entree_Inattendue",
-    ),
+    __labels: errorLabels({
+      message: "Message",
+      value: "Valeur",
+      variable: "Variable",
+      property: "Propriete",
+      object: "Objet",
+      expected: "Attendu",
+      received: "Recu",
+      constAssignment: "Assignation_Constante",
+      duplicateParam: "Parametre_Duplique",
+      hint: "Indice",
+      invalidToken: "Token_Invalide",
+      stackOverflow: "Debordement_Pile",
+      token: "Token",
+      unexpectedEnd: "Fin_Entree_Inattendue",
+      file: "fichier",
+      didYouMean: "vouliez-vous dire",
+      includedFrom: "inclus depuis",
+      size: "taille",
+      index: "indice",
+      path: "chemin",
+      available: "disponibles",
+      element: "élément",
+      hintMissingEquals: "il manque le \"=\" entre le nom et la valeur",
+      hintMissingSemicolon: "il manque \";\" avant cette instruction",
+      hintUnclosedBlock: "le \"{\" ouvert à la ligne {line} n'est jamais fermé par \"}\"",
+      hintUnclosedBracket: "le \"[\" ouvert à la ligne {line} n'est jamais fermé par \"]\"",
+      hintUnclosedComment: "le commentaire ouvert à la ligne {line} n'est jamais fermé par */",
+      hintUnclosedString: "le texte ouvert à la ligne {line} n'a pas de guillemet fermant",
+      hintModuleNotFound: "module introuvable ; recherché dans \"{path}\"",
+      hintLibraryUnknown: "bibliothèque inconnue ; disponibles : {list}",
+      hintIndexRange: "le tableau a une taille de {size} ; indices valides : {range}",
+      hintIndexEmpty: "le tableau est vide, il n'a donc aucun indice valide",
+      hintNotArray: "la valeur n'est pas un tableau",
+      hintNull: "aucune valeur n'a été fournie (null ou indéfini)",
+      hintNaN: "le nombre n'est pas valide (NaN)",
+      hintInfinite: "le nombre est infini",
+      hintNoInput: "le programme attendait une saisie mais l'entrée est terminée",
+      hintInternal: "ceci ressemble à une erreur interne d'Enide, pas à une erreur de votre programme ; merci de la signaler",
+      hintDuplicateProperty: "la propriété \"{name}\" est déclarée plusieurs fois",
+      hintMissingProperty: "la propriété \"{name}\" n'existe pas",
+      hintArrayMixed: "un tableau ne peut pas mélanger tableaux et valeurs simples",
+      hintArrayEmpty: "un tableau a besoin d'au moins une valeur",
+      hintObjectArrayShape: "l'élément {index} ne correspond pas au premier : vérifiez la propriété \"{name}\"",
+      hintLoopCounter: "le compteur de la boucle doit être un nombre",
+      hintErrorsFound: "{count} erreurs trouvées",
+    }),
     main: errorMessage("ERREUR", "erreur generique du systeme"),
     __TypeError: errorMessage("ERREUR_TYPE", "type invalide dans l operation"),
     __InitError: errorMessage(
@@ -237,10 +308,7 @@ export const francais = new Language({
       "la variable, la fonction ou la bibliotheque n existe pas dans le scope",
     ),
     __SyntaxError: errorMessage("ERREUR_SYNTAXE", "code invalide"),
-    __RangeError: errorMessage(
-      "ERREUR_PLAGE",
-      "valeur hors de la plage autorisee",
-    ),
+    __RangeError: errorMessage("ERREUR_PLAGE", "valeur hors de la plage autorisee"),
     __URIError: errorMessage("ERREUR_URI", "URI mal formee ou invalide"),
     __EvalError: errorMessage("ERREUR_EVAL", "erreur liee a eval"),
     __UNKNOWN_ERROR: errorMessage(

@@ -1,5 +1,5 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const kriolu = new Language({
   language: "kriolu",
@@ -66,22 +66,55 @@ export const kriolu = new Language({
       __hour: DocStr("Ora", "pa odja ora"),
       __minute: DocStr("Minutu", "pa odja minutu"),
       __second: DocStr("Sigundu", "pa odja sigundu"),
+      __milliseconds: DocStr("Milisigundu", "pa odja milisigundu"),
+    },
+
+    __array: {
+      main: DocStr("lista", "pa entra na funsóns di manipulasón di lista"),
+      __addStart: DocStr(
+        "AdionaNaKumesu",
+        "Ta insiri elementus novu na kumesu di un lista, e ta devolve novu tamanhu di lista.",
+      ),
+      __addEnd: DocStr(
+        "AdionaNaFim",
+        "Ta djunta elementus novu na fin di un lista",
+      ),
+      __join: DocStr(
+        "Uni",
+        "Ta uni tudu elementus di un lista nun testu, separadu di testu di separador spesifikadu, e ta devolve testu rezultanti.",
+      ),
+      __length: DocStr("tamanhuLista", "Ta odja ô ta defini tamanhu di lista"),
+    },
+
+    __time: {
+      main: DocStr(
+        "tempu",
+        "pa entra na funsóns di tempu pa skedula ezekusón di kódigo",
+      ),
+      __timeOut: DocStr(
+        "TempuSpéradu",
+        "ta ezekuta un funsón un vez dipôs dun atrazu spesífiku na milisigundu",
+      ),
+      __timeInterval: DocStr(
+        "IntervaluDiTempu",
+        "ta ezekuta un funsón di manera repetidu na intervalus di tempu fixu na milisigundu",
+      ),
     },
   },
 
   types: {
-    __number: DocStr("Númeru", "pa deklara variável di tipu númeru"),
-    __string: DocStr("Testu", "pa deklara variável di tipu testu"),
-    __boolean: DocStr("Verdadi", "pa deklara variável di tipu berdadi ô falsu"),
-    __object: DocStr("Objetu", "pa deklara un objetu estátiku"),
-    __void: DocStr("Vaziu", "pa deklara funsón ki ka retorna nada"),
-    __array: DocStr("Lista", "pa deklara struktura lista"),
+    __number: DocStr("númeru", "pa deklara variável di tipu númeru"),
+    __string: DocStr("testu", "pa deklara variável di tipu testu"),
+    __boolean: DocStr("lójiku", "pa deklara variável di tipu berdadi ô falsu"),
+    __object: DocStr("objetu", "pa deklara un objetu estátiku"),
+    __void: DocStr("vaziu", "pa deklara funsón ki ka retorna nada"),
+    __array: DocStr("lista", "pa deklara struktura lista"),
   },
 
   specialValues: {
-    __true: DocStr("Verdadi", "valor berdadi"),
-    __false: DocStr("Falsu", "valor falsu"),
-    __null: DocStr("Vaziu", "auzénsia di valor"),
+    __true: DocStr("verdadi", "valor berdadi"),
+    __false: DocStr("falsu", "valor falsu"),
+    __null: DocStr("vaziu", "auzénsia di valor"),
   },
 
   words: {
@@ -100,62 +133,107 @@ export const kriolu = new Language({
 
   methods: {
     method: {
-      __print: DocStr("Skrebi", "pa mostra valor na ekrá"),
-      __scan: DocStr("Lê", "pa lê valor di utilizadór"),
-      __return: DocStr("Retorna", "pa retorna valor di funsón"),
-      __break: DocStr("Para", "pa para loop"),
-      __continue: DocStr("Kontinua", "pa kontinua na próximu iterasón"),
+      __print: DocStr("skrebi", "pa mostra valor na ekrá"),
+      __clear: DocStr("limpa", "pa limpa ekrá"),
+      __scan: DocStr("lê", "pa lê valor di utilizadór"),
+      __return: DocStr("retorna", "pa retorna valor di funsón"),
+      __break: DocStr("para", "pa para loop"),
+      __continue: DocStr("kontinua", "pa kontinua na próximu iterasón"),
     },
 
     sentences: {
-      __function: DocStr("Funsón", "pa deklara un funsón"),
-      __if: DocStr("Si", "pa deklara un kondisón"),
-      __else: DocStr("Sinó", "pa deklara kondisón alternativu"),
-      __while: DocStr("Enkuantu", "pa loop enkuantu"),
-      __for: DocStr("Pa", "pa loop pa"),
-      __switch: DocStr("Skodji", "pa faze selesón"),
-      __case: DocStr("Kasu", "pa kazu espesífiku"),
-      __default: DocStr("Padrón", "pa kazu padrón"),
-      __try: DocStr("Tenta", "pa tenta operasón"),
-      __catch: DocStr("Kaptura", "pa trata eru"),
-      __finally: DocStr("Final", "pa blok final"),
-      __class: DocStr("Klase", "pa deklara un klase"),
+      __function: DocStr("funsón", "pa deklara un funsón"),
+      __if: DocStr("si", "pa deklara un kondisón"),
+      __else: DocStr("sinó", "pa deklara kondisón alternativu"),
+      __while: DocStr("enkuantu", "pa loop enkuantu"),
+      __for: DocStr("pa", "pa loop pa"),
+      __switch: DocStr("skodji", "pa faze selesón"),
+      __case: DocStr("kasu", "pa kazu espesífiku"),
+      __default: DocStr("padrón", "pa kazu padrón"),
+      __try: DocStr("tenta", "pa tenta operasón"),
+      __catch: DocStr("kaptura", "pa trata eru"),
+      __finally: DocStr("final", "pa blok final"),
+      __class: DocStr("klase", "pa deklara un klase"),
       __constructor: DocStr(
-        "Konstruktór",
+        "konstruktór",
         "struktura pa inisializa atributu na klase",
       ),
     },
   },
 
-  errors: {
-    __labels: errorLabel(
-      "Mensajen",
-      "Valor",
-      "Variável",
-      "Propriedade",
-      "Objetu",
-      "Esperadu",
-      "Resebidu",
-      "AtribuisonKonstanti",
-      "ParametruDuplikadu",
-      "Sugestón",
-      "TokenInválidu",
-      "EstouruDiPila",
-      "Token",
-      "FimDiEntradaInesperadu",
-    ),
-    main: errorMessage("ERU", "Eru di sistema"),
-    __TypeError: errorMessage("ERUTIPU", "Tipu inválidu"),
+errors: {
+    __labels: errorLabels({
+      message: "Mensagen",
+      value: "Valor",
+      variable: "Variavel",
+      property: "Propriedadi",
+      object: "Objetu",
+      expected: "Spreadu",
+      received: "Resebidu",
+      constAssignment: "Atribuisan Konstanti",
+      duplicateParam: "Parametru Duplikadu",
+      hint: "Dika",
+      invalidToken: "Token Invalidu",
+      stackOverflow: "Staki Txeu",
+      token: "Token",
+      unexpectedEnd: "Fin di Entrada Sem Spera",
+      file: "fixeru",
+      didYouMean: "bu keria fla",
+      includedFrom: "inkluidu a partir di",
+      size: "tamanhu",
+      index: "indisi",
+      path: "kaminhu",
+      available: "disponivel",
+      element: "elementu",
+      hintMissingEquals: 'farta "=" entri nomi ti valor',
+      hintMissingSemicolon: 'farta ";" antis di es instrusan',
+      hintUnclosedBlock: '"{" abertu na linha {line} nunka ka fitxadu ku "}"',
+      hintUnclosedBracket: '"[" abertu na linha {line} nunka ka fitxadu ku "]"',
+      hintUnclosedComment:
+        "komentariu abertu na linha {line} nunka ka fitxadu ku */",
+      hintUnclosedString:
+        "testu abertu na linha {line} ka ten aspas di fitxa",
+      hintModuleNotFound: 'modulu ka enkontradu; buSkadu na "{path}"',
+      hintLibraryUnknown: "biblioteka diskonhesidu; disponivel: {list}",
+      hintIndexRange: "vetor ten tamanhu {size}; indisi validu: {range}",
+      hintIndexEmpty: "vetor sta vaziu, pur iso el ka ten indisi validu",
+      hintNotArray: "valor ka li vetor",
+      hintNull: "ningun valor ka foi fornesidu (nulu ou indifinidu)",
+      hintNaN: "numero ka validu (NaN)",
+      hintInfinite: "numero li e infinitu",
+      hintNoInput: "programa pidi un entrada mas entrada kabisâ",
+      hintInternal:
+        "es ta parse un eru internal di Enide, ka un eru di bu programa; pur favor reporta-l",
+      hintDuplicateProperty: 'propriedadi "{name}" sta deklaradu mas di un bes',
+      hintMissingProperty: 'propriedadi "{name}" ka ta izistí',
+      hintArrayMixed: "un vetor ka podi mistura vetores ti valores simples",
+      hintArrayEmpty: "un vetor ta prisiza di pelumenus un valor",
+      hintObjectArrayShape:
+        'elementu {index} ka ta korespondi ku primeru elementu: verifika propriedadi "{name}"',
+      hintLoopCounter: "kontador di siklu ten ki ser un numero",
+      hintErrorsFound: "{count} erus enkontradu",
+    }),
+    main: errorMessage("ERU", "eru jeneriku di sistema"),
+    __TypeError: errorMessage("ERU_DI_TIPU", "tipu invalidu na operasan"),
     __InitError: errorMessage(
-      "ERUINISIALIZASÓN",
-      "Variável ka foi inisializadu",
+      "ERU_DI_INISIALISASAN",
+      "variavel ka foi inisialisadu",
     ),
-    __ReferenceError: errorMessage("ERUREFERÉNSIA", "Variável ka izisti"),
-    __SyntaxError: errorMessage("ERUSINTAXI", "Kódigo inválidu"),
-    __RangeError: errorMessage("ERULIMITI", "Valor fora di limiti"),
-    __URIError: errorMessage("ERUURI", "URI inválidu"),
-    __EvalError: errorMessage("ERUEVAL", "Eru di avaliasón"),
-    __UNKNOWN_ERROR: errorMessage("ERUDISKONHESIDU", "Eru diskonhesidu"),
+    __ReferenceError: errorMessage(
+      "ERU_DI_REFERENSIA",
+      "variavel, funsan ou biblioteka ka ta izistí na eskopo",
+    ),
+    __SyntaxError: errorMessage("ERU_DI_SINTAXI", "kodigu invalidu"),
+    __RangeError: errorMessage(
+      "ERU_DI_LIMITI",
+      "valor fora di intervalu permitidu",
+    ),
+    __URIError: errorMessage("ERU_DI_URI", "URI mal formadu ou invalidu"),
+    __EvalError: errorMessage("ERU_DI_EVAL", "eru relasionadu ku eval"),
+    __UNKNOWN_ERROR: errorMessage(
+      "ERU_DISKONHESIDU",
+      "eru kompletamenti diskonhesidu",
+    ),
   },
 
   example: {

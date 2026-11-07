@@ -1,5 +1,5 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const afrikaans = new Language({
   language: "afrikaans",
@@ -87,10 +87,42 @@ export const afrikaans = new Language({
       __year: DocStr("Jaar", "om die jaar te kry"),
       __month: DocStr("Maand", "om die maand te kry"),
       __dayMonth: DocStr("DagMaand", "om die dag van die maand te kry"),
-      __dayWeek: DocStr("DagWeek", "om die dag van the week te kry"),
+      __dayWeek: DocStr("DagWeek", "om die dag van die week te kry"),
       __hour: DocStr("Uur", "om die uur te kry"),
       __minute: DocStr("Minuut", "om die minuut te kry"),
       __second: DocStr("Sekonde", "om die sekonde te kry"),
+      __milliseconds: DocStr("Millisekondes", "om die millisekondes te kry"),
+    },
+
+    __array: {
+      main: DocStr("lys", "om toegang tot lysmanipulasie funksies te kry"),
+      __addStart: DocStr(
+        "VoegBeginBy",
+        "Voeg nuwe elemente aan die begin van 'n lys in, en gee die nuwe lengte van die lys terug.",
+      ),
+      __addEnd: DocStr(
+        "VoegEindeBy",
+        "Voeg nuwe elemente aan die einde van 'n lys toe",
+      ),
+      __join: DocStr(
+        "Verbind",
+        "Verbind al die elemente van 'n lys in 'n teks, geskei deur die gespesifiseerde skeidingsteks, en gee die resulterende teks terug.",
+      ),
+      __length: DocStr("lysLengte", "Kry of stel die lengte van die lys"),
+    },
+    __time: {
+      main: DocStr(
+        "tyd",
+        "om toegang tot tydfunksies te kry om die uitvoering van kode te skeduleer",
+      ),
+      __timeOut: DocStr(
+        "TydUit",
+        "voer 'n funksie een keer uit na 'n spesifieke vertraging in millisekondes",
+      ),
+      __timeInterval: DocStr(
+        "TydInterval",
+        "voer 'n funksie herhaaldelik uit met vaste tydintervalle in millisekondes",
+      ),
     },
   },
 
@@ -135,6 +167,7 @@ export const afrikaans = new Language({
   methods: {
     method: {
       __print: DocStr("Skryf", "om 'n waarde op die skerm te druk"),
+      __clear: DocStr("skoon", "om die skerm skoon te maak"),
       __scan: DocStr("lees", "om 'n waarde van die invoer te lees"),
       __return: DocStr(
         "gee_terug",
@@ -174,22 +207,53 @@ export const afrikaans = new Language({
   },
 
   errors: {
-    __labels: errorLabel(
-      "Boodskap",
-      "Waarde",
-      "Veranderlike",
-      "Eienskap",
-      "Voorwerp",
-      "Verwag",
-      "Ontvang",
-      "Konstante_Toekenning",
-      "Duplikaat_Parameter",
-      "Wenk",
-      "Ongeldige_Token",
-      "Stapel_Oorvloei",
-      "Token",
-      "Onverwagte_Einde_van_Invoer",
-    ),
+    __labels: errorLabels({
+      message: "Boodskap",
+      value: "Waarde",
+      variable: "Veranderlike",
+      property: "Eienskap",
+      object: "Voorwerp",
+      expected: "Verwag",
+      received: "Ontvang",
+      constAssignment: "Konstante_Toekenning",
+      duplicateParam: "Duplikaat_Parameter",
+      hint: "Wenk",
+      invalidToken: "Ongeldige_Token",
+      stackOverflow: "Stapel_Oorvloei",
+      token: "Token",
+      unexpectedEnd: "Onverwagte_Einde_van_Invoer",
+      file: "lêer",
+      didYouMean: "bedoel jy",
+      includedFrom: "ingesluit vanaf",
+      size: "grootte",
+      index: "indeks",
+      path: "pad",
+      available: "beskikbaar",
+      element: "element",
+      hintMissingEquals: "die \"=\" tussen die naam en die waarde ontbreek",
+      hintMissingSemicolon: "daar ontbreek \";\" voor hierdie instruksie",
+      hintUnclosedBlock: "die \"{\" wat op reël {line} oopgemaak is, word nooit met \"}\" gesluit nie",
+      hintUnclosedBracket: "die \"[\" wat op reël {line} oopgemaak is, word nooit met \"]\" gesluit nie",
+      hintUnclosedComment: "die kommentaar wat op reël {line} oopgemaak is, word nooit met */ gesluit nie",
+      hintUnclosedString: "die teks wat op reël {line} oopgemaak is, het nie 'n sluitende aanhalingsteken nie",
+      hintModuleNotFound: "module nie gevind nie; gesoek in \"{path}\"",
+      hintLibraryUnknown: "onbekende biblioteek; beskikbaar: {list}",
+      hintIndexRange: "die skikking het grootte {size}; geldige indekse: {range}",
+      hintIndexEmpty: "die skikking is leeg, dus het dit geen geldige indekse nie",
+      hintNotArray: "die waarde is nie 'n skikking nie",
+      hintNull: "geen waarde is verskaf nie (nul of ongedefinieerd)",
+      hintNaN: "die getal is nie geldig nie (NaN)",
+      hintInfinite: "die getal is oneindig",
+      hintNoInput: "die program het invoer gevra, maar die invoer het geëindig",
+      hintInternal: "dit lyk soos 'n interne Enide-fout, nie 'n fout in jou program nie; rapporteer dit asseblief",
+      hintDuplicateProperty: "die eienskap \"{name}\" word meer as een keer verklaar",
+      hintMissingProperty: "die eienskap \"{name}\" bestaan nie",
+      hintArrayMixed: "'n skikking kan nie skikkings en enkelwaardes meng nie",
+      hintArrayEmpty: "'n skikking het ten minste een waarde nodig",
+      hintObjectArrayShape: "element {index} stem nie met die eerste een ooreen nie: kontroleer die eienskap \"{name}\"",
+      hintLoopCounter: "die lustelling moet 'n getal wees",
+      hintErrorsFound: "{count} foute gevind",
+    }),
     main: errorMessage("FOUT", "generiese stelselfout"),
     __TypeError: errorMessage("TIPE_FOUT", "ongeldige tipe in operasie"),
     __InitError: errorMessage(
@@ -201,10 +265,7 @@ export const afrikaans = new Language({
       "veranderlike, funksie of biblioteek bestaan nie in die omvang nie",
     ),
     __SyntaxError: errorMessage("SINTAKSIS_FOUT", "ongeldige kode"),
-    __RangeError: errorMessage(
-      "REEKS_FOUT",
-      "waarde buite die toegelate reeks",
-    ),
+    __RangeError: errorMessage("REEKS_FOUT", "waarde buite die toegelate reeks"),
     __URIError: errorMessage("URI_FOUT", "wanvormige of ongeldige URI"),
     __EvalError: errorMessage("EVAL_FOUT", "fout verwant aan eval"),
     __UNKNOWN_ERROR: errorMessage("ONBEKENDE_FOUT", "heeltemal onbekende fout"),

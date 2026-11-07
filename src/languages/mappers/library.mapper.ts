@@ -54,6 +54,25 @@ function mapDate(date: Library["__date"]) {
     __hour: capEntry(date.__hour),
     __minute: capEntry(date.__minute),
     __second: capEntry(date.__second),
+    __milliseconds: capEntry(date.__milliseconds),
+  };
+}
+
+function mapArray(array: Library["__array"]) {
+  return {
+    main: normEntry(array.main),
+    __length: capEntry(array.__length),
+    __join: capEntry(array.__join),
+    __addStart: capEntry(array.__addStart),
+    __addEnd: capEntry(array.__addEnd),
+  };
+}
+
+function mapTime(time: Library["__time"]) {
+  return {
+    main: normEntry(time.main),
+    __timeOut: capEntry(time.__timeOut),
+    __timeInterval: capEntry(time.__timeInterval),
   };
 }
 
@@ -63,5 +82,7 @@ export function mapLibrary(library: Library) {
     __math: mapMath(library.__math),
     __string: mapString(library.__string),
     __date: mapDate(library.__date),
+    __array: mapArray(library.__array),
+    __time: mapTime(library.__time),
   };
 }

@@ -1,5 +1,5 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const italiano = new Language({
   language: "italiano",
@@ -96,6 +96,45 @@ export const italiano = new Language({
       __hour: DocStr("Ora", "per ottenere l'ora"),
       __minute: DocStr("Minuto", "per ottenere il minuto"),
       __second: DocStr("Secondo", "per ottenere il secondo"),
+      __milliseconds: DocStr("Millisecondi", "per ottenere i millisecondi"),
+    },
+
+    __array: {
+      main: DocStr(
+        "vettori",
+        "per accedere alle funzioni di manipolazione dei vettori",
+      ),
+      __addStart: DocStr(
+        "AggiungiInizio",
+        "Inserisce nuovi elementi all'inizio di un vettore e restituisce la nuova lunghezza del vettore.",
+      ),
+      __addEnd: DocStr(
+        "AggiungiFine",
+        "Aggiunge nuovi elementi alla fine di un vettore",
+      ),
+      __join: DocStr(
+        "Unisci",
+        "Unisce tutti gli elementi di un vettore in una stringa, separati dalla stringa separatrice specificata, e restituisce la stringa risultante.",
+      ),
+      __length: DocStr(
+        "vettoriLunghezza",
+        "Ottiene o imposta la lunghezza del vettore",
+      ),
+    },
+
+    __time: {
+      main: DocStr(
+        "tempo",
+        "per accedere alle funzioni di tempo per pianificare l'esecuzione del codice",
+      ),
+      __timeOut: DocStr(
+        "Ritardo",
+        "esegue una funzione una volta dopo un ritardo specifico in millisecondi",
+      ),
+      __timeInterval: DocStr(
+        "Intervallo",
+        "esegue una funzione ripetutamente a intervalli di tempo fissi in millisecondi",
+      ),
     },
   },
 
@@ -143,6 +182,7 @@ export const italiano = new Language({
   methods: {
     method: {
       __print: DocStr("stampa", "per stampare un valore sullo schermo"),
+      __clear: DocStr("sgomberare", "pulire lo schermo"),
       __scan: DocStr("leggi", "per leggere un valore dall'input"),
       __return: DocStr("ritorna", "per restituire un valore da una funzione"),
       __break: DocStr("interrompi", "per uscire da un ciclo"),
@@ -173,22 +213,53 @@ export const italiano = new Language({
   },
 
   errors: {
-    __labels: errorLabel(
-      "Messaggio",
-      "Valore",
-      "Variabile",
-      "Proprietà",
-      "Oggetto",
-      "Atteso",
-      "Ricevuto",
-      "AssegnazioneCostante",
-      "ParametroDuplicato",
-      "Suggerimento",
-      "TokenNonValido",
-      "StackOverflow",
-      "Token",
-      "FineInputInaspettata",
-    ),
+    __labels: errorLabels({
+      message: "Messaggio",
+      value: "Valore",
+      variable: "Variabile",
+      property: "Proprietà",
+      object: "Oggetto",
+      expected: "Atteso",
+      received: "Ricevuto",
+      constAssignment: "AssegnazioneCostante",
+      duplicateParam: "ParametroDuplicato",
+      hint: "Suggerimento",
+      invalidToken: "TokenNonValido",
+      stackOverflow: "StackOverflow",
+      token: "Token",
+      unexpectedEnd: "FineInputInaspettata",
+      file: "file",
+      didYouMean: "intendevi",
+      includedFrom: "incluso da",
+      size: "dimensione",
+      index: "indice",
+      path: "percorso",
+      available: "disponibili",
+      element: "elemento",
+      hintMissingEquals: "manca il \"=\" tra il nome e il valore",
+      hintMissingSemicolon: "manca \";\" prima di questa istruzione",
+      hintUnclosedBlock: "la \"{\" aperta alla riga {line} non viene mai chiusa con \"}\"",
+      hintUnclosedBracket: "la \"[\" aperta alla riga {line} non viene mai chiusa con \"]\"",
+      hintUnclosedComment: "il commento aperto alla riga {line} non viene mai chiuso con */",
+      hintUnclosedString: "al testo aperto alla riga {line} manca la virgoletta di chiusura",
+      hintModuleNotFound: "modulo non trovato; cercato in \"{path}\"",
+      hintLibraryUnknown: "libreria sconosciuta; disponibili: {list}",
+      hintIndexRange: "l'array ha dimensione {size}; indici validi: {range}",
+      hintIndexEmpty: "l'array è vuoto, quindi non ha indici validi",
+      hintNotArray: "il valore non è un array",
+      hintNull: "nessun valore è stato fornito (nullo o indefinito)",
+      hintNaN: "il numero non è valido (NaN)",
+      hintInfinite: "il numero è infinito",
+      hintNoInput: "il programma ha richiesto un input ma l'input è terminato",
+      hintInternal: "sembra un errore interno di Enide, non un errore del tuo programma; segnalalo per favore",
+      hintDuplicateProperty: "la proprietà \"{name}\" è dichiarata più di una volta",
+      hintMissingProperty: "la proprietà \"{name}\" non esiste",
+      hintArrayMixed: "un array non può mescolare array e valori singoli",
+      hintArrayEmpty: "un array richiede almeno un valore",
+      hintObjectArrayShape: "l'elemento {index} non corrisponde al primo: controlla la proprietà \"{name}\"",
+      hintLoopCounter: "il contatore del ciclo deve essere un numero",
+      hintErrorsFound: "{count} errori trovati",
+    }),
     main: errorMessage("ERRORE", "errore generico del sistema"),
     __TypeError: errorMessage("ERRORETIPO", "tipo non valido nell'operazione"),
     __InitError: errorMessage(

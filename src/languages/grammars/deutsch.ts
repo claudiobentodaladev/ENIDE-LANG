@@ -1,5 +1,5 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const deutsch = new Language({
   language: "deutsch",
@@ -115,6 +115,45 @@ export const deutsch = new Language({
       __hour: DocStr("Stunde", "um die Stunde zu erhalten"),
       __minute: DocStr("Minute", "um die Minute zu erhalten"),
       __second: DocStr("Sekunde", "um die Sekunde zu erhalten"),
+      __milliseconds: DocStr(
+        "Millisekunden",
+        "um die Millisekunden zu erhalten",
+      ),
+    },
+
+    __array: {
+      main: DocStr("array", "um auf Array-Funktionen zuzugreifen"),
+      __addStart: DocStr(
+        "AmAnfangHinzufügen",
+        "Fügt neue Elemente am Anfang eines Arrays ein und gibt die neue Länge des Arrays zurück.",
+      ),
+      __addEnd: DocStr(
+        "AmEndeHinzufügen",
+        "Hängt neue Elemente an das Ende eines Arrays an",
+      ),
+      __join: DocStr(
+        "Verbinden",
+        "Fügt alle Elemente eines Arrays zu einer Zeichenkette zusammen, getrennt durch die angegebene Trennzeichenkette, und gibt die resultierende Zeichenkette zurück.",
+      ),
+      __length: DocStr(
+        "arrayLänge",
+        "Ruft die Länge des Arrays ab oder legt sie fest",
+      ),
+    },
+
+    __time: {
+      main: DocStr(
+        "zeit",
+        "um auf Zeitfunktionen zuzugreifen, mit denen die Ausführung von Code geplant wird",
+      ),
+      __timeOut: DocStr(
+        "Verzögerung",
+        "führt eine Funktion einmal nach einer bestimmten Verzögerung in Millisekunden aus",
+      ),
+      __timeInterval: DocStr(
+        "Intervall",
+        "führt eine Funktion wiederholt in festen Zeitintervallen in Millisekunden aus",
+      ),
     },
   },
 
@@ -168,6 +207,7 @@ export const deutsch = new Language({
   methods: {
     method: {
       __print: DocStr("drucken", "um einen Wert auf dem Bildschirm auszugeben"),
+      __clear: DocStr("sauber", "den Bildschirm löschen"),
       __scan: DocStr("lesen", "um einen Wert aus der Eingabe zu lesen"),
       __return: DocStr(
         "zurückgeben",
@@ -213,22 +253,53 @@ export const deutsch = new Language({
   },
 
   errors: {
-    __labels: errorLabel(
-      "Nachricht",
-      "Wert",
-      "Variable",
-      "Eigenschaft",
-      "Objekt",
-      "Erwartet",
-      "Erhalten",
-      "Konstante_Zuweisung",
-      "Doppelter_Parameter",
-      "Hinweis",
-      "Ungültiges_Token",
-      "Stapelüberlauf",
-      "Token",
-      "Unerwartetes_Ende",
-    ),
+    __labels: errorLabels({
+      message: "Nachricht",
+      value: "Wert",
+      variable: "Variable",
+      property: "Eigenschaft",
+      object: "Objekt",
+      expected: "Erwartet",
+      received: "Erhalten",
+      constAssignment: "Konstante_Zuweisung",
+      duplicateParam: "Doppelter_Parameter",
+      hint: "Hinweis",
+      invalidToken: "Ungültiges_Token",
+      stackOverflow: "Stapelüberlauf",
+      token: "Token",
+      unexpectedEnd: "Unerwartetes_Ende",
+      file: "datei",
+      didYouMean: "meinten sie",
+      includedFrom: "eingebunden von",
+      size: "größe",
+      index: "index",
+      path: "pfad",
+      available: "verfügbar",
+      element: "element",
+      hintMissingEquals: "das \"=\" zwischen Name und Wert fehlt",
+      hintMissingSemicolon: "vor dieser Anweisung fehlt \";\"",
+      hintUnclosedBlock: "die in Zeile {line} geöffnete \"{\" wird nie mit \"}\" geschlossen",
+      hintUnclosedBracket: "die in Zeile {line} geöffnete \"[\" wird nie mit \"]\" geschlossen",
+      hintUnclosedComment: "der in Zeile {line} geöffnete Kommentar wird nie mit */ geschlossen",
+      hintUnclosedString: "dem in Zeile {line} geöffneten Text fehlt das schließende Anführungszeichen",
+      hintModuleNotFound: "Modul nicht gefunden; gesucht in \"{path}\"",
+      hintLibraryUnknown: "unbekannte Bibliothek; verfügbar: {list}",
+      hintIndexRange: "das Array hat die Größe {size}; gültige Indizes: {range}",
+      hintIndexEmpty: "das Array ist leer und hat daher keinen gültigen Index",
+      hintNotArray: "der Wert ist kein Array",
+      hintNull: "es wurde kein Wert angegeben (null oder undefiniert)",
+      hintNaN: "die Zahl ist ungültig (NaN)",
+      hintInfinite: "die Zahl ist unendlich",
+      hintNoInput: "das Programm erwartete eine Eingabe, aber die Eingabe ist zu Ende",
+      hintInternal: "das sieht nach einem internen Enide-Fehler aus, nicht nach einem Fehler in Ihrem Programm; bitte melden Sie ihn",
+      hintDuplicateProperty: "die Eigenschaft \"{name}\" wird mehrfach deklariert",
+      hintMissingProperty: "die Eigenschaft \"{name}\" existiert nicht",
+      hintArrayMixed: "ein Array darf Arrays und einzelne Werte nicht mischen",
+      hintArrayEmpty: "ein Array braucht mindestens einen Wert",
+      hintObjectArrayShape: "Element {index} passt nicht zum ersten Element: prüfen Sie die Eigenschaft \"{name}\"",
+      hintLoopCounter: "der Schleifenzähler muss eine Zahl sein",
+      hintErrorsFound: "{count} Fehler gefunden",
+    }),
     main: errorMessage("FEHLER", "allgemeiner Systemfehler"),
     __TypeError: errorMessage("TYP_FEHLER", "ungültiger Typ in der Operation"),
     __InitError: errorMessage(

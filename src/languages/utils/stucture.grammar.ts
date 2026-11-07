@@ -46,3 +46,7 @@ export function errorLabel(
     unexpectedEnd,
   };
 }
+
+export function errorLabels(labels: ErrorLabels): ErrorLabels {
+  return labels;
+}

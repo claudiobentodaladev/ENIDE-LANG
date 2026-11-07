@@ -1,8 +1,8 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const portugues = new Language({
-  language: "portugues",
+  language: "português",
   about:
     "O ENIDE é uma linguagem de programação multilíngue que permite programar em qualquer idioma",
 
@@ -88,6 +88,42 @@ export const portugues = new Language({
       __hour: DocStr("Hora", "para obter a hora"),
       __minute: DocStr("Minuto", "para obter o minuto"),
       __second: DocStr("Segundo", "para obter o segundo"),
+      __milliseconds: DocStr("Milissegundos", "para obter os milissegundos"),
+    },
+
+    __array: {
+      main: DocStr(
+        "vector",
+        "para aceder às funções de manipulação de vectores",
+      ),
+      __addStart: DocStr(
+        "AdicionarInicio",
+        "Insere novos elementos no início de um vector e retorna o novo tamanho do vector.",
+      ),
+      __addEnd: DocStr(
+        "AdicionarFim",
+        "Acrescenta novos elementos ao fim de um vector",
+      ),
+      __join: DocStr(
+        "Juntar",
+        "Junta todos os elementos de um vector numa string, separados pela string separadora especificada, e retorna a string resultante.",
+      ),
+      __length: DocStr("tamanhoVector", "Obtém ou define o tamanho do vector"),
+    },
+
+    __time: {
+      main: DocStr(
+        "tempo",
+        "para aceder às funções de tempo para agendar a execução de código",
+      ),
+      __timeOut: DocStr(
+        "Atraso",
+        "executa uma função uma vez após um atraso específico em milissegundos",
+      ),
+      __timeInterval: DocStr(
+        "Intervalo",
+        "executa uma função repetidamente em intervalos de tempo fixos em milissegundos",
+      ),
     },
   },
 
@@ -126,6 +162,7 @@ export const portugues = new Language({
   methods: {
     method: {
       __print: DocStr("escreva", "para imprimir um valor no ecrã"),
+      __clear: DocStr("limpar", "para limpar o ecrã"),
       __scan: DocStr("leia", "para ler um valor da entrada"),
       __return: DocStr("retornar", "para retornar um valor de uma função"),
       __break: DocStr("parar", "para sair de um ciclo"),
@@ -135,7 +172,7 @@ export const portugues = new Language({
     sentences: {
       __function: DocStr("função", "para declarar uma função"),
       __if: DocStr("se", "para declarar uma condição"),
-      __else: DocStr("senão", "para declarar uma condição alternativa"),
+      __else: DocStr("se não", "para declarar uma condição alternativa"),
       __while: DocStr("enquanto", "para declarar um ciclo enquanto"),
       __for: DocStr("para", "para declarar um ciclo de repetição"),
       __switch: DocStr("escolha", "para declarar uma estrutura de seleção"),
@@ -153,22 +190,53 @@ export const portugues = new Language({
   },
 
   errors: {
-    __labels: errorLabel(
-      "Mensagem",
-      "Valor",
-      "Variável",
-      "Propriedade",
-      "Objeto",
-      "Esperado",
-      "Recebido",
-      "Atribuição Constante",
-      "Parâmetro Duplicado",
-      "Dica",
-      "Token Inválido",
-      "Estouro de Pilha",
-      "Token",
-      "Fim de Entrada Inesperado",
-    ),
+    __labels: errorLabels({
+      message: "Mensagem",
+      value: "Valor",
+      variable: "Variável",
+      property: "Propriedade",
+      object: "Objeto",
+      expected: "Esperado",
+      received: "Recebido",
+      constAssignment: "Atribuição Constante",
+      duplicateParam: "Parâmetro Duplicado",
+      hint: "Dica",
+      invalidToken: "Token Inválido",
+      stackOverflow: "Estouro de Pilha",
+      token: "Token",
+      unexpectedEnd: "Fim de Entrada Inesperado",
+      file: "ficheiro",
+      didYouMean: "querias dizer",
+      includedFrom: "incluído a partir de",
+      size: "tamanho",
+      index: "índice",
+      path: "caminho",
+      available: "disponíveis",
+      element: "elemento",
+      hintMissingEquals: "falta o \"=\" entre o nome e o valor",
+      hintMissingSemicolon: "falta \";\" antes desta instrução",
+      hintUnclosedBlock: "a \"{\" aberta na linha {line} nunca é fechada com \"}\"",
+      hintUnclosedBracket: "o \"[\" aberto na linha {line} nunca é fechado com \"]\"",
+      hintUnclosedComment: "o comentário aberto na linha {line} nunca é fechado com */",
+      hintUnclosedString: "o texto aberto na linha {line} não tem aspas de fecho",
+      hintModuleNotFound: "módulo não encontrado; procurado em \"{path}\"",
+      hintLibraryUnknown: "biblioteca desconhecida; disponíveis: {list}",
+      hintIndexRange: "o vector tem tamanho {size}; índices válidos: {range}",
+      hintIndexEmpty: "o vector está vazio, por isso não tem índices válidos",
+      hintNotArray: "o valor não é um vector",
+      hintNull: "nenhum valor foi fornecido (nulo ou indefinido)",
+      hintNaN: "o número não é válido (NaN)",
+      hintInfinite: "o número é infinito",
+      hintNoInput: "o programa pediu uma entrada mas a entrada terminou",
+      hintInternal: "isto parece um erro interno do Enide, não um erro do seu programa; por favor reporte-o",
+      hintDuplicateProperty: "a propriedade \"{name}\" está declarada mais de uma vez",
+      hintMissingProperty: "a propriedade \"{name}\" não existe",
+      hintArrayMixed: "um vector não pode misturar vectores e valores simples",
+      hintArrayEmpty: "um vector precisa de pelo menos um valor",
+      hintObjectArrayShape: "o elemento {index} não corresponde ao primeiro elemento: verifique a propriedade \"{name}\"",
+      hintLoopCounter: "o contador do ciclo tem de ser um número",
+      hintErrorsFound: "{count} erros encontrados",
+    }),
     main: errorMessage("ERRO", "erro genérico do sistema"),
     __TypeError: errorMessage("ERRO_DE_TIPO", "tipo inválido na operação"),
     __InitError: errorMessage(

@@ -10,4 +10,5 @@ export interface DateGrammar {
   __hour: DocStructure;
   __minute: DocStructure;
   __second: DocStructure;
+  __milliseconds: DocStructure;
 }

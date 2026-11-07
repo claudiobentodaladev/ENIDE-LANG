@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Grammar synchronised with `enide-cli`: new `__array` library (`__length`, `__join`, `__addStart`, `__addEnd`) and `__time` library (`__timeOut`, `__timeInterval`), `__date.__milliseconds`, and `methods.method.__clear`, in the interfaces, mappers and all grammar files.
+- `ErrorLabels` now accepts 31 optional extra labels (`file`, `didYouMean`, `includedFrom`, `size`, `index`, `path`, `available`, `element` and the `hint*` messages). The new `errorLabels({...})` helper replaces the positional `errorLabel(...)` for declaring them, which is kept for backwards compatibility.
+- `exemplesEntry` pads each example list to 10 names.
+
+### Changed
+
+- Translation updates synchronised from `enide-cli`, mainly in `kimbundu`, `kriolu`, `lingala`, `shona`, `yoruba` and `zulu` (for example the `boolean` type keyword in `kimbundu`, `kriolu` and `yoruba`), plus `constAssignment` in `english`.
+
 ### Fixed
 
 - `readme.md` rewritten to match the current grammar shape: documented the `words`, `specialValues`, `accessModifiers`, and `example` top-level fields, the new `__standard` library, `__grammar` command, `__break`/`__continue` methods, `__class`/`__constructor` sentences, and the `__labels`/`__InitError` additions to `errors`. Removed the outdated `BooleanStructure` description - booleans are now a plain `DocStructure` type, with `true`/`false`/`null` literals living under `specialValues`.
@@ -40,11 +50,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Each version entry is divided into the following sections when applicable:
 
-- **Added** — new features, rules, or files introduced
-- **Changed** — changes to existing grammar rules or behavior
-- **Deprecated** — rules or features that will be removed in a future version
-- **Removed** — rules or features that have been removed
-- **Fixed** — grammar errors, inconsistencies, or bugs that were corrected
-- **Security** — any security-related changes
+- **Added** - new features, rules, or files introduced
+- **Changed** - changes to existing grammar rules or behavior
+- **Deprecated** - rules or features that will be removed in a future version
+- **Removed** - rules or features that have been removed
+- **Fixed** - grammar errors, inconsistencies, or bugs that were corrected
+- **Security** - any security-related changes
 
 ---

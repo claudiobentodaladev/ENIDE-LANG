@@ -1,8 +1,8 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const catala = new Language({
-  language: "catala",
+  language: "català",
   about:
     "ENIDE és un llenguatge de programació multilingüe que permet programar en qualsevol llengua.",
   include: DocStr(
@@ -91,6 +91,45 @@ export const catala = new Language({
       __hour: DocStr("Hora", "per obtenir l'hora"),
       __minute: DocStr("Minut", "per obtenir el minut"),
       __second: DocStr("Segon", "per obtenir el segon"),
+      __milliseconds: DocStr("Milisegons", "per obtenir els mil·lisegons"),
+    },
+
+    __array: {
+      main: DocStr(
+        "matriu",
+        "per accedir a les funcions de manipulació de matrius",
+      ),
+      __addStart: DocStr(
+        "AfegeixAlInici",
+        "Insereix nous elements a l'inici d'una matriu i retorna la nova longitud de la matriu.",
+      ),
+      __addEnd: DocStr(
+        "AfegeixAlFinal",
+        "Afegeix nous elements al final d'una matriu",
+      ),
+      __join: DocStr(
+        "Uneix",
+        "Uneix tots els elements d'una matriu en una cadena, separats per la cadena separadora especificada, i retorna la cadena resultant.",
+      ),
+      __length: DocStr(
+        "longitudMatriu",
+        "Obté o defineix la longitud de la matriu",
+      ),
+    },
+
+    __time: {
+      main: DocStr(
+        "temps",
+        "per accedir a les funcions de temps per programar l'execució de codi",
+      ),
+      __timeOut: DocStr(
+        "Retard",
+        "executa una funció una vegada després d'un retard específic en mil·lisegons",
+      ),
+      __timeInterval: DocStr(
+        "Interval",
+        "executa una funció repetidament a intervals de temps fixos en mil·lisegons",
+      ),
     },
   },
 
@@ -138,6 +177,7 @@ export const catala = new Language({
         "escriu",
         "per imprimir i escriure un valor a la pantalla",
       ),
+      __clear: DocStr("netejar", "netejar la pantalla"),
       __scan: DocStr("llegeix", "per llegir un valor de l'entrada"),
       __return: DocStr("retorna", "per retornar un valor d'una funció"),
       __break: DocStr("trenca", "per sortir d'un bucle"),
@@ -174,22 +214,53 @@ export const catala = new Language({
   },
 
   errors: {
-    __labels: errorLabel(
-      "Missatge",
-      "Valor",
-      "Variable",
-      "Propietat",
-      "Objecte",
-      "Esperat",
-      "Rebut",
-      "Assignació_Constant",
-      "Paràmetre_Duplicat",
-      "Suggeriment",
-      "Token_Invàlid",
-      "Desbordament_Pila",
-      "Token",
-      "Fi_Inesperat",
-    ),
+    __labels: errorLabels({
+      message: "Missatge",
+      value: "Valor",
+      variable: "Variable",
+      property: "Propietat",
+      object: "Objecte",
+      expected: "Esperat",
+      received: "Rebut",
+      constAssignment: "Assignació_Constant",
+      duplicateParam: "Paràmetre_Duplicat",
+      hint: "Suggeriment",
+      invalidToken: "Token_Invàlid",
+      stackOverflow: "Desbordament_Pila",
+      token: "Token",
+      unexpectedEnd: "Fi_Inesperat",
+      file: "fitxer",
+      didYouMean: "volies dir",
+      includedFrom: "inclòs des de",
+      size: "mida",
+      index: "índex",
+      path: "camí",
+      available: "disponibles",
+      element: "element",
+      hintMissingEquals: "falta el \"=\" entre el nom i el valor",
+      hintMissingSemicolon: "falta \";\" abans d'aquesta instrucció",
+      hintUnclosedBlock: "la \"{\" oberta a la línia {line} no es tanca mai amb \"}\"",
+      hintUnclosedBracket: "el \"[\" obert a la línia {line} no es tanca mai amb \"]\"",
+      hintUnclosedComment: "el comentari obert a la línia {line} no es tanca mai amb */",
+      hintUnclosedString: "al text obert a la línia {line} li falta la cometa de tancament",
+      hintModuleNotFound: "mòdul no trobat; cercat a \"{path}\"",
+      hintLibraryUnknown: "biblioteca desconeguda; disponibles: {list}",
+      hintIndexRange: "l'array té mida {size}; índexs vàlids: {range}",
+      hintIndexEmpty: "l'array és buit, per tant no té cap índex vàlid",
+      hintNotArray: "el valor no és un array",
+      hintNull: "no s'ha proporcionat cap valor (nul o indefinit)",
+      hintNaN: "el nombre no és vàlid (NaN)",
+      hintInfinite: "el nombre és infinit",
+      hintNoInput: "el programa esperava una entrada però l'entrada ha acabat",
+      hintInternal: "això sembla un error intern d'Enide, no un error del teu programa; si us plau, informa'n",
+      hintDuplicateProperty: "la propietat \"{name}\" està declarada més d'una vegada",
+      hintMissingProperty: "la propietat \"{name}\" no existeix",
+      hintArrayMixed: "un array no pot barrejar arrays i valors simples",
+      hintArrayEmpty: "un array necessita almenys un valor",
+      hintObjectArrayShape: "l'element {index} no coincideix amb el primer: revisa la propietat \"{name}\"",
+      hintLoopCounter: "el comptador del bucle ha de ser un nombre",
+      hintErrorsFound: "{count} errors trobats",
+    }),
     main: errorMessage("ERROR", "error genèric del sistema"),
     __TypeError: errorMessage("ERROR_TIPUS", "tipus invàlid en l'operació"),
     __InitError: errorMessage(

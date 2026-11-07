@@ -1,8 +1,8 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const espanol = new Language({
-  language: "espanol",
+  language: "español",
   about:
     "ENIDE es un lenguaje de programación multilingüe que te permite programar en cualquier idioma.",
   include: DocStr("Incluir", "Se utiliza para incluir lenguajes o bibliotecas"),
@@ -94,6 +94,45 @@ export const espanol = new Language({
       __hour: DocStr("Hora", "para obtener la hora"),
       __minute: DocStr("Minuto", "para obtener el minuto"),
       __second: DocStr("Segundo", "para obtener el segundo"),
+      __milliseconds: DocStr("Milisegundos", "para obtener los milisegundos"),
+    },
+
+    __array: {
+      main: DocStr(
+        "arreglo",
+        "para acceder a las funciones de manipulación de arreglos",
+      ),
+      __addStart: DocStr(
+        "AgregarInicio",
+        "Inserta nuevos elementos al inicio de un arreglo y devuelve la nueva longitud del arreglo.",
+      ),
+      __addEnd: DocStr(
+        "AgregarFinal",
+        "Agrega nuevos elementos al final de un arreglo",
+      ),
+      __join: DocStr(
+        "Unir",
+        "Une todos los elementos de un arreglo en una cadena, separados por la cadena separadora especificada, y devuelve la cadena resultante.",
+      ),
+      __length: DocStr(
+        "loLongitudArreg",
+        "Obtiene o establece la longitud del arreglo",
+      ),
+    },
+
+    __time: {
+      main: DocStr(
+        "tiempo",
+        "para acceder a las funciones de tiempo para programar la ejecución de código",
+      ),
+      __timeOut: DocStr(
+        "Retraso",
+        "ejecuta una función una vez después de un retraso específico en milisegundos",
+      ),
+      __timeInterval: DocStr(
+        "Intervalo",
+        "ejecuta una función repetidamente a intervalos de tiempo fijos en milisegundos",
+      ),
     },
   },
 
@@ -135,6 +174,7 @@ export const espanol = new Language({
   methods: {
     method: {
       __print: DocStr("escribir", "para escribir un valor en la pantalla"),
+      __clear: DocStr("limpio", "para vaciar la pantalla"),
       __scan: DocStr("leer", "para leer un valor de la entrada"),
       __return: DocStr("retornar", "para retornar un valor de una función"),
       __break: DocStr("romper", "para salir de un bucle"),
@@ -180,22 +220,53 @@ export const espanol = new Language({
   },
 
   errors: {
-    __labels: errorLabel(
-      "Mensaje",
-      "Valor",
-      "Variable",
-      "Propiedad",
-      "Objeto",
-      "Esperado",
-      "Recibido",
-      "Asignación_Constante",
-      "Parámetro_Duplicado",
-      "Sugerencia",
-      "Token_Inválido",
-      "Desbordamiento_Pila",
-      "Token",
-      "Fin_Inesperado",
-    ),
+    __labels: errorLabels({
+      message: "Mensaje",
+      value: "Valor",
+      variable: "Variable",
+      property: "Propiedad",
+      object: "Objeto",
+      expected: "Esperado",
+      received: "Recibido",
+      constAssignment: "Asignación_Constante",
+      duplicateParam: "Parámetro_Duplicado",
+      hint: "Sugerencia",
+      invalidToken: "Token_Inválido",
+      stackOverflow: "Desbordamiento_Pila",
+      token: "Token",
+      unexpectedEnd: "Fin_Inesperado",
+      file: "archivo",
+      didYouMean: "quisiste decir",
+      includedFrom: "incluido desde",
+      size: "tamaño",
+      index: "índice",
+      path: "ruta",
+      available: "disponibles",
+      element: "elemento",
+      hintMissingEquals: "falta el \"=\" entre el nombre y el valor",
+      hintMissingSemicolon: "falta \";\" antes de esta instrucción",
+      hintUnclosedBlock: "la \"{\" abierta en la línea {line} nunca se cierra con \"}\"",
+      hintUnclosedBracket: "el \"[\" abierto en la línea {line} nunca se cierra con \"]\"",
+      hintUnclosedComment: "el comentario abierto en la línea {line} nunca se cierra con */",
+      hintUnclosedString: "al texto abierto en la línea {line} le falta la comilla de cierre",
+      hintModuleNotFound: "módulo no encontrado; se buscó en \"{path}\"",
+      hintLibraryUnknown: "biblioteca desconocida; disponibles: {list}",
+      hintIndexRange: "el arreglo tiene tamaño {size}; índices válidos: {range}",
+      hintIndexEmpty: "el arreglo está vacío, por lo que no tiene índices válidos",
+      hintNotArray: "el valor no es un arreglo",
+      hintNull: "no se proporcionó ningún valor (nulo o indefinido)",
+      hintNaN: "el número no es válido (NaN)",
+      hintInfinite: "el número es infinito",
+      hintNoInput: "el programa pidió una entrada pero la entrada terminó",
+      hintInternal: "esto parece un error interno de Enide, no un fallo de tu programa; por favor repórtalo",
+      hintDuplicateProperty: "la propiedad \"{name}\" está declarada más de una vez",
+      hintMissingProperty: "la propiedad \"{name}\" no existe",
+      hintArrayMixed: "un arreglo no puede mezclar arreglos y valores simples",
+      hintArrayEmpty: "un arreglo necesita al menos un valor",
+      hintObjectArrayShape: "el elemento {index} no coincide con el primero: revisa la propiedad \"{name}\"",
+      hintLoopCounter: "el contador del ciclo debe ser un número",
+      hintErrorsFound: "{count} errores encontrados",
+    }),
     main: errorMessage("ERROR", "error genérico del sistema"),
     __TypeError: errorMessage("ERROR_TIPO", "tipo inválido en la operación"),
     __InitError: errorMessage(
@@ -207,10 +278,7 @@ export const espanol = new Language({
       "la variable, función o biblioteca no existe en el scope",
     ),
     __SyntaxError: errorMessage("ERROR_SINTAXIS", "código inválido"),
-    __RangeError: errorMessage(
-      "ERROR_RANGO",
-      "valor fuera del rango permitido",
-    ),
+    __RangeError: errorMessage("ERROR_RANGO", "valor fuera del rango permitido"),
     __URIError: errorMessage("ERROR_URI", "URI mal formada o inválida"),
     __EvalError: errorMessage("ERROR_EVAL", "error relacionado con eval"),
     __UNKNOWN_ERROR: errorMessage(

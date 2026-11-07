@@ -1,10 +1,10 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const yoruba = new Language({
   language: "yoruba",
   about:
-    "ENIDE jẹ́ èdè ètò-kọ̀ǹpútà oní-èdè púpọ̀ tí ó jẹ́ kí o lè ṣe ètò ní èdè èyíkéyìí",
+    "ENIDE jẹ́ èdè ètò-kọ̀ǹpútà oní-èdè púpọ̀ tí ó jẹ́ kí o lè ṣe ètò ní èdè èyíkéyìí",
   include: DocStr(
     "FiKún",
     "A máa ń lo ó láti fi èdè, ilé-ìkàwé, tàbí ìlànà data míràn kún koodu láti inú ìwé-fáìlì míràn",
@@ -24,7 +24,7 @@ export const yoruba = new Language({
       main: DocStr("Wọ́pọ̀", "àwọn iṣẹ́ pàtàkì tí ó wọ́pọ̀ fún ètò"),
       __isarray: DocStr("Jẹ́Atọ́jọ́", "ṣe àyẹ̀wò bóyá iye jẹ́ atọ́jọ́"),
       __isobject: DocStr("Jẹ́Ńkan", "ṣe àyẹ̀wò bóyá iye jẹ́ ńkan"),
-      __typeof: DocStr("IrúÌyípadà", "láti gba irú data tí ìyípadà"),
+      __typeof: DocStr("IrúIye", "láti gba irú data tí ìyípadà"),
       __parse: DocStr("Túmọ̀sí", "láti yí ọ̀rọ̀ padà sí irú data tó yẹ"),
     },
     __math: {
@@ -33,7 +33,7 @@ export const yoruba = new Language({
       __sqrt: DocStr("Gbòngbò", "láti gba gbòngbò alágbára kejì"),
       __pow: DocStr("Àgbára", "láti gba àgbára nọ́mbà kan"),
       __round: DocStr("Yíká", "láti yíká nọ́mbà kan"),
-      __random: DocStr("Àìríríro", "láti gba nọ́mbà àìríríro"),
+      __random: DocStr("Àìròtẹ́lẹ̀", "láti gba nọ́mbà àìròtẹ́lẹ̀"),
       __max: DocStr("Tóbí", "láti gba iye tí ó pọ̀ jùlọ"),
       __min: DocStr("Kéré", "láti gba iye tí ó kéré jùlọ"),
       __isNumber: DocStr("Jẹ́Nọ́mbà", "láti ṣàyẹ̀wò bóyá iye jẹ́ nọ́mbà"),
@@ -45,12 +45,12 @@ export const yoruba = new Language({
     },
 
     __string: {
-      main: DocStr("Ọ̀kún", "láti wọlé sí àwọn iṣẹ́ ṣíṣàtúnṣe ọ̀kún"),
-      __length: DocStr("Gígùn", "láti gba gígùn ọ̀kún"),
-      __toUpperCase: DocStr("Lẹ́tàŃlá", "láti yí ọ̀kún padà sí lẹ́tà ńlá"),
-      __toLowerCase: DocStr("Lẹ́tàKéré", "láti yí ọ̀kún padà sí lẹ́tà kéré"),
-      __include: DocStr("NíNínú", "ṣe àyẹ̀wò bóyá ọ̀kún ní ọ̀rọ̀ kan nínú"),
-      __repeat: DocStr("Túnṣo", "láti tún ọ̀kún sọ ní ọ̀pọ̀ ìgbà"),
+      main: DocStr("Ọ̀rọ̀", "láti wọlé sí àwọn iṣẹ́ ṣíṣàtúnṣe ọ̀rọ̀"),
+      __length: DocStr("Gígùn", "láti gba gígùn ọ̀rọ̀"),
+      __toUpperCase: DocStr("Lẹ́tàŃlá", "láti yí ọ̀rọ̀ padà sí lẹ́tà ńlá"),
+      __toLowerCase: DocStr("Lẹ́tàKéré", "láti yí ọ̀rọ̀ padà sí lẹ́tà kéré"),
+      __include: DocStr("NíNínú", "ṣe àyẹ̀wò bóyá ọ̀rọ̀ ní ọ̀rọ̀ kan nínú"),
+      __repeat: DocStr("Túnṣo", "láti tún ọ̀rọ̀ sọ ní ọ̀pọ̀ ìgbà"),
     },
 
     __date: {
@@ -63,13 +63,40 @@ export const yoruba = new Language({
       __hour: DocStr("Wákàtí", "láti gba wákàtí"),
       __minute: DocStr("Ìṣẹ́jú", "láti gba ìṣẹ́jú"),
       __second: DocStr("Àáyá", "láti gba àáyá"),
+      __milliseconds: DocStr("ÀáyáMílì", "láti gba àáyá mílì"),
+    },
+
+    __array: {
+      main: DocStr("Atọ́jọ́", "láti wọlé sí àwọn iṣẹ́ ṣíṣàtúnṣe atọ́jọ́"),
+      __addStart: DocStr(
+        "FiKúnÌbẹ̀rẹ̀",
+        "A máa ń fi nǹkan tuntun sí ìbẹ̀rẹ̀ atọ́jọ́, ó sì ń padà pẹ̀lú gígùn atọ́jọ́ tuntun.",
+      ),
+      __addEnd: DocStr("FiKúnÒpin", "A máa ń fi nǹkan tuntun sí òpin atọ́jọ́"),
+      __join: DocStr(
+        "SoPọ̀",
+        "A máa ń so gbogbo àwọn nǹkan inú atọ́jọ́ pọ̀ sí ọ̀rọ̀ gẹ́gẹ́ bí àmì ìyàtọ̀ ṣe wà, ó sì ń padà pẹ̀lú ọ̀rọ̀ abájade.",
+      ),
+      __length: DocStr("Atọ́jọ́gígùn", "láti gba tàbí láti tò gígùn atọ́jọ́"),
+    },
+
+    __time: {
+      main: DocStr("àkókò", "láti wọlé sí àwọn iṣẹ́ àkókò láti tò ìgbéṣẹ́ kọ́ọ̀dù"),
+      __timeOut: DocStr(
+        "ÀkókòKọjá",
+        "láti ṣe iṣẹ́ kan lẹ́yìn ìdádó àkókò kíkún nínú àáyá mílì",
+      ),
+      __timeInterval: DocStr(
+        "ÀkókòÀyípadà",
+        "láti ṣe iṣẹ́ kan léraléra ní àkókò tí a tò nínú àáyá mílì",
+      ),
     },
   },
 
   types: {
     __number: DocStr("Nọ́mbà", "láti kéde ìyípadà tí irú nọ́mbà"),
-    __string: DocStr("Ọ̀kún", "láti kéde ìyípadà tí irú ọ̀kún"),
-    __boolean: DocStr("Bool", "láti kéde ìyípadà tí irú boolean"),
+    __string: DocStr("Ọ̀rọ̀", "láti kéde ìyípadà tí irú ọ̀rọ̀"),
+    __boolean: DocStr("Òtítọ́Irọ́", "láti kéde ìyípadà tí irú òtítọ́-irọ́"),
     __object: DocStr("Ńkan", "láti kéde ńkan kan tí kò yípadà"),
     __void: DocStr("Ṣófo", "iṣẹ́ tí kò ní iye tí ó ń padà"),
     __array: DocStr("Atọ́jọ́", "láti kéde àkójọpọ̀ àwọn ńkan"),
@@ -97,7 +124,8 @@ export const yoruba = new Language({
 
   methods: {
     method: {
-      __print: DocStr("Tẹ̀", "láti tẹ̀ iye sórí ìbójú"),
+      __print: DocStr("Tẹ̀jáde", "láti tẹ̀ iye sórí ìbójú"),
+      __clear: DocStr("Nu", "láti nu iboju náà"),
       __scan: DocStr("Kà", "láti kà iye láti ọ̀dọ̀ olùmúlò"),
       __return: DocStr("Padà", "láti padà pẹ̀lú iye láti iṣẹ́"),
       __break: DocStr("Dúró", "láti dá lupu dúró"),
@@ -106,7 +134,7 @@ export const yoruba = new Language({
 
     sentences: {
       __function: DocStr("Iṣẹ́", "láti kéde iṣẹ́"),
-      __if: DocStr("Bíbá", "láti kéde ipò"),
+      __if: DocStr("Bí", "láti kéde ipò"),
       __else: DocStr("Tàbí", "láti kéde ipò míràn"),
       __while: DocStr("Nígbà", "láti kéde lupu nígbà"),
       __for: DocStr("Fún", "láti kéde lupu fún"),
@@ -121,34 +149,69 @@ export const yoruba = new Language({
     },
   },
   errors: {
-    __labels: errorLabel(
-      "Ìfìránṣẹ́",
-      "Iye",
-      "Ìyípadà",
-      "OhunÌní",
-      "Ńkan",
-      "OhunTíArétí",
-      "OhunTíAGbà",
-      "ÀtúntòKọ̀nstàntì",
-      "PàrámítàẸméjì",
-      "Ìrànlọ́wọ́",
-      "ÀmìÀìmọ̀",
-      "StàckKún",
-      "Àmì",
-      "ÒpinÌwọléLójijì",
+    __labels: errorLabels({
+      message: "Ìfìránṣẹ́",
+      value: "Iye",
+      variable: "Ìyípadà",
+      property: "OhunÌní",
+      object: "Ńkan",
+      expected: "OhunTíArétí",
+      received: "OhunTíAGbà",
+      constAssignment: "ÀtúntòKọ̀nstàntì",
+      duplicateParam: "PàrámítàẸméjì",
+      hint: "Ìrànlọ́wọ́",
+      invalidToken: "ÀmìÀìmọ̀",
+      stackOverflow: "StàckKún",
+      token: "Àmì",
+      unexpectedEnd: "ÒpinÌwọléLójijì",
+      file: "fáìlì",
+      didYouMean: "ṣé ohun tí o ní lọ́kọ̀ọ́ nìyẹn",
+      includedFrom: "tí a gbé wọlé láti",
+      size: "ìwọ̀n",
+      index: "atọ́ka",
+      path: "ọ̀nà",
+      available: "tí ó wà",
+      element: "èròjà",
+      hintMissingEquals: 'àìní "=" láàárín orúkọ àti iye',
+      hintMissingSemicolon: 'àìní ";" ṣáájú ìlànà yìí',
+      hintUnclosedBlock: '"{" , tí a ṣí ní ìlà {line}, kò ní "}" tó dé e',
+      hintUnclosedBracket: '"[" , tí a ṣí ní ìlà {line}, kò ní "]" tó dé e',
+      hintUnclosedComment: "àlàyé, tí a ṣí ní ìlà {line}, kò ní */ tó dé e",
+      hintUnclosedString:
+        "ọ̀rọ̀, tí a ṣí ní ìlà {line}, kò ní àmì ìtọ́kasí ìdè tó dé e",
+      hintModuleNotFound: 'a kò rí módùlì náà; a wá a nínú "{path}"',
+      hintLibraryUnknown: "ilé-ìkàwé tí a kò mọ̀; àwọn tí ó wà: {list}",
+      hintIndexRange: "atọ́ka ní ìwọ̀n {size}; àwọn atọ́ka tó tọ́: {range}",
+      hintIndexEmpty: "ọ̀wọ́ ṣofo, nítorí náà kò ní atọ́ka tó tọ́",
+      hintNotArray: "iye náà kì í ṣe ọ̀wọ́",
+      hintNull: "kò sí iye tí a pèsè (null tàbí undefined)",
+      hintNaN: "nọ́mbà náà kò tọ́ (NaN)",
+      hintInfinite: "nọ́mbà náà kò ní òpin (infinite)",
+      hintNoInput: "ètò náà béèrè ìwọlé ṣùgbọ́n ìwọlé náà parí",
+      hintInternal:
+        "èyí dà bi àṣìṣe inú ti ENIDE, kì í ṣe àṣìṣe nínú ètò rẹ; jọ̀wọ́ jábọ̀ rẹ̀",
+      hintDuplicateProperty:
+        'ohun-ìní "{name}" ti wà ní kíkọ lẹ́ẹ̀meji tàbí jù bẹ́ẹ̀ lọ',
+      hintMissingProperty: 'ohun-ìní "{name}" kò sí',
+      hintArrayMixed: "ọ̀wọ́ kan kò le dapọ̀ ọ̀wọ́ àti àwọn iye tí ó rọrùn",
+      hintArrayEmpty: "ọ̀wọ́ kan nílò ó kere ju iye kan",
+      hintObjectArrayShape:
+        'èròjà {index} kò bá èròjà àkọ́kọ́ mu: ṣàyẹ̀wò ohun-ìní "{name}"',
+      hintLoopCounter: "kaunti loop gbọ́dọ̀ jẹ́ nọ́mbà",
+      hintErrorsFound: "a rí àṣìṣe {count}",
+    }),
+    main: errorMessage("ÀṢÌṢE", "àṣìṣe èto gbogbogbò"),
+    __TypeError: errorMessage("ÀṢÌṢE_IRÚ", "irú tí kò tọ́ nínú ìṣe"),
+    __InitError: errorMessage("ÀṢÌṢE_ÌBẸRẸ̀", "ìyípadà kò tíì ní ìbẹ̀rẹ̀"),
+    __ReferenceError: errorMessage(
+      "ÀṢÌṢE_ÌTỌ́KASÍ",
+      "ìyípadà, iṣẹ́ tàbí ilé-ìkàwé kò sí nínú àgbègbè yìí",
     ),
-    main: errorMessage("ÀṢÌṢẸ", "Àṣìṣẹ gbogboogbò tí ètò"),
-    __TypeError: errorMessage("ÀṣìṣẹIrú", "Irú kò tọ́ nínú iṣẹ́"),
-    __InitError: errorMessage("ÀṣìṣẹInit", "Ìyípadà kò ní iye ìpìlẹ̀"),
-    __ReferenceError: errorMessage("ÀṣìṣẹItọ́ka", "Ìyípadà kò sí ní ààyè"),
-    __SyntaxError: errorMessage("ÀṣìṣẹSìntásì", "Koodu kò tọ́"),
-    __RangeError: errorMessage(
-      "ÀṣìṣẹÌsẹ̀lẹ̀",
-      "Iye wà ní ìta ààyè tí a gbà láàyè",
-    ),
-    __URIError: errorMessage("ÀṣìṣẹUri", "URI tí bàjẹ́ tàbí tí kò tọ́"),
-    __EvalError: errorMessage("ÀṣìṣẹEval", "Àṣìṣẹ tí ó ní ìbátan pẹ̀lú eval"),
-    __UNKNOWN_ERROR: errorMessage("ÀṣìṣẹÀìmọ̀", "Àṣìṣẹ tí a kò mọ̀ rárá"),
+    __SyntaxError: errorMessage("ÀṢÌṢE_SÌNTÁKSÌ", "kóòdù tí kò tọ́"),
+    __RangeError: errorMessage("ÀṢÌṢE_ÌWỌ̀N", "iye wà níta ìwọ̀n tí a gbà"),
+    __URIError: errorMessage("ÀṢÌṢE_URI", "URI tí kò tọ́ tàbí tí a kò mú lọ́nà tọ́"),
+    __EvalError: errorMessage("ÀṢÌṢE_EVAL", "àṣìṣe tí ó ní ṣe pẹ̀lú eval"),
+    __UNKNOWN_ERROR: errorMessage("ÀṢÌṢE_ÀÌMỌ̀", "àṣìṣe tí a kò mọ̀ rárá"),
   },
 
   example: {
@@ -181,7 +244,7 @@ export const yoruba = new Language({
       "ṣiròIye",
       "fiDánì",
       "túnPròfìlùṢe",
-      "ṣeỌ̀kún",
+      "ṣeỌ̀rọ̀",
       "yẹ̀wòKoodu",
       "yẹ̀wòData",
       "pamọ́Ìwé",

@@ -1,7 +1,11 @@
 import { low, up, norm, normCap, normUp } from "./cases.string.js";
 
 import { DocStructure } from "../grammar.interface.js";
-import { ErrorLabels, ErrorStructure } from "../interfaces/error.interface.js";
+import {
+  ERROR_EXTRA_LABEL_KEYS,
+  ErrorLabels,
+  ErrorStructure,
+} from "../interfaces/error.interface.js";
 
 export const normEntry = (entry: Partial<DocStructure>) => {
   return {
@@ -31,8 +35,35 @@ export const errorEntry = (entry: Partial<ErrorStructure>) => {
   };
 };
 
+const EXTRA_LABELS_TO_LOWER = [
+  "file",
+  "didYouMean",
+  "includedFrom",
+  "size",
+  "index",
+  "path",
+  "available",
+  "element",
+] as const;
+
+const extraLabels = (entry: Partial<ErrorLabels>): Partial<ErrorLabels> => {
+  const extras: Record<string, string> = {};
+
+  for (const key of ERROR_EXTRA_LABEL_KEYS) {
+    const value = entry[key];
+    if (typeof value !== "string" || !value.trim()) continue;
+
+    extras[key] = (EXTRA_LABELS_TO_LOWER as readonly string[]).includes(key)
+      ? low(value, false)
+      : value.trim();
+  }
+
+  return extras;
+};
+
 export const errorLabelEntry = (entry: Partial<ErrorLabels>): ErrorLabels => {
   return {
+    ...extraLabels(entry),
     message: normCap(entry.message ?? "", false),
     value: low(entry.value ?? "", false),
     variable: low(entry.variable ?? "", false),
@@ -52,6 +83,11 @@ export const errorLabelEntry = (entry: Partial<ErrorLabels>): ErrorLabels => {
 };
 
 export const exemplesEntry = (entry: string[]) => {
+  if (entry.length < 10) {
+    for (let index = 0; index < 10 - entry.length; index++) {
+      entry.push(`Var${index + 1}`);
+    }
+  }
   return entry
     ?.map((items) => norm(items, true))
     .filter((item) => item !== null);

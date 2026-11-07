@@ -1,5 +1,5 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const swahili = new Language({
   language: "swahili",
@@ -79,6 +79,39 @@ export const swahili = new Language({
       __hour: DocStr("Saa", "kupata saa"),
       __minute: DocStr("Dakika", "kupata dakika"),
       __second: DocStr("Sekunde", "kupata sekunde"),
+      __milliseconds: DocStr("Milisekunde", "kupata milisekunde"),
+    },
+
+    __array: {
+      main: DocStr("orodha", "kufikia kazi za uhariri wa orodha"),
+      __addStart: DocStr(
+        "OngezaMwanzo",
+        "Inaingiza vipengele vipya mwanzo wa orodha, na kurudisha urefu mpya wa orodha.",
+      ),
+      __addEnd: DocStr(
+        "OngezaMwisho",
+        "Inaongeza vipengele vipya mwishoni mwa orodha",
+      ),
+      __join: DocStr(
+        "Unganisha",
+        "Inaunganisha vipengele vyote vya orodha kuwa mfuatano, vikitenganishwa na mfuatano wa kitenganishi uliotajwa, na kurudisha mfuatano unaopatikana.",
+      ),
+      __length: DocStr("OrodhaUrefu", "Inapata au kuweka urefu wa orodha"),
+    },
+
+    __time: {
+      main: DocStr(
+        "wakati",
+        "kufikia kazi za wakati kupanga utekelezaji wa msimbo",
+      ),
+      __timeOut: DocStr(
+        "MudaWaKusubiri",
+        "kutekeleza kazi mara moja baada ya kuchelewa maalum kwa milisekunde",
+      ),
+      __timeInterval: DocStr(
+        "MudaWaKipindi",
+        "kutekeleza kazi mara kwa mara katika vipindi maalum vya muda kwa milisekunde",
+      ),
     },
   },
 
@@ -120,6 +153,7 @@ export const swahili = new Language({
   methods: {
     method: {
       __print: DocStr("Chapisha", "kuchapisha thamani kwenye skrini"),
+      __clear: DocStr("kusafisha", "Safisha skrini"),
       __scan: DocStr("Soma", "kusoma thamani kutoka kwa mtumiaji"),
       __return: DocStr("Rudisha", "kurudisha thamani kutoka kwa kazi"),
       __break: DocStr("Simama", "kutoka kwenye kitanzi"),
@@ -153,22 +187,53 @@ export const swahili = new Language({
   },
 
   errors: {
-    __labels: errorLabel(
-      "Ujumbe",
-      "Thamani",
-      "Kigezo",
-      "Sifa",
-      "Kitu",
-      "Inatarajiwa",
-      "Ilipokelewa",
-      "UgawajiWaKudumu",
-      "ParametaRudia",
-      "Kidokezo",
-      "TokeniBatili",
-      "MfumoUmejaa",
-      "Tokeni",
-      "MwishoWaIngizoUsiotarajiwa",
-    ),
+    __labels: errorLabels({
+      message: "Ujumbe",
+      value: "Thamani",
+      variable: "Kigezo",
+      property: "Sifa",
+      object: "Kitu",
+      expected: "Inatarajiwa",
+      received: "Ilipokelewa",
+      constAssignment: "UgawajiWaKudumu",
+      duplicateParam: "ParametaRudia",
+      hint: "Kidokezo",
+      invalidToken: "TokeniBatili",
+      stackOverflow: "MfumoUmejaa",
+      token: "Tokeni",
+      unexpectedEnd: "MwishoWaIngizoUsiotarajiwa",
+      file: "faili",
+      didYouMean: "ulimaanisha",
+      includedFrom: "imejumuishwa kutoka",
+      size: "ukubwa",
+      index: "kielezo",
+      path: "njia",
+      available: "zilizopo",
+      element: "kipengele",
+      hintMissingEquals: "alama ya \"=\" inakosekana kati ya jina na thamani",
+      hintMissingSemicolon: "alama ya \";\" inakosekana kabla ya amri hii",
+      hintUnclosedBlock: "\"{\" iliyofunguliwa mstari {line} haijafungwa kamwe kwa \"}\"",
+      hintUnclosedBracket: "\"[\" iliyofunguliwa mstari {line} haijafungwa kamwe kwa \"]\"",
+      hintUnclosedComment: "maoni yaliyofunguliwa mstari {line} hayajafungwa kamwe kwa */",
+      hintUnclosedString: "maandishi yaliyofunguliwa mstari {line} hayana alama ya kufunga nukuu",
+      hintModuleNotFound: "moduli haikupatikana; ilitafutwa katika \"{path}\"",
+      hintLibraryUnknown: "maktaba haijulikani; zilizopo: {list}",
+      hintIndexRange: "safu ina ukubwa {size}; viashiria halali: {range}",
+      hintIndexEmpty: "safu ni tupu, kwa hivyo haina kielezo halali",
+      hintNotArray: "thamani si safu",
+      hintNull: "hakuna thamani iliyotolewa (null au haijafafanuliwa)",
+      hintNaN: "nambari si halali (NaN)",
+      hintInfinite: "nambari haina kikomo",
+      hintNoInput: "programu iliomba ingizo lakini ingizo limeisha",
+      hintInternal: "hii inaonekana kuwa hitilafu ya ndani ya Enide, si kosa la programu yako; tafadhali iripoti",
+      hintDuplicateProperty: "sifa \"{name}\" imetangazwa zaidi ya mara moja",
+      hintMissingProperty: "sifa \"{name}\" haipo",
+      hintArrayMixed: "safu haiwezi kuchanganya safu na thamani moja",
+      hintArrayEmpty: "safu inahitaji angalau thamani moja",
+      hintObjectArrayShape: "kipengele {index} hakilingani na cha kwanza: angalia sifa \"{name}\"",
+      hintLoopCounter: "kihesabu cha mzunguko lazima kiwe nambari",
+      hintErrorsFound: "makosa {count} yamepatikana",
+    }),
     main: errorMessage("KOSA", "kosa la jumla la mfumo"),
     __TypeError: errorMessage("KOSALAAINA", "aina si sahihi katika operesheni"),
     __InitError: errorMessage("KOSALAKUANZISHA", "kigezo hakikuanzishwa"),
@@ -177,10 +242,7 @@ export const swahili = new Language({
       "kigezo, kazi au maktaba haipo katika wigo",
     ),
     __SyntaxError: errorMessage("KOSALASINTAKSIA", "msimbo si sahihi"),
-    __RangeError: errorMessage(
-      "KOSALASAFU",
-      "thamani nje ya safu inayoruhusiwa",
-    ),
+    __RangeError: errorMessage("KOSALASAFU", "thamani nje ya safu inayoruhusiwa"),
     __URIError: errorMessage("KOSALAURI", "URI iliyopotoka au si sahihi"),
     __EvalError: errorMessage("KOSALAEVAL", "kosa linalohusiana na eval"),
     __UNKNOWN_ERROR: errorMessage(

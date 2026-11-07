@@ -61,7 +61,7 @@ enide-lang/
 │   ├── languages/
 │   │   ├── grammars/             # Grammar definition files (one per language)
 │   │   ├── interfaces/           # TypeScript interfaces for every grammar section
-│   │   │   └── libraries/        # Interfaces for each built-in library (math, string, date, standard)
+│   │   │   └── libraries/        # Interfaces for each built-in library (math, string, date, standard, array, time)
 │   │   ├── mappers/               # Normalizes each grammar section into its final shape
 │   │   ├── utils/                 # String casing, Unicode normalization, and structure helpers
 │   │   ├── GLOBALMAP.ts           # Character transliteration table

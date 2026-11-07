@@ -28,10 +28,12 @@ enide-lang/
 │   │   ├── grammars/                    # Grammar definition files (one per language, 90 files)
 │   │   ├── interfaces/                  # TypeScript interfaces for every grammar section
 │   │   │   ├── libraries/               # Interfaces for each built-in library
+│   │   │   │   ├── array.library.ts
 │   │   │   │   ├── date.library.ts
 │   │   │   │   ├── math.library.ts
 │   │   │   │   ├── standard.library.ts
-│   │   │   │   └── string.library.ts
+│   │   │   │   ├── string.library.ts
+│   │   │   │   └── time.library.ts
 │   │   │   ├── accessModifiers.interface.ts
 │   │   │   ├── command.interface.ts
 │   │   │   ├── error.interface.ts
@@ -187,6 +189,25 @@ Defines the built-in standard libraries.
 | `__hour` | Returns the current hour |
 | `__minute` | Returns the current minute |
 | `__second` | Returns the current second |
+| `__milliseconds` | Returns the current milliseconds |
+
+#### Array - `__array`
+
+| Member | Description |
+|---|---|
+| `main` | The keyword used to reference the array library |
+| `__length` | Gets or sets the length of an array |
+| `__join` | Joins all elements of an array into a string using a separator |
+| `__addStart` | Inserts new elements at the start of an array and returns the new length |
+| `__addEnd` | Appends new elements to the end of an array |
+
+#### Time - `__time`
+
+| Member | Description |
+|---|---|
+| `main` | The keyword used to reference the time library |
+| `__timeOut` | Runs a function once after a delay in milliseconds |
+| `__timeInterval` | Runs a function repeatedly at a fixed interval in milliseconds |
 
 ---
 
@@ -252,6 +273,7 @@ Divided into two categories: built-in methods and control flow sentences.
 | Method | Description |
 |---|---|
 | `__print` | Outputs a value to the console |
+| `__clear` | Clears the screen |
 | `__scan` | Reads input from the user |
 | `__return` | Returns a value from a function |
 | `__break` | Exits a loop |
@@ -314,6 +336,23 @@ Defines the error tags and messages used throughout the language runtime.
 | `stackOverflow` | Label for a stack overflow error |
 | `constAssignment` | Label for a reassigned-constant error |
 | `duplicateParam` | Label for a duplicate function parameter error |
+
+`ErrorLabels` also accepts **optional** extra labels. They are used by the CLI to translate the remaining parts of its error output; any extra label left out falls back to the CLI's built-in English text.
+
+| Label | Description |
+|---|---|
+| `file`, `includedFrom`, `didYouMean` | Words used in file references and "did you mean" suggestions |
+| `size`, `index`, `path`, `available`, `element` | Words used when describing arrays, paths and available options |
+| `hintMissingEquals`, `hintMissingSemicolon` | Hints for a missing `=` or `;` |
+| `hintUnclosedBlock`, `hintUnclosedBracket`, `hintUnclosedComment`, `hintUnclosedString` | Hints for unclosed `{`, `[`, comments and strings (use the `{line}` placeholder) |
+| `hintModuleNotFound`, `hintLibraryUnknown` | Hints for unknown modules and libraries (`{path}`, `{list}`) |
+| `hintIndexRange`, `hintIndexEmpty`, `hintNotArray` | Hints for array index and type errors (`{size}`, `{range}`) |
+| `hintNull`, `hintNaN`, `hintInfinite`, `hintNoInput`, `hintInternal` | Hints for null values, invalid numbers, missing input and internal errors |
+| `hintDuplicateProperty`, `hintMissingProperty` | Hints for object property errors (`{name}`) |
+| `hintArrayMixed`, `hintArrayEmpty`, `hintObjectArrayShape`, `hintLoopCounter` | Hints for array and loop declaration errors (`{index}`, `{name}`) |
+| `hintErrorsFound` | Summary line when several errors are found (`{count}`) |
+
+Placeholders written as `{name}` must be kept exactly as they are in every translation.
 
 ---
 

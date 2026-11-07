@@ -2,6 +2,7 @@ import { DocStructure } from "../grammar.interface.js";
 
 interface MethodsMethod {
   __print: DocStructure;
+  __clear: DocStructure;
   __scan: DocStructure;
   __return: DocStructure;
   __continue: DocStructure;

@@ -1,5 +1,5 @@
 import { Language } from "../grammar.class.js";
-import { DocStr, errorMessage, errorLabel } from "../utils/stucture.grammar.js";
+import { DocStr, errorMessage, errorLabels } from "../utils/stucture.grammar.js";
 
 export const shona = new Language({
   language: "shona",
@@ -22,7 +22,7 @@ export const shona = new Language({
       "Magwaro",
       "Kuratidza gwaro rine tsananguro dzekushandisa mutauro uyu",
     ),
-    __grammar: DocStr("Isintaksi", "Mitemo yemanyorerwo emutauro uyu"),
+    __grammar: DocStr("Manyorerwo", "Mitemo yemanyorerwo emutauro uyu"),
   },
 
   library: {
@@ -32,16 +32,16 @@ export const shona = new Language({
         "Kuwana mabasa ekutanga ehurongwa hwesistimu",
       ),
       __isarray: DocStr(
-        "IRondedzero",
+        "InoRondedzero",
         "Kuona kana kukosha kuri nhengo dzerondedzero (array)",
       ),
       __isobject: DocStr(
-        "IChinhu",
+        "InoChinhu",
         "Kuona kana kukosha kuri chinhu chakarongeka (object)",
       ),
       __typeof: DocStr("MhandoYe", "Kudzora mhando yedata riri muchinhu"),
       __parse: DocStr(
-        "Cazulula",
+        "Chazulura",
         "Kushandura mameseji kuita mhando yedata inogona kuverengwa nesistimu",
       ),
     },
@@ -49,8 +49,8 @@ export const shona = new Language({
       main: DocStr("Masvomhu", "Mabasa emasvomhu nezvinhu zvisingachinji"),
       __pi: DocStr("PI", "Kukosha kwechisingachinji chinonzi Pi"),
       __sqrt: DocStr(
-        "MudziWeskweya",
-        "Kuziva mudzi weskweya wenhamba (square root)",
+        "MudziWemakwere",
+        "Kuziva mudzi wemakwere wenhamba (square root)",
       ),
       __pow: DocStr("Simba", "Kusimudza nhamba kusimba rakati (puissance)"),
       __round: DocStr(
@@ -69,9 +69,9 @@ export const shona = new Language({
         "Kuona kana nhamba iri yose isina desimali (integer)",
       ),
       __isFloat: DocStr("IneDhesimali", "Kuona kana nhamba ine dhesimali"),
-      __cos: DocStr("kosi", "Kubala i-cosine"),
-      __sin: DocStr("sini", "Kubala i-sine"),
-      __tan: DocStr("tani", "Kubala i-tangent"),
+      __cos: DocStr("kosi", "Kuverenga i-cosine"),
+      __sin: DocStr("sini", "Kuverenga i-sine"),
+      __tan: DocStr("tani", "Kuverenga i-tangent"),
     },
 
     __string: {
@@ -99,13 +99,52 @@ export const shona = new Language({
       __hour: DocStr("Awa", "Kuwana awa"),
       __minute: DocStr("Maminitsi", "Kuwana maminitsi"),
       __second: DocStr("Sekondi", "Kuwana sekondi"),
+      __milliseconds: DocStr(
+        "MasekondiMadiki",
+        "Kuwana masekondi madiki (milliseconds)",
+      ),
+    },
+
+    __array: {
+      main: DocStr(
+        "Rondedzero",
+        "Kuwana mabasa ekushandura nekuronga rondedzero",
+      ),
+      __addStart: DocStr(
+        "WedzeraPakutanga",
+        "Inoisa zvinhu zvitsva pakutanga perondedzero, uye inodzora urefu hutsva hwerondedzero.",
+      ),
+      __addEnd: DocStr(
+        "WedzeraPekupedzisira",
+        "Inowedzera zvinhu zvitsva kumagumo erondedzero",
+      ),
+      __join: DocStr(
+        "Sanganisa",
+        "Inosanganisa zvese zviri murondedzero kuita chinyorwa chimwe, zvakaganhurwa nechinyorwa chakatarwa, uye inodzora chinyorwa ichocho.",
+      ),
+      __length: DocStr(
+        "RondedzeroKureba",
+        "Inotora kana kugadza urefu hwerondedzero",
+      ),
+    },
+
+    __time: {
+      main: DocStr("Nguva", "Kuwana mabasa enguva ekuronga kumhanya kwekhodhi"),
+      __timeOut: DocStr(
+        "NguvaYakatarwa",
+        "Kumhanyisa basa kamwe chete mushure menonoko yakatarwa mumasekondi madiki",
+      ),
+      __timeInterval: DocStr(
+        "NguvaInodzokorora",
+        "Kumhanyisa basa dzokororo panguva dzakatarwa mumasekondi madiki",
+      ),
     },
   },
 
   types: {
     __number: DocStr("Nhamba", "Kutsanangura nguva yekuchinja kwenhamba"),
     __string: DocStr("Chinyorwa", "Kutsanangura mavara nemashoko echinyorwa"),
-    __boolean: DocStr("Bhuli", "Kutsanangura kana chiri chokwadi kana nhema"),
+    __boolean: DocStr("ChokwadiNhema", "Kutsanangura kana chiri chokwadi kana nhema"),
     __object: DocStr(
       "Chinhu",
       "Kutsanangura chinhu chakarongeka chisingachinji",
@@ -139,7 +178,7 @@ export const shona = new Language({
     __private: DocStr("Pachivande", "Inowanikwa mukati mekirasi iyi chete"),
     __public: DocStr(
       "Pachena",
-      "Inowanikwa kwese kwese kune dzimwe iiki-class",
+      "Inowanikwa kwese kwese kune dzimwe kirasi",
     ),
     __protected: DocStr(
       "Yakadzivirirwa",
@@ -158,6 +197,7 @@ export const shona = new Language({
   methods: {
     method: {
       __print: DocStr("Bonisa", "Kuratidza kana kudhinda pachiratidziri"),
+      __clear: DocStr("Chenesa", "Kubvisa zviri pachiratidziro"),
       __scan: DocStr("Verenga", "Kutora mashoko anoiswa nemushandisi (input)"),
       __return: DocStr("Dzorera", "Kudzosa kukosha kunobva mubasa (function)"),
       __break: DocStr("Mira", "Kumira kuitwa kwe-loop pakarepo"),
@@ -200,60 +240,86 @@ export const shona = new Language({
   },
 
   errors: {
-    __labels: errorLabel(
-      "Mharidzo",
-      "Kukosha",
-      "Chinhu",
-      "Pfuma",
-      "ChinhuChakarongeka",
-      "Zvaishuvewa",
-      "Zvawanikwa",
-      "KupaKukoshaKuchisingachinji",
-      "ZitaRakadzokororwa",
-      "Rubatsiro",
-      "TocheniIsiriIyo",
-      "StackOverflow",
-      "Tocheni",
-      "InputYaperaZvisizvo",
-    ),
-    main: errorMessage(
-      "KUKANGANISA",
-      "Kukanganisa kwehurongwa hwechimbichimbi hwesistimu",
-    ),
+    __labels: errorLabels({
+      message: "Meseji",
+      value: "Kukosha",
+      variable: "Shanduko",
+      property: "Chivakwa",
+      object: "Chinhu",
+      expected: "Zvinotarisirwa",
+      received: "Zvakagamuchirwa",
+      constAssignment: "Kugovera kweConstant",
+      duplicateParam: "Paramita Yakadzokororwa",
+      hint: "Zano",
+      invalidToken: "Token Isiri Yo",
+      stackOverflow: "Stack Overflow",
+      token: "Token",
+      unexpectedEnd: "Magumo Ekuisa Asina Kutarisirwa",
+      file: "faira",
+      didYouMean: "waireva",
+      includedFrom: "zvakaiswa kubva ku",
+      size: "ukuru",
+      index: "index",
+      path: "nzira",
+      available: "iripo",
+      element: "chinhu",
+      hintMissingEquals: 'panoshaya "=" pakati pezita ne kukosha',
+      hintMissingSemicolon: 'panoshaya ";" pamberi pemurairo uyu',
+      hintUnclosedBlock:
+        '"{" yakavhurwa pamutsara {line} haina kumbovharwa ne "}"',
+      hintUnclosedBracket:
+        '"[" yakavhurwa pamutsara {line} haina kumbovharwa ne "]"',
+      hintUnclosedComment:
+        "tsananguro yakavhurwa pamutsara {line} haina kumbovharwa ne */",
+      hintUnclosedString:
+        "mavara akavhurwa pamutsara {line} anoshaya kavha yekuvhara",
+      hintModuleNotFound: 'moduli haisi kuwanikwa; yakatsvakwa mu "{path}"',
+      hintLibraryUnknown: "raibhurari isingazivikanwe; iripo: {list}",
+      hintIndexRange:
+        "rondedzero ine ukuru {size}; ma index anoshanda: {range}",
+      hintIndexEmpty: "rondedzero isina chinhu, saka haina ma index anoshanda",
+      hintNotArray: "kukosha hakusi rondedzero",
+      hintNull: "hapana kukosha kwakapapiwa (null kana undefined)",
+      hintNaN: "nhamba haisiri yechokwadi (NaN)",
+      hintInfinite: "nhamba haina magumo",
+      hintNoInput: "chirongwa chakakumbira kuisa asi kuisa kwakapera",
+      hintInternal:
+        "izvi zvinoita senge kanganiso yemukati ye-ENIDE, hachisi kanganiso mune chako chirongwa; tapota zivisa",
+      hintDuplicateProperty: 'chivakwa "{name}" chakaziviswa kanopfuura kamwe',
+      hintMissingProperty: 'chivakwa "{name}" hakipo',
+      hintArrayMixed:
+        "rondedzero haigone kusanganisa rondedzero nehunhu hwakareruka",
+      hintArrayEmpty: "rondedzero inoda kanenge kukosha kumwe chete",
+      hintObjectArrayShape:
+        'chinhu {index} hachifambiri nechinhu chekutanga: tarisa chivakwa "{name}"',
+      hintLoopCounter: "kaunti ye-loop inofanira kuva nhamba",
+      hintErrorsFound: "{count} zvikanganiso zvawanikwa",
+    }),
+    main: errorMessage("KANGANISO", "kanganiso yemaitiro e-sistimu"),
     __TypeError: errorMessage(
-      "KUKANGANISAMHANDO",
-      "Mhando yedata isiri iyo pakushanda kwekuita",
+      "RUDZI_RWEKANGANISO",
+      "rudzi rusiri rwechokwadi mukushanda",
     ),
     __InitError: errorMessage(
-      "KUKANGANISAINIT",
-      "Chinhu kana variable haina kugadzirwa zvakanaka pakutanga",
+      "KUVAMBIRA_KWEKANGANISO",
+      "shanduko haina kutanga kuvambwa",
     ),
     __ReferenceError: errorMessage(
-      "KUKANGANISAREF",
-      "Kunongedzera kuchinhu kana chinyorwa chisipo muchikamu chino",
+      "KANGANISO_YENONGEZERERO",
+      "shanduko, basa kana raibhurari hazvipo muchikamu",
     ),
-    __SyntaxError: errorMessage(
-      "KUKANGANISASYNTAX",
-      "Manyorerwo ekodhi asiri kutevedza mitemo yesintaksi",
-    ),
+    __SyntaxError: errorMessage("KANGANISO_YESYNTAX", "kodhi isiri iyo"),
     __RangeError: errorMessage(
-      "KUKANGANISARANGE",
-      "Nhamba iri kunze kwemiganhu inotenderwa nesistimu",
+      "KANGANISO_YERUNJI",
+      "kukosha kuri kunze kwerunji runobvumirwa",
     ),
-    __URIError: errorMessage(
-      "KUKANGANISAURI",
-      "Mamiriro e-URI asiri iwo kwayo",
-    ),
-    __EvalError: errorMessage(
-      "KUKANGANISAEVAL",
-      "Kukanganisa kunobva mubasa re-eval",
-    ),
+    __URIError: errorMessage("KANGANISO_YEURI", "URI isina kumiswa kana isiri iyo"),
+    __EvalError: errorMessage("KANGANISO_YEEVAL", "kanganiso ine chekuita ne-eval"),
     __UNKNOWN_ERROR: errorMessage(
-      "KUKANGANISAKUSAZIVIKWA",
-      "Kukanganisa kusingazivikanwi kwaitika kusina kunyorwa",
+      "KANGANISO_ISINGAZIVIKANWE",
+      "kanganiso isingazivikanwe zvachose",
     ),
   },
-
   example: {
     __array: [
       "kudya",

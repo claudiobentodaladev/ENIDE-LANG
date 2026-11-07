@@ -3,7 +3,44 @@ export interface ErrorStructure {
   message: string;
 }
 
-export interface ErrorLabels {
+export const ERROR_EXTRA_LABEL_KEYS = [
+  "file",
+  "includedFrom",
+  "didYouMean",
+  "size",
+  "index",
+  "path",
+  "available",
+  "element",
+  "hintMissingEquals",
+  "hintMissingSemicolon",
+  "hintUnclosedBlock",
+  "hintUnclosedBracket",
+  "hintUnclosedComment",
+  "hintUnclosedString",
+  "hintModuleNotFound",
+  "hintLibraryUnknown",
+  "hintIndexRange",
+  "hintIndexEmpty",
+  "hintNotArray",
+  "hintNull",
+  "hintNaN",
+  "hintInfinite",
+  "hintNoInput",
+  "hintInternal",
+  "hintDuplicateProperty",
+  "hintMissingProperty",
+  "hintArrayMixed",
+  "hintArrayEmpty",
+  "hintObjectArrayShape",
+  "hintLoopCounter",
+  "hintErrorsFound",
+] as const;
+
+export type ErrorExtraLabelKey = (typeof ERROR_EXTRA_LABEL_KEYS)[number];
+export type ErrorExtraLabels = Partial<Record<ErrorExtraLabelKey, string>>;
+
+export interface ErrorLabels extends ErrorExtraLabels {
   message: string;
   value: string;
   variable: string;

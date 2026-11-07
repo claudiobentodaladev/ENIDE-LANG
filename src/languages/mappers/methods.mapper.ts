@@ -7,6 +7,7 @@ export function mapMethods(methods: Methods) {
   return {
     method: {
       __print: normEntry(methods.method?.__print),
+      __clear: normEntry(methods.method?.__clear),
       __scan: normEntry(methods.method?.__scan),
       __return: normEntry(methods.method?.__return),
       __break: normEntry(methods.method?.__break),
